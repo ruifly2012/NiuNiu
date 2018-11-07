@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "23d07588-2b45-443a-8e47-92161bb8389c",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "玩家頭像下金錢數點1": {
+      "ver": "1.0.3",
+      "uuid": "4866e62a-76fc-46dd-b680-74e9a4f18681",
+      "rawTextureUuid": "23d07588-2b45-443a-8e47-92161bb8389c",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": -7,
+      "trimX": 4,
+      "trimY": 14,
+      "width": 7,
+      "height": 11,
+      "rawWidth": 16,
+      "rawHeight": 25,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

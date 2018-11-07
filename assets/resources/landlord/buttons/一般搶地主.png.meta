@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "e0c30b58-a32b-41de-9951-fb1a50903851",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "一般搶地主": {
+      "ver": "1.0.3",
+      "uuid": "2f4b9e2e-ca33-4d99-be66-aa1d1cc5d002",
+      "rawTextureUuid": "e0c30b58-a32b-41de-9951-fb1a50903851",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 293,
+      "height": 109,
+      "rawWidth": 293,
+      "rawHeight": 109,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

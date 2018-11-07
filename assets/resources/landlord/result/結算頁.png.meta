@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "09106ed2-6903-4816-989f-33353ec04810",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "結算頁": {
+      "ver": "1.0.3",
+      "uuid": "cd792ce6-b0b4-4fc9-a4a0-da15fa0bd152",
+      "rawTextureUuid": "09106ed2-6903-4816-989f-33353ec04810",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -199,
+      "offsetY": 94,
+      "trimX": 113,
+      "trimY": 78,
+      "width": 4709,
+      "height": 2718,
+      "rawWidth": 5333,
+      "rawHeight": 3062,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

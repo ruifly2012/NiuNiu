@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "4db80bd6-2235-489a-a27c-9ee7d722bf6b",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "記錄按下": {
+      "ver": "1.0.3",
+      "uuid": "1a4d434c-7581-4478-9a46-fcb1d5607427",
+      "rawTextureUuid": "4db80bd6-2235-489a-a27c-9ee7d722bf6b",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0.5,
+      "trimX": 2,
+      "trimY": 2,
+      "width": 95,
+      "height": 94,
+      "rawWidth": 99,
+      "rawHeight": 99,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

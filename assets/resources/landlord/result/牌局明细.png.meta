@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "95e1b94a-436a-4924-8ae1-d00a5638ef85",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "牌局明细": {
+      "ver": "1.0.3",
+      "uuid": "2871ab58-a88a-4667-9ee1-f1c639a90d76",
+      "rawTextureUuid": "95e1b94a-436a-4924-8ae1-d00a5638ef85",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -0.5,
+      "offsetY": 0.5,
+      "trimX": 2,
+      "trimY": 2,
+      "width": 613,
+      "height": 146,
+      "rawWidth": 618,
+      "rawHeight": 151,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

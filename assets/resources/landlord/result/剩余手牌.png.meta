@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "903ebb42-c689-40c0-a6ec-1da5cc8f30bf",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "剩余手牌": {
+      "ver": "1.0.3",
+      "uuid": "9f332dc6-92ae-47b8-adef-ba66625ccc74",
+      "rawTextureUuid": "903ebb42-c689-40c0-a6ec-1da5cc8f30bf",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 1,
+      "offsetY": 0.5,
+      "trimX": 2,
+      "trimY": 2,
+      "width": 616,
+      "height": 146,
+      "rawWidth": 618,
+      "rawHeight": 151,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
