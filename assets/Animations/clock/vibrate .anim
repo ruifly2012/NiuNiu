@@ -1,0 +1,48 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "vibrate ",
+  "_objFlags": 0,
+  "_rawFiles": null,
+  "_duration": 1,
+  "sample": 30,
+  "speed": 1.4,
+  "wrapMode": 1,
+  "curveData": {
+    "paths": {
+      "時鐘": {
+        "props": {
+          "rotation": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 0.2,
+              "value": 45
+            },
+            {
+              "frame": 0.4,
+              "value": -45
+            },
+            {
+              "frame": 0.6,
+              "value": 20
+            },
+            {
+              "frame": 0.8,
+              "value": -20
+            },
+            {
+              "frame": 1,
+              "value": 0
+            }
+          ]
+        }
+      }
+    },
+    "props": {
+      "rotation": []
+    }
+  },
+  "events": []
+}

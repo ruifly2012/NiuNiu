@@ -36,8 +36,9 @@ cc.Class({
         global.socket.on("roomInfo", function (Info) {
             self.roomInfo = Info;
             global.roomid = Info.roomid;
-            self.UpdateRoom(Info);
+            //self.UpdateRoom(Info);
         });
+        // 等待server回應，
     },
 
 

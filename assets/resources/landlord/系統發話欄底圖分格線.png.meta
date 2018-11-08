@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "14db83b5-b214-4fc5-a771-44420e64474d",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "系統發話欄底圖分格線": {
+      "ver": "1.0.3",
+      "uuid": "31767abe-99fa-4fb1-b76c-e9d13f7cf91f",
+      "rawTextureUuid": "14db83b5-b214-4fc5-a771-44420e64474d",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 388,
+      "height": 1,
+      "rawWidth": 388,
+      "rawHeight": 1,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

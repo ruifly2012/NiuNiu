@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "24573931-de3f-40d3-a71b-e8c2394fc4e5",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "佃农加倍": {
+      "ver": "1.0.3",
+      "uuid": "715333d2-35f7-45fc-b910-fd1f43af42c7",
+      "rawTextureUuid": "24573931-de3f-40d3-a71b-e8c2394fc4e5",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 357,
+      "height": 96,
+      "rawWidth": 357,
+      "rawHeight": 96,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
