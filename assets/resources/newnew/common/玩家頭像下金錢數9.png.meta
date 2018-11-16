@@ -1,10 +1,9 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.0.0",
   "uuid": "be6d69a2-be35-490d-8db5-cae4f8b53d91",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
-  "premultiplyAlpha": false,
   "subMetas": {
     "玩家頭像下金錢數9": {
       "ver": "1.0.3",

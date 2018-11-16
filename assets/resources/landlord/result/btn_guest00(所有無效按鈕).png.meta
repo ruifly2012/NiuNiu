@@ -1,10 +1,9 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.0.0",
   "uuid": "f98e3ebb-25a3-4783-88fa-d048b5bf4b74",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
-  "premultiplyAlpha": false,
   "subMetas": {
     "btn_guest00(所有無效按鈕)": {
       "ver": "1.0.3",

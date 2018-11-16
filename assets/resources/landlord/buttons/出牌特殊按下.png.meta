@@ -1,10 +1,9 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.0.0",
   "uuid": "c5b7391f-bb2b-46f1-a4e5-20aecdf9ffe6",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
-  "premultiplyAlpha": false,
   "subMetas": {
     "出牌特殊按下": {
       "ver": "1.0.3",
