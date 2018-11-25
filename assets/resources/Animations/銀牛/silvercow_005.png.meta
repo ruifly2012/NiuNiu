@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "58d9f697-7d99-4d2a-93ad-9c14b446c57a",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "silvercow_005": {
+      "ver": "1.0.3",
+      "uuid": "eb536547-e02f-4199-9bcf-fb3270a119cf",
+      "rawTextureUuid": "58d9f697-7d99-4d2a-93ad-9c14b446c57a",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -9,
+      "offsetY": -13,
+      "trimX": 47,
+      "trimY": 42,
+      "width": 422,
+      "height": 380,
+      "rawWidth": 534,
+      "rawHeight": 438,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

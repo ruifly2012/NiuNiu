@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "70fe294d-4460-4029-9206-2bffb85a1468",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "5cows_021": {
+      "ver": "1.0.3",
+      "uuid": "5f8db892-1e0f-4605-a0d7-a955e4318bd1",
+      "rawTextureUuid": "70fe294d-4460-4029-9206-2bffb85a1468",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 31.5,
+      "offsetY": -13,
+      "trimX": 71,
+      "trimY": 67,
+      "width": 685,
+      "height": 656,
+      "rawWidth": 764,
+      "rawHeight": 764,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
