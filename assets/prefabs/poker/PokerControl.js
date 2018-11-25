@@ -15,34 +15,34 @@ cc.Class({
 
 
     properties: {
-        pokerTxt: {
+        pokerTxt: { // 卡片上方的數字
             default: null,
             type: cc.Sprite
         },
-        pokerTxt1: {
-            default: null,
-            type: cc.Sprite
-        },
-
-        pokerType: {
-            default: null,
-            type: cc.Sprite
-        },
-        pokerType_1: {
+        pokerTxt1: { // 卡片下方的數字
             default: null,
             type: cc.Sprite
         },
 
-        pokerType2: {
+        pokerType: {// 卡片上方的圖案
+            default: null,
+            type: cc.Sprite
+        },
+        pokerType_1: {// 卡片下方的圖案
             default: null,
             type: cc.Sprite
         },
 
-        pokerBackGround: {
+        pokerType2: {// 卡片中間的圖案 或是 金卡背
             default: null,
             type: cc.Sprite
         },
-        status: {
+
+        pokerBackGround: {// 卡片白底
+            default: null,
+            type: cc.Sprite
+        },
+        status: {// 狀態顯示，比如一倍、不搶、四倍...，若顯示狀態，上方所有node要全關
             default: null,
             type: cc.Sprite
         }
@@ -50,10 +50,10 @@ cc.Class({
     },
 
     //展示poker
-    //null-牌背
-    //{showTxt: ,showType: ,No:}-牌型
-    //"string"-status
-    setCard:function(cardInfo,canselect) {
+    //若cardInfo是null，代表要顯示牌背
+    //若cardInfo是{showTxt: ,showType: ,No:}-牌型
+    // 若cardInfo是"string"-status
+    setCard:function(cardInfo,canselect) { // 判斷
 
         if (typeof (cardInfo) == "string") {
             this.showstatus(cardInfo);
@@ -237,7 +237,7 @@ cc.Class({
 
         })
     },
-    onLoad() {
+    onLoad: function () {
 
         var self = this;
 

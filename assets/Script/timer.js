@@ -9,7 +9,7 @@ cc.Class({
             /*Me: null,
             Pre: null,
             Next: null,*/
-            Middle: null
+            //Middle: null
             /*warning: { // warning 牛牛不需要
                 Me: null,
                 Pre: null,
@@ -42,7 +42,7 @@ cc.Class({
             /*Me: cc.find("Me", this.node),
             Pre: cc.find("Pre", this.node),
             Next: cc.find("Next", this.node),*/
-            Middle: cc.find("Middle", this.node)
+            //Middle: cc.find("Middle", this.node)
             /*warning: {
                 Me: cc.find("warning/Me", this.node),
                 Pre: cc.find("warning/Pre", this.node),
@@ -98,7 +98,7 @@ cc.Class({
         if (timerInfo.whosTurn != null) {
             this.Obj.clock.active = true; // 啟動時鐘
             //this.Obj.clock.position = this.Obj[timerInfo.whosTurn].position; // 把時鐘拉到"Me"/"pre"/"next"其中一個位置
-            this.Obj.clock.position = this.obj["Middle"].position;
+            //this.Obj.clock.position = this.obj["Middle"].position;
             this.Obj.clock.getComponent("clock").settime(timerInfo.countdownSecond); // 寫上剩餘時間
             if (timerInfo.countdownSecond < 10) // 如果剩餘時間小於10，撥放動畫
                 this.Obj.clock.getComponent(cc.Animation).play();
