@@ -6,7 +6,7 @@
   "_duration": 0.4166666666666667,
   "sample": 60,
   "speed": 0.25,
-  "wrapMode": "1",
+  "wrapMode": "2",
   "curveData": {
     "comps": {
       "cc.Sprite": {
