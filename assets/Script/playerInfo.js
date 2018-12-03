@@ -7,7 +7,7 @@ cc.Class({
             PreRival: null,
             Me: null,
             NextRival:null
-        }
+        };
         this.defaultImgs = ["newnew/common/playerPic1", "newnew/common/playerPic2", "newnew/common/playerPic3","newnew/common/playerPic4","newnew/common/playerPic5","newnew/common/playerPic6"];
         this.autoPlaying = null;
     },

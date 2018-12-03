@@ -84,11 +84,11 @@ cc.Class({
         self.pokerType_1.enabled = true;
         self.pokerBackGround.enabled = true;
         self.status.enabled = false;
-        var imgUrl = "S-S";
-        var imgUrl2 = "S";
-        var textUrl = "KD-" + showData.showTxt;
-        var backUrl = "PC"; // 卡片正面
-        if (showType == config.pokerCardType.spade) {
+        var imgUrl = "S-S"; // 小黑陶
+        var imgUrl2 = "S";  // 大黑陶
+        var textUrl = "KD-" + showData.showTxt; // 黑色數字
+        var backUrl = "PC"; // 卡片正面(內容面)
+        if (showType == config.pokerCardType.spade) { // 黑陶
             imgUrl = "S-S";
             switch (showData.showTxt) {
                 case "J":
@@ -177,20 +177,20 @@ cc.Class({
         }
 
 
-        cc.loader.loadRes('card/Cards', cc.SpriteAtlas, function (err, atlas) {
+        cc.loader.loadRes('landlord/card/Cards', cc.SpriteAtlas, function (err, atlas) {
             self.pokerBackGround.getComponent(cc.Sprite).spriteFrame = atlas.getSpriteFrame(backUrl);
 
-            cc.loader.loadRes('card/Cards', cc.SpriteAtlas, function (err, atlas) {
+            cc.loader.loadRes('landlord/card/Cards', cc.SpriteAtlas, function (err, atlas) {
                 self.pokerType.getComponent(cc.Sprite).spriteFrame = atlas.getSpriteFrame(imgUrl);
                 self.pokerType_1.getComponent(cc.Sprite).spriteFrame = atlas.getSpriteFrame(imgUrl);
 
 
-                cc.loader.loadRes('card/Cards', cc.SpriteAtlas, function (err, atlas) {
+                cc.loader.loadRes('landlord/card/Cards', cc.SpriteAtlas, function (err, atlas) {
                     self.pokerTxt.getComponent(cc.Sprite).spriteFrame = atlas.getSpriteFrame(textUrl);
                     self.pokerTxt1.getComponent(cc.Sprite).spriteFrame = atlas.getSpriteFrame(textUrl);
 
 
-                    cc.loader.loadRes('card/Cards', cc.SpriteAtlas, function (err, atlas) {
+                    cc.loader.loadRes('landlord/card/Cards', cc.SpriteAtlas, function (err, atlas) {
                         self.pokerType2.getComponent(cc.Sprite).spriteFrame = atlas.getSpriteFrame(imgUrl2);
 
                         self.node.opacity = 255;
@@ -254,8 +254,6 @@ cc.Class({
             }
         });
 
-
-        //閫豢?折?????
         this.pokerBackGround.node.on('touchstart', function (event) {
 
             if (self.CardInfo.selected == false) {
@@ -270,12 +268,12 @@ cc.Class({
 
     unselect() {
         if (this.CardInfo.canselect == false) return;
-        this.CardInfo.selected = false
+        this.CardInfo.selected = false;
         this.node.setPositionY(0);
     },
     select() {
         if(this.CardInfo.canselect == false)return;
-        this.CardInfo.selected = true
+        this.CardInfo.selected = true;
         this.node.setPositionY(20);
     },
     getValue() {

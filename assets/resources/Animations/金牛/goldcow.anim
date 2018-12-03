@@ -157,6 +157,14 @@
           }
         ]
       }
+    },
+    "props": {
+      "opacity": [
+        {
+          "frame": 0,
+          "value": 255
+        }
+      ]
     }
   },
   "events": []

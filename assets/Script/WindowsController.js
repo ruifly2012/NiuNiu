@@ -32,7 +32,7 @@ cc.Class({
         global.EventListener.on("SwitchScene", function (SceneIndex) {
 
             if (SceneIndex === 0)
-                self.Scenes[0].active = true;
+                self.Scenes[0].active = false;//change to false to easier test next scene
             else
                 self.Scenes[0].active = false;
         });
