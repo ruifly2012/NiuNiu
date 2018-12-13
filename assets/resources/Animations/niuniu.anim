@@ -6,7 +6,7 @@
   "_duration": 0.25,
   "sample": 60,
   "speed": 0.4,
-  "wrapMode": "2",
+  "wrapMode": "0",
   "curveData": {
     "comps": {
       "cc.Sprite": {
@@ -108,7 +108,12 @@
       "opacity": [
         {
           "frame": 0,
-          "value": 255
+          "value": 255,
+          "curve": "constant"
+        },
+        {
+          "frame": 0.25,
+          "value": 0
         }
       ]
     }

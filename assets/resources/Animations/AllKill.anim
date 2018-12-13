@@ -6,7 +6,7 @@
   "_duration": 0.5,
   "sample": 60,
   "speed": 0.25,
-  "wrapMode": "2",
+  "wrapMode": "0",
   "curveData": {
     "paths": {
       "background": {
