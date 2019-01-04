@@ -52,8 +52,8 @@ var global = {
     //T4 307
     // ServerURL: "http://140.118.175.76:3001/",
 
-    //TR509
-    ServerURL: "http://127.0.0.1:3000/",
+    //本機
+    ServerURL: "http://127.0.0.1:5070/",
 
     EventListener: EventListener({}),
     socket: null,

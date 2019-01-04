@@ -2,6 +2,15 @@
 cc.Class({
     extends: cc.Component,
 
+    ctor: function () {
+
+        this.CardInfo = {
+            canselect: true,
+            selected: false,
+            data: null
+        };
+    },
+
     properties : {
         poker1:{
             default: null,
@@ -22,10 +31,18 @@ cc.Class({
         poker5: {
             default: null,
             type: cc.Node
-        }
-    },
+        },
 
+    },
+    showCard(pokers){
+        this.poker1.getComponent("PokerControl").setCard(pokers.Me[0], true);
+        this.poker2.getComponent("PokerControl").setCard(pokers.Me[1], true);
+        this.poker3.getComponent("PokerControl").setCard(pokers.Me[2], true);
+        this.poker4.getComponent("PokerControl").setCard(pokers.Me[3], true);
+        this.poker5.getComponent("PokerControl").setCard(pokers.Me[4], true);
+    },
     showButtonClick(){
+
         var pokerCardType = {
             spade: "spade",//黑桃
             hearts: "hearts",//红桃
@@ -60,11 +77,18 @@ cc.Class({
         };
 
         // 要存取自己的東西要先加this
-        this.poker1.getComponent("PokerControl").showPoker(pokerDataItem1, true);
-        this.poker2.getComponent("PokerControl").showPoker(pokerDataItem2, true);
-        this.poker3.getComponent("PokerControl").showPoker(pokerDataItem3, true);
-        this.poker4.getComponent("PokerControl").showPoker(pokerDataItem4, true);
-        this.poker5.getComponent("PokerControl").showPoker(pokerDataItem5, true);
+        this.poker1.getComponent("PokerControl").setCard(pokerDataItem1, true);
+        this.poker2.getComponent("PokerControl").setCard(pokerDataItem2, true);
+        this.poker3.getComponent("PokerControl").setCard(pokerDataItem3, true);
+        this.poker4.getComponent("PokerControl").setCard(pokerDataItem4, true);
+        this.poker5.getComponent("PokerControl").setCard(pokerDataItem5, true);
+
+
+        this.poker1.getComponent("PokerControl").CardInfo.canselect = true;
+        this.poker2.getComponent("PokerControl").CardInfo.canselect = true;
+        this.poker3.getComponent("PokerControl").CardInfo.canselect = true;
+        this.poker4.getComponent("PokerControl").CardInfo.canselect = true;
+        this.poker5.getComponent("PokerControl").CardInfo.canselect = true;
     },
 
     onLoad(){

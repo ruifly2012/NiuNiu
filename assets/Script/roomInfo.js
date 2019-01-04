@@ -38,7 +38,7 @@ cc.Class({
             global.roomid = Info.roomid;
             //self.UpdateRoom(Info);
         });
-        // 等待server回應，
+        // 等待server回應
     },
 
 

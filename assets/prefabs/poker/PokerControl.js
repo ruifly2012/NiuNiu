@@ -177,20 +177,20 @@ cc.Class({
         }
 
 
-        cc.loader.loadRes('landlord/card/Cards', cc.SpriteAtlas, function (err, atlas) {
+        cc.loader.loadRes('card/Cards', cc.SpriteAtlas, function (err, atlas) {
             self.pokerBackGround.getComponent(cc.Sprite).spriteFrame = atlas.getSpriteFrame(backUrl);
 
-            cc.loader.loadRes('landlord/card/Cards', cc.SpriteAtlas, function (err, atlas) {
+            cc.loader.loadRes('card/Cards', cc.SpriteAtlas, function (err, atlas) {
                 self.pokerType.getComponent(cc.Sprite).spriteFrame = atlas.getSpriteFrame(imgUrl);
                 self.pokerType_1.getComponent(cc.Sprite).spriteFrame = atlas.getSpriteFrame(imgUrl);
 
 
-                cc.loader.loadRes('landlord/card/Cards', cc.SpriteAtlas, function (err, atlas) {
+                cc.loader.loadRes('card/Cards', cc.SpriteAtlas, function (err, atlas) {
                     self.pokerTxt.getComponent(cc.Sprite).spriteFrame = atlas.getSpriteFrame(textUrl);
                     self.pokerTxt1.getComponent(cc.Sprite).spriteFrame = atlas.getSpriteFrame(textUrl);
 
 
-                    cc.loader.loadRes('landlord/card/Cards', cc.SpriteAtlas, function (err, atlas) {
+                    cc.loader.loadRes('card/Cards', cc.SpriteAtlas, function (err, atlas) {
                         self.pokerType2.getComponent(cc.Sprite).spriteFrame = atlas.getSpriteFrame(imgUrl2);
 
                         self.node.opacity = 255;
@@ -232,9 +232,9 @@ cc.Class({
         self.pokerTxt.enabled = false;
         self.pokerTxt1.enabled = false;
 
-        cc.loader.loadRes("status/" + status, cc.SpriteFrame, function (err, spriteFrame) {
+        cc.loader.loadRes("text/" + status, cc.SpriteFrame, function (err, spriteFrame) {
             self.status.getComponent(cc.Sprite).spriteFrame = spriteFrame;
-
+			
         })
     },
     onLoad: function () {

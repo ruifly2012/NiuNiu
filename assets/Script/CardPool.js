@@ -23,11 +23,11 @@ cc.Class({
             hearts: "hearts",//红桃
             redslice: "redslice",//红方
             blackberry: "blackberry",//黑梅
-        }
+        };
         var ghostCardType = {
             bigG: "bigG",//大王
             smallG: "smallG",//小王
-        }
+        };
         var cardNo = [3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A", 2, "g", "G"];
         for (var k = 0; k < 1; k++) {
             var num = 0;

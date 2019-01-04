@@ -32,12 +32,12 @@ cc.Class({
         global.EventListener.on("SwitchScene", function (SceneIndex) {
 
             if (SceneIndex === 0)
-                self.Scenes[0].active = false;//change to false to easier test next scene
+                self.Scenes[0].active = true;
             else
                 self.Scenes[0].active = false;
         });
 
-        // 丟換場景訊息給伺服器
+        // 從伺服器傳來的資料取得換場景訊息(on 是開著等他丟資料的意思)
         global.socket.on("SwitchScene", function (SceneIndex) {
             global.EventListener.fire("SwitchScene", SceneIndex);
         });
