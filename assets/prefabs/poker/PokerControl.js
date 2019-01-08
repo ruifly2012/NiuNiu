@@ -231,11 +231,12 @@ cc.Class({
         self.pokerBackGround.enabled = false;
         self.pokerTxt.enabled = false;
         self.pokerTxt1.enabled = false;
-
+		cc.log("show poker status %s",status);
+		
         cc.loader.loadRes("text/" + status, cc.SpriteFrame, function (err, spriteFrame) {
             self.status.getComponent(cc.Sprite).spriteFrame = spriteFrame;
-			
         })
+		
     },
     onLoad: function () {
 

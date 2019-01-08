@@ -12,7 +12,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "Pre",
+    "_name": "PrePre",
     "_objFlags": 0,
     "_parent": null,
     "_children": [
@@ -27,7 +27,7 @@
       }
     ],
     "_active": true,
-    "_level": 0,
+    "_level": 1,
     "_components": [
       {
         "__id__": 22
@@ -56,8 +56,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -775,
-      "y": 60,
+      "x": -405,
+      "y": 336,
       "z": 0
     },
     "_scale": {
@@ -154,7 +154,9 @@
     "_enabled": true,
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
-    "_spriteFrame": null,
+    "_spriteFrame": {
+      "__uuid__": "18a74f96-6ba1-4582-b505-e86d5832503c"
+    },
     "_type": 0,
     "_sizeMode": 0,
     "_fillType": 0,
@@ -189,7 +191,7 @@
       "__id__": 1
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_level": 0,
     "_components": [
       {
@@ -272,9 +274,7 @@
     "_fillRange": 0,
     "_isTrimmedMode": true,
     "_state": 0,
-    "_atlas": {
-      "__uuid__": "a7c15f04-b3a2-4e21-a788-231d9f71c7bf"
-    },
+    "_atlas": null,
     "_id": ""
   },
   {
@@ -293,7 +293,7 @@
         "__uuid__": "90337541-b254-4b6a-be73-9e431c3b9340"
       }
     ],
-    "playOnLoad": false,
+    "playOnLoad": true,
     "_id": ""
   },
   {

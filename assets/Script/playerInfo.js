@@ -1,5 +1,4 @@
 
-var timer = require("timer");
 
 cc.Class({
     extends: cc.Component,
@@ -40,7 +39,6 @@ cc.Class({
             type: cc.Node
         },
 
-
     },
 
     autoPlay() {
@@ -70,8 +68,20 @@ cc.Class({
 			cc.log("getRoomReady");
         });
         //等待server回傳所有玩家的Info，存入playerInfo，並呼叫函式
+		
+		global.socket.on("kingsRate", function(Info){
+			self.showKingAnime(Info.kingUID);
+			cc.log("show king anime");
+		});	
     },
 
+	
+
+	
+	showKingAnime(kingUID){
+		this.Me.getChildByName("dizhuIcon").active = true;
+	},
+	
     // 當收到伺服器信息，此函式被呼叫，更改名子，金錢，有無託管
     UpdateRoom(playerInfo) {
 		cc.log("updateRoom");
@@ -84,7 +94,6 @@ cc.Class({
         this.playerScript.NextRival.setName(playerInfo.playerUID[1]);
         this.playerScript.PrePreRival.setName(playerInfo.playerUID[2]);
         this.playerScript.NextNextRival.setName(playerInfo.playerUID[3]);
-
 		
         // 呼叫player.js的setCoin，幫所有玩家填上金錢
 		/*

@@ -60,10 +60,6 @@ cc.Class({
         CardPool:{
             default: null,
             type: cc.Node
-        },
-		kingAnime:{
-            default: null,
-            type: cc.Node
         }
     },
 
@@ -145,7 +141,6 @@ cc.Class({
 
         global.socket.on("kingsRate", function(Info){
             self.UpdateDealer(Info);
-			self.kingAnime.active = true;
         });
 
         global.socket.on("playersRate", function(Info){

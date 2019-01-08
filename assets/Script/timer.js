@@ -96,11 +96,12 @@ cc.Class({
         });
 		*/
         // 等待伺服器回傳訊息，更新剩餘時間
-
+		/*
         global.EventListener.on("EndMyturn", function (roomid) {
             global.socket.emit("EndMyturn", global.uid);
 
         });
+		*/
         // 註冊函式EndMyturn，內容是向server傳遞結束回合的人的名子
 
 

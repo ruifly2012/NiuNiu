@@ -31,25 +31,30 @@ cc.Class({
     threeButtonClick(){
         global.socket.emit("playerRate", global.uid, 3);
         this.button.active = false;
+		cc.log("3bet");
         //global.EventListener.fire("dealerButton", 0);
     },
     sixButtonClick(){
-        global.socket.emit("betButton", global.uid, 6);
+        global.socket.emit("playerRate", global.uid, 6);
         this.button.active = false;
+		cc.log("6bet");
         //global.EventListener.fire("dealerButton", 1);
     },
     nineButtonClick(){
-        global.socket.emit("betButton", global.uid, 9);
+        global.socket.emit("playerRate", global.uid, 9);
+		cc.log("9bet");
         this.button.active = false;
         //global.EventListener.fire("dealerButton", 2);
     },
     twelveButtonClick(){
-        global.socket.emit("betButton", global.uid, 12);
+        global.socket.emit("playerRate", global.uid, 12);
+		cc.log("12bet");
         this.button.active = false;
         //global.EventListener.fire("dealerButton", 3);
     },
     fifteenButtonClick(){
-        global.socket.emit("betButton", global.uid, 15);
+        global.socket.emit("playerRate", global.uid, 15);
+		cc.log("15bet");
         this.button.active = false;
         //global.EventListener.fire("dealerButton", 3);
     },

@@ -64,6 +64,7 @@ var global = {
         this.socket = io(this.ServerURL, {
             reconnection: false
         });
+		cc.log("connect");
     }
 
 };

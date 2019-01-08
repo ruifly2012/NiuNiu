@@ -46,6 +46,7 @@ cc.Class({
 
         //觸發login事件(在onLoad()中註冊),發送uid(使用者輸入的名子)給server
         global.EventListener.fire("login", this.edit_box.string);
+		cc.log("click login");
 
     },
     onLoad() { // 一開始就做的動作，初始化一些東西，這裡註冊了login的
@@ -62,6 +63,7 @@ cc.Class({
                     global.socket.emit('LoadGame', global.uid); // 要伺服器給遊戲場景的各個資訊
                 }
                 else {
+					cc.log("log fail");
                     self.Message.string = "This name has been registered";
                 }
             });
