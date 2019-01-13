@@ -96,9 +96,7 @@ var CardType = {
         let isThreeten = false;
 
         if((this.cardToGrade(cards[0].showTxt) + this.cardToGrade(cards[1].showTxt) + this.cardToGrade(cards[2].showTxt) + this.cardToGrade(cards[3].showTxt) + this.cardToGrade(cards[4].showTxt)) < 10){ // 找一找有沒有五小牛
-            if(){
-                
-            }
+ 
         }
 
 
