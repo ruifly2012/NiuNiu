@@ -69,10 +69,10 @@ cc.Class({
         });
         //等待server回傳所有玩家的Info，存入playerInfo，並呼叫函式
 		
-		global.socket.on("kingsRate", function(Info){
+		/*global.socket.on("kingsRate", function(Info){
 			self.showKingAnime(Info.kingUID);
 			cc.log("show king anime");
-		});	
+		});*/
     },
 
 	
@@ -88,55 +88,61 @@ cc.Class({
         var self = this;
 		
         // 呼叫player.js的setName，幫所有玩家填上名子
-        this.playerScript.Me.setName(global.uid);
+        /*this.playerScript.Me.setName(global.uid);
 
         this.playerScript.PreRival.setName(playerInfo.playerUID[0]);
         this.playerScript.NextRival.setName(playerInfo.playerUID[1]);
         this.playerScript.PrePreRival.setName(playerInfo.playerUID[2]);
-        this.playerScript.NextNextRival.setName(playerInfo.playerUID[3]);
+        this.playerScript.NextNextRival.setName(playerInfo.playerUID[3]);*/
 		
         // 呼叫player.js的setCoin，幫所有玩家填上金錢
-		/*
-		
-		this.playerScript.Me.setCoin(playerInfo.me.coin);
-        this.playerScript.PreRival.setCoin(playerInfo.PreRival.coin);
-        this.playerScript.NextRival.setCoin(playerInfo.NextRival.coin);
-        this.playerScript.PrePreRival.setCoin(playerInfo.PrePreRival.coin);
-        this.playerScript.NextNextRival.setCoin(playerInfo.NextNextRival.coin);
+
+        this.playerScript.Me.setName(playerInfo.Me.name);
+        this.playerScript.PreRival.setName(playerInfo.Pre.name);
+        this.playerScript.NextRival.setName(playerInfo.Next.name);
+        this.playerScript.PrePreRival.setName(playerInfo.PrePre.name);
+        this.playerScript.NextNextRival.setName(playerInfo.NextNext.name);
+
+
+		this.playerScript.Me.setCoin(playerInfo.Me.coin);
+        this.playerScript.PreRival.setCoin(playerInfo.Pre.coin);
+        this.playerScript.NextRival.setCoin(playerInfo.Next.coin);
+        this.playerScript.PrePreRival.setCoin(playerInfo.PrePre.coin);
+        this.playerScript.NextNextRival.setCoin(playerInfo.NextNext.coin);
         // 更改玩家託管狀態
-        this.autoPlaying.active = playerInfo.IsAI;
+        this.autoPlaying.active = playerInfo.isAI;
 		
 		
         // load玩家圖片，並呼叫每個玩家player.js的函式setImg，幫所有玩家填上玩家圖片
-        if (playerInfo.me.img != null)
-            cc.loader.loadRes(this.defaultImgs[playerInfo.me.img], cc.SpriteFrame, function (err, spriteFrame) {
+        if (playerInfo.Me.img != null)
+            cc.loader.loadRes(this.defaultImgs[playerInfo.Me.img], cc.SpriteFrame, function (err, spriteFrame) {
 
                 self.playerScript.Me.setImg(spriteFrame);
             });
 
 
-        if (playerInfo.PreRival.img != null)
-            cc.loader.loadRes(this.defaultImgs[playerInfo.PreRival.img], cc.SpriteFrame, function (err, spriteFrame) {
+        if (playerInfo.Pre.img != null)
+            cc.loader.loadRes(this.defaultImgs[playerInfo.Pre.img], cc.SpriteFrame, function (err, spriteFrame) {
                 self.playerScript.PreRival.setImg(spriteFrame);
             });
 
 
-        if (playerInfo.NextRival.img != null)
-            cc.loader.loadRes(this.defaultImgs[playerInfo.NextRival.img], cc.SpriteFrame, function (err, spriteFrame) {
+        if (playerInfo.Next.img != null)
+            cc.loader.loadRes(this.defaultImgs[playerInfo.Next.img], cc.SpriteFrame, function (err, spriteFrame) {
                 self.playerScript.NextRival.setImg(spriteFrame);
             });
 
-        if (playerInfo.PreRival.img != null)
-            cc.loader.loadRes(this.defaultImgs[playerInfo.PrePreRival.img], cc.SpriteFrame, function (err, spriteFrame) {
+        if (playerInfo.PrePre.img != null)
+            cc.loader.loadRes(this.defaultImgs[playerInfo.PrePre.img], cc.SpriteFrame, function (err, spriteFrame) {
                 self.playerScript.PrePreRival.setImg(spriteFrame);
             });
 
 
-        if (playerInfo.NextNextRival.img != null)
-            cc.loader.loadRes(this.defaultImgs[playerInfo.NextNextRival.img], cc.SpriteFrame, function (err, spriteFrame) {
+        if (playerInfo.NextNext.img != null)
+            cc.loader.loadRes(this.defaultImgs[playerInfo.NextNext.img], cc.SpriteFrame, function (err, spriteFrame) {
                 self.playerScript.NextNextRival.setImg(spriteFrame);
             });
-		*/
+
 
     },
 

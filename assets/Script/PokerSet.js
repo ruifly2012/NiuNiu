@@ -88,14 +88,16 @@ cc.Class({
         this.poker5.getComponent("PokerControl").showPoker(Info[4], false);
     },
 
-    showCardType(Info){ // Info傳來的是數字
+    showCardType(Info){ // Info傳來的是字串
         let frame;
+        let info;
         if(Info == 0) frame = "1"; // 沒牛背框
         else if(Info >= 1 && Info <= 6) frame = "2"; // 有牛1-6
         else if(Info >= 7 && Info <= 9) frame = "3"; // 有牛7-9
         else if(Info == 10) frame = "4"; // 牛牛
         else if(Info == 11) frame = "5"; // 銀牛
         else if(Info >= 12 && Info <= 14) frame = "6"; // 金牛以上
+        if(Info <= 9) Info = "0" + Info;
         this.cardType.getComponent("PokerControl").showcardtype(Info,frame);
 
         //this.cardType.getComponent("PokerControl").showcardtype("14", "06");

@@ -37,6 +37,21 @@ cc.Class({
             NextNext: null,
         };
         this.CardsPool = null;
+        this.TimerScript = null;
+        this.dealerBet = {
+            Me: null,
+            Pre: null,
+            Next: null,
+            PrePre: null,
+            NextNext: null,
+        };
+        this.personalBet = {
+            Me: null,
+            Pre: null,
+            Next: null,
+            PrePre: null,
+            NextNext: null,
+        };
     },
 
     properties: {
@@ -58,6 +73,10 @@ cc.Class({
             type: cc.Node
         },
         CardPool:{
+            default: null,
+            type: cc.Node
+        },
+        Timer: {
             default: null,
             type: cc.Node
         }
@@ -125,18 +144,15 @@ cc.Class({
         this.PokerSetScript.PrePre = this.CardObj.cards.PrePre.getComponent("PokerSet");
         this.PokerSetScript.Next = this.CardObj.cards.Next.getComponent("PokerSet");
         this.PokerSetScript.NextNext = this.CardObj.cards.NextNext.getComponent("PokerSet");
-
+        this.TimerScript = this.Timer.getComponent("timer");
         this.CardsPool = this.CardPool.getComponent("CardPool");
 
-        global.socket.on("GetCards", function (Info) {
-            //將牌更新
-            self.UpdateNewNewCards(Info);
 
-        });
 		
 		global.socket.on("stageChange", function (stage) {//hide status
 			self.currentStatus.active = false;
-            self.PokerSets.active = false;
+
+            self.PokerSets.active = false; // 當階段到result時，直接顯示PokerSets
         });
 
         global.socket.on("kingsRate", function(Info){
@@ -147,6 +163,16 @@ cc.Class({
 			cc.log("playerBet");
             self.UpdateBet(Info);
         });
+        global.socket.on("myCard", function (Info) {
+            //將牌更新
+            self.UpdateMyCard(Info);
+
+        });
+        global.socket.on("eachPlayerCard", function (Info) {
+            //將牌更新
+            self.UpdateNewNewCards(Info);
+
+        });
 
     },
 
@@ -155,22 +181,25 @@ cc.Class({
         var self = this;
         var CO = this.CardObj;
 
-        self.CardObj.currentStatus.Me.getComponent("PokerControl").showstatus("grab_0" + (Info.player[0].playerRate).toString());
-        self.CardObj.currentStatus.PrePre.getComponent("PokerControl").showstatus("grab_0" + (Info.player[1].playerRate).toString());
-        self.CardObj.currentStatus.Pre.getComponent("PokerControl").showstatus("grab_0" + (Info.player[2].playerRate).toString());
-        self.CardObj.currentStatus.Next.getComponent("PokerControl").showstatus("grab_0" + (Info.player[3].playerRate).toString());
-        self.CardObj.currentStatus.NextNext.getComponent("PokerControl").showstatus("grab_0" + (Info.player[4].playerRate).toString());
+        self.CardObj.currentStatus.Me.getComponent("PokerControl").showstatus("grab_0" + (Info.Me.playerRate).toString());
+        self.CardObj.currentStatus.PrePre.getComponent("PokerControl").showstatus("grab_0" + (Info.PrePre.playerRate).toString());
+        self.CardObj.currentStatus.Pre.getComponent("PokerControl").showstatus("grab_0" + (Info.Pre.playerRate).toString());
+        self.CardObj.currentStatus.Next.getComponent("PokerControl").showstatus("grab_0" + (Info.Next.playerRate).toString());
+        self.CardObj.currentStatus.NextNext.getComponent("PokerControl").showstatus("grab_0" + (Info.NextNext.playerRate).toString());
 
+        self.dealerBet.Me = (Info.Me.playerRate);
+        self.dealerBet.PrePre = (Info.PrePre.playerRate);
+        self.dealerBet.Pre = (Info.Pre.playerRate);
+        self.dealerBet.Next = (Info.Next.playerRate);
+        self.dealerBet.NextNext = (Info.NextNext.playerRate);
 
-		/*
-		
-        if(Info.IsDizhu.Me == true) this.CardObj.IsDizhu.Me.active = true;
-        else if(Info.IsDizhu.Pre == true) this.CardObj.IsDizhu.Pre.active = true;
-        else if(Info.IsDizhu.PrePre == true) this.CardObj.IsDizhu.PrePre.active = true;
-        else if(Info.IsDizhu.Next == true) this.CardObj.IsDizhu.Next.active = true;
-        else if(Info.IsDizhu.NextNext == true) this.CardObj.IsDizhu.NextNext.active = true;
-		*/
-		this.CardObj.IsDizhu.Me.active = true;
+        if(Info.Me.king == true) this.CardObj.IsDizhu.Me.active = true;
+        else if(Info.Pre.king == true) this.CardObj.IsDizhu.Pre.active = true;
+        else if(Info.PrePre.king == true) this.CardObj.IsDizhu.PrePre.active = true;
+        else if(Info.Next.king == true) this.CardObj.IsDizhu.Next.active = true;
+        else if(Info.NextNext.king == true) this.CardObj.IsDizhu.NextNext.active = true;
+
+		//this.CardObj.IsDizhu.Me.active = true;
 		
         self.currentStatus.active = true;
     },
@@ -178,17 +207,83 @@ cc.Class({
         this.cardInfo = Info;
         var self = this;
 
-        self.CardObj.currentStatus.Me.getComponent("PokerControl").showstatus("BetTest_" + (Info.player[0].playerRate).toString());
-        self.CardObj.currentStatus.PrePre.getComponent("PokerControl").showstatus("BetTest_" + (Info.player[1].playerRate).toString());
-        self.CardObj.currentStatus.Pre.getComponent("PokerControl").showstatus("BetTest_" + (Info.player[2].playerRate).toString());
-        self.CardObj.currentStatus.Next.getComponent("PokerControl").showstatus("BetTest_" + (Info.player[3].playerRate).toString());
-        self.CardObj.currentStatus.NextNext.getComponent("PokerControl").showstatus("BetTest_" + (Info.player[4].playerRate).toString());
-
+        self.CardObj.currentStatus.Me.getComponent("PokerControl").showstatus("BetTest_" + (Info.Me.playerRate).toString());
+        self.CardObj.currentStatus.PrePre.getComponent("PokerControl").showstatus("BetTest_" + (Info.PrePre.playerRate).toString());
+        self.CardObj.currentStatus.Pre.getComponent("PokerControl").showstatus("BetTest_" + (Info.Pre.playerRate).toString());
+        self.CardObj.currentStatus.Next.getComponent("PokerControl").showstatus("BetTest_" + (Info.Next.playerRate).toString());
+        self.CardObj.currentStatus.NextNext.getComponent("PokerControl").showstatus("BetTest_" + (Info.NextNext.playerRate).toString());
 
         self.currentStatus.active = true;
     },
 
-    // 當收到server傳來的封包時
+    UpdateMyCard(Info){
+        var self = this;
+
+        self.PokerSetScript.Me.showRate((Info.currentStatus.Me).toString());
+        self.PokerSetScript.Pre.showRate((Info.currentStatus.Pre).toString());
+        self.PokerSetScript.PrePre.showRate((Info.currentStatus.PrePre).toString());
+        self.PokerSetScript.Next.showRate((Info.currentStatus.Next).toString());
+        self.PokerSetScript.NextNext.showRate((Info.currentStatus.NextNext).toString());
+
+        self.PokerSets.active = true;
+
+        self.CardChoose.getComponent("showCard").showCard(Info.cards); // 展示可以選的五張卡
+
+    },
+
+
+
+
+    UpdateNewNewCards(Info){
+        var self = this;// 記得加這行
+        cc.log("enter update newnew card");
+
+        self.CardObj.cards.Me.active = true;
+
+        if(Info.isKing.Me == true) self.PokerSetScript.Me.showDeal((Info.currentStatus.Me).toString());
+        if(Info.isKing.Pre == true) self.PokerSetScript.Pre.showDeal((Info.currentStatus.Pre).toString());
+        else if(Info.isKing.PrePre == true) self.PokerSetScript.PrePre.showDeal((Info.currentStatus.PrePre).toString());
+        else if(Info.isKing.Next == true) self.PokerSetScript.Next.showDeal((Info.currentStatus.Next).toString());
+        else if(Info.isKing.NextNext == true) self.PokerSetScript.NextNext.showDeal((Info.currentStatus.NextNext).toString());
+
+        self.PokerSetScript.Me.showCards((Info.cards.Me));
+        self.PokerSetScript.Pre.showCards((Info.cards.Pre));
+        self.PokerSetScript.PrePre.showCards((Info.cards.PrePre));
+        self.PokerSetScript.Next.showCards((Info.cards.Next));
+        self.PokerSetScript.NextNext.showCards((Info.cards.NextNext));
+
+        self.PokerSetScript.Me.showCardType((Info.cardType.Me).toString());
+        self.PokerSetScript.Pre.showCardType((Info.cardType.Pre).toString());
+        self.PokerSetScript.PrePre.showCardType((Info.cardType.PrePre).toString());
+        self.PokerSetScript.Next.showCardType((Info.cardType.Next).toString());
+        self.PokerSetScript.NextNext.showCardType((Info.cardType.NextNext).toString());
+
+        global.EventListener.fire("Animation", Info.animation.Me);
+        setTimeout(function(){
+            global.EventListener.fire("Animation", Info.animation.Pre);//goto deal rate after 3sec
+            cc.log("Pre Animation");
+        },1500);
+        setTimeout(function(){
+
+            global.EventListener.fire("Animation", Info.animation.Next);
+            cc.log("Next Animation");
+        },3000);
+        setTimeout(function(){
+            global.EventListener.fire("Animation", Info.animation.PrePre);
+            cc.log("PrePre Animation");
+        },4500);
+        setTimeout(function(){
+            global.EventListener.fire("Animation", Info.animation.NextNext);
+            cc.log("NextNext Animation");
+        },6000);
+        //global.EventListener.fire("Animation", Info.animation.Pre);
+        //global.EventListener.fire("Animation", Info.animation.Next);
+        //global.EventListener.fire("Animation", Info.animation.PrePre);
+        //global.EventListener.fire("Animation", Info.animation.NextNext);
+
+    },
+
+    /*// 當收到server傳來的封包時
     UpdateNewNewCards(Info){
         this.cardInfo = Info;
         var self = this;
@@ -225,28 +320,8 @@ cc.Class({
             this.currentStatus.active = false;
             this.PokerSets.active = false;
         }
-        /*else if(dealer === 1 && status === 1 && cards === 0 ){ // show搶莊結果
-            this.CardObj.currentStatus.PrePre.getComponent("PokerControl").showstatus((Info.currentStatus.PrePre).toString());
-            this.CardObj.currentStatus.Pre.getComponent("PokerControl").showstatus((Info.currentStatus.Pre).toString());
-            this.CardObj.currentStatus.Me.getComponent("PokerControl").showstatus((Info.currentStatus.Me).toString());
-            this.CardObj.currentStatus.Next.getComponent("PokerControl").showstatus((Info.currentStatus.Next).toString());
-            this.CardObj.currentStatus.NextNext.getComponent("PokerControl").showstatus((Info.currentStatus.NextNext).toString());
-
-            if(Info.IsDizhu.Me === true) this.CardObj.IsDizhu.Me.active = true;
-            else if(Info.IsDizhu.Pre === true) this.CardObj.IsDizhu.Pre.active = true;
-            else if(Info.IsDizhu.PrePre === true) this.CardObj.IsDizhu.PrePre.active = true;
-            else if(Info.IsDizhu.Next === true) this.CardObj.IsDizhu.NextNext.active = true;
-            else if(Info.IsDizhu.NextNext === true) this.CardObj.IsDizhu.NextNext.active = true;
-
-            this.CardObj.currentStatus.currentStatus.active = true;
-        }*/
         else if(dealer === 0 && status === 1 && cards === 1 ){ // playing stage
-            //self.UpdateBet(Info);
-            /*self.CardObj.cards.PrePre.showRate((Info.currentStatus.PrePre).toString());
-            self.CardObj.cards.Pre.showRate((Info.currentStatus.Pre).toString());
-            self.CardObj.cards.Me.showRate((Info.currentStatus.Me).toString());
-            self.CardObj.cards.Next.showRate((Info.currentStatus.Next).toString());
-            self.CardObj.cards.NextNext.showRate((Info.currentStatus.NextNext).toString());*/
+
 
             self.PokerSetScript.Me.showRate((Info.currentStatus.Me).toString());
             self.PokerSetScript.Pre.showRate((Info.currentStatus.Pre).toString());
@@ -284,7 +359,7 @@ cc.Class({
 
 
         }
-    },
+    },*/
 
     /*GetCardInfo(Info) {
         var self = this;

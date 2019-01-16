@@ -21,10 +21,12 @@ cc.Class({
             case "5":
             case "6":
             case "7":
-            case "8":
-            case "9":
             case "0":
                 return char;
+            case "8":
+                return "9";
+            case "9":
+                return "8";
             case ":":
                 return "colon";
             case ",":

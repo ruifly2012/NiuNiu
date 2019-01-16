@@ -56,6 +56,7 @@ cc.Class({
         global.socket.emit("playerRate", global.uid, 15);
 		cc.log("15bet");
         this.button.active = false;
+        //this.button.active = false;
         //global.EventListener.fire("dealerButton", 3);
     },
     // update (dt) {},

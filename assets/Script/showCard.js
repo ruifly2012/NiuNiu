@@ -32,7 +32,10 @@ cc.Class({
             default: null,
             type: cc.Node
         },
-
+        interface: {
+            default: null,
+            type: cc.Node
+        }
     },
     showCard(pokers){
         this.poker1.getComponent("PokerControl").setCard(pokers.Me[0], true);
@@ -90,7 +93,15 @@ cc.Class({
         this.poker4.getComponent("PokerControl").CardInfo.canselect = true;
         this.poker5.getComponent("PokerControl").CardInfo.canselect = true;
     },
+    noBuffButtonClick(){
+        global.socket.emit("getPlayersCard", global.uid);
+        this.interface.active = false;
+    },
 
+    haveBuffButtonClick(){
+        global.socket.emit("getPlayersCard", global.uid);
+        this.interface.active = false;
+    },
     onLoad(){
 
     },
@@ -98,6 +109,7 @@ cc.Class({
     start () {
 
     },
+
 
 
 });

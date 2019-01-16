@@ -51,6 +51,7 @@ cc.Class({
     tripleButtonClick(){
         global.socket.emit("kingRate", global.uid, 3);
         this.button.active = false;
+        //this.button.active = false;
         //global.EventListener.fire("dealerButton", 3);
     },
 

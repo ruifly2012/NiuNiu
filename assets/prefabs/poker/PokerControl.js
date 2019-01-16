@@ -200,6 +200,8 @@ cc.Class({
             })
         })
 
+        cc.log("show card by pokercontrol");
+
     },
     showPokerBack: function () {
 
@@ -238,6 +240,47 @@ cc.Class({
         })
 		
     },
+    showcardtype: function(status, frame){
+        var self = this;
+        self.CardInfo.data = status;
+        self.CardInfo.canselect = false;
+        self.pokerType.enabled = false;
+        self.pokerType_1.enabled = false;
+        self.pokerType2.enabled = true;
+        self.pokerBackGround.enabled = false;
+        self.pokerTxt.enabled = false;
+        self.pokerTxt1.enabled = false;
+
+        cc.loader.loadRes("newnew/Prize/Award_text_" + status, cc.SpriteFrame, function (err, spriteFrame) {
+            self.status.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+
+        });
+        cc.loader.loadRes("newnew/Prize/Award_frame_0" + frame, cc.SpriteFrame, function (err, spriteFrame) {
+            self.pokerType2.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+
+        });
+    },
+    showresult: function(status){
+        var self = this;
+        self.CardInfo.data = status;
+        self.CardInfo.canselect = false;
+        self.pokerType.enabled = false;
+        self.pokerType_1.enabled = false;
+        self.pokerType2.enabled = true; // award frame
+        self.pokerBackGround.enabled = false;
+        self.pokerTxt.enabled = false;
+        self.pokerTxt1.enabled = false;
+
+        cc.loader.loadRes("newnew/Prize/Award_frame_" + status, cc.SpriteFrame, function (err, spriteFrame) {
+            self.pokerType2.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+
+        });
+        cc.loader.loadRes("newnew/Prize/Award_text_" + status, cc.SpriteFrame, function (err, spriteFrame) {
+            self.status.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+
+        });
+
+    },
     onLoad: function () {
 
         var self = this;
@@ -270,16 +313,20 @@ cc.Class({
     unselect() {
         if (this.CardInfo.canselect == false) return;
         this.CardInfo.selected = false;
-        this.node.setPositionY(0);
+        //this.node.setPositionY(0);
+        this.node.y = -389;
     },
     select() {
         if(this.CardInfo.canselect == false)return;
         this.CardInfo.selected = true;
-        this.node.setPositionY(20);
+        //this.node.setPositionY(20);
+        this.node.y = -369;
     },
     getValue() {
         return this.CardInfo.data;
-    }
-
+    },
+    isSelected(){
+        return this.CardInfo.selected;
+    },
 
 });
