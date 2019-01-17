@@ -54,13 +54,13 @@ cc.Class({
         //創立接收login事件
         global.EventListener.on("login", function (uid) { // uid 是使用者輸入的名子
             //將user ID 傳給伺服器端
-            global.socket.emit("login", uid, function (Success) {
+            global.socket.emit("login", uid, function (Success) { // 按了login，只是換到遊戲場景
 
                 if (Success) {
                     global.uid = uid; // 代表global所儲存的是以本使用者的訊息為主軸，存入使用者填寫的名子
 					cc.log("globalID : %s",global.uid);
                     global.EventListener.fire("SwitchScene", 1); // 要windowsController換到遊戲場景
-                    global.socket.emit('LoadGame', global.uid); // 要伺服器給遊戲場景的各個資訊
+                    //global.socket.emit('LoadGame', global.uid); // 要伺服器給遊戲場景的各個資訊
                 }
                 else {
 					cc.log("log fail");

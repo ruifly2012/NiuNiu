@@ -239,7 +239,7 @@ cc.Class({
         cc.log("enter update newnew card");
 
         self.CardObj.cards.Me.active = true;
-
+        self.PokerSets.active = true;
         if(Info.isKing.Me == true) self.PokerSetScript.Me.showDeal((Info.currentStatus.Me).toString());
         if(Info.isKing.Pre == true) self.PokerSetScript.Pre.showDeal((Info.currentStatus.Pre).toString());
         else if(Info.isKing.PrePre == true) self.PokerSetScript.PrePre.showDeal((Info.currentStatus.PrePre).toString());
@@ -283,6 +283,81 @@ cc.Class({
 
     },
 
+    // determine dealer
+    noButtonClick(){
+        global.socket.emit("kingRate", global.uid, 0);
+        this.TimerScript.unscheduleTimer();
+        this.TimerScript.activeButton(-1);
+        //global.EventListener.fire("dealerButton", 0);
+    },
+    oneButtonClick(){
+        global.socket.emit("kingRate", global.uid, 1);
+        this.TimerScript.unscheduleTimer();
+        this.TimerScript.activeButton(-1);
+        //global.EventListener.fire("dealerButton", 1);
+    },
+    doubleButtonClick(){
+        global.socket.emit("kingRate", global.uid, 2);
+        this.TimerScript.unscheduleTimer();
+        this.TimerScript.activeButton(-1);
+        //global.EventListener.fire("dealerButton", 2);
+    },
+    tripleButtonClick(){
+        global.socket.emit("kingRate", global.uid, 3);
+        this.TimerScript.unscheduleTimer();
+        this.TimerScript.activeButton(-1);
+        //this.button.active = false;
+        //global.EventListener.fire("dealerButton", 3);
+    },
+
+
+    // bet
+    threeButtonClick(){
+        global.socket.emit("playerRate", global.uid, 3);
+        this.TimerScript.unscheduleTimer();
+        this.TimerScript.activeButton(-1);
+        cc.log("3bet");
+        //global.EventListener.fire("dealerButton", 0);
+    },
+    sixButtonClick(){
+        global.socket.emit("playerRate", global.uid, 6);
+        this.TimerScript.unscheduleTimer();
+        this.TimerScript.activeButton(-1);
+        cc.log("6bet");
+        //global.EventListener.fire("dealerButton", 1);
+    },
+    nineButtonClick(){
+        global.socket.emit("playerRate", global.uid, 9);
+        this.TimerScript.unscheduleTimer();
+        this.TimerScript.activeButton(-1);
+        cc.log("9bet");
+        //global.EventListener.fire("dealerButton", 2);
+    },
+    twelveButtonClick(){
+        global.socket.emit("playerRate", global.uid, 12);
+        this.TimerScript.unscheduleTimer();
+        this.TimerScript.activeButton(-1);
+        cc.log("12bet");
+        //global.EventListener.fire("dealerButton", 3);
+    },
+    fifteenButtonClick(){
+        global.socket.emit("playerRate", global.uid, 15);
+        this.TimerScript.unscheduleTimer();
+        this.TimerScript.activeButton(-1);
+        cc.log("15bet");
+        //this.button.active = false;
+        //global.EventListener.fire("dealerButton", 3);
+    },
+
+    noBuffButtonClick(){
+        global.socket.emit("getPlayersCard", global.uid);
+        this.TimerScript.activeButton(-1);
+    },
+
+    haveBuffButtonClick(){
+        global.socket.emit("getPlayersCard", global.uid);
+        this.TimerScript.activeButton(-1);
+    },
     /*// 當收到server傳來的封包時
     UpdateNewNewCards(Info){
         this.cardInfo = Info;

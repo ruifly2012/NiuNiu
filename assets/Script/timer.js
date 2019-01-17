@@ -74,20 +74,45 @@ cc.Class({
         }, 1000);*/
 
     },
+
+    callback() {
+        var self = this;
+        if (self.Obj.countdownSecond === 1) {
+            // 在第六次执行回调时取消这个计时器
+            this.unschedule(this.callback);
+        }
+        self.Obj.countdownSecond--;
+        self.UpdateTimer2(self.Obj.countdownSecond);
+    },
+
     start() { // 進入點
         var self = this;
 
         this.init(); // 找clock位置
+
+
+
 		global.socket.on("roomReady", function (Info) {
-			self.activeButton(1);
-			cc.log("activeButton : 1");
-			self.scheduleOnce(function() {self.activeButton(2);}, 2);
+			self.activeButton(0);
+			cc.log("activeButton : 0");
+			//self.scheduleOnce(function() {self.activeButton(2);}, 2);
         });
 		
-		global.socket.on("stageChange", function (stage) {
+		global.socket.on("stageChange", function (stage, timeout) {
 			cc.log("activeButton : %d",stage);
 			self.activeButton(stage);
 			cc.log("activeFinish : %d",stage);
+			if(stage == 2 || stage == 3 || stage == 4){
+			    cc.log("enter clock activte...");
+			    self.Obj.countdownSecond = timeout;
+                self.Obj.clock.active = true;
+                self.UpdateTimer2(timeout);
+                self.schedule(self.callback, 1);
+            }
+			else{
+                cc.log("enter clock hide...");
+                self.Obj.clock.active = false;
+            }
         });
 		/*
         global.socket.on("timer", function (Info) {
@@ -105,9 +130,15 @@ cc.Class({
         // 註冊函式EndMyturn，內容是向server傳遞結束回合的人的名子
 
 
-        this.Reset();// 讓時鐘消失，回到階段0
-        this.activeButton(-1); // 沒有任何階段被啟動
+        this.Reset();// 讓時鐘消失，回到無階段
+        //this.activeButton(0); // 沒有任何階段被啟動
+        this.activeButton(0); // 階段waiting被啟動
+    },
 
+    unscheduleTimer(){
+        var self = this;
+        self.unschedule(self.callback);
+        self.Obj.clock.active = false;
     },
 
     activeButton(Type) { // 啟動哪一個階段
@@ -156,6 +187,13 @@ cc.Class({
     UpdateTimer(timerInfo){
         var self = this;
         this.Obj.clock.getComponent("clock").settime(timerInfo.countdownSecond, self); // 寫上剩餘時間
+    },
+
+    UpdateTimer2(time){
+        var self = this;
+        if(time == 9) time = 8;
+        else if(time == 8) time = 9;
+        this.Obj.clock.getComponent("clock").settime(time, self); // 寫上剩餘時間
     },
 
     //結束我的回合(出牌)
