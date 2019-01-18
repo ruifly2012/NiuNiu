@@ -234,9 +234,14 @@ cc.Class({
         self.pokerTxt.enabled = false;
         self.pokerTxt1.enabled = false;
 		cc.log("show poker status %s",status);
-		
+        
+        
         cc.loader.loadRes("text/" + status, cc.SpriteFrame, function (err, spriteFrame) {
-            self.status.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+            if(err) cc.log(" fail show poker status %s",status);
+            else {
+                self.status.getComponent(cc.Sprite).spriteFrame = spriteFrame;
+                cc.log("success show poker status %s",status);
+            }
         })
 		
     },

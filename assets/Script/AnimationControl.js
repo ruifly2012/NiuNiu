@@ -55,7 +55,7 @@ cc.Class({
         global.EventListener.on("Animation", function (animationName) {
 
             var index = animation.indexOf(animationName);
-
+            cc.log("trigger anime : " + animationName);
             self.play(index);
         });
 
