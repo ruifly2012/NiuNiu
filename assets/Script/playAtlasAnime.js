@@ -1,4 +1,3 @@
-var cpys = [];
 var frames = [];
 
 cc.Class({
@@ -9,7 +8,7 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    playAnime ( fromX,fromY,toX, toY , interval = 2) {
+    playAnime ( fromX,fromY,toX, toY , xOffset, yOffset, interval = 2) {
         var self = this;
         var animation = self.node.getComponent(cc.Animation);
 
@@ -18,7 +17,7 @@ cc.Class({
         clip.name = "anim_run";
         clip.wrapMode = cc.WrapMode.Loop;
         //set start position
-        var action = cc.place(fromX,fromY);
+        var action = cc.place(fromX + xOffset , fromY + yOffset);
         self.node.runAction(action);
         //play anime
         animation.addClip(clip);
@@ -29,7 +28,7 @@ cc.Class({
         cc.log("playAnime");
     },
 
-    moneyFlow(fromSeat = 3,toSeat = 0){
+    moneyFlow(fromSeat = 3,toSeat = 0,xOffset = 0,yOffset = 0){
         var self = this;
         fromSeat = parseInt(fromSeat);
         toSeat = parseInt(toSeat);
@@ -55,9 +54,9 @@ cc.Class({
             x : 402,
             y: 336
         }]
-        cc.log("from " + pos[fromSeat].x + "," + pos[fromSeat].y);
+        cc.log("from " + pos[fromSeat].x + xOffset + "," + pos[fromSeat].y + yOffset);
         cc.log("to " + pos[toSeat].x + "," + pos[toSeat].y);
-        self.playAnime(pos[fromSeat].x,pos[fromSeat].y,pos[toSeat].x,pos[toSeat].y);
+        self.playAnime(pos[fromSeat].x,pos[fromSeat].y,pos[toSeat].x,pos[toSeat].y , xOffset , yOffset);
     },
 
     onLoad(){
@@ -75,8 +74,6 @@ cc.Class({
                 frames.push(new cc.SpriteFrame(tex));
             })
         } 
-                
-        
     },
 
     start () {
