@@ -27,7 +27,12 @@ cc.Class({
     },
 
     trigger(){
-        for(var i = 0;i<20;i++) pref[i].getComponent("playAtlasAnime").moneyFlow(3,0,10*i-100,10*i-100);
+        for(var i = 0;i<20;i++) {
+             //只使用rand()函数，不添加随机种子
+            var a = Math.floor(Math.random() * (19 - 0 + 1)) + 1;//亂數產生1~20
+            cc.log("random = " + a);
+            pref[i].getComponent("playAtlasAnime").moneyFlow(3,0,10*i-100,10*i-100, i+a );
+        }
         /*
         if(!temp) cc.log("temp null");
         else cc.log("temp not null")

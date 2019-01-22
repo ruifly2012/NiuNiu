@@ -8,7 +8,7 @@ cc.Class({
 
     // LIFE-CYCLE CALLBACKS:
 
-    playAnime ( fromX,fromY,toX, toY , xOffset, yOffset, interval = 2) {
+    playAnime ( fromX,fromY,toX, toY , xOffset, yOffset, interval = 2 , speed = 1) {
         var self = this;
         var animation = self.node.getComponent(cc.Animation);
 
@@ -21,14 +21,17 @@ cc.Class({
         self.node.runAction(action);
         //play anime
         animation.addClip(clip);
-        animation.play('anim_run');
+        var animeState = animation.play('anim_run');
+        animeState.speed = speed;
+        animeState.wrapMode = cc.WrapMode.Loop;
+        animeState.repeatCount = 5;
         //set action
         action = cc.sequence(cc.show(),cc.moveTo(interval,toX,toY),cc.hide());
         self.node.runAction(action);
-        cc.log("playAnime");
+        cc.log("playAnime speed" + speed);
     },
 
-    moneyFlow(fromSeat = 3,toSeat = 0,xOffset = 0,yOffset = 0){
+    moneyFlow(fromSeat = 3,toSeat = 0,xOffset = 0,yOffset = 0, speedAndIntervalVal){
         var self = this;
         fromSeat = parseInt(fromSeat);
         toSeat = parseInt(toSeat);
@@ -56,7 +59,7 @@ cc.Class({
         }]
         cc.log("from " + pos[fromSeat].x + xOffset + "," + pos[fromSeat].y + yOffset);
         cc.log("to " + pos[toSeat].x + "," + pos[toSeat].y);
-        self.playAnime(pos[fromSeat].x,pos[fromSeat].y,pos[toSeat].x,pos[toSeat].y , xOffset , yOffset);
+        self.playAnime(pos[fromSeat].x,pos[fromSeat].y,pos[toSeat].x,pos[toSeat].y , xOffset , yOffset , speedAndIntervalVal*0.01 + 0.5, 1.5+0.5*speedAndIntervalVal);
     },
 
     onLoad(){
