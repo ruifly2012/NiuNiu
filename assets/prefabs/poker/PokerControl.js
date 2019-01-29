@@ -320,12 +320,15 @@ cc.Class({
         this.CardInfo.selected = false;
         //this.node.setPositionY(0);
         this.node.y = -389;
+        global.EventListener.fire("CardUnselected");
     },
     select() {
         if(this.CardInfo.canselect == false)return;
         this.CardInfo.selected = true;
         //this.node.setPositionY(20);
         this.node.y = -369;
+
+        global.EventListener.fire("CardSelected");
     },
     getValue() {
         return this.CardInfo.data;
@@ -333,5 +336,12 @@ cc.Class({
     isSelected(){
         return this.CardInfo.selected;
     },
+    getNumber(){
+        if(this.CardInfo.data.showTxt === 'A') return 1;
+        else if(this.CardInfo.data.showTxt === 'J') return 11;
+        else if(this.CardInfo.data.showTxt === 'Q') return 12;
+        else if(this.CardInfo.data.showTxt === 'K') return 13;
+        else return this.CardInfo.data.showTxt;
+    }
 
 });

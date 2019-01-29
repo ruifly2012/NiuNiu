@@ -259,7 +259,7 @@ cc.Class({
         self.PokerSetScript.NextNext.showCardType((Info.cardType.NextNext).toString());
 
         global.EventListener.fire("Animation", Info.animation.Me);
-        setTimeout(function(){
+        /*setTimeout(function(){
             global.EventListener.fire("Animation", Info.animation.Pre);//goto deal rate after 3sec
             cc.log("Pre Animation");
         },1500);
@@ -275,7 +275,7 @@ cc.Class({
         setTimeout(function(){
             global.EventListener.fire("Animation", Info.animation.NextNext);
             cc.log("NextNext Animation");
-        },6000);
+        },6000);*/
         //global.EventListener.fire("Animation", Info.animation.Pre);
         //global.EventListener.fire("Animation", Info.animation.Next);
         //global.EventListener.fire("Animation", Info.animation.PrePre);
@@ -350,11 +350,15 @@ cc.Class({
     },
 
     noBuffButtonClick(){
+        var self = this;
+
         global.socket.emit("getPlayersCard", global.uid);
         this.TimerScript.activeButton(-1);
     },
 
     haveBuffButtonClick(){
+        var self = this;
+        if(!self.CardChoose.getComponent("showCard").isDoubleOfTen()) return;
         global.socket.emit("getPlayersCard", global.uid);
         this.TimerScript.activeButton(-1);
     },

@@ -1,6 +1,6 @@
 
-var animation = ["gameStart", "AllKill", "hasniu", "niuniu", "silvercow", "goldcow",
-    "5cows", "bomb", "Victory"];
+var animation = ["gameStart", "allkill", "hasniu", "niuniu", "silvercow", "goldcow",
+    "5cows", "bomb", "victory"];
 
 var status = ["farmerDouble", "dizhuDouble", "autoPlaying", "choseCards",
     "nolegalCard", "illegal"];
