@@ -307,9 +307,11 @@ cc.Class({
 
             if (self.CardInfo.selected == false) {
                 self.select();
+                global.EventListener.fire("CardSelected");
             }
             else {
                 self.unselect();
+                global.EventListener.fire("CardUnselected");
             }
         });
 
@@ -320,7 +322,7 @@ cc.Class({
         this.CardInfo.selected = false;
         //this.node.setPositionY(0);
         this.node.y = -389;
-        global.EventListener.fire("CardUnselected");
+
     },
     select() {
         if(this.CardInfo.canselect == false)return;
@@ -328,7 +330,7 @@ cc.Class({
         //this.node.setPositionY(20);
         this.node.y = -369;
 
-        global.EventListener.fire("CardSelected");
+
     },
     getValue() {
         return this.CardInfo.data;

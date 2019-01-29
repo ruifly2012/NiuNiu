@@ -351,6 +351,7 @@ cc.Class({
 
     noBuffButtonClick(){
         var self = this;
+        if(!self.CardChoose.getComponent("showCard").isThreeSelected()) return;
 
         global.socket.emit("getPlayersCard", global.uid);
         this.TimerScript.activeButton(-1);
@@ -358,7 +359,8 @@ cc.Class({
 
     haveBuffButtonClick(){
         var self = this;
-        if(!self.CardChoose.getComponent("showCard").isDoubleOfTen()) return;
+        if(!self.CardChoose.getComponent("showCard").isDoubleOfTen() || !self.CardChoose.getComponent("showCard").isThreeSelected()) return;
+
         global.socket.emit("getPlayersCard", global.uid);
         this.TimerScript.activeButton(-1);
     },

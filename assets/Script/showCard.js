@@ -178,11 +178,11 @@ cc.Class({
             }
             self.selectedCard[0] = self.selectedCard[1];
             self.selectedCard[1] = self.selectedCard[2];
-            self.selectedCardPtr--;
+            //self.selectedCardPtr--;
 
         }
 
-
+        cc.log("selectedCardPtr = ", self.selectedCardPtr);
 
         // 步驟1 : 找到所有被選中的牌
 
@@ -216,7 +216,7 @@ cc.Class({
         }
 
         else if(self.selectedCardPtr < 3) { // 找到selectedCard沒有的，insert進去
-
+            cc.log(1, 2 ,"card selected");
             let isFind = 0;
             for(let i = 0 ; i < ptr && !isFind; i++){
                 for(let j = 0 ; j < self.selectedCardPtr && !isFind; j++){
@@ -230,8 +230,9 @@ cc.Class({
             }
         }
         else { // (selectedCard第一個卡unselected，剔除第一個值，所有值向前移動)，找到selectedCard沒有的，insert進去
-
+            cc.log(3 ,"card selected");
             // 找到selectedCard沒有的，insert進去
+            self.selectedCardPtr--;
             let isFind = 0;
             for(let i = 0 ; i < ptr && !isFind; i++){
                 for(let j = 0 ; j < self.selectedCardPtr && !isFind; j++){
@@ -249,6 +250,7 @@ cc.Class({
 
         }
 
+        cc.log("selectedCardPtr = ", self.selectedCardPtr);
 
         self.write();
 
@@ -261,7 +263,7 @@ cc.Class({
         cc.log("Into unfillTheBox");
         var self = this;
 
-        /*let selected = []; // 按照順序排列好的，被選中的牌
+        let selected = []; // 按照順序排列好的，被選中的牌
         let ptr = 0; // 被選中的牌個數
 
         for(let i = 1 ; i <= 5 ; i++){
@@ -306,7 +308,9 @@ cc.Class({
                     break;
                 }
             }
-        }*/
+        }
+
+        cc.log("selectedCardPtr = ", self.selectedCardPtr);
 
         //步驟3：填寫數字
         self.write();
@@ -425,7 +429,9 @@ cc.Class({
 
         }
 
-        self.Num.total.string = total;
+        if(total !== 0){
+            self.Num.total.string = total;
+        }
         self.totalNumber = total;
 
         if(self.Num.first.string != 0 && self.Num.second.string != 0 &&self.Num.third.string != 0) self.cardError.active = false;
@@ -444,7 +450,13 @@ cc.Class({
     isDoubleOfTen(){
         var self = this;
         return ( (self.totalNumber%10)===0 );
+    },
+
+    isThreeSelected(){
+        return (this.selectedCardPtr == 3);
+
     }
+
 
 
 
