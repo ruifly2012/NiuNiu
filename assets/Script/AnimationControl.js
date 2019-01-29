@@ -38,7 +38,7 @@ cc.Class({
             silvercow: cc.find("silvercow", this.node),
             goldcow: cc.find("goldcow", this.node),
             cows: cc.find("5cow", this.node),
-            bomb: null,
+            bomb: cc.find("bomb", this.node),
             Victory: cc.find("Victory", this.node),
         };
     },
