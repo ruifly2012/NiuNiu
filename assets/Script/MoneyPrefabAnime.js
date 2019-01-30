@@ -2,7 +2,11 @@ var moneyPref = [];
 var bgPref;
 cc.Class({
     extends: cc.Component,
-    
+
+    /*ctor: function () {
+        this.bgPref = null;
+    },*/
+
     properties: {
         mPrefab:{
             default:null,
@@ -16,13 +20,18 @@ cc.Class({
 
     onLoad(){
         var self = this;
-        
+
         for(var i = 0;i<20;i++){
+            cc.log("moneyPrefab money instantiate");
             let genGold = cc.instantiate(self.mPrefab);
             genGold.parent = self.node;
             moneyPref.push(genGold);
-        }  
+
+        }
+        cc.log("moneyPrefab moneyBG instantiate");
+        //self.bgPref = cc.instantiate(self.bgPrefab);
         bgPref = cc.instantiate(self.bgPrefab);
+        cc.log("moneyPrefab moneyBG instantiate finished");
     },
 
     trigger(){
@@ -35,7 +44,6 @@ cc.Class({
 
         //money shine
         //bgPref.getComponent("moneyBgAnime").moneyShine(3);
-
     },
 
     start () {

@@ -1,6 +1,6 @@
 var frames = [];
 var speed = 1;  //anime speed
-var self;
+//var self;
 
 cc.Class({
     extends: cc.Component,
@@ -11,6 +11,7 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     playBgAnime ( seatX, seatY ) {
+        var self = this;
         var animation = self.node.getComponent(cc.Animation);
         if( !self.node.getComponent(cc.Animation) ) cc.log("get anime fail");
         //set clip
@@ -33,6 +34,7 @@ cc.Class({
     },
 
     moneyShine(toSeat = 3){
+        var self = this;
         toSeat = parseInt(toSeat);
         toSeat = 4;
         var pos = [{//prepre
@@ -54,7 +56,7 @@ cc.Class({
         {//nextnext
             x : 402,
             y: 336
-        }]
+        }];
         cc.log("to " + pos[toSeat].x + "," + pos[toSeat].y);
         
         cc.log("play BG Anime : " + toSeat);
@@ -62,11 +64,12 @@ cc.Class({
     },
 
     onLoad(){
-        self = this;
+        var self = this;
         //add component
+        cc.log("load bg anime");
         self.node.addComponent(cc.Sprite);
         self.node.addComponent(cc.Animation);
-        cc.log("load bg anime");
+
         if( !self.node.getComponent(cc.Animation) ) cc.log("new anime fail");
         else cc.log("new anime success");
         //set spriteframe
@@ -78,7 +81,11 @@ cc.Class({
             cc.loader.loadRes(url, function (err, tex) {
                 frames.push(new cc.SpriteFrame(tex));
             })
-        } 
+        }
     },
+
+    start(){
+
+    }
 });
 

@@ -132,7 +132,7 @@ cc.Class({
 
         this.Reset();// 讓時鐘消失，回到無階段
         //this.activeButton(0); // 沒有任何階段被啟動
-        this.activeButton(0); // 階段waiting被啟動
+        this.activeButton(-1); // 階段waiting被啟動
     },
 
     unscheduleTimer(){

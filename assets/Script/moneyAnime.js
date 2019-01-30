@@ -69,7 +69,7 @@ cc.Class({
         self.node.addComponent(cc.Sprite);
         self.node.addComponent(cc.Animation);
         //set spriteframe
-
+        cc.log("moneyAnime onLoad");
         for(let i = 0;i < 12;i++){
             let temp = i;
             if(i < 10) temp = "0" + i;
