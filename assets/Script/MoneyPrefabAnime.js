@@ -1,6 +1,5 @@
-var frames = [];
-var pref = [];
-var temp;
+var moneyPref = [];
+var bgPref;
 cc.Class({
     extends: cc.Component,
     
@@ -9,34 +8,34 @@ cc.Class({
             default:null,
             type:cc.Prefab
         },
+        bgPrefab:{
+            default:null,
+            type:cc.Prefab
+        },
     },
 
     onLoad(){
         var self = this;
-        /*
-        temp = cc.instantiate(self.mPrefab);
-        temp.parent = self.node;
-        temp.setPosition(10,10);
-        */
         
         for(var i = 0;i<20;i++){
             let genGold = cc.instantiate(self.mPrefab);
             genGold.parent = self.node;
-            pref.push(genGold);
+            moneyPref.push(genGold);
         }  
+        bgPref = cc.instantiate(self.bgPrefab);
     },
 
     trigger(){
+        //money
         for(var i = 0;i<20;i++) {
             var a = Math.floor(Math.random() * (19 - 0 + 1)) + 1;//亂數產生1~20
-            cc.log("random = " + a);
-            pref[i].getComponent("moneyAnime").moneyFlow(3,0,10*i-100,10*i-100, i+a );
+            //cc.log("random = " + a);
+            moneyPref[i].getComponent("moneyAnime").moneyFlow(3,0,10*i-100,10*i-100, i+a );
         }
-        /*
-        if(!temp) cc.log("temp null");
-        else cc.log("temp not null")
-        temp.getComponent("moneyAnime").moneyFlow();
-        */
+
+        //money shine
+        //bgPref.getComponent("moneyBgAnime").moneyShine(3);
+
     },
 
     start () {
