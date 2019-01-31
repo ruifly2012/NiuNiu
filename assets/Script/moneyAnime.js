@@ -20,7 +20,6 @@ cc.Class({
         var action = cc.place(fromX + xOffset , fromY + yOffset);
         self.node.runAction(action);
         //play anime
-        if(!animation) cc.log("money anime component null, self = " + self + ", self.node = " + self.node);
         animation.addClip(clip);
         var animeState = animation.play('anim_run');
         animeState.speed = speed;
@@ -29,7 +28,6 @@ cc.Class({
         //set action
         action = cc.sequence(cc.show(),cc.moveTo(interval , toX+ yOffset/3 , toY+ xOffset/3),cc.hide());//change x y to mess the route
         self.node.runAction(action);
-        cc.log("playAnime speed" + speed);
     },
 
     moneyFlow(fromSeat = 3,toSeat = 0,xOffset = 0,yOffset = 0, speedAndIntervalVal){
@@ -69,7 +67,6 @@ cc.Class({
         self.node.addComponent(cc.Sprite);
         self.node.addComponent(cc.Animation);
         //set spriteframe
-        cc.log("moneyAnime onLoad");
         for(let i = 0;i < 12;i++){
             let temp = i;
             if(i < 10) temp = "0" + i;
@@ -79,19 +76,5 @@ cc.Class({
             })
         } 
     },
-
-    start () {
-        //copy
-        /*
-        var self = this;
-        var cpy = new cc.Node('Sprite');
-        cpy = cc.instantiate(self.node);
-        cpy.parent = self.node;
-        cpy.setPosition(0, 0);
-        cpys.push(cpy.getComponent("playAtlasAnime"));
-        */
-    },
-
-    // update (dt) {},
 });
 

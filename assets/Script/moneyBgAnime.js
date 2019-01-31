@@ -19,18 +19,17 @@ cc.Class({
         clip.name = "anim_run";
         clip.wrapMode = cc.WrapMode.Loop;
         //set position
-        self.node.runAction(cc.place(seatX , seatY));
+        self.node.runAction(cc.place(seatX-20 , seatY));
+        //set show time
+        var action = cc.sequence( cc.delayTime(0.5) , cc.show(),cc.delayTime(0.4),cc.hide());
+        self.node.runAction(action);
         //play anime
-        if(!animation) cc.log("moneyBG anime component null, self = " + self + ", self.node = " + self.node);
+        //if(!animation) cc.log("moneyBG anime component null, self = " + self + ", self.node = " + self.node);
         animation.addClip(clip);
         var animeState = animation.play('anim_run');
         animeState.speed = speed;
         animeState.wrapMode = cc.WrapMode.Loop;
-        animeState.repeatCount = 20;
-        //set action
-        var action = cc.sequence( cc.delayTime(1.5), cc.show(),cc.delayTime(1.0),cc.hide());
-        self.node.runAction(action);
-        cc.log("play BG Anime ing" );
+        animeState.repeatCount = 5;
     },
 
     moneyShine(toSeat = 3){
@@ -57,23 +56,18 @@ cc.Class({
             x : 402,
             y: 336
         }];
-        cc.log("to " + pos[toSeat].x + "," + pos[toSeat].y);
+        //cc.log("to " + pos[toSeat].x + "," + pos[toSeat].y);
         
-        cc.log("play BG Anime : " + toSeat);
+        //cc.log("play BG Anime : " + toSeat);
         self.playBgAnime( pos[toSeat].x,pos[toSeat].y );
     },
 
     onLoad(){
         var self = this;
         //add component
-        cc.log("load bg anime");
         self.node.addComponent(cc.Sprite);
         self.node.addComponent(cc.Animation);
-
-        if( !self.node.getComponent(cc.Animation) ) cc.log("new anime fail");
-        else cc.log("new anime success");
         //set spriteframe
-
         for(let i = 0;i < 16;i++){
             let temp = i;
             if(i < 10) temp = "0" + i;
@@ -83,9 +77,5 @@ cc.Class({
             })
         }
     },
-
-    start(){
-
-    }
 });
 
