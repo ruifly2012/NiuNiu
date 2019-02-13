@@ -34,13 +34,13 @@ cc.Class({
             this.closeMenu();
         else {
             this.TalkMenu.active = true;
-            //this.TalkMenuCloseBtn.active = true;
+            this.TalkMenuCloseBtn.active = true;
             this.isOpened = true;
         }
     },
     closeMenu() {
         this.TalkMenu.active = false;
-        //this.TalkMenuCloseBtn.active = false;
+        this.TalkMenuCloseBtn.active = false;
         this.isOpened = false;
     },
     Talk(event, customEventData) {

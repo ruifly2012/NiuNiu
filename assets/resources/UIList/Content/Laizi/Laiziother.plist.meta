@@ -1,0 +1,56 @@
+{
+  "ver": "1.2.4",
+  "uuid": "d961475c-a1d6-4378-b87a-1c4f88d2b9b0",
+  "rawTextureUuid": "d6adddc7-60c9-4618-be86-3b3971b32833",
+  "size": {
+    "width": 1600,
+    "height": 2034
+  },
+  "type": "Texture Packer",
+  "subMetas": {
+    "玩法說明.png": {
+      "ver": "1.0.3",
+      "uuid": "60f673ad-2729-4e60-a2ab-4f2f8c5e8b2f",
+      "rawTextureUuid": "d6adddc7-60c9-4618-be86-3b3971b32833",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 18,
+      "offsetY": -31,
+      "trimX": 1,
+      "trimY": 1,
+      "width": 1598,
+      "height": 858,
+      "rawWidth": 1760,
+      "rawHeight": 990,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "spriteType": "normal",
+      "subMetas": {}
+    },
+    "結算規則.png": {
+      "ver": "1.0.3",
+      "uuid": "718ea80e-671c-4b29-ae8d-2febaa008456",
+      "rawTextureUuid": "d6adddc7-60c9-4618-be86-3b3971b32833",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -124,
+      "offsetY": -26,
+      "trimX": 1,
+      "trimY": 861,
+      "width": 1312,
+      "height": 1172,
+      "rawWidth": 1760,
+      "rawHeight": 1318,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "spriteType": "normal",
+      "subMetas": {}
+    }
+  }
+}

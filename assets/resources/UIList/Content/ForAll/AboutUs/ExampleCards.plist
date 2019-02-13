@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>frames</key>
+        <dict>
+            <key>牌型規則-範例牌.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{47,-26}</string>
+                <key>spriteSize</key>
+                <string>{1666,1676}</string>
+                <key>spriteSourceSize</key>
+                <string>{1760,1822}</string>
+                <key>textureRect</key>
+                <string>{{1,1},{1666,1676}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+        </dict>
+        <key>metadata</key>
+        <dict>
+            <key>format</key>
+            <integer>3</integer>
+            <key>pixelFormat</key>
+            <string>RGBA8888</string>
+            <key>premultiplyAlpha</key>
+            <false/>
+            <key>realTextureFileName</key>
+            <string>ExampleCards.png</string>
+            <key>size</key>
+            <string>{1668,1678}</string>
+            <key>smartupdate</key>
+            <string>$TexturePacker:SmartUpdate:1e5ebd4191c726bac013dd65e4fb9fa7:1059e41f21d5be4d2b795873d6a28c1f:0e17ba82ddb0b92c5b3f799e6b459322$</string>
+            <key>textureFileName</key>
+            <string>ExampleCards.png</string>
+        </dict>
+    </dict>
+</plist>
