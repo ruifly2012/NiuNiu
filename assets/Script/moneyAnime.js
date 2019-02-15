@@ -30,12 +30,13 @@ cc.Class({
         self.node.runAction(action);
     },
 
-    moneyFlow(fromSeat = 3,toSeat = 0,xOffset = 0,yOffset = 0, speedAndIntervalVal){
+    moneyFlow(fromSeat,toSeat,xOffset = 0,yOffset = 0, speedAndIntervalVal){
         var self = this;
-        fromSeat = parseInt(fromSeat);
-        toSeat = parseInt(toSeat);
-        fromSeat = 3;
-        toSeat = 4;
+
+        let from = parseInt(fromSeat);
+        let to = parseInt(toSeat);
+        //cc.log("from "+fromSeat+" to "+toSeat);
+        //cc.log("from "+from+" to "+to);
         var pos = [{//prepre
             x : -405,
             y: 336
@@ -56,9 +57,9 @@ cc.Class({
             x : 402,
             y: 336
         }]
-       // cc.log("from " + pos[fromSeat].x + xOffset + "," + pos[fromSeat].y + yOffset);
-       // cc.log("to " + pos[toSeat].x + "," + pos[toSeat].y);
-        self.playMoneyAnime(pos[fromSeat].x,pos[fromSeat].y,pos[toSeat].x,pos[toSeat].y , xOffset , yOffset , speedAndIntervalVal*0.01 + 0.5, 1.5+0.5*speedAndIntervalVal);
+        //cc.log("from seat " + from +"pos "+ pos[from].x + xOffset + "," + pos[from].y + yOffset);
+        //cc.log("to seat " + to +"pos" + pos[to].x + "," + pos[to].y);
+        self.playMoneyAnime(pos[from].x,pos[from].y,pos[to].x,pos[to].y , xOffset , yOffset , speedAndIntervalVal*0.01 + 0.5, 1.5+0.5*speedAndIntervalVal);
     },
 
     onLoad(){

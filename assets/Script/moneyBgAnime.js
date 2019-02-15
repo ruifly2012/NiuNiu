@@ -32,10 +32,9 @@ cc.Class({
         animeState.repeatCount = 5;
     },
 
-    moneyShine(toSeat = 3){
+    moneyShine(toSeat){
         var self = this;
         toSeat = parseInt(toSeat);
-        toSeat = 4;
         var pos = [{//prepre
             x : -405,
             y: 336
