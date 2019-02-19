@@ -296,19 +296,27 @@ cc.Class({
                         self.selectedCard[0] = self.selectedCard[1];
                         self.selectedCard[1] = self.selectedCard[2];
                         self.selectedCardPtr--;
+                        cc.log("order 0 of ordered selected card unequal");
                     }
                     else if(i === 1){
                         self.selectedCard[1] = self.selectedCard[2];
                         self.selectedCardPtr--;
+                        cc.log("order 1 of ordered selected card unequal");
                     }
                     else{
                         self.selectedCardPtr--;
+                        cc.log("order 2 of ordered selected card unequal");
                     }
                     isFind = 1;
                     break;
                 }
             }
         }
+        if(ptr === 0 && self.selectedCardPtr === 1){ // 最後一張卡片被按下來了(因此ptr為0)
+            self.selectedCardPtr--;
+            cc.log("0 selected card, clear memory");
+        }
+
 
         cc.log("selectedCardPtr = ", self.selectedCardPtr);
 
@@ -324,7 +332,8 @@ cc.Class({
         let selected = []; // 按照順序排列好的，被選中的牌
         let ptr = 0; // 被選中的牌個數
 
-        for(let i = 1 ; i <= 5 ; i++){
+        // 依照順序找到被選重的牌
+        /*for(let i = 1 ; i <= 5 ; i++){
             switch(i){
                 case 1:
                     if(self.poker1.getComponent("PokerControl").isSelected()) selected[ptr++] = i;
@@ -347,7 +356,7 @@ cc.Class({
 
 
 
-
+        // 依照順序在格子中填數字
         for(let i = 0 ; i < ptr ; i++){
             switch(i){
                 case 0:
@@ -402,6 +411,87 @@ cc.Class({
                     break;
                 case 2:
                     switch(selected[i]){
+                        case 1:
+                            self.Num.third.string = self.poker1.getComponent("PokerControl").getNumber();
+                            total += self.poker1.getComponent("PokerControl").getNumber();
+                            break;
+                        case 2:
+                            self.Num.third.string = self.poker2.getComponent("PokerControl").getNumber();
+                            total += self.poker2.getComponent("PokerControl").getNumber();
+                            break;
+                        case 3:
+                            self.Num.third.string = self.poker3.getComponent("PokerControl").getNumber();
+                            total += self.poker3.getComponent("PokerControl").getNumber();
+                            break;
+                        case 4:
+                            self.Num.third.string = self.poker4.getComponent("PokerControl").getNumber();
+                            total += self.poker4.getComponent("PokerControl").getNumber();
+                            break;
+                        case 5:
+                            self.Num.third.string = self.poker5.getComponent("PokerControl").getNumber();
+                            total += self.poker5.getComponent("PokerControl").getNumber();
+                            break;
+                    }
+                    cc.log("third selected card");
+                    break;
+            }
+
+        }*/
+
+        for(let i = 0 ; i < self.selectedCardPtr ; i++){
+            switch(i){
+                case 0:
+                    switch(self.selectedCard[i]){
+                        case 1:
+                            self.Num.first.string = self.poker1.getComponent("PokerControl").getNumber();
+                            total += self.poker1.getComponent("PokerControl").getNumber();
+                            break;
+                        case 2:
+                            self.Num.first.string = self.poker2.getComponent("PokerControl").getNumber();
+                            total += self.poker2.getComponent("PokerControl").getNumber();
+                            break;
+                        case 3:
+                            self.Num.first.string = self.poker3.getComponent("PokerControl").getNumber();
+                            total += self.poker3.getComponent("PokerControl").getNumber();
+                            break;
+                        case 4:
+                            self.Num.first.string = self.poker4.getComponent("PokerControl").getNumber();
+                            total += self.poker4.getComponent("PokerControl").getNumber();
+                            break;
+                        case 5:
+                            self.Num.first.string = self.poker5.getComponent("PokerControl").getNumber();
+                            total += self.poker5.getComponent("PokerControl").getNumber();
+                            break;
+                    }
+                    cc.log("first selected card");
+                    break;
+                case 1:
+                    switch(self.selectedCard[i]){
+                        case 1:
+                            self.Num.second.string = self.poker1.getComponent("PokerControl").getNumber();
+                            total += self.poker1.getComponent("PokerControl").getNumber();
+                            break;
+                        case 2:
+                            self.Num.second.string = self.poker2.getComponent("PokerControl").getNumber();
+                            total += self.poker2.getComponent("PokerControl").getNumber();
+                            break;
+                        case 3:
+                            self.Num.second.string = self.poker3.getComponent("PokerControl").getNumber();
+                            total += self.poker3.getComponent("PokerControl").getNumber();
+                            break;
+                        case 4:
+                            self.Num.second.string = self.poker4.getComponent("PokerControl").getNumber();
+                            total += self.poker4.getComponent("PokerControl").getNumber();
+                            break;
+                        case 5:
+                            self.Num.second.string = self.poker5.getComponent("PokerControl").getNumber();
+                            total += self.poker5.getComponent("PokerControl").getNumber();
+                            break;
+                    }
+                    cc.log("second selected card");
+                    break;
+                case 2:
+                    switch(self.selectedCard[i]){
                         case 1:
                             self.Num.third.string = self.poker1.getComponent("PokerControl").getNumber();
                             total += self.poker1.getComponent("PokerControl").getNumber();

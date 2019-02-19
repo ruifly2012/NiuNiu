@@ -291,7 +291,7 @@ cc.Class({
         var self = this;
 
 
-        this.pokerBackGround.node.on('mouseenter', function (event) {
+        /*this.pokerBackGround.node.on('mouseenter', function (event) {
 
             if (event.getButton() == null) return;
 
@@ -301,7 +301,7 @@ cc.Class({
             else {
                 self.unselect();
             }
-        });
+        });*/
 
         this.pokerBackGround.node.on('touchstart', function (event) {
 
@@ -320,6 +320,7 @@ cc.Class({
     unselect() {
         if (this.CardInfo.canselect == false) return;
         this.CardInfo.selected = false;
+        //global.EventListener.fire("CardUnselected");
         //this.node.setPositionY(0);
         this.node.y = -389;
 
@@ -327,6 +328,7 @@ cc.Class({
     select() {
         if(this.CardInfo.canselect == false)return;
         this.CardInfo.selected = true;
+        //global.EventListener.fire("CardSelected");
         //this.node.setPositionY(20);
         this.node.y = -369;
 

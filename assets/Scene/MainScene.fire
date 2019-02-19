@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.1,
-      "y": 0.1,
+      "x": 0.18660659830736148,
+      "y": 0.18660659830736148,
       "z": 1
     },
     "_quat": {
@@ -5976,7 +5976,7 @@
         "__id__": 257
       }
     ],
-    "_active": false,
+    "_active": true,
     "_level": 2,
     "_components": [],
     "_prefab": null,
@@ -6055,7 +6055,7 @@
         "__id__": 180
       }
     ],
-    "_active": true,
+    "_active": false,
     "_level": 3,
     "_components": [
       {
@@ -6884,7 +6884,7 @@
         "__id__": 204
       }
     ],
-    "_active": true,
+    "_active": false,
     "_level": 3,
     "_components": [
       {
@@ -7713,7 +7713,7 @@
         "__id__": 228
       }
     ],
-    "_active": true,
+    "_active": false,
     "_level": 3,
     "_components": [
       {
@@ -8542,7 +8542,7 @@
         "__id__": 252
       }
     ],
-    "_active": true,
+    "_active": false,
     "_level": 3,
     "_components": [
       {
@@ -9371,7 +9371,7 @@
         "__id__": 276
       }
     ],
-    "_active": true,
+    "_active": false,
     "_level": 3,
     "_components": [
       {
@@ -72849,7 +72849,7 @@
         "__id__": 2081
       }
     ],
-    "_active": true,
+    "_active": false,
     "_level": 0,
     "_components": [
       {

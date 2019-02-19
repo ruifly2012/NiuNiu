@@ -54,6 +54,11 @@ cc.Class({
         //this.button.active = false;
         //global.EventListener.fire("dealerButton", 3);
     },
+    autoNoButtonClick(){
+        this.button.active = false;
+    },
+
+
 
     // update (dt) {},
 });
