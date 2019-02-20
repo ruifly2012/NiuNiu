@@ -1,4 +1,4 @@
-var config = require("config")
+var config = require("config");
 
 cc.Class({
     extends: cc.Component,
@@ -45,6 +45,10 @@ cc.Class({
         status: {// 狀態顯示，比如一倍、不搶、四倍...，若顯示狀態，上方所有node要全關
             default: null,
             type: cc.Sprite
+        },
+        goldenLight: {
+            default: null,
+            type: cc.Sprite
         }
 
     },
@@ -84,6 +88,7 @@ cc.Class({
         self.pokerType_1.enabled = true;
         self.pokerBackGround.enabled = true;
         self.status.enabled = false;
+        //self.goldenLight.enabled = true;
         var imgUrl = "S-S"; // 小黑陶
         var imgUrl2 = "S";  // 大黑陶
         var textUrl = "KD-" + showData.showTxt; // 黑色數字
@@ -198,7 +203,7 @@ cc.Class({
                     })
                 })
             })
-        })
+        });
 
         cc.log("show card by pokercontrol");
 
@@ -318,21 +323,31 @@ cc.Class({
     },
 
     unselect() {
+        var self = this;
         if (this.CardInfo.canselect == false) return;
         this.CardInfo.selected = false;
         //global.EventListener.fire("CardUnselected");
         //this.node.setPositionY(0);
         this.node.y = -389;
+        //self.unactiveLight();
+        self.unenableLight();
+        //self.edgeLight.active = false;
+        //self.goldenLight.active = false;
+
+        //cc.log("light active ： ", self.goldenLight.active);
 
     },
     select() {
+        var self = this;
         if(this.CardInfo.canselect == false)return;
         this.CardInfo.selected = true;
         //global.EventListener.fire("CardSelected");
         //this.node.setPositionY(20);
         this.node.y = -369;
-
-
+        //self.activeLight();
+        self.enableLight();
+        //self.goldenLight.enabled = true;
+        //cc.log("light active ： ", self.goldenLight.active);
     },
     getValue() {
         return this.CardInfo.data;
@@ -346,6 +361,27 @@ cc.Class({
         else if(this.CardInfo.data.showTxt === 'Q') return 12;
         else if(this.CardInfo.data.showTxt === 'K') return 13;
         else return this.CardInfo.data.showTxt;
-    }
+    },
+    activeLight: function(){
+        var self = this;
+        self.goldenLight.active = true;
+        cc.log("activeLight");
+    },
+    unactiveLight: function(){
+        var self = this;
+        self.goldenLight.active = false;
+        cc.log("unactiveLight");
+    },
+    enableLight: function(){
+        var self = this;
+        self.goldenLight.enabled = true;
+        cc.log("enable Light");
+    },
+    unenableLight: function(){
+        var self = this;
+        self.goldenLight.enabled = false;
+        cc.log("unenableLight");
+    },
+
 
 });

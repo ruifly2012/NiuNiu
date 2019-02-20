@@ -1,6 +1,6 @@
 
-var animation = ["gameStart", "allkill", "hasniu", "niuniu", "silvercow", "goldcow",
-    "5cows", "bomb", "victory"];
+var animation = ["gameStart", "hasniu", "niuniu", "silvercow", "goldcow", "fivecows","bomb", "allkill",
+      "victory", "kingicon"];
 
 var status = ["farmerDouble", "dizhuDouble", "autoPlaying", "choseCards",
     "nolegalCard", "illegal"];
@@ -17,7 +17,7 @@ cc.Class({
             niuniu: null,
             silvercow: null,
             goldcow: null,
-            cows: null,
+            fivecows: null,
             bomb: null,
             Victory: null
         };
@@ -32,14 +32,14 @@ cc.Class({
     init() {
         this.animation = {
             gameStart: cc.find("gameStart", this.node),
-            AllKill: cc.find("AllKill", this.node),
+            AllKill: cc.find("allkill", this.node),
             hasniu: null,
             niuniu: cc.find("niuniu", this.node),
             silvercow: cc.find("silvercow", this.node),
             goldcow: cc.find("goldcow", this.node),
-            cows: cc.find("5cow", this.node),
+            fivecows: cc.find("fivecows", this.node),
             bomb: cc.find("bomb", this.node),
-            Victory: cc.find("Victory", this.node),
+            Victory: cc.find("victory", this.node),
         };
     },
 

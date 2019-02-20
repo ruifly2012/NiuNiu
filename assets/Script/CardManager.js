@@ -160,7 +160,12 @@ cc.Class({
             self.CardObj.currentStatus.PrePre.active = false;
             self.CardObj.currentStatus.NextNext.active = false;
             cc.log("make all currentstatus flase");
-            self.PokerSets.active = false; // 當階段到result時，直接顯示PokerSets
+            self.CardObj.cards.Me.active = false;
+            self.CardObj.cards.Pre.active = false;
+            self.CardObj.cards.Next.active = false;
+            self.CardObj.cards.PrePre.active = false;
+            self.CardObj.cards.NextNext.active = false;
+            //self.PokerSets.active = false; // 當階段到result時，直接顯示PokerSets
         });
 
         global.socket.on("kingsRate", function(Info){
@@ -180,6 +185,9 @@ cc.Class({
             //將牌更新
             self.UpdateNewNewCards(Info);
 
+        });
+        global.socket.on("pokerAnimation", function(Info){
+            self.playPokerAnimation(Info);
         });
 
     },
@@ -297,13 +305,58 @@ cc.Class({
         var self = this;// 記得加這行
         cc.log("enter update newnew card");
 
-        self.CardObj.cards.Me.active = true;
-        self.PokerSets.active = true;
-        if(Info.isKing.Me == true) self.PokerSetScript.Me.showDeal((Info.currentStatus.Me).toString());
-        if(Info.isKing.Pre == true) self.PokerSetScript.Pre.showDeal((Info.currentStatus.Pre).toString());
-        else if(Info.isKing.PrePre == true) self.PokerSetScript.PrePre.showDeal((Info.currentStatus.PrePre).toString());
-        else if(Info.isKing.Next == true) self.PokerSetScript.Next.showDeal((Info.currentStatus.Next).toString());
-        else if(Info.isKing.NextNext == true) self.PokerSetScript.NextNext.showDeal((Info.currentStatus.NextNext).toString());
+        //self.CardObj.cards.Me.active = true;
+        //self.PokerSets.active = true;
+
+        if(Info.isKing.Me == true) {
+            self.PokerSetScript.Me.showDeal((Info.currentStatus.Me).toString());
+        }
+        else if(Info.isKing.Pre == true) {
+            self.PokerSetScript.Pre.showDeal((Info.currentStatus.Pre).toString());
+        }
+        else if(Info.isKing.PrePre == true) {
+            self.PokerSetScript.PrePre.showDeal((Info.currentStatus.PrePre).toString());
+        }
+        else if(Info.isKing.Next == true) {
+            self.PokerSetScript.Next.showDeal((Info.currentStatus.Next).toString());
+        }
+        else if(Info.isKing.NextNext == true) {
+            self.PokerSetScript.NextNext.showDeal((Info.currentStatus.NextNext).toString());
+        }
+
+
+        if(Info.displayCard.Me == true){
+            self.PokerSetScript.Me.showCards((Info.cards.Me));
+            self.PokerSetScript.Me.showCardType((Info.cardType.Me).toString());
+            self.CardObj.cards.Me.active = true;
+            //global.EventListener.fire("Animation", Info.animation.Me);
+        }
+        if(Info.displayCard.Pre == true){
+            self.PokerSetScript.Pre.showCards((Info.cards.Pre));
+            self.PokerSetScript.Pre.showCardType((Info.cardType.Pre).toString());
+            self.CardObj.cards.Pre.active = true;
+        }
+        if(Info.displayCard.Next == true){
+            self.PokerSetScript.Next.showCards((Info.cards.Next));
+            self.PokerSetScript.Next.showCardType((Info.cardType.Next).toString());
+            self.CardObj.cards.Next.active = true;
+        }
+        if(Info.displayCard.PrePre == true){
+            self.PokerSetScript.PrePre.showCards((Info.cards.PrePre));
+            self.PokerSetScript.PrePre.showCardType((Info.cardType.PrePre).toString());
+            self.CardObj.cards.PrePre.active = true;
+        }
+        if(Info.displayCard.NextNext == true){
+            self.PokerSetScript.NextNext.showCards((Info.cards.NextNext));
+            self.PokerSetScript.NextNext.showCardType((Info.cardType.NextNext).toString());
+            self.CardObj.cards.NextNext.active = true;
+        }
+
+        /*self.CardObj.cards.Me.active = true;
+        self.CardObj.cards.Pre.active = true;
+        self.CardObj.cards.Next.active = true;
+        self.CardObj.cards.PrePre.active = true;
+        self.CardObj.cards.NextNext.active = true;
 
         self.PokerSetScript.Me.showCards((Info.cards.Me));
         self.PokerSetScript.Pre.showCards((Info.cards.Pre));
@@ -317,7 +370,7 @@ cc.Class({
         self.PokerSetScript.Next.showCardType((Info.cardType.Next).toString());
         self.PokerSetScript.NextNext.showCardType((Info.cardType.NextNext).toString());
 
-        global.EventListener.fire("Animation", Info.animation.Me);
+        global.EventListener.fire("Animation", Info.animation.Me);*/
         /*setTimeout(function(){
             global.EventListener.fire("Animation", Info.animation.Pre);//goto deal rate after 3sec
             cc.log("Pre Animation");
@@ -340,6 +393,10 @@ cc.Class({
         //global.EventListener.fire("Animation", Info.animation.PrePre);
         //global.EventListener.fire("Animation", Info.animation.NextNext);
 
+    },
+
+    playPokerAnimation(Info){
+        global.EventListener.fire("Animation", Info.Me);
     },
 
     clearTimer(){
