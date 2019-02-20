@@ -1,5 +1,10 @@
-var moneyPref = [];
-var bgPref;
+var moneyPref1 = new Array;
+var moneyPref2 = new Array;
+var moneyPref3 = new Array;
+var moneyPref4 = new Array;
+var moneyPref5 = new Array;
+var moneyPrefabs = [moneyPref1,moneyPref2,moneyPref3,moneyPref4,moneyPref5];
+var bgPref = [];
 cc.Class({
     extends: cc.Component,
 
@@ -16,44 +21,49 @@ cc.Class({
 
     onLoad(){
         var self = this;
-        for(var i = 0;i<20;i++){
-            let genGold = cc.instantiate(self.mPrefab);
-            genGold.parent = self.node;
-            moneyPref.push(genGold);
+        for (let index = 0; index < 5; index++) {
+            for(var i = 0;i<20;i++){
+                let genGold = cc.instantiate(self.mPrefab);
+                genGold.parent = self.node;
+                moneyPrefabs[index].push(genGold);
+            }
+            let shineBg = cc.instantiate(self.bgPrefab);
+            shineBg.parent = self.node;
+            bgPref.push(shineBg);
         }
-        bgPref = cc.instantiate(self.bgPrefab);
-        bgPref.parent = self.node;
+
 
         global.socket.on("moneyFlow", function (Info) {
-            //get money
-            let f = 0,t=0;
+            let king = Info.king;
+            for (let index = 0; index < 5; index++) {
+                if (index == king) index++;
+                if( Info.give[index] > 0 ) self.trigger(king,index,index);
+                else cc.log("give 0$ to"+index+", no anime");
+                cc.log("from me to" + index);
+            }
+
+
             self.schedule(function() {
-                if(f==2) f++;
-                if( Info.get[f] > 0 ) self.trigger(f,2);
-                else cc.log("get 0$ from"+f+", no anime");
-                //cc.log("from" + f+"to me");
-                f++;
-            }, 1, 3, 0);//interval repeat delay
-            //give money
-            self.schedule(function() {
-                if(t==2) t++;
-                if( Info.give[t] > 0 ) self.trigger(2,t);
-                else cc.log("give 0$ to"+t+", no anime");
-                //cc.log("from me to" + t);
-                t++;
-            }, 1, 3, 6);//interval repeat delay
+                for (let index = 0; index < 5; index++) {
+                    if (index == king) index++;
+                    if( Info.get[index] > 0 ) self.trigger(index,king,index);
+                    else cc.log("get 0$ from"+index+", no anime");
+                    cc.log("from" + index+"to me");
+                }
+            }, 3);//delay 3s
+            
         });
     },
 
-    trigger(from,to){
+    trigger(from,to,pos){
         //money
         for(var i = 0;i<20;i++) {
             var a = Math.floor(Math.random() * (19 - 0 + 1)) + 1;//亂數產生1~20
             cc.log("pass" + from + "," + to);
-            moneyPref[i].getComponent("moneyAnime").moneyFlow(from,to,10*i-100,10*i-100, i+a );
+            moneyPrefabs[pos][i].getComponent("moneyAnime").moneyFlow(from,to,10*i-100,10*i-100, i+a );
         }
         //money shine
-        bgPref.getComponent("moneyBgAnime").moneyShine(to);
+        bgPref[pos].getComponent("moneyBgAnime").moneyShine(to);
     },
 });
 
