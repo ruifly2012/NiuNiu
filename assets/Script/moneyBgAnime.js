@@ -36,25 +36,25 @@ cc.Class({
         var self = this;
         toSeat = parseInt(toSeat);
         var pos = [{//prepre
-            x : -405,
-            y: 336
+            x : -418,
+            y: 331
         },
         {//pre
-            x : -759,
-            y: -6
+            x : -811,
+            y: 53
         },
         {//me
-            x : -378,
-            y: -276
+            x : -515,
+            y: -324
         },
         {//next
-            x : 781,
-            y: 57
+            x : 804,
+            y: 44
         },
         {//nextnext
             x : 402,
             y: 336
-        }];
+        }]
         //cc.log("to " + pos[toSeat].x + "," + pos[toSeat].y);
         
         //cc.log("play BG Anime : " + toSeat);

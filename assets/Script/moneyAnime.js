@@ -38,20 +38,20 @@ cc.Class({
         //cc.log("from "+fromSeat+" to "+toSeat);
         //cc.log("from "+from+" to "+to);
         var pos = [{//prepre
-            x : -405,
-            y: 336
+            x : -418,
+            y: 331
         },
         {//pre
-            x : -759,
-            y: -6
+            x : -811,
+            y: 53
         },
         {//me
-            x : -378,
-            y: -276
+            x : -515,
+            y: -324
         },
         {//next
-            x : 781,
-            y: 57
+            x : 804,
+            y: 44
         },
         {//nextnext
             x : 402,
