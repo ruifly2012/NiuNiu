@@ -328,7 +328,7 @@ cc.Class({
         this.CardInfo.selected = false;
         //global.EventListener.fire("CardUnselected");
         //this.node.setPositionY(0);
-        this.node.y = -389;
+        this.node.y = -404;
         //self.unactiveLight();
         self.unenableLight();
         //self.edgeLight.active = false;
@@ -343,7 +343,7 @@ cc.Class({
         this.CardInfo.selected = true;
         //global.EventListener.fire("CardSelected");
         //this.node.setPositionY(20);
-        this.node.y = -369;
+        this.node.y = -387;
         //self.activeLight();
         self.enableLight();
         //self.goldenLight.enabled = true;
