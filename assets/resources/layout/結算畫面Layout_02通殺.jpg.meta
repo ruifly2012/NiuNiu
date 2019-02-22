@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "355ff98c-db47-4e58-9b1b-909c73d46925",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "結算畫面Layout_02通殺": {
+      "ver": "1.0.3",
+      "uuid": "4737a002-038c-4340-956f-82de30d55a51",
+      "rawTextureUuid": "355ff98c-db47-4e58-9b1b-909c73d46925",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 1920,
+      "height": 1080,
+      "rawWidth": 1920,
+      "rawHeight": 1080,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "9d08a010-c9f8-4302-ae60-963d64fbfedd",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "表演狀態Layout_04開始遊戲": {
+      "ver": "1.0.3",
+      "uuid": "d824bb9b-ec3e-4ca5-a4d6-13a83f1bf3ca",
+      "rawTextureUuid": "9d08a010-c9f8-4302-ae60-963d64fbfedd",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 1920,
+      "height": 1080,
+      "rawWidth": 1920,
+      "rawHeight": 1080,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "28161514-c29a-4f05-bdcc-2b783e7401f1",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "主遊戲Layout_05選牌畫面B": {
+      "ver": "1.0.3",
+      "uuid": "56649c02-9910-44e0-8030-acb99d6f7d57",
+      "rawTextureUuid": "28161514-c29a-4f05-bdcc-2b783e7401f1",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 1920,
+      "height": 1080,
+      "rawWidth": 1920,
+      "rawHeight": 1080,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

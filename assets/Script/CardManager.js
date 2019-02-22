@@ -152,7 +152,7 @@ cc.Class({
 
 
 		
-		global.socket.on("stageChange", function (stage) {//hide status
+		global.socket.on("stageChange",  function (stage, timeout) {//hide status
 			//self.currentStatus.active = false;
             self.CardObj.currentStatus.Me.active = false;
             self.CardObj.currentStatus.Pre.active = false;
@@ -160,11 +160,18 @@ cc.Class({
             self.CardObj.currentStatus.PrePre.active = false;
             self.CardObj.currentStatus.NextNext.active = false;
             cc.log("make all currentstatus flase");
-            self.CardObj.cards.Me.active = false;
-            self.CardObj.cards.Pre.active = false;
-            self.CardObj.cards.Next.active = false;
-            self.CardObj.cards.PrePre.active = false;
-            self.CardObj.cards.NextNext.active = false;
+            if(stage !== 5){
+                self.CardObj.cards.Me.active = false;
+                self.CardObj.cards.Pre.active = false;
+                self.CardObj.cards.Next.active = false;
+                self.CardObj.cards.PrePre.active = false;
+                self.CardObj.cards.NextNext.active = false;
+            }
+            else if(stage === 5){
+                self.CardObj.cards.Me.active = true;
+            }
+
+
             //self.PokerSets.active = false; // 當階段到result時，直接顯示PokerSets
         });
 
@@ -255,25 +262,36 @@ cc.Class({
     UpdateBet(Info){
         this.cardInfo = Info;
         var self = this;
+        let unclockTime = 0;
         if(Info.Me.playerRate !== -1){
             self.CardObj.currentStatus.Me.getComponent("PokerControl").showstatus("BetTest_" + (Info.Me.playerRate).toString());
             this.CardObj.currentStatus.Me.active = true;
+            unclockTime++;
         }
         if(Info.PrePre.playerRate  !== -1){
             self.CardObj.currentStatus.PrePre.getComponent("PokerControl").showstatus("BetTest_" + (Info.PrePre.playerRate).toString());
             this.CardObj.currentStatus.PrePre.active = true;
+            unclockTime++;
         }
         if(Info.Pre.playerRate !== -1){
             self.CardObj.currentStatus.Pre.getComponent("PokerControl").showstatus("BetTest_" + (Info.Pre.playerRate).toString());
             this.CardObj.currentStatus.Pre.active = true;
+            unclockTime++;
         }
         if(Info.Next.playerRate !== -1){
             self.CardObj.currentStatus.Next.getComponent("PokerControl").showstatus("BetTest_" + (Info.Next.playerRate).toString());
             this.CardObj.currentStatus.Next.active = true;
+            unclockTime++;
         }
         if(Info.NextNext.playerRate !== -1){
             self.CardObj.currentStatus.NextNext.getComponent("PokerControl").showstatus("BetTest_" + (Info.NextNext.playerRate).toString());
             this.CardObj.currentStatus.NextNext.active = true;
+            unclockTime++;
+        }
+
+        if(unclockTime === 5){
+            this.TimerScript.unscheduleTimer();
+            this.TimerScript.activeButton(-1);
         }
 
         /*self.CardObj.currentStatus.Me.getComponent("PokerControl").showstatus("BetTest_" + (Info.Me.playerRate).toString());
@@ -293,8 +311,11 @@ cc.Class({
         self.PokerSetScript.PrePre.showRate((Info.currentStatus.PrePre).toString());
         self.PokerSetScript.Next.showRate((Info.currentStatus.Next).toString());
         self.PokerSetScript.NextNext.showRate((Info.currentStatus.NextNext).toString());
-
-        self.PokerSets.active = true;
+        self.CardObj.cards.Pre.active = true;
+        self.CardObj.cards.Next.active = true;
+        self.CardObj.cards.PrePre.active = true;
+        self.CardObj.cards.NextNext.active = true;
+        // self.PokerSets.active = true;
 
         self.CardChoose.getComponent("showCard").showCard(Info.cards); // 展示可以選的五張卡
 
@@ -476,7 +497,9 @@ cc.Class({
         if(!self.CardChoose.getComponent("showCard").isThreeSelected()) return;
 
         global.socket.emit("getPlayersCard", global.uid);
+        this.TimerScript.unscheduleTimer();
         this.TimerScript.activeButton(-1);
+        self.CardObj.cards.Me.active = true;
     },
 
     haveBuffButtonClick(){
@@ -484,7 +507,9 @@ cc.Class({
         if(!self.CardChoose.getComponent("showCard").isDoubleOfTen() || !self.CardChoose.getComponent("showCard").isThreeSelected()) return;
 
         global.socket.emit("getPlayersCard", global.uid);
+        this.TimerScript.unscheduleTimer();
         this.TimerScript.activeButton(-1);
+        self.CardObj.cards.Me.active = true;
     },
     /*// 當收到server傳來的封包時
     UpdateNewNewCards(Info){
