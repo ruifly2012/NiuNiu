@@ -59,6 +59,8 @@ cc.Class({
             self.play(index);
         });
 
+        cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
+
     },
 
     play(AnimationIndex) {
@@ -69,6 +71,50 @@ cc.Class({
         this.node.getChildren()[AnimationIndex].getComponent(cc.Animation).play();
 
         //this.node.getChildren()[AnimationIndex].position = this.position[locate].position;
-    }
+    },
+
+    onKeyDown: function (event) {
+        var self = this;
+        console.log('Press a key');
+        switch(event.keyCode) {
+            case cc.macro.KEY.z:
+                console.log('Press "z" key  niuniu');
+                self.play(2);
+                break;
+            case cc.macro.KEY.x:
+                console.log('Press "x" key  silverniu');
+                self.play(3);
+                break;
+            case cc.macro.KEY.c:
+                console.log('Press "c" key  goldniu');
+                self.play(4);
+                break;
+            case cc.macro.KEY.v:
+                console.log('Press "v" key  fiveniu');
+                self.play(5);
+                break;
+            case cc.macro.KEY.b:
+                console.log('Press "b" key  bomb');
+                self.play(6);
+                break;
+            case cc.macro.KEY.n:
+                console.log('Press "n" key  allkill');
+                self.play(7);
+                break;
+            case cc.macro.KEY.m:
+                console.log('Press "m" key victory');
+                self.play(8);
+                break;
+            case cc.macro.KEY.a:
+                console.log('Press "a" key kingIcon');
+                self.play(9);
+                break;
+            case cc.macro.KEY.s:
+                console.log('Press "s" key');
+                self.play(10);
+                break;
+                
+        }
+    },
 
 });
