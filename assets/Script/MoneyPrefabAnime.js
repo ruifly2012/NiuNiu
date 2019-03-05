@@ -40,6 +40,7 @@ cc.Class({
                 if( Info.give[index] > 0 ) self.trigger(king,index,index);
                 else cc.log("give 0$ to"+index+", no anime");
                 cc.log("from me to" + index);
+                cc.log("king = " + king + "  index = " + index);
             }
 
 
@@ -50,8 +51,13 @@ cc.Class({
                     else cc.log("get 0$ from"+index+", no anime");
                     cc.log("from" + index+"to me");
                 }
-            }, 3);//delay 3s
+            }, 2);//delay 3s
             
+        });
+
+        global.EventListener.on("playTestMoneyFlow", function () {
+
+            self.trigger(4, 0, 0);
         });
     },
 

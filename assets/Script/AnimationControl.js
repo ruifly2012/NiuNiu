@@ -25,7 +25,10 @@ cc.Class({
     },
 
     properties: {
-
+        testButton: {
+            default:null,
+            type: cc.Node
+        },
 
     },
 
@@ -116,5 +119,18 @@ cc.Class({
                 
         }
     },
+
+    showAllTestButton: function()
+    {
+        var self = this;
+        self.testButton.active = !self.testButton.active;
+    },
+
+    testButtonPress: function(event, customEventData)
+    {
+        var self = this;
+        if(customEventData === "10") global.EventListener.fire("playTestMoneyFlow");
+        else self.play(customEventData);
+    }
 
 });
