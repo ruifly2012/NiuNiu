@@ -51,7 +51,7 @@ cc.Class({
                     else cc.log("get 0$ from"+index+", no anime");
                     cc.log("from" + index+"to me");
                 }
-            }, 2);//delay 3s
+            }, 1);//delay 3s
             
         });
 
