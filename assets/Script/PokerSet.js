@@ -66,6 +66,13 @@ cc.Class({
         this.cardScript.p5 = this.poker5.getComponent("PokerControl");
         this.cardScript.type = this.cardType.getComponent("PokerControl");
 
+        this.cardScript.rate.setCanSelect(false);
+        this.cardScript.p1.setCanSelect(false);
+        this.cardScript.p2.setCanSelect(false);
+        this.cardScript.p3.setCanSelect(false);
+        this.cardScript.p4.setCanSelect(false);
+        this.cardScript.p5.setCanSelect(false);
+        this.cardScript.type.setCanSelect(false);
     },
 
     showRate(Info){ // Info傳來的是數字

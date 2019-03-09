@@ -309,8 +309,10 @@ cc.Class({
         });*/
 
         this.pokerBackGround.node.on('touchstart', function (event) {
-
-            if (self.CardInfo.selected == false) {
+            if(self.CardInfo.canselect == false){
+                // do nothing
+            }
+            else if (self.CardInfo.selected == false) {
                 self.select();
                 global.EventListener.fire("CardSelected");
             }
@@ -349,6 +351,14 @@ cc.Class({
         //self.goldenLight.enabled = true;
         //cc.log("light active ： ", self.goldenLight.active);
     },
+
+    setCanSelect(bool) {
+        var self = this;
+        self.CardInfo.canselect = bool;
+    },
+
+    // get function
+    //-------------------------------------
     getValue() {
         return this.CardInfo.data;
     },
@@ -362,6 +372,8 @@ cc.Class({
         else if(this.CardInfo.data.showTxt === 'K') return 13;
         else return this.CardInfo.data.showTxt;
     },
+    //-------------------------------------
+
     activeLight: function(){
         var self = this;
         self.goldenLight.active = true;
