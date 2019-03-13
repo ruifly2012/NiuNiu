@@ -19,7 +19,7 @@ cc.Class({
         clip.name = "anim_run";
         clip.wrapMode = cc.WrapMode.Loop;
         //set position
-        self.node.runAction(cc.place(seatX-20 , seatY));
+        self.node.runAction(cc.place(seatX-14 , seatY -5));
         //set show time
         var action = cc.sequence( cc.delayTime(0.5) , cc.show(),cc.delayTime(0.4),cc.hide());
         self.node.runAction(action);
@@ -36,7 +36,7 @@ cc.Class({
         var self = this;
         toSeat = parseInt(toSeat);
         var pos = [{//prepre
-            x : -418,
+            x : -419,
             y: 331
         },
         {//pre
@@ -45,14 +45,14 @@ cc.Class({
         },
         {//me
             x : -515,
-            y: -324
+            y: -328
         },
         {//next
-            x : 804,
-            y: 44
+            x : 811,
+            y: 51
         },
         {//nextnext
-            x : 402,
+            x : 417,
             y: 336
         }]
         //cc.log("to " + pos[toSeat].x + "," + pos[toSeat].y);
