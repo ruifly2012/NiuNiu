@@ -1,10 +1,11 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.0",
   "uuid": "cf0ea8eb-32f9-4ef0-bfdf-1c342d3d2ad1",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "platformSettings": {},
   "subMetas": {
     "玩家頭像下金錢數4": {
       "ver": "1.0.3",

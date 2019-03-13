@@ -1,10 +1,11 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.0",
   "uuid": "5168afa4-c2bb-4990-8fd9-457d1c213700",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "platformSettings": {},
   "subMetas": {
     "主遊戲Layout_01搶庄按鈕": {
       "ver": "1.0.3",

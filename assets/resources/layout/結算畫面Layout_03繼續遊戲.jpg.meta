@@ -1,10 +1,11 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.0",
   "uuid": "c7e6ab1a-ddf3-416a-97ad-c5a46f41d9eb",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "platformSettings": {},
   "subMetas": {
     "結算畫面Layout_03繼續遊戲": {
       "ver": "1.0.3",

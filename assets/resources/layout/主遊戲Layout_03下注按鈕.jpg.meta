@@ -1,10 +1,11 @@
 {
-  "ver": "2.2.0",
+  "ver": "2.3.0",
   "uuid": "91c809cf-0ec7-4cfe-802c-7e5734cd6a45",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
+  "platformSettings": {},
   "subMetas": {
     "主遊戲Layout_03下注按鈕": {
       "ver": "1.0.3",
