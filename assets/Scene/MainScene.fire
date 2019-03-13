@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.30565973917643446,
-      "y": 0.30565973917643446,
+      "x": 0.3066666779694734,
+      "y": 0.3066666779694734,
       "z": 1
     },
     "_quat": {
@@ -102251,8 +102251,8 @@
     "_srcBlendFactor": 1,
     "_dstBlendFactor": 771,
     "_useOriginalSize": false,
-    "_string": "Client20190307\n",
-    "_N$string": "Client20190307\n",
+    "_string": "Client20190313\n",
+    "_N$string": "Client20190313\n",
     "_fontSize": 40,
     "_lineHeight": 40,
     "_enableWrapText": true,
