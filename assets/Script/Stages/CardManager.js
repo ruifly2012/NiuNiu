@@ -494,8 +494,12 @@ cc.Class({
 
     noBuffButtonClick(){
         var self = this;
-        if(!self.CardChoose.getComponent("showCard").isThreeSelected()) return;
+        if(!self.CardChoose.getComponent("showCard").isThreeSelected()){
+            self.CardChoose.getComponent("showCard").cardError.active = true;
+            return;
+        }
 
+        self.CardChoose.getComponent("showCard").cardError.active = false;
         global.socket.emit("getPlayersCard", global.uid);
         this.TimerScript.unscheduleTimer();
         this.TimerScript.activeButton(-1);
@@ -504,8 +508,12 @@ cc.Class({
 
     haveBuffButtonClick(){
         var self = this;
-        if(!self.CardChoose.getComponent("showCard").isDoubleOfTen() || !self.CardChoose.getComponent("showCard").isThreeSelected()) return;
+        if(!self.CardChoose.getComponent("showCard").isDoubleOfTen() || !self.CardChoose.getComponent("showCard").isThreeSelected()){
+            self.CardChoose.getComponent("showCard").cardError.active = true;
+            return;
+        }
 
+        self.CardChoose.getComponent("showCard").cardError.active = false;
         global.socket.emit("getPlayersCard", global.uid);
         this.TimerScript.unscheduleTimer();
         this.TimerScript.activeButton(-1);

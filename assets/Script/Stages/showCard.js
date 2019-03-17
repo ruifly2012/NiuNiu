@@ -524,8 +524,8 @@ cc.Class({
         }
         self.totalNumber = total;
 
-        if(self.Num.first.string != 0 && self.Num.second.string != 0 &&self.Num.third.string != 0) self.cardError.active = false;
-        else self.cardError.active = true;
+        //if(self.Num.first.string != 0 && self.Num.second.string != 0 &&self.Num.third.string != 0) self.cardError.active = false;
+        //else self.cardError.active = true;
     },
 
     clear(){
