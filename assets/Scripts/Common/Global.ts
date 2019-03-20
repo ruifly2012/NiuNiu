@@ -14,13 +14,14 @@ const {ccclass, requireComponent} = cc._decorator;
 export default class Global extends cc.Component{
 
     private static instance: Global;
+    public uid:string;
 
     static get Instance() : Global 
     {
 
         if (!this.instance) {
             Global.instance = new Global();
-            Global.instance.eventlistener = new EventListener();
+            Global.instance.EventListener = new EventListener();
             Global.instance.network = new NetworkManager();
             Global.instance.transitions = new Transitions();
             Global.instance.animation = new AnimationMgr();   
@@ -29,7 +30,7 @@ export default class Global extends cc.Component{
         return this.instance;
     }
 
-    eventlistener: EventListener = null;
+    EventListener: EventListener = null;
     network: NetworkManager = null;    
     transitions: Transitions = null;
     animation: AnimationMgr = null;

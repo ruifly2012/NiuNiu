@@ -1,4 +1,4 @@
-import Global from "../Common/Global";
+import global from "../Common/Global";
 
 export default class NetworkManager {
     
@@ -10,7 +10,8 @@ export default class NetworkManager {
         this._socket = io.connect(this.serverURL, {
             reconnection: false
         });
-		cc.log("connect success");
+        cc.log("connect success");
+        this.eventRegister();
     };
 
     socket(){ return this._socket; }
@@ -18,7 +19,7 @@ export default class NetworkManager {
     eventRegister(){
         this._socket.on("SwitchScene", function (SceneIndex) {
             cc.log("get switch scene req");
-            Global.Instance.eventlistener.notify("SwitchScene", SceneIndex);
+            global.Instance.EventListener.notify("SwitchScene", SceneIndex);
         });
     }
     

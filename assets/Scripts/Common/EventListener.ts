@@ -32,9 +32,12 @@ export default class EventListener {
         });
     }
     
-    notify(...args:any[]):any 
-    {    
-        this._callbacks.map((x)=>{x.func.bind(x.owner)(...args);});
+    notify(...args:any[]):any{    
+        //call func when iterated????????????
+        this._callbacks.map((x)=>{
+            if (x.owner == args[0]) x.func.bind(x.owner)(...args);
+        });
+
     }
     
     clear()

@@ -85110,7 +85110,7 @@
         "__id__": 2410
       }
     ],
-    "_active": false,
+    "_active": true,
     "_level": 0,
     "_components": [
       {
@@ -85975,8 +85975,8 @@
     "target": {
       "__id__": 2397
     },
-    "component": "loginMenu",
-    "_componentId": "",
+    "component": "",
+    "_componentId": "ad93cEdi89ONaZpHgsCBu9+",
     "handler": "LoginbuttonClick",
     "customEventData": ""
   },
@@ -85990,6 +85990,12 @@
     "_enabled": true,
     "loginMenu": {
       "__id__": 2397
+    },
+    "message": {
+      "__id__": 2409
+    },
+    "editBox": {
+      "__id__": 2407
     },
     "_id": "2fN++eWvFPX5XkLMY0Eref"
   },
