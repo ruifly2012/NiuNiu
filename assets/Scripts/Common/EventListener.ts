@@ -33,11 +33,8 @@ export default class EventListener {
     }
     
     notify(...args:any[]):any{    
-        //call func when iterated????????????
-        this._callbacks.map((x)=>{
-            if (x.owner == args[0]) x.func.bind(x.owner)(...args);
-        });
-
+        let tmp_callback = this._callbacks.filter( x => x.owner === args[0] );
+        tmp_callback.map((x)=>{x.func.bind(x.owner)(...args)})
     }
     
     clear()

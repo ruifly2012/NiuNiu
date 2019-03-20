@@ -17,10 +17,12 @@ export default class NetworkManager {
     socket(){ return this._socket; }
 
     eventRegister(){
+        //socket event listener
         this._socket.on("SwitchScene", function (SceneIndex) {
             cc.log("get switch scene req");
             global.Instance.EventListener.notify("SwitchScene", SceneIndex);
         });
+
     }
     
 

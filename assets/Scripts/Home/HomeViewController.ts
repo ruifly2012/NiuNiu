@@ -41,12 +41,16 @@ export default class HomeViewController extends cc.Component {
         global.Instance.network.ConnectServer();
 
         // 換場景註冊
-        global.Instance.EventListener.on("SwitchScene", function (name,SceneIndex) {
+        global.Instance.EventListener.on("SwitchScene", function (event,SceneIndex) {
             cc.log("switch scene to" + SceneIndex);
             switch(SceneIndex){
                 case 0:
                     cc.log("login active");
                     self.loginMenu.active = true;
+                    break;
+                case 1:
+                    cc.log("game active");
+                    self.loginMenu.active = false;
                     break;
                 default:
                     cc.log("login hide");
@@ -58,11 +62,9 @@ export default class HomeViewController extends cc.Component {
         // 一開始的場景
         global.Instance.EventListener.notify("SwitchScene", 0);
 
-        global.Instance.EventListener.on("login", function (name,uid) { // uid 是使用者輸入的名子
+        global.Instance.EventListener.on("login", function (event,uid) { // uid 是使用者輸入的名子
             //將user ID 傳給伺服器端
-            cc.log("emit");
             global.Instance.network.socket().emit("login", uid, function (Success) { // 按了login，只是換到遊戲場景
-                cc.log("login callback");
                 if (Success) {
                     global.Instance.uid = uid; // 代表global所儲存的是以本使用者的訊息為主軸，存入使用者填寫的名子
 					cc.log("globalID : %s",global.Instance.uid);
