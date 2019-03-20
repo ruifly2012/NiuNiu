@@ -1,4 +1,5 @@
 var config = require("config");
+import global from "../../Scripts/Common/Global";
 
 cc.Class({
     extends: cc.Component,
@@ -314,11 +315,13 @@ cc.Class({
             }
             else if (self.CardInfo.selected == false) {
                 self.select();
-                global.EventListener.fire("CardSelected");
+                //global.EventListener.fire("CardSelected");
+                global.Instance.EventListener.notify("CardSelected");
             }
             else {
                 self.unselect();
-                global.EventListener.fire("CardUnselected");
+                //global.EventListener.fire("CardUnselected");
+                global.Instance.EventListener.notify("CardUnselected");
             }
         });
 
