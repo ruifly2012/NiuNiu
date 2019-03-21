@@ -8,7 +8,7 @@ export default class PlayerInfoViewController extends cc.Component {
 
     //ctor
     //=====================================================================
-    private playerInfo: any = null; // 所有玩家的名子、金錢、託管狀態
+    private playerInfo: any = null; 
     private playerScript: any = {
         PreRival: null,
         Me: null,
@@ -49,32 +49,21 @@ export default class PlayerInfoViewController extends cc.Component {
 
     onLoad() {
         var self = this;
-        //this.autoPlaying = cc.find("AutoPlaying", this.node.parent);
-        // 在playerInfo的parent folder(PlayGround)找AutoPlaying node，存入ctor宣告的this.autoPlaying
 
         this.playerScript.PreRival = this.PreRival.getComponent("player");
         this.playerScript.Me = this.Me.getComponent("player");
         this.playerScript.NextRival = this.NextRival.getComponent("player");
         this.playerScript.PrePreRival = this.PrePreRival.getComponent("player");
         this.playerScript.NextNextRival = this.NextNextRival.getComponent("player");
-        //存入五個玩家的player(scrpit)
 
         cc.loader.loadResDir("newnew/common", function (err, assets) { });
-        //load newnew/common 整包 美術圖
 
         global.Instance.EventListener.on("roomReady", function (event, Info) {
-            cc.log("roomReady in PlayerInfoViewCtrlr");
-            cc.log("piv get ", Info);
+            //cc.log("roomReady in PlayerInfoViewCtrlr");
+            //cc.log("piv get ", Info);
             self.UpdateRoom(Info);
-            cc.log("RoomReady in Player Done");
+            //cc.log("RoomReady in Player Done");
         });
-
-        /*global.Instance.network.socket()("roomReady", function (Info) {
-            self.UpdateRoom(Info);
-            cc.log("getRoomReady");
-        });*/
-        //等待server回傳所有玩家的Info，存入playerInfo，並呼叫函式
-
     }
 
 
@@ -84,12 +73,11 @@ export default class PlayerInfoViewController extends cc.Component {
         this.Me.getChildByName("dizhuIcon").active = true;
     }
 
-    // 當收到伺服器信息，此函式被呼叫，更改名子，金錢，有無託管
     UpdateRoom(playerInfo) {
         cc.log("updateRoom");
         var self = this;
 
-        cc.log(playerInfo);
+        //cc.log(playerInfo);
         
         this.playerScript.Me.setName(playerInfo.Me.name);
         this.playerScript.PreRival.setName(playerInfo.Pre.name);
@@ -103,11 +91,7 @@ export default class PlayerInfoViewController extends cc.Component {
         this.playerScript.NextRival.setCoin(playerInfo.Next.coin);
         this.playerScript.PrePreRival.setCoin(playerInfo.PrePre.coin);
         this.playerScript.NextNextRival.setCoin(playerInfo.NextNext.coin);
-        // 更改玩家託管狀態
-        // this.autoPlaying.active = playerInfo.isAI;
 
-
-        // load玩家圖片，並呼叫每個玩家player.js的函式setImg，幫所有玩家填上玩家圖片
         if (playerInfo.Me.img != null)
             cc.loader.loadRes(this.defaultImgs[playerInfo.Me.img], cc.SpriteFrame, function (err, spriteFrame) {
 

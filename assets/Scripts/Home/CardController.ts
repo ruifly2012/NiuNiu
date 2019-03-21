@@ -40,14 +40,14 @@ export default class CardController extends cc.Component {
     };
     private CardsPool: any = null;
     private TimerScript: any = null;
-    private dealerBet: any = { // °O¿ý¥L­Ìªº·m²ø­¿²v
+    private dealerBet: any = { // ï¿½Oï¿½ï¿½ï¿½Lï¿½Ìªï¿½ï¿½mï¿½ï¿½ï¿½ï¿½ï¿½v
         Me: null,
         Pre: null,
         Next: null,
         PrePre: null,
         NextNext: null,
     };
-    private personalBet: any = { // °O¿ý¥L­Ìªº©ãª`­¿«ß
+    private personalBet: any = { // ï¿½Oï¿½ï¿½ï¿½Lï¿½Ìªï¿½ï¿½ï¿½`ï¿½ï¿½ï¿½ï¿½
         Me: null,
         Pre: null,
         Next: null,
@@ -72,7 +72,7 @@ export default class CardController extends cc.Component {
 
     init() {
         this.CardObj = {
-            // ¥Ø«eª¬ºA
+            // ï¿½Ø«eï¿½ï¿½ï¿½A
             currentStatus: {
                 Me: cc.find("Me", this.currentStatus),
                 Pre: cc.find("Pre", this.currentStatus),
@@ -80,7 +80,7 @@ export default class CardController extends cc.Component {
                 PrePre: cc.find("PrePre", this.currentStatus),
                 NextNext: cc.find("NextNext", this.currentStatus),
             },
-            // ¦U®a¥dµP
+            // ï¿½Uï¿½aï¿½dï¿½P
             cards: {
                 Me: cc.find("MePokerSet", this.PokerSets),
                 Pre: cc.find("PrePokerSet", this.PokerSets),
@@ -88,7 +88,7 @@ export default class CardController extends cc.Component {
                 PrePre: cc.find("PrePrePokerSet", this.PokerSets),
                 NextNext: cc.find("NextNextPokerSet", this.PokerSets),
             },
-            // ¬O¤£¬O¦a¥D
+            // ï¿½Oï¿½ï¿½ï¿½Oï¿½aï¿½D
             IsDizhu: {
                 Me: cc.find("Me/dizhuIcon", this.playerInfo),
                 Pre: cc.find("Pre/dizhuIcon", this.playerInfo),
@@ -104,10 +104,10 @@ export default class CardController extends cc.Component {
     onEnable() {
     
     }
-    onLoad() { // ªì©l¤Æ¬ÛÃö¾Þ§@
+    onLoad() { // ï¿½ï¿½lï¿½Æ¬ï¿½ï¿½ï¿½ï¿½Þ§@
         var self = this;
 
-        this.init(); // ÅýÅÜ¼Æ§ä¨ì¦b³õ´º¤¤¯u¹êªº¦ì¸m
+        this.init(); // ï¿½ï¿½ï¿½Ü¼Æ§ï¿½ï¿½bï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½uï¿½êªºï¿½ï¿½m
 
         this.PokerSetScript.Me = this.CardObj.cards.Me.getComponent("PokerSet");
         this.PokerSetScript.Pre = this.CardObj.cards.Pre.getComponent("PokerSet");
@@ -134,8 +134,6 @@ export default class CardController extends cc.Component {
             else if (stage === 5) {
                 self.CardObj.cards.Me.active = true;
             }
-
-            //self.PokerSets.active = false; // ·í¶¥¬q¨ìresult®É¡Aª½±µÅã¥ÜPokerSets
         });
 
 
@@ -148,12 +146,12 @@ export default class CardController extends cc.Component {
             self.UpdateBet(Info);
         });
         global.Instance.EventListener.on("myCard", function (event, Info) {
-            //±NµP§ó·s
+            //ï¿½Nï¿½Pï¿½ï¿½s
             self.UpdateMyCard(Info);
 
         });
         global.Instance.EventListener.on("eachPlayerCard", function (event, Info) {
-            //±NµP§ó·s
+            //ï¿½Nï¿½Pï¿½ï¿½s
             self.UpdateNewNewCards(Info);
 
         });
@@ -220,8 +218,6 @@ export default class CardController extends cc.Component {
             this.TimerScript.unscheduleTimer();
             this.TimerScript.activeButton(-1);
         }
-
-        //self.currentStatus.active = true;
     }
 
     UpdateBet(Info){
@@ -258,14 +254,6 @@ export default class CardController extends cc.Component {
             this.TimerScript.unscheduleTimer();
             this.TimerScript.activeButton(-1);
         }
-
-        /*self.CardObj.currentStatus.Me.getComponent("PokerControl").showstatus("BetTest_" + (Info.Me.playerRate).toString());
-        self.CardObj.currentStatus.PrePre.getComponent("PokerControl").showstatus("BetTest_" + (Info.PrePre.playerRate).toString());
-        self.CardObj.currentStatus.Pre.getComponent("PokerControl").showstatus("BetTest_" + (Info.Pre.playerRate).toString());
-        self.CardObj.currentStatus.Next.getComponent("PokerControl").showstatus("BetTest_" + (Info.Next.playerRate).toString());
-        self.CardObj.currentStatus.NextNext.getComponent("PokerControl").showstatus("BetTest_" + (Info.NextNext.playerRate).toString());*/
-
-        //self.currentStatus.active = true;
     }
 
     UpdateMyCard(Info){
@@ -282,13 +270,14 @@ export default class CardController extends cc.Component {
         self.CardObj.cards.NextNext.active = true;
         // self.PokerSets.active = true;
 
-        self.CardChoose.getComponent("ShowCard").showCard(Info.cards); // ®i¥Ü¥i¥H¿ïªº¤­±i¥d
+        ////////////can't get show card
+        self.CardChoose.getComponent("ShowCard").showCard(Info.cards); // ï¿½iï¿½Ü¥iï¿½Hï¿½ïªºï¿½ï¿½ï¿½iï¿½d
 
     }
 
 
     UpdateNewNewCards(Info){
-        var self = this;// °O±o¥[³o¦æ
+        var self = this;// ï¿½Oï¿½oï¿½[ï¿½oï¿½ï¿½
         cc.log("enter update newnew card");
 
         //self.CardObj.cards.Me.active = true;
@@ -337,48 +326,6 @@ export default class CardController extends cc.Component {
             self.PokerSetScript.NextNext.showCardType((Info.cardType.NextNext).toString());
             self.CardObj.cards.NextNext.active = true;
         }
-
-        /*self.CardObj.cards.Me.active = true;
-        self.CardObj.cards.Pre.active = true;
-        self.CardObj.cards.Next.active = true;
-        self.CardObj.cards.PrePre.active = true;
-        self.CardObj.cards.NextNext.active = true;
-
-        self.PokerSetScript.Me.showCards((Info.cards.Me));
-        self.PokerSetScript.Pre.showCards((Info.cards.Pre));
-        self.PokerSetScript.PrePre.showCards((Info.cards.PrePre));
-        self.PokerSetScript.Next.showCards((Info.cards.Next));
-        self.PokerSetScript.NextNext.showCards((Info.cards.NextNext));
-
-        self.PokerSetScript.Me.showCardType((Info.cardType.Me).toString());
-        self.PokerSetScript.Pre.showCardType((Info.cardType.Pre).toString());
-        self.PokerSetScript.PrePre.showCardType((Info.cardType.PrePre).toString());
-        self.PokerSetScript.Next.showCardType((Info.cardType.Next).toString());
-        self.PokerSetScript.NextNext.showCardType((Info.cardType.NextNext).toString());
-
-        global.EventListener.fire("Animation", Info.animation.Me);*/
-        /*setTimeout(function(){
-            global.EventListener.fire("Animation", Info.animation.Pre);//goto deal rate after 3sec
-            cc.log("Pre Animation");
-        },1500);
-        setTimeout(function(){
-
-            global.EventListener.fire("Animation", Info.animation.Next);
-            cc.log("Next Animation");
-        },3000);
-        setTimeout(function(){
-            global.EventListener.fire("Animation", Info.animation.PrePre);
-            cc.log("PrePre Animation");
-        },4500);
-        setTimeout(function(){
-            global.EventListener.fire("Animation", Info.animation.NextNext);
-            cc.log("NextNext Animation");
-        },6000);*/
-        //global.EventListener.fire("Animation", Info.animation.Pre);
-        //global.EventListener.fire("Animation", Info.animation.Next);
-        //global.EventListener.fire("Animation", Info.animation.PrePre);
-        //global.EventListener.fire("Animation", Info.animation.NextNext);
-
     }
 
     playPokerAnimation(Info){
@@ -420,8 +367,6 @@ export default class CardController extends cc.Component {
         //this.button.active = false;
         //global.EventListener.fire("dealerButton", 3);
     }
-
-
     // bet
     threeButtonClick() {
         global.Instance.network.socket().emit("playerRate", global.Instance.uid, 3);
