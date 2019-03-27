@@ -50,11 +50,11 @@ export default class PlayerInfoViewController extends cc.Component {
     onLoad() {
         var self = this;
 
-        this.playerScript.PreRival = this.PreRival.getComponent("player");
-        this.playerScript.Me = this.Me.getComponent("player");
-        this.playerScript.NextRival = this.NextRival.getComponent("player");
-        this.playerScript.PrePreRival = this.PrePreRival.getComponent("player");
-        this.playerScript.NextNextRival = this.NextNextRival.getComponent("player");
+        this.playerScript.PreRival = this.PreRival.getComponent("Player");
+        this.playerScript.Me = this.Me.getComponent("Player");
+        this.playerScript.NextRival = this.NextRival.getComponent("Player");
+        this.playerScript.PrePreRival = this.PrePreRival.getComponent("Player");
+        this.playerScript.NextNextRival = this.NextNextRival.getComponent("Player");
 
         cc.loader.loadResDir("newnew/common", function (err, assets) { });
 

@@ -1,26 +1,26 @@
-cc.Class({
-    extends: cc.Component,
 
-    ctor: function () {
-        this.Obj= { // include name/img/money
-            name: null
-        };
-        this.Info = { // name only
-            name:null
-        };
-    },
+const {ccclass, property} = cc._decorator;
 
+@ccclass
+export default class NewClass extends cc.Component {
+
+    private Obj: any = { // include name/img/money
+        name: null
+    }
+    private Info: any = { // name only
+        name:null
+    }
 
     onLoad() {
         var self = this;
-        //åˆå§‹åŒ–ï¼Œæ‰¾åˆ°name/img/moneyçš„ä½å€
+        //ªì©l¤Æ¡A§ä¨ìname/img/moneyªº¦ì§}
         this.Obj.name = cc.find("nameandcoin/name", this.node).getComponent(cc.Label);
         this.Obj.img = cc.find("pic", this.node).getComponent(cc.Sprite);
         this.Obj.money = cc.find("nameandcoin/Money", this.node).getComponent("Num2Sprite");
         this.node.active = false;
-    },
+    }
 
-    setName: function (name) {
+    setName(name) {
 
         if (name == '') {
             this.node.active = false;
@@ -30,16 +30,15 @@ cc.Class({
 
         this.Info.name = name;
         this.Obj.name.string = name;
-    },
-
-    setImg: function (Img) {
-
-        this.Obj.img.spriteFrame = Img;
-    },
-
-    setCoin: function (coin) {
-        this.Obj.money.setNum(coin); // å‘¼å«Num2Spriteçš„å‡½å¼
     }
 
+    setImg(Img) {
 
-});
+        this.Obj.img.spriteFrame = Img;
+    }
+
+    setCoin(coin) {
+        this.Obj.money.setNum(coin); // ©I¥sNum2Spriteªº¨ç¦¡
+    }
+
+}

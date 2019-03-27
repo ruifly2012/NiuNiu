@@ -17,7 +17,7 @@
         "__id__": 2
       }
     ],
-    "_active": true,
+    "_active": false,
     "_level": 0,
     "_components": [],
     "_prefab": null,
@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.18666734264274804,
-      "y": 0.18666734264274804,
+      "x": 0.15421223640441895,
+      "y": 0.15421223640441895,
       "z": 1
     },
     "_quat": {
@@ -2595,14 +2595,14 @@
     "sync": false
   },
   {
-    "__type__": "d0484vV/i5FkoLSmy1GnYM0",
+    "__type__": "f2e9eAmX7lNFL6XNczgVuDm",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 35
     },
     "_enabled": true,
-    "_id": "1cbebCsvdIVK0URpgqNsVD"
+    "_id": "ebOr4kvdBKMb6yB1iuz45V"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -3342,14 +3342,14 @@
     "sync": false
   },
   {
-    "__type__": "d0484vV/i5FkoLSmy1GnYM0",
+    "__type__": "f2e9eAmX7lNFL6XNczgVuDm",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 58
     },
     "_enabled": true,
-    "_id": "75RjydMBRJrY5+PeZXYGfp"
+    "_id": "4eHtB9rD9O1blbM4COX/HB"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -4089,14 +4089,14 @@
     "sync": false
   },
   {
-    "__type__": "d0484vV/i5FkoLSmy1GnYM0",
+    "__type__": "f2e9eAmX7lNFL6XNczgVuDm",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 81
     },
     "_enabled": true,
-    "_id": "afzzxcVj1JV52+vCsOwoox"
+    "_id": "30w96sxRhB9p7FruCVgYoB"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -4836,14 +4836,14 @@
     "sync": false
   },
   {
-    "__type__": "d0484vV/i5FkoLSmy1GnYM0",
+    "__type__": "f2e9eAmX7lNFL6XNczgVuDm",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 104
     },
     "_enabled": true,
-    "_id": "3feapX82pFDpZ0V8aZes6d"
+    "_id": "324+aMnl9DU5EhMGZdA92N"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -5583,14 +5583,14 @@
     "sync": false
   },
   {
-    "__type__": "d0484vV/i5FkoLSmy1GnYM0",
+    "__type__": "f2e9eAmX7lNFL6XNczgVuDm",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 127
     },
     "_enabled": true,
-    "_id": "a0Cyuf2nZF+JBp52mcsZ0b"
+    "_id": "ceVBvr7klPopxOhUmNCJTh"
   },
   {
     "__type__": "cc.PrefabInfo",
