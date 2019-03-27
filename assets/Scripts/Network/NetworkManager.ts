@@ -3,7 +3,7 @@ import global from "../Common/Global";
 export default class NetworkManager {
     
     private _socket;
-    private serverURL:string = "http://127.0.0.1:5070/";
+    private serverURL:string = "http://140.118.175.76:5070/";
 
     ConnectServer() {
         cc.log("con server");

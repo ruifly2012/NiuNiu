@@ -129,7 +129,7 @@ export default class TimeController extends cc.Component {
         else
             if (timerInfo.whosTurn != null) {
                 this.Obj.clock.active = true; // 啟動時鐘
-                this.Obj.clock.getComponent("clock").settime(timerInfo.countdownSecond, self); // 寫上剩餘時間
+                this.Obj.clock.getComponent("Clock").settime(timerInfo.countdownSecond, self); // 寫上剩餘時間
                 if (timerInfo.countdownSecond < 10) // 如果剩餘時間小於10，撥放動畫
                     this.Obj.clock.getComponent(cc.Animation).play();
             }
@@ -139,14 +139,14 @@ export default class TimeController extends cc.Component {
 
     UpdateTimer(timerInfo){
         var self = this;
-        this.Obj.clock.getComponent("clock").settime(timerInfo.countdownSecond, self); // 寫上剩餘時間
+        this.Obj.clock.getComponent("Clock").settime(timerInfo.countdownSecond, self); // 寫上剩餘時間
     }
 
     UpdateTimer2(time){
         var self = this;
         if (time == 9) time = 8;
         else if (time == 8) time = 9;
-        this.Obj.clock.getComponent("clock").settime(time, self); // 寫上剩餘時間
+        this.Obj.clock.getComponent("Clock").settime(time, self); // 寫上剩餘時間
     }
 
 }

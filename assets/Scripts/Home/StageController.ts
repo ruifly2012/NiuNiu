@@ -3,7 +3,7 @@ import global from "../Common/Global";
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class CardController extends cc.Component {
+export default class StageController extends cc.Component {
 
     private CardObj: any = {
         currentStatus: {
@@ -156,6 +156,7 @@ export default class CardController extends cc.Component {
 
         });
         global.Instance.EventListener.on("pokerAnimation", function (event, Info) {
+            cc.log("get pokerAnimation : ", Info.Me);
             self.playPokerAnimation(Info);
         });
 

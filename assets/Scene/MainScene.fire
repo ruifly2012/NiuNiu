@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.5104166666666666,
-      "y": 0.5104166666666666,
+      "x": 0.18666734264274804,
+      "y": 0.18666734264274804,
       "z": 1
     },
     "_quat": {
@@ -5717,7 +5717,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "CardManager",
+    "_name": "StageController",
     "_objFlags": 0,
     "_parent": {
       "__id__": 5
@@ -79431,16 +79431,6 @@
     "sync": false
   },
   {
-    "__type__": "a95d2E1MjBH7LhUSnHZuPuM",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 2253
-    },
-    "_enabled": true,
-    "_id": "2bnUEWZKVK5aOIzqT9FpOo"
-  },
-  {
     "__type__": "cc.Animation",
     "_name": "",
     "_objFlags": 0,
@@ -79461,6 +79451,16 @@
     ],
     "playOnLoad": true,
     "_id": "58DG0RWz1PZabmz80c0e+Y"
+  },
+  {
+    "__type__": "fa0611ogvpGRYQlSlKILiKS",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 2253
+    },
+    "_enabled": true,
+    "_id": "83fih5VQVPaIH0+r2UAmV/"
   },
   {
     "__type__": "cc.Node",
