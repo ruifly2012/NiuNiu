@@ -70,7 +70,6 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "_zIndex": 0,
     "groupIndex": 0,
     "_id": ""
   },
@@ -104,17 +103,18 @@
     "_N$spacingY": 0,
     "_N$verticalDirection": 1,
     "_N$horizontalDirection": 0,
+    "_N$affectedByScale": false,
     "_id": ""
   },
   {
-    "__type__": "751c3XZPdJJJ5ahuC0IrkJ8",
+    "__type__": "72793OsQR5NCqGsMOjDWFah",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "resourcedirectory": "landlord/Odds/odds",
+    "resourcedirectory": "player/coinNumber/coin",
     "_id": ""
   },
   {
@@ -123,7 +123,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "e4af025b-32a2-4ea7-80f6-3538ea41931b"
     },
     "fileId": "e7g6T5Q/VOirja5iSTSPaG",
     "sync": false

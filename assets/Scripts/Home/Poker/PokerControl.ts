@@ -1,64 +1,54 @@
-var config = require("config");
-import global from "../../Scripts/Common/Global";
+//import config from "Config";
+import global from "../../Common/Global";
 
-cc.Class({
-    extends: cc.Component,
+const { ccclass, property } = cc._decorator;
 
-    // 創建property名為cardInfo，他包含可不可以被點選，被點選還是沒被點選，還有是甚麼card
-    ctor: function () {
+@ccclass
+export default class PokerControl extends cc.Component {
 
-        this.CardInfo = {
-            canselect: true,
-            selected: false,
-            data: null
-        };
-    },
+    // data member called cardInfo�Aincluding canselect or not, is selected?, and the data of a card
+    public CardInfo: any = {
+        canselect: true,
+        selected: false,
+        data: null
+    }
 
+    // four kinds of cardType 
+    private config: any = {
+        spade: "spade",
+        hearts: "hearts",
+        blackberry: "blackberry",
+        redslice: "redslice",
+    }
 
-    properties: {
-        pokerTxt: { // 卡片上方的數字
-            default: null,
-            type: cc.Sprite
-        },
-        pokerTxt1: { // 卡片下方的數字
-            default: null,
-            type: cc.Sprite
-        },
+    
 
-        pokerType: {// 卡片上方的圖案
-            default: null,
-            type: cc.Sprite
-        },
-        pokerType_1: {// 卡片下方的圖案
-            default: null,
-            type: cc.Sprite
-        },
+    @property   // upper number 
+    pokerTxt: cc.Sprite = null;
+    @property   // lower number
+    pokerTxt1: cc.Sprite = null;
 
-        pokerType2: {// 卡片中間的圖案 或是 金卡背
-            default: null,
-            type: cc.Sprite
-        },
+    @property   // upper image
+    pokerType: cc.Sprite = null;
+    @property   // lower image
+    pokerType_1: cc.Sprite = null;
+    @property   // middle image( cardtype or cardback)
+    pokerType2: cc.Sprite = null;
 
-        pokerBackGround: {// 卡片白底
-            default: null,
-            type: cc.Sprite
-        },
-        status: {// 狀態顯示，比如一倍、不搶、四倍...，若顯示狀態，上方所有node要全關
-            default: null,
-            type: cc.Sprite
-        },
-        goldenLight: {
-            default: null,
-            type: cc.Sprite
-        }
+    @property   // white back when showing card
+    pokerBackGround: cc.Sprite = null;
 
-    },
+    @property   // status like double, triple...(when showing status, all upper node turn off)
+    status: cc.Sprite = null;
 
-    //展示poker
-    //若cardInfo是null，代表要顯示牌背
-    //若cardInfo是{showTxt: ,showType: ,No:}-牌型
-    // 若cardInfo是"string"-status
-    setCard:function(cardInfo,canselect) { // 判斷
+    @property
+    goldenLight: cc.Sprite = null;
+
+    //�i��poker
+    //�YcardInfo�Onull�A�N���n��ܵP�I
+    //�YcardInfo�O{showTxt: ,showType: ,No:}-�P��
+    // �YcardInfo�O"string"-status
+    setCard(cardInfo, canselect) { // �P�_
 
         if (typeof (cardInfo) == "string") {
             this.showstatus(cardInfo);
@@ -66,10 +56,9 @@ cc.Class({
         else {
             this.showPoker(cardInfo, canselect);
         }
-    },
+    }
 
-
-    showPoker: function (showData, canselect) {
+    showPoker(showData, canselect) {
 
         if (showData == null) {
             this.showPokerBack();
@@ -90,11 +79,11 @@ cc.Class({
         self.pokerBackGround.enabled = true;
         self.status.enabled = false;
         //self.goldenLight.enabled = true;
-        var imgUrl = "S-S"; // 小黑陶
-        var imgUrl2 = "S";  // 大黑陶
-        var textUrl = "KD-" + showData.showTxt; // 黑色數字
-        var backUrl = "PC"; // 卡片正面(內容面)
-        if (showType == config.pokerCardType.spade) { // 黑陶
+        var imgUrl = "S-S"; // �p�³�
+        var imgUrl2 = "S";  // �j�³�
+        var textUrl = "KD-" + showData.showTxt; // �¦�Ʀr
+        var backUrl = "PC"; // �d������(���e��)
+        if (showType == self.config.pokerCardType.spade) { // �³�
             imgUrl = "S-S";
             switch (showData.showTxt) {
                 case "J":
@@ -111,7 +100,7 @@ cc.Class({
                     break;
             }
             textUrl = "KD-" + showData.showTxt;
-        } else if (showType == config.pokerCardType.hearts) {
+        } else if (showType == self.config.pokerCardType.hearts) {
             switch (showData.showTxt) {
                 case "J":
                     imgUrl2 = "RJ";
@@ -128,7 +117,7 @@ cc.Class({
             }
             imgUrl = "H-S";
             textUrl = "RD-" + showData.showTxt;
-        } else if (showType == config.pokerCardType.redslice) {
+        } else if (showType == self.config.pokerCardType.redslice) {
             switch (showData.showTxt) {
                 case "J":
                     imgUrl2 = "RJ";
@@ -146,13 +135,13 @@ cc.Class({
             imgUrl = "B-S";
             textUrl = "RD-" + showData.showTxt;
         }
-        else if (showType == config.pokerCardType.laizi) {
+        else if (showType == self.config.pokerCardType.laizi) {
 
             imgUrl = "T-S";
             imgUrl2 = "T";
             textUrl = "RD-" + showData.showTxt;
 
-        } else if (showType == config.pokerCardType.blackberry) {
+        } else if (showType == self.config.pokerCardType.blackberry) {
 
             switch (showData.showTxt) {
                 case "J":
@@ -170,12 +159,12 @@ cc.Class({
             }
             imgUrl = "P-S";
             textUrl = "KD-" + showData.showTxt;
-        } else if (showType == config.ghostCardType.bigG) {
+        } else if (showType == self.config.ghostCardType.bigG) {
             self.pokerType.enabled = false;
             self.pokerType_1.enabled = false;
             textUrl = "RD-JOCKER";
             imgUrl2 = "RJO";
-        } else if (showType == config.ghostCardType.smallG) {
+        } else if (showType == self.config.ghostCardType.smallG) {
             self.pokerType.enabled = false;
             self.pokerType_1.enabled = false;
             textUrl = "KD-JOCKER";
@@ -208,8 +197,9 @@ cc.Class({
 
         cc.log("show card by pokercontrol");
 
-    },
-    showPokerBack: function () {
+    }
+
+    showPokerBack() {
 
 
         var self = this;
@@ -227,8 +217,9 @@ cc.Class({
         cc.loader.loadRes('card/Cards', cc.SpriteAtlas, function (err, atlas) {
             self.pokerBackGround.getComponent(cc.Sprite).spriteFrame = atlas.getSpriteFrame(imgUrl);
         })
-    },
-    showstatus: function (status) {
+    }
+
+    showstatus(status) {
 
         var self = this;
         self.CardInfo.data = status;
@@ -239,19 +230,20 @@ cc.Class({
         self.pokerBackGround.enabled = false;
         self.pokerTxt.enabled = false;
         self.pokerTxt1.enabled = false;
-		cc.log("show poker status %s",status);
-        
-        
+        cc.log("show poker status %s", status);
+
+
         cc.loader.loadRes("text/" + status, cc.SpriteFrame, function (err, spriteFrame) {
-            if(err) cc.log(" fail show poker status %s",status);
+            if (err) cc.log(" fail show poker status %s", status);
             else {
                 self.status.getComponent(cc.Sprite).spriteFrame = spriteFrame;
-                cc.log("success show poker status %s",status);
+                cc.log("success show poker status %s", status);
             }
         })
-		
-    },
-    showcardtype: function(status, frame){
+
+    }
+
+    showcardtype(status, frame) {
         var self = this;
         self.CardInfo.data = status;
         self.CardInfo.canselect = false;
@@ -270,8 +262,9 @@ cc.Class({
             self.pokerType2.getComponent(cc.Sprite).spriteFrame = spriteFrame;
 
         });
-    },
-    showresult: function(status){
+    }
+
+    showresult(status) {
         var self = this;
         self.CardInfo.data = status;
         self.CardInfo.canselect = false;
@@ -291,26 +284,14 @@ cc.Class({
 
         });
 
-    },
-    onLoad: function () {
+}
+
+    onLoad() {
 
         var self = this;
 
-
-        /*this.pokerBackGround.node.on('mouseenter', function (event) {
-
-            if (event.getButton() == null) return;
-
-            if (self.CardInfo.selected == false) {
-                self.select();
-            }
-            else {
-                self.unselect();
-            }
-        });*/
-
         this.pokerBackGround.node.on('touchstart', function (event) {
-            if(self.CardInfo.canselect == false){
+            if (self.CardInfo.canselect == false) {
                 // do nothing
             }
             else if (self.CardInfo.selected == false) {
@@ -325,7 +306,7 @@ cc.Class({
             }
         });
 
-    },
+    }
 
     unselect() {
         var self = this;
@@ -339,12 +320,13 @@ cc.Class({
         //self.edgeLight.active = false;
         //self.goldenLight.active = false;
 
-        //cc.log("light active ： ", self.goldenLight.active);
+        //cc.log("light active �G ", self.goldenLight.active);
 
-    },
+    }
+
     select() {
         var self = this;
-        if(this.CardInfo.canselect == false)return;
+        if (this.CardInfo.canselect == false) return;
         this.CardInfo.selected = true;
         //global.EventListener.fire("CardSelected");
         //this.node.setPositionY(20);
@@ -352,51 +334,49 @@ cc.Class({
         //self.activeLight();
         self.enableLight();
         //self.goldenLight.enabled = true;
-        //cc.log("light active ： ", self.goldenLight.active);
-    },
+        //cc.log("light active �G ", self.goldenLight.active);
+    }
 
     setCanSelect(bool) {
         var self = this;
         self.CardInfo.canselect = bool;
-    },
+    }
 
     // get function
     //-------------------------------------
     getValue() {
         return this.CardInfo.data;
-    },
+    }
     isSelected(){
         return this.CardInfo.selected;
-    },
+    }
     getNumber(){
-        if(this.CardInfo.data.showTxt === 'A') return 1;
-        else if(this.CardInfo.data.showTxt === 'J') return 11;
-        else if(this.CardInfo.data.showTxt === 'Q') return 12;
+        if (this.CardInfo.data.showTxt === 'A') return 1;
+        else if (this.CardInfo.data.showTxt === 'J') return 11;
+        else if (this.CardInfo.data.showTxt === 'Q') return 12;
         else if (this.CardInfo.data.showTxt === 'K') return 13;
-        else return (this.CardInfo.data.showTxt);
-    },
+        else return this.CardInfo.data.showTxt;
+    }
     //-------------------------------------
 
-    activeLight: function(){
+    activeLight() {
         var self = this;
         self.goldenLight.active = true;
         cc.log("activeLight");
-    },
-    unactiveLight: function(){
+    }
+    unactiveLight() {
         var self = this;
         self.goldenLight.active = false;
         cc.log("unactiveLight");
-    },
-    enableLight: function(){
+    }
+    enableLight() {
         var self = this;
         self.goldenLight.enabled = true;
         cc.log("enable Light");
-    },
-    unenableLight: function(){
+    }
+    unenableLight() {
         var self = this;
         self.goldenLight.enabled = false;
         cc.log("unenableLight");
-    },
-
-
-});
+    }
+}

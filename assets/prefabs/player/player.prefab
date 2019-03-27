@@ -56,14 +56,14 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -405,
-      "y": 336,
+      "x": -419,
+      "y": 331,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
+      "x": 0.75,
+      "y": 0.75,
       "z": 1
     },
     "_rotationX": 0,
@@ -151,7 +151,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "18a74f96-6ba1-4582-b505-e86d5832503c"
+      "__uuid__": "542421d8-b62c-466e-911e-7cfd4f9a3de0"
     },
     "_type": 0,
     "_sizeMode": 0,
@@ -212,8 +212,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 92,
-      "height": 89
+      "width": 240,
+      "height": 240
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -258,7 +258,7 @@
       "__uuid__": "cec22640-abbd-4c3f-8eac-d39052f946ba"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -674,14 +674,14 @@
     "_id": ""
   },
   {
-    "__type__": "751c3XZPdJJJ5ahuC0IrkJ8",
+    "__type__": "72793OsQR5NCqGsMOjDWFah",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 16
     },
     "_enabled": true,
-    "resourcedirectory": "landlord/player/coinNumber/coin",
+    "resourcedirectory": "player/coinNumber/coin",
     "_id": ""
   },
   {

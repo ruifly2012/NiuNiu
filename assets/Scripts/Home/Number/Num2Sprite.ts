@@ -1,15 +1,12 @@
 import { setTimeout, setInterval } from "timers";
 // timers 是可下載的模組(人家寫好的)
+const { ccclass, property } = cc._decorator;
 
-cc.Class({
-    extends: cc.Component,
+@ccclass
+export default class NewClass extends cc.Component {
 
-    ctor: function () {
-    },
-
-    properties: {
-        resourcedirectory: "",
-    },
+    @property
+    resourcedirectory: string = "";
 
     UrlTable(char) {
 
@@ -36,13 +33,13 @@ cc.Class({
             case "-":
                 return "hyphen";
         };
-    },
+    }
 
     onLoad() {
         cc.loader.loadResDir(this.resourcedirectory, function (err, assets) { });
-    },
+    }
 
-    setNum: function (num, resourcedirectory = this.resourcedirectory) {
+    setNum(num, resourcedirectory = this.resourcedirectory) {
 
         var self = this;
 
@@ -71,4 +68,6 @@ cc.Class({
 
         });
     }
-});
+
+}
+
