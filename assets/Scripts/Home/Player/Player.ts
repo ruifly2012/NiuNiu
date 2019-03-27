@@ -2,7 +2,7 @@
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class NewClass extends cc.Component {
+export default class Player extends cc.Component {
 
     private Obj: any = { // include name/img/money
         name: null
