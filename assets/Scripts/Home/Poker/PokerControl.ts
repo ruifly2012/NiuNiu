@@ -7,7 +7,7 @@ const { ccclass, property } = cc._decorator;
 export default class PokerControl extends cc.Component {
 
     // data member called cardInfo，including canselect or not, is selected?, and the data of a card
-    public CardInfo: any = {
+    private CardInfo: any = {
         canselect: true,
         selected: false,
         data: null
@@ -15,33 +15,35 @@ export default class PokerControl extends cc.Component {
 
     // four kinds of cardType 
     private config: any = {
-        spade: "spade",
-        hearts: "hearts",
-        blackberry: "blackberry",
-        redslice: "redslice",
+        pokerCardType: {
+            spade: "spade",
+            hearts: "hearts",
+            blackberry: "blackberry",
+            redslice: "redslice",
+        }
     }
 
     
 
-    @property   // upper number 
+    @property(cc.Sprite)   // upper number 
     pokerTxt: cc.Sprite = null;
-    @property   // lower number
+    @property(cc.Sprite)   // lower number
     pokerTxt1: cc.Sprite = null;
 
-    @property   // upper image
+    @property(cc.Sprite)   // upper image
     pokerType: cc.Sprite = null;
-    @property   // lower image
+    @property(cc.Sprite)   // lower image
     pokerType_1: cc.Sprite = null;
-    @property   // middle image( cardtype or cardback)
+    @property(cc.Sprite)   // middle image( cardtype or cardback)
     pokerType2: cc.Sprite = null;
 
-    @property   // white back when showing card
+    @property(cc.Sprite)   // white back when showing card
     pokerBackGround: cc.Sprite = null;
 
-    @property   // status like double, triple...(when showing status, all upper node turn off)
+    @property(cc.Sprite)   // status like double, triple...(when showing status, all upper node turn off)
     status: cc.Sprite = null;
 
-    @property
+    @property(cc.Sprite)
     goldenLight: cc.Sprite = null;
 
     //展示poker
@@ -83,6 +85,7 @@ export default class PokerControl extends cc.Component {
         var imgUrl2 = "S";  // 大黑陶
         var textUrl = "KD-" + showData.showTxt; // 黑色數字
         var backUrl = "PC"; // 卡片正面(內容面)
+        
         if (showType == self.config.pokerCardType.spade) { // 黑陶
             imgUrl = "S-S";
             switch (showData.showTxt) {
