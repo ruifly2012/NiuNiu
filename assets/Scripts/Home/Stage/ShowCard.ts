@@ -18,9 +18,9 @@ export default class ShowCard extends cc.Component {
         total: null
     }
 
-    private selectedCard: any = []; // 紀錄被選中的卡片
+    private selectedCard: any = []; // log choosed card
     private selectedCardPtr: number = 0;
-    private totalNumber: number = 0; // 紀錄總合為多少
+    private totalNumber: number = 0; // log num sum
 
     @property(cc.Node)
     poker1: cc.Node = null;
@@ -138,17 +138,13 @@ export default class ShowCard extends cc.Component {
         });
     }
 
-    start() {
-
-    }
-
     fillTheBox(){
 
         cc.log("Into fillTheBox");
 
         var self = this;
 
-        // 步驟0 ： 如果原本的紀錄中(selectedCard(本文件global的陣列))已經有三張牌被選中，unselected第一張牌
+        // step 0 : if already select 3,unselected first choosed
         if (self.selectedCardPtr === 3) {
             // selectedCard第一個卡unselected，剔除第一個值，所有值向前移動
             switch (self.selectedCard[0]) {
@@ -176,7 +172,7 @@ export default class ShowCard extends cc.Component {
 
         cc.log("selectedCardPtr = ", self.selectedCardPtr);
 
-        // 步驟1 : 找到所有被選中的牌
+        // step 1 : find all selected card
 
         let selected = []; // 按照順序排列好的，被選中的牌
         let ptr = 0; // 被選中的牌個數
@@ -245,8 +241,6 @@ export default class ShowCard extends cc.Component {
         cc.log("selectedCardPtr = ", self.selectedCardPtr);
 
         self.write();
-
-
 
     }
 

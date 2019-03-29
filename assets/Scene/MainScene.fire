@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.1,
-      "y": 0.1,
+      "x": 0.27328908752402514,
+      "y": 0.27328908752402514,
       "z": 1
     },
     "_quat": {
@@ -44826,8 +44826,8 @@
     },
     "component": "",
     "_componentId": "ba8f1iu4dVMu4MLpSAXLPmN",
-    "handler": "noButtonClick",
-    "customEventData": ""
+    "handler": "kingRateClick",
+    "customEventData": "0"
   },
   {
     "__type__": "cc.Node",
@@ -45011,8 +45011,8 @@
     },
     "component": "",
     "_componentId": "ba8f1iu4dVMu4MLpSAXLPmN",
-    "handler": "oneButtonClick",
-    "customEventData": ""
+    "handler": "kingRateClick",
+    "customEventData": "1"
   },
   {
     "__type__": "cc.Node",
@@ -45196,8 +45196,8 @@
     },
     "component": "",
     "_componentId": "ba8f1iu4dVMu4MLpSAXLPmN",
-    "handler": "doubleButtonClick",
-    "customEventData": ""
+    "handler": "kingRateClick",
+    "customEventData": "2"
   },
   {
     "__type__": "cc.Node",
@@ -45381,8 +45381,8 @@
     },
     "component": "",
     "_componentId": "ba8f1iu4dVMu4MLpSAXLPmN",
-    "handler": "tripleButtonClick",
-    "customEventData": ""
+    "handler": "kingRateClick",
+    "customEventData": "3"
   },
   {
     "__type__": "cc.Sprite",
@@ -45448,7 +45448,7 @@
         "__id__": 1290
       }
     ],
-    "_active": false,
+    "_active": true,
     "_level": 1,
     "_components": [],
     "_prefab": null,
@@ -45637,7 +45637,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "one_button",
+    "_name": "3_button",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1291
@@ -45842,8 +45842,8 @@
     },
     "component": "",
     "_componentId": "ba8f1iu4dVMu4MLpSAXLPmN",
-    "handler": "threeButtonClick",
-    "customEventData": ""
+    "handler": "betRateClick",
+    "customEventData": "3"
   },
   {
     "__type__": "cc.Node",
@@ -45914,7 +45914,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "four_button",
+    "_name": "6_button",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1297
@@ -46119,8 +46119,8 @@
     },
     "component": "",
     "_componentId": "ba8f1iu4dVMu4MLpSAXLPmN",
-    "handler": "sixButtonClick",
-    "customEventData": ""
+    "handler": "betRateClick",
+    "customEventData": "6"
   },
   {
     "__type__": "cc.Node",
@@ -46191,7 +46191,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "eight_button",
+    "_name": "9_button",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1303
@@ -46396,8 +46396,8 @@
     },
     "component": "",
     "_componentId": "ba8f1iu4dVMu4MLpSAXLPmN",
-    "handler": "nineButtonClick",
-    "customEventData": ""
+    "handler": "betRateClick",
+    "customEventData": "9"
   },
   {
     "__type__": "cc.Node",
@@ -46471,7 +46471,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "one_button",
+    "_name": "1_button",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1309
@@ -46559,7 +46559,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "one_button",
+    "_name": "2_button",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1309
@@ -46764,8 +46764,8 @@
     },
     "component": "",
     "_componentId": "ba8f1iu4dVMu4MLpSAXLPmN",
-    "handler": "twelveButtonClick",
-    "customEventData": ""
+    "handler": "betRateClick",
+    "customEventData": "12"
   },
   {
     "__type__": "cc.Node",
@@ -46839,7 +46839,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "one_button",
+    "_name": "1_button",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1317
@@ -46927,7 +46927,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "five_button",
+    "_name": "5_button",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1317
@@ -47132,8 +47132,8 @@
     },
     "component": "",
     "_componentId": "ba8f1iu4dVMu4MLpSAXLPmN",
-    "handler": "fifteenButtonClick",
-    "customEventData": ""
+    "handler": "betRateClick",
+    "customEventData": "15"
   },
   {
     "__type__": "cc.Node",
@@ -59996,7 +59996,7 @@
         "__id__": 1659
       }
     ],
-    "_active": true,
+    "_active": false,
     "_level": 0,
     "_components": [
       {
@@ -77158,6 +77158,7 @@
       "__id__": 2
     },
     "_enabled": true,
+    "ani_name": "",
     "_id": "5fCgwrlEBM6pLkZRGv7MBr"
   }
 ]

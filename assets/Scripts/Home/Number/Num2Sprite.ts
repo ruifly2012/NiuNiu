@@ -56,9 +56,9 @@ export default class NewClass extends cc.Component {
 
         cc.loader.loadRes(resourcedirectory, cc.SpriteAtlas, function (err, atlas) {
 
+            //re add child and atlas
             self.node.removeAllChildren();
-
-            // 程式化的在Money下加入新的節點，添加sprite組件，把相對應的美術圖片放入
+            
             for (var i = 0; i < str.length; i++) {
                 var newNode = new cc.Node();
                 newNode.addComponent(cc.Sprite);

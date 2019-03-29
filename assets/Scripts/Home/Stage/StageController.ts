@@ -1,4 +1,4 @@
-import global from "../Common/Global";
+import global from "../../Common/Global";
 
 const {ccclass, property} = cc._decorator;
 
@@ -196,28 +196,23 @@ export default class StageController extends cc.Component {
 
         if (Info.Me.king == true) {
             this.CardObj.IsDizhu.Me.active = true;
-            this.TimerScript.unscheduleTimer();
-            this.TimerScript.activeButton(-1);
+            this.clearTimer();
         }
         else if (Info.Pre.king == true) {
             this.CardObj.IsDizhu.Pre.active = true;
-            this.TimerScript.unscheduleTimer();
-            this.TimerScript.activeButton(-1);
+            this.clearTimer();
         }
         else if (Info.PrePre.king == true) {
             this.CardObj.IsDizhu.PrePre.active = true;
-            this.TimerScript.unscheduleTimer();
-            this.TimerScript.activeButton(-1);
+            this.clearTimer();
         }
         else if (Info.Next.king == true) {
             this.CardObj.IsDizhu.Next.active = true;
-            this.TimerScript.unscheduleTimer();
-            this.TimerScript.activeButton(-1);
+            this.clearTimer();
         }
         else if (Info.NextNext.king == true) {
             this.CardObj.IsDizhu.NextNext.active = true;
-            this.TimerScript.unscheduleTimer();
-            this.TimerScript.activeButton(-1);
+            this.clearTimer();
         }
     }
 
@@ -339,73 +334,20 @@ export default class StageController extends cc.Component {
     }
 
 
-    // determine dealer
-    noButtonClick() {
-        global.Instance.network.socket().emit("kingRate", global.Instance.uid, 0);
-        this.TimerScript.unscheduleTimer();
-        this.TimerScript.activeButton(-1);
-        //global.EventListener.fire("dealerButton", 0);
+    // king rate
+    kingRateClick(event,customEventData){
+        global.Instance.network.socket().emit("kingRate", global.Instance.uid, customEventData);
+        this.clearTimer();
     }
 
-    oneButtonClick(){
-        global.Instance.network.socket().emit("kingRate", global.Instance.uid, 1);
-        this.TimerScript.unscheduleTimer();
-        this.TimerScript.activeButton(-1);
-        //global.EventListener.fire("dealerButton", 1);
+    // bet rate
+    betRateClick(event,customEventData){
+        global.Instance.network.socket().emit("playerRate", global.Instance.uid, customEventData);
+        this.clearTimer();
+        cc.log(customEventData + "bet");
     }
 
-    doubleButtonClick(){
-        global.Instance.network.socket().emit("kingRate", global.Instance.uid, 2);
-        this.TimerScript.unscheduleTimer();
-        this.TimerScript.activeButton(-1);
-        //global.EventListener.fire("dealerButton", 2);
-    }
-
-    tripleButtonClick(){
-        global.Instance.network.socket().emit("kingRate", global.Instance.uid, 3);
-        this.TimerScript.unscheduleTimer();
-        this.TimerScript.activeButton(-1);
-        //this.button.active = false;
-        //global.EventListener.fire("dealerButton", 3);
-    }
-    // bet
-    threeButtonClick() {
-        global.Instance.network.socket().emit("playerRate", global.Instance.uid, 3);
-        this.TimerScript.unscheduleTimer();
-        this.TimerScript.activeButton(-1);
-        cc.log("3bet");
-        //global.EventListener.fire("dealerButton", 0);
-    }
-    sixButtonClick() {
-        global.Instance.network.socket().emit("playerRate", global.Instance.uid, 6);
-        this.TimerScript.unscheduleTimer();
-        this.TimerScript.activeButton(-1);
-        cc.log("6bet");
-        //global.EventListener.fire("dealerButton", 1);
-    }
-    nineButtonClick() {
-        global.Instance.network.socket().emit("playerRate", global.Instance.uid, 9);
-        this.TimerScript.unscheduleTimer();
-        this.TimerScript.activeButton(-1);
-        cc.log("9bet");
-        //global.EventListener.fire("dealerButton", 2);
-    }
-    twelveButtonClick() {
-        global.Instance.network.socket().emit("playerRate", global.Instance.uid, 12);
-        this.TimerScript.unscheduleTimer();
-        this.TimerScript.activeButton(-1);
-        cc.log("12bet");
-        //global.EventListener.fire("dealerButton", 3);
-    }
-    fifteenButtonClick() {
-        global.Instance.network.socket().emit("playerRate", global.Instance.uid, 15);
-        this.TimerScript.unscheduleTimer();
-        this.TimerScript.activeButton(-1);
-        cc.log("15bet");
-        //this.button.active = false;
-        //global.EventListener.fire("dealerButton", 3);
-    }
-
+    //no niu button
     noBuffButtonClick(){
         var self = this;
         if (!self.CardChoose.getComponent("ShowCard").isThreeSelected()) {
@@ -415,11 +357,11 @@ export default class StageController extends cc.Component {
 
         self.CardChoose.getComponent("ShowCard").cardError.active = false;
         global.Instance.network.socket().emit("getPlayersCard", global.Instance.uid);
-        this.TimerScript.unscheduleTimer();
-        this.TimerScript.activeButton(-1);
+        this.clearTimer();
         self.CardObj.cards.Me.active = true;
     }
 
+    //have niu nutton
     haveBuffButtonClick(){
         var self = this;
         if (!self.CardChoose.getComponent("ShowCard").isDoubleOfTen() || !self.CardChoose.getComponent("ShowCard").isThreeSelected()) {
@@ -429,9 +371,7 @@ export default class StageController extends cc.Component {
 
         self.CardChoose.getComponent("ShowCard").cardError.active = false;
         global.Instance.network.socket().emit("getPlayersCard", global.Instance.uid);
-        // global.socket.emit("getPlayersCard", global.uid);
-        this.TimerScript.unscheduleTimer();
-        this.TimerScript.activeButton(-1);
+        this.clearTimer();
         self.CardObj.cards.Me.active = true;
     }
 

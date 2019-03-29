@@ -17,26 +17,23 @@ export default class HomeViewController extends cc.Component {
 
     
     LoginbuttonClick(event, customData) {
-
-        //將gameController的this關鍵字儲存,讓下方functions可調用到this.Message
         var self = this;
 
-        //檢查使用者輸入的名子是否為空白
+        //chek empty ID
         if (this.editBox.string.length === 0) {
             self.message.string = "Empty is not allowed";
             return;
         }
 
-        //觸發login事件(在onLoad()中註冊),發送uid(使用者輸入的名子)給server
+        //emit id to server
         global.Instance.EventListener.notify("login", this.editBox.string);
 		cc.log("click login");
 
     }
 
-    // LIFE-CYCLE CALLBACKS:
-
     onLoad () {
         let self = this;
+        cc.log("before con server");
         //connect server when start
         global.Instance.network.ConnectServer();
 
@@ -59,17 +56,15 @@ export default class HomeViewController extends cc.Component {
             
         });
 
-        // 一開始的場景
+        // start scene ==> login menu
         global.Instance.EventListener.notify("SwitchScene", 0);
 
-        global.Instance.EventListener.on("login", function (event,uid) { // uid 是使用者輸入的名子
-            //將user ID 傳給伺服器端
+        global.Instance.EventListener.on("login", function (event,uid) { 
             global.Instance.network.socket().emit("login", uid, function (Success) { // 按了login，只是換到遊戲場景
                 if (Success) {
                     global.Instance.uid = uid; // 代表global所儲存的是以本使用者的訊息為主軸，存入使用者填寫的名子
 					cc.log("globalID : %s",global.Instance.uid);
                     global.Instance.EventListener.notify("SwitchScene", 1); // 要windowsController換到遊戲場景
-                    //global.socket.emit('LoadGame', global.uid); // 要伺服器給遊戲場景的各個資訊
                 }
                 else {
 					cc.log("log fail");
@@ -77,12 +72,5 @@ export default class HomeViewController extends cc.Component {
                 }
             });
         });
-
     }
-
-    start () {
-    
-    }
-
-    // update (dt) {}
 }
