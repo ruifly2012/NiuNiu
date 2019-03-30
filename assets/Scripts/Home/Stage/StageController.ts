@@ -150,6 +150,7 @@ export default class StageController extends cc.Component {
         });
         global.Instance.EventListener.on("myCard", function (event, Info) {
             // record my card type for the hasniu/noniu button identification
+            cc.log("Info.cardType.Me = ", Info.cardType.Me);
             if (Info.cardType.Me > 0) self.CardObj.myCardType = true;
             else self.CardObj.myCardType = false;
             self.UpdateMyCard(Info);
@@ -374,7 +375,7 @@ export default class StageController extends cc.Component {
             return;
         }*/
         // if it isn't special cardtype or user doesn't choose three card
-        if (self.CardObj.myCardType || !self.CardChoose.getComponent("ShowCard").isThreeSelected()) {
+        if (!self.CardObj.myCardType || !self.CardChoose.getComponent("ShowCard").isThreeSelected()) {
             self.CardChoose.getComponent("ShowCard").cardError.active = true;
             return;
         }
