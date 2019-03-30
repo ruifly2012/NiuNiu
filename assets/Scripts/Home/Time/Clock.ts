@@ -17,11 +17,13 @@ export default class Clock extends cc.Component {
         if (time.toString().length == 2) {
             timer.Obj.time2.active = true;
             timer.Obj.time.active = false;
+            this.Obj.time2.setNum(time);
         }
         else {
             timer.Obj.time2.active = false;
             timer.Obj.time.active = true;
+            this.Obj.time.setNum(time);
         }
-        this.Obj.time.setNum(time);
+        
     }
 }

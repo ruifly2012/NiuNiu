@@ -26,8 +26,11 @@ export default class StageController extends cc.Component {
             Next: null,
             PrePre: null,
             NextNext: null,
-        }
+        },
+        myCardType: null
     };
+
+
 
     private cardInfo: any = null;
 
@@ -146,7 +149,9 @@ export default class StageController extends cc.Component {
             self.UpdateBet(Info);
         });
         global.Instance.EventListener.on("myCard", function (event, Info) {
-            //�N�P��s
+            // record my card type for the hasniu/noniu button identification
+            if (Info.cardType.Me > 0) self.CardObj.myCardType = true;
+            else self.CardObj.myCardType = false;
             self.UpdateMyCard(Info);
 
         });
@@ -364,11 +369,17 @@ export default class StageController extends cc.Component {
     //have niu nutton
     haveBuffButtonClick(){
         var self = this;
-        if (!self.CardChoose.getComponent("ShowCard").isDoubleOfTen() || !self.CardChoose.getComponent("ShowCard").isThreeSelected()) {
+        /*if (!self.CardChoose.getComponent("ShowCard").isDoubleOfTen() || !self.CardChoose.getComponent("ShowCard").isThreeSelected()) {
+            self.CardChoose.getComponent("ShowCard").cardError.active = true;
+            return;
+        }*/
+        // if it isn't special cardtype or user doesn't choose three card
+        if (self.CardObj.myCardType || !self.CardChoose.getComponent("ShowCard").isThreeSelected()) {
             self.CardChoose.getComponent("ShowCard").cardError.active = true;
             return;
         }
 
+        // else 
         self.CardChoose.getComponent("ShowCard").cardError.active = false;
         global.Instance.network.socket().emit("getPlayersCard", global.Instance.uid);
         this.clearTimer();
