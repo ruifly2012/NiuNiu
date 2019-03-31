@@ -1,5 +1,5 @@
 //import PlayerInfo from "../PlayerInfo/Model/PlayerInfo";
-import global from "../Common/Global";
+import global from "../../Common/Global";
 
 const { ccclass, property } = cc._decorator;
 
@@ -36,6 +36,10 @@ export default class PlayerInfoViewController extends cc.Component {
 
     @property(cc.Node)
     NextNextRival: cc.Node = null;
+
+    // IF WANT TO CHANGE TO ARRAY, HERE IS THE SOLUTION
+    /*@property(cc.Node)
+    fiveRival: cc.Node[] = [];*/
 
     @property(cc.Node)
     Autoplaying: cc.Node = null;

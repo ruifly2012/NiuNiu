@@ -17,35 +17,21 @@ cc.Class({
         content: {
             default: null,
             type: cc.Node
-
         },
-        oriY: 0
 
     },
     start() {
-        this.bar.y = 300;
-        this.oriY = this.bar.y;
+        this.bar.y = 350;
     },
     onLoad() {
-        this.bar.y = 300;
-        this.oriY = this.bar.y;
+        this.bar.y = 350;
         this.scrollview.node.on('scrolling', this.callback, this);
     },
-    update() {
-        if (this.scrollview.getScrollOffset().y < 5)
-            this.bar.y = 300;
-    },
     callback() {
-        var offset = this.scrollview.getScrollOffset();
-
-        if (this.oriY - this.back.height * ((offset.y) / this.content.height) * 2.3 < -340)
-            this.bar.y = -340;
-        else {
-            this.bar.y = this.oriY - this.back.height * ((offset.y) / this.content.height) * 2.3;
-        }
-        cc.log("bar y position = ", this.bar.y);
-        cc.log("offset.y = ", offset.y);
-
-
+        let offset = Math.floor(this.scrollview.getScrollOffset().y);
+        var Max = this.scrollview.getMaxScrollOffset().y
+        let backHeight = this.back.height - 40;
+        let newY = backHeight / 2 - offset / Max * backHeight
+        this.bar.y = newY
     },
 });
