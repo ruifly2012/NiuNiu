@@ -20,10 +20,17 @@ export default class AnimationController extends cc.Component {
         Victory: null
     };
 
+    private moneyPrefabs = [];
+    private bgPref:cc.Node[] = [];
     
-
     @property(cc.Node)
     testButton: cc.Node = null;
+
+    @property(cc.Prefab)
+    mPrefab: cc.Prefab = null;
+
+    @property(cc.Prefab)
+    bgPrefab: cc.Prefab = null;
     
     init() {
         this.animation = {
@@ -37,6 +44,20 @@ export default class AnimationController extends cc.Component {
             bomb: cc.find("bomb", this.node),
             Victory: cc.find("victory", this.node),
         };
+
+        for (let index: number = 0; index < 5; index++) {
+            let positionPrefabs:cc.Node[] = [];
+            this.moneyPrefabs.push(positionPrefabs);
+            for(let i: number = 0;i<20;i++){
+                //generate 20 coin for each position 
+                let genGold: cc.Node = cc.instantiate(this.mPrefab);
+                genGold.parent = this.node;
+                this.moneyPrefabs[index].push(genGold);
+            }
+            let shineBg: cc.Node = cc.instantiate(this.bgPrefab);
+            shineBg.parent = this.node;
+            this.bgPref.push(shineBg);
+        }
     }
 
     onLoad() {
@@ -44,7 +65,57 @@ export default class AnimationController extends cc.Component {
 
         var self = this;
 
-        
+        global.Instance.EventListener.on("moneyFlow", function (event,Info) {
+            cc.log("get money pack");
+            let king = Info.king;
+            for (let index = 0; index < 5; index++) {
+                if (index == king) index++;
+                if( Info.give[index] > 0 ) self.trigger(king,index,index);
+                else cc.log("give 0$ to"+index+", no anime");
+                cc.log("from me to" + index);
+                cc.log("king = " + king + "  index = " + index);
+            }
+
+            /*
+
+            self.schedule(function() {
+                for (let index = 0; index < 5; index++) {
+                    if (index == king) index++;
+                    if( Info.get[index] > 0 ) self.trigger(index,king,index);
+                    else cc.log("get 0$ from"+index+", no anime");
+                    cc.log("from" + index+"to me");
+                }
+            }, 1);//delay 3s
+            */
+            
+        });
+
+        global.Instance.EventListener.on("playTestMoneyFlow", function (event) {
+            cc.log("test money");
+            self.trigger(0,1,1);
+
+            /*
+            let king = Info.king;
+            for (let index = 0; index < 5; index++) {
+                if (index == king) index++;
+                if( Info.give[index] > 0 ) self.trigger(king,index,index);
+                else cc.log("give 0$ to"+index+", no anime");
+                cc.log("from me to" + index);
+                cc.log("king = " + king + "  index = " + index);
+            }
+
+
+            self.schedule(function() {
+                for (let index = 0; index < 5; index++) {
+                    if (index == king) index++;
+                    if( Info.get[index] > 0 ) self.trigger(index,king,index);
+                    else cc.log("get 0$ from"+index+", no anime");
+                    cc.log("from" + index+"to me");
+                }
+            }, 1);//delay 3s
+            */
+            
+        });
 
         global.Instance.EventListener.on("Animation", function (event, animationName) {
             var index = animation.indexOf(animationName);
@@ -52,63 +123,14 @@ export default class AnimationController extends cc.Component {
             self.play(index);
         });
 
-        //cc.systemEvent.on(cc.SystemEvent.EventType.KEY_DOWN, this.onKeyDown, this);
-
     }
 
     play(AnimationIndex) {
         cc.log("playing animation at aniCtrler");
         if (AnimationIndex < 0) return;
-        //this.node.getChildByName(AnimationIndex).getComponent(cc.Animation).play();
         this.node.getChildren()[AnimationIndex].active = true;
         this.node.getChildren()[AnimationIndex].getComponent(cc.Animation).play();
-
-        //this.node.getChildren()[AnimationIndex].position = this.position[locate].position;
     }
-
-    /*onKeyDown: function (event) {
-        var self = this;
-        console.log('Press a key');
-        switch (event.keyCode) {
-            case cc.macro.KEY.z:
-                console.log('Press "z" key  niuniu');
-                self.play(2);
-                break;
-            case cc.macro.KEY.x:
-                console.log('Press "x" key  silverniu');
-                self.play(3);
-                break;
-            case cc.macro.KEY.c:
-                console.log('Press "c" key  goldniu');
-                self.play(4);
-                break;
-            case cc.macro.KEY.v:
-                console.log('Press "v" key  fiveniu');
-                self.play(5);
-                break;
-            case cc.macro.KEY.b:
-                console.log('Press "b" key  bomb');
-                self.play(6);
-                break;
-            case cc.macro.KEY.n:
-                console.log('Press "n" key  allkill');
-                self.play(7);
-                break;
-            case cc.macro.KEY.m:
-                console.log('Press "m" key victory');
-                self.play(8);
-                break;
-            case cc.macro.KEY.a:
-                console.log('Press "a" key kingIcon');
-                self.play(9);
-                break;
-            case cc.macro.KEY.s:
-                console.log('Press "s" key');
-                self.play(10);
-                break;
-
-        }
-    }*/
 
     showAllTestButton() {
         var self = this;
@@ -119,6 +141,19 @@ export default class AnimationController extends cc.Component {
         var self = this;
         if (customEventData === "10") global.Instance.EventListener.notify("playTestMoneyFlow");
         else self.play(customEventData);
-}
+    }
+
+    trigger(from:number,to:number,pos:number){
+        cc.log("trigger money");
+        //money
+        let self = this;
+        for(let i = 0;i<20;i++) {
+            let a = Math.floor(Math.random() * (19 - 0 + 1)) + 1;//亂數產生1~20
+            cc.log("pass" + from + "," + to);
+            self.moneyPrefabs[pos][i].getComponent("moneyAnime").moneyFlow(from,to,10*i-100,10*i-100, i+a );
+        }
+        //money shine
+        self.bgPref[pos].getComponent("moneyBgAnime").moneyShine(to);
+    }
 
 }

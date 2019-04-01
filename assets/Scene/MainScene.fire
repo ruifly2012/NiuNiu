@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.25508103547272865,
-      "y": 0.25508103547272865,
+      "x": 0.5104166666666666,
+      "y": 0.5104166666666666,
       "z": 1
     },
     "_quat": {
@@ -54845,8 +54845,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 2,
-      "y": 2,
+      "x": 1,
+      "y": 1,
       "z": 1
     },
     "_rotationX": 0,
@@ -54908,8 +54908,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.9,
-      "y": 0.9,
+      "x": 2,
+      "y": 2,
       "z": 1
     },
     "_rotationX": 0,
@@ -55015,8 +55015,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
+      "x": 2,
+      "y": 2,
       "z": 1
     },
     "_rotationX": 0,
@@ -55091,8 +55091,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.9,
-      "y": 0.9,
+      "x": 2,
+      "y": 2,
       "z": 1
     },
     "_rotationX": 0,
@@ -55201,8 +55201,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.9,
-      "y": 0.9,
+      "x": 2,
+      "y": 2,
       "z": 1
     },
     "_rotationX": 0,
@@ -55309,8 +55309,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.9,
-      "y": 0.9,
+      "x": 2,
+      "y": 2,
       "z": 1
     },
     "_rotationX": 0,
@@ -55417,8 +55417,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.9,
-      "y": 0.9,
+      "x": 2,
+      "y": 2,
       "z": 1
     },
     "_rotationX": 0,
@@ -55525,8 +55525,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.9,
-      "y": 0.9,
+      "x": 2,
+      "y": 2,
       "z": 1
     },
     "_rotationX": 0,
@@ -55640,8 +55640,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
+      "x": 2,
+      "y": 2,
       "z": 1
     },
     "_rotationX": 0,
@@ -55982,8 +55982,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.9,
-      "y": 0.9,
+      "x": 2,
+      "y": 2,
       "z": 1
     },
     "_rotationX": 0,
@@ -56084,14 +56084,14 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -319,
-      "y": -90,
+      "x": -638,
+      "y": -180,
       "z": 0
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
+      "x": 2,
+      "y": 2,
       "z": 1
     },
     "_rotationX": 0,
@@ -56200,8 +56200,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 422,
-      "y": -192,
+      "x": 844,
+      "y": -380,
       "z": 0
     },
     "_scale": {
@@ -56500,8 +56500,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
+      "x": 2,
+      "y": 2,
       "z": 1
     },
     "_rotationX": 0,
@@ -59269,6 +59269,12 @@
     "testButton": {
       "__id__": 1569
     },
+    "mPrefab": {
+      "__uuid__": "cfc36b7e-a0f4-4c1f-a7e6-13c46ae17d27"
+    },
+    "bgPrefab": {
+      "__uuid__": "c5c3691b-6c18-4589-b5fc-11ef60e713d2"
+    },
     "_id": "d6Zv0xOY9OhZx5sMIpHdOj"
   },
   {
@@ -59481,9 +59487,7 @@
     "_fontSize": 23,
     "_lineHeight": 40,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "224eaf42-75e6-4a74-a2ff-d23e4a10ccb8"
-    },
+    "_N$file": null,
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
@@ -59662,9 +59666,7 @@
     "_fontSize": 23,
     "_lineHeight": 40,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "224eaf42-75e6-4a74-a2ff-d23e4a10ccb8"
-    },
+    "_N$file": null,
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
@@ -59843,9 +59845,7 @@
     "_fontSize": 23,
     "_lineHeight": 40,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "224eaf42-75e6-4a74-a2ff-d23e4a10ccb8"
-    },
+    "_N$file": null,
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
@@ -60024,9 +60024,7 @@
     "_fontSize": 23,
     "_lineHeight": 40,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "224eaf42-75e6-4a74-a2ff-d23e4a10ccb8"
-    },
+    "_N$file": null,
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,
@@ -60205,9 +60203,7 @@
     "_fontSize": 23,
     "_lineHeight": 40,
     "_enableWrapText": true,
-    "_N$file": {
-      "__uuid__": "224eaf42-75e6-4a74-a2ff-d23e4a10ccb8"
-    },
+    "_N$file": null,
     "_isSystemFontUsed": false,
     "_spacingX": 0,
     "_batchAsBitmap": false,

@@ -6,7 +6,7 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class PokerControl extends cc.Component {
 
-    // data member called cardInfo¡Aincluding canselect or not, is selected?, and the data of a card
+    // data member called cardInfoï¿½Aincluding canselect or not, is selected?, and the data of a card
     private CardInfo: any = {
         canselect: true,
         selected: false,
@@ -46,11 +46,11 @@ export default class PokerControl extends cc.Component {
     @property(cc.Sprite)
     goldenLight: cc.Sprite = null;
 
-    //®i¥Üpoker
-    //­YcardInfo¬Onull¡A¥Nªí­nÅã¥ÜµP­I
-    //­YcardInfo¬O{showTxt: ,showType: ,No:}-µP«¬
-    // ­YcardInfo¬O"string"-status
-    setCard(cardInfo, canselect) { // §PÂ_
+    //ï¿½iï¿½ï¿½poker
+    //ï¿½YcardInfoï¿½Onullï¿½Aï¿½Nï¿½ï¿½ï¿½nï¿½ï¿½ÜµPï¿½I
+    //ï¿½YcardInfoï¿½O{showTxt: ,showType: ,No:}-ï¿½Pï¿½ï¿½
+    // ï¿½YcardInfoï¿½O"string"-status
+    setCard(cardInfo, canselect) { // ï¿½Pï¿½_
 
         if (typeof (cardInfo) == "string") {
             this.showstatus(cardInfo);
@@ -81,12 +81,12 @@ export default class PokerControl extends cc.Component {
         self.pokerBackGround.enabled = true;
         self.status.enabled = false;
         //self.goldenLight.enabled = true;
-        var imgUrl = "S-S"; // ¤p¶Â³³
-        var imgUrl2 = "S";  // ¤j¶Â³³
-        var textUrl = "KD-" + showData.showTxt; // ¶Â¦â¼Æ¦r
-        var backUrl = "PC"; // ¥d¤ù¥¿­±(¤º®e­±)
+        var imgUrl = "S-S"; // ï¿½pï¿½Â³ï¿½
+        var imgUrl2 = "S";  // ï¿½jï¿½Â³ï¿½
+        var textUrl = "KD-" + showData.showTxt; // ï¿½Â¦ï¿½Æ¦r
+        var backUrl = "PC"; // ï¿½dï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½eï¿½ï¿½)
         
-        if (showType == self.config.pokerCardType.spade) { // ¶Â³³
+        if (showType == self.config.pokerCardType.spade) { // ï¿½Â³ï¿½
             imgUrl = "S-S";
             switch (showData.showTxt) {
                 case "J":
@@ -198,7 +198,7 @@ export default class PokerControl extends cc.Component {
             })
         });
 
-        cc.log("show card by pokercontrol");
+        //cc.log("show card by pokercontrol");
 
     }
 
@@ -233,14 +233,14 @@ export default class PokerControl extends cc.Component {
         self.pokerBackGround.enabled = false;
         self.pokerTxt.enabled = false;
         self.pokerTxt1.enabled = false;
-        cc.log("show poker status %s", status);
+        //cc.log("show poker status %s", status);
 
 
         cc.loader.loadRes("text/" + status, cc.SpriteFrame, function (err, spriteFrame) {
             if (err) cc.log(" fail show poker status %s", status);
             else {
                 self.status.getComponent(cc.Sprite).spriteFrame = spriteFrame;
-                cc.log("success show poker status %s", status);
+                //cc.log("success show poker status %s", status);
             }
         })
 
@@ -323,7 +323,7 @@ export default class PokerControl extends cc.Component {
         //self.edgeLight.active = false;
         //self.goldenLight.active = false;
 
-        //cc.log("light active ¡G ", self.goldenLight.active);
+        //cc.log("light active ï¿½G ", self.goldenLight.active);
 
     }
 
@@ -337,7 +337,7 @@ export default class PokerControl extends cc.Component {
         //self.activeLight();
         self.enableLight();
         //self.goldenLight.enabled = true;
-        //cc.log("light active ¡G ", self.goldenLight.active);
+        //cc.log("light active ï¿½G ", self.goldenLight.active);
     }
 
     setCanSelect(bool) {

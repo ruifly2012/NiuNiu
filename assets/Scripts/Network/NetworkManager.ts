@@ -56,6 +56,12 @@ export default class NetworkManager {
         this._socket.on("Animation", function (animationName) {
             global.Instance.EventListener.notify("Animation", animationName);
         });
+
+        this._socket.on("moneyFlow", function (Info) {
+            global.Instance.EventListener.notify("moneyFlow", Info);
+        });
+        
+
     }
     
 
