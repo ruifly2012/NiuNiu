@@ -8,19 +8,9 @@ var animation = ["gameStart", "hasniu", "niuniu", "silvercow", "goldcow", "fivec
 @ccclass
 export default class AnimationController extends cc.Component {
 
-    private animation: any = {
-        gameStart: null,
-        AllKill: null,
-        hasniu: null,
-        niuniu: null,
-        silvercow: null,
-        goldcow: null,
-        fivecows: null,
-        bomb: null,
-        Victory: null
-    };
+    private animation: any;
 
-    private moneyPrefabs = [];
+    private moneyPrefabs:cc.Node[][] = [];
     private bgPref:cc.Node[] = [];
     
     @property(cc.Node)
@@ -46,8 +36,7 @@ export default class AnimationController extends cc.Component {
         };
 
         for (let index: number = 0; index < 5; index++) {
-            let positionPrefabs:cc.Node[] = [];
-            this.moneyPrefabs.push(positionPrefabs);
+            this.moneyPrefabs[index] = [];
             for(let i: number = 0;i<20;i++){
                 //generate 20 coin for each position 
                 let genGold: cc.Node = cc.instantiate(this.mPrefab);
@@ -63,12 +52,12 @@ export default class AnimationController extends cc.Component {
     onLoad() {
         this.init();
 
-        var self = this;
+        let self = this;
 
         global.Instance.EventListener.on("moneyFlow", function (event,Info) {
             cc.log("get money pack");
             let king = Info.king;
-            for (let index = 0; index < 5; index++) {
+            for (let index: number = 0; index < 5; index++) {
                 if (index == king) index++;
                 if( Info.give[index] > 0 ) self.trigger(king,index,index);
                 else cc.log("give 0$ to"+index+", no anime");
@@ -118,14 +107,14 @@ export default class AnimationController extends cc.Component {
         });
 
         global.Instance.EventListener.on("Animation", function (event, animationName) {
-            var index = animation.indexOf(animationName);
+            let index = this.animation.indexOf(animationName);
             cc.log("trigger anime : " + animationName);
             self.play(index);
         });
 
     }
 
-    play(AnimationIndex) {
+    play(AnimationIndex: number) {
         cc.log("playing animation at aniCtrler");
         if (AnimationIndex < 0) return;
         this.node.getChildren()[AnimationIndex].active = true;
@@ -133,13 +122,13 @@ export default class AnimationController extends cc.Component {
     }
 
     showAllTestButton() {
-        var self = this;
+        let self = this;
         self.testButton.active = !self.testButton.active;
     }
 
-    testButtonPress(event, customEventData) {
-        var self = this;
-        if (customEventData === "10") global.Instance.EventListener.notify("playTestMoneyFlow");
+    testButtonPress(event, customEventData:number) {
+        let self = this;
+        if (customEventData == 10) global.Instance.EventListener.notify("playTestMoneyFlow");
         else self.play(customEventData);
     }
 
