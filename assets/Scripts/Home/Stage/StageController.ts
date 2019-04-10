@@ -1,4 +1,4 @@
-import global from "../../Common/Global";
+﻿import global from "../../Common/Global";
 
 const {ccclass, property} = cc._decorator;
 
@@ -41,8 +41,8 @@ export default class StageController extends cc.Component {
         PrePre: null,
         NextNext: null,
     };
-    private CardsPool: any = null;
     private TimerScript: any = null;
+    private PlayerInfoScript: any = null;
     private dealerBet: any = { // �O���L�̪��m�����v
         Me: null,
         Pre: null,
@@ -108,7 +108,7 @@ export default class StageController extends cc.Component {
     
     }
     onLoad() { // ��l�Ƭ����ާ@
-        var self = this;
+        let self = this;
 
         this.init(); // ���ܼƧ��b�������u�ꪺ��m
 
@@ -118,37 +118,58 @@ export default class StageController extends cc.Component {
         this.PokerSetScript.Next = this.CardObj.cards.Next.getComponent("PokerSet");
         this.PokerSetScript.NextNext = this.CardObj.cards.NextNext.getComponent("PokerSet");
         this.TimerScript = this.Timer.getComponent("TimeController");
-       
+        this.PlayerInfoScript = this.playerInfo.getComponent("PlayerInfoViewController");
+
         global.Instance.EventListener.on("stageChange", function (event, stage, timeout) {
-            //self.currentStatus.active = false;
-            self.CardObj.currentStatus.Me.active = false;
-            self.CardObj.currentStatus.Pre.active = false;
-            self.CardObj.currentStatus.Next.active = false;
-            self.CardObj.currentStatus.PrePre.active = false;
-            self.CardObj.currentStatus.NextNext.active = false;
-            cc.log("make all currentstatus flase");
-            if (stage !== 5) {
-                self.CardObj.cards.Me.active = false;
-                self.CardObj.cards.Pre.active = false;
-                self.CardObj.cards.Next.active = false;
-                self.CardObj.cards.PrePre.active = false;
-                self.CardObj.cards.NextNext.active = false;
-            }
-            else if (stage === 5) {
-                self.CardObj.cards.Me.active = true;
+            self.TimerScript.activeButton(stage);
+
+            switch (stage) {
+                case 0: // stage 0 : waiting stage
+                case 1: // stage 1 : gameStart stage
+                    self.hideCurrentStatus(); // hide king and bet image
+                    self.hideCardSets(); // hide card set
+                    self.TimerScript.hideClock(); // hide middle count down clock
+                    break;
+                case 2: // stage 2 : kings stage
+                case 3: // stage 3 : bet stage
+                case 4: // stage 4 : choose card stage
+                    self.hideCurrentStatus();
+                    self.hideCardSets();
+                    self.TimerScript.setCountDownSecond(timeout);
+                    break;
+                case 5: // stage 5 : show cards stage
+                    self.hideCurrentStatus();
+                    self.CardObj.cards.Me.active = true;
+                    self.TimerScript.hideClock();
+                    break;
+                case 6: // stage 6 : money flow stage
+                case 7: // stage 7 : game continue stage
+                    self.hideCurrentStatus();
+                    self.hideCardSets();
+                    self.TimerScript.hideClock();
+                    break;
             }
         });
 
+        global.Instance.EventListener.on("roomReady", function (event, Info) {
+            // stage 0 : waiting stage (show waiting tips and show player)
+            self.TimerScript.activeButton(0);
+            self.PlayerInfoScript.UpdateRoom(Info);
+            cc.log("activeButton : 0");
+        });
 
         global.Instance.EventListener.on("kingsRate", function (event, Info) {
+            // stage 2 (kings stage)
             self.UpdateDealer(Info);
         });
 
         global.Instance.EventListener.on("playersRate", function (event, Info) {
+            // stage 3 (bet stage)
             cc.log("playerBet");
             self.UpdateBet(Info);
         });
         global.Instance.EventListener.on("myCard", function (event, Info) {
+            // stage 4 (choose card stage)
             // record my card type for the hasniu/noniu button identification
             cc.log("Info.cardType.Me = ", Info.cardType.Me);
             if (Info.cardType.Me > 0) self.CardObj.myCardType = true;
@@ -157,11 +178,13 @@ export default class StageController extends cc.Component {
 
         });
         global.Instance.EventListener.on("eachPlayerCard", function (event, Info) {
+            // stage 5 (show cards stage)
             //�N�P��s
             self.UpdateNewNewCards(Info);
 
         });
         global.Instance.EventListener.on("pokerAnimation", function (event, Info) {
+            // stage 1(gameStart stage) and stage 5(show cards stage)
             cc.log("get pokerAnimation : ", Info.Me);
             self.playPokerAnimation(Info);
         });
@@ -339,6 +362,23 @@ export default class StageController extends cc.Component {
         this.TimerScript.activeButton(-1);
     }
 
+    hideCurrentStatus() {
+        let self = this;
+        self.CardObj.currentStatus.Me.active = false;
+        self.CardObj.currentStatus.Pre.active = false;
+        self.CardObj.currentStatus.Next.active = false;
+        self.CardObj.currentStatus.PrePre.active = false;
+        self.CardObj.currentStatus.NextNext.active = false;
+    }
+
+    hideCardSets() {
+        let self = this;
+        self.CardObj.cards.Me.active = false;
+        self.CardObj.cards.Pre.active = false;
+        self.CardObj.cards.Next.active = false;
+        self.CardObj.cards.PrePre.active = false;
+        self.CardObj.cards.NextNext.active = false;
+    }
 
     // king rate
     kingRateClick(event,customEventData){

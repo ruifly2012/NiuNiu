@@ -2,13 +2,15 @@ import global from "../Common/Global";
 import animationManager from "../Common/AnimationMgr";
 
 const {ccclass, property} = cc._decorator;
-var animation = ["gameStart", "hasniu", "niuniu", "silvercow", "goldcow", "fivecows", "bomb", "allkill",
-    "victory", "kingicon"];
+/*var animation = ["gameStart", "hasniu", "niuniu", "silvercow", "goldcow", "fivecows", "bomb", "allkill",
+    "victory", "kingicon"];*/
 
 @ccclass
 export default class AnimationController extends cc.Component {
 
     private animation: any;
+    private animationName: string[] = ["gameStart", "hasniu", "niuniu", "silvercow", "goldcow", "fivecows", "bomb", "allkill",
+        "victory", "kingicon"];
 
     private moneyPrefabs:cc.Node[][] = [];
     private bgPref:cc.Node[] = [];
@@ -107,7 +109,8 @@ export default class AnimationController extends cc.Component {
         });
 
         global.Instance.EventListener.on("Animation", function (event, animationName) {
-            let index = this.animation.indexOf(animationName);
+            cc.log("AnimationController : ", animationName);
+            let index = self.animationName.indexOf(animationName);
             cc.log("trigger anime : " + animationName);
             self.play(index);
         });

@@ -1,4 +1,4 @@
-//import PlayerInfo from "../PlayerInfo/Model/PlayerInfo";
+﻿//import PlayerInfo from "../PlayerInfo/Model/PlayerInfo";
 import global from "../../Common/Global";
 
 const { ccclass, property } = cc._decorator;
@@ -52,7 +52,7 @@ export default class PlayerInfoViewController extends cc.Component {
     }
 
     onLoad() {
-        var self = this;
+        let self = this;
 
         this.playerScript.PreRival = this.PreRival.getComponent("Player");
         this.playerScript.Me = this.Me.getComponent("Player");
@@ -62,12 +62,12 @@ export default class PlayerInfoViewController extends cc.Component {
 
         cc.loader.loadResDir("newnew/common", function (err, assets) { });
 
-        global.Instance.EventListener.on("roomReady", function (event, Info) {
+        /*global.Instance.EventListener.on("roomReady", function (event, Info) {
             //cc.log("roomReady in PlayerInfoViewCtrlr");
             //cc.log("piv get ", Info);
             self.UpdateRoom(Info);
             //cc.log("RoomReady in Player Done");
-        });
+        });*/
     }
 
 
@@ -79,7 +79,7 @@ export default class PlayerInfoViewController extends cc.Component {
 
     UpdateRoom(playerInfo) {
         cc.log("updateRoom");
-        var self = this;
+        let self = this;
 
         //cc.log(playerInfo);
         
