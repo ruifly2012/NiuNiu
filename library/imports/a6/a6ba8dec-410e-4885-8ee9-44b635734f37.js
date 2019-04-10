@@ -1,6 +1,6 @@
 "use strict";
 cc._RF.push(module, 'a6ba83sQQ5IhY7pRLY1c083', 'moneyBgAnime');
-// prefabs/MoneyFlow/moneyBgAnime.ts
+// Scripts/Animations/moneyBgAnime.ts
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;

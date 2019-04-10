@@ -1,6 +1,6 @@
 "use strict";
 cc._RF.push(module, '72793OsQR5NCqGsMOjDWFah', 'Num2Sprite');
-// Scripts/Home/Number/Num2Sprite.ts
+// Scripts/Home/Num2Sprite.ts
 
 Object.defineProperty(exports, "__esModule", { value: true });
 // timers 是可下載的模組(人家寫好的)

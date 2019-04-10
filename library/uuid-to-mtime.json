@@ -25,43 +25,43 @@
     "relativePath": "prefab"
   },
   "d62ae2b1-8d5b-4e64-9d61-cc7feee557b6": {
-    "asset": 1554121468372,
+    "asset": 1554892675691,
     "meta": 1552474302000,
     "relativePath": "prefabs\\MoneyFlow"
   },
   "cfc36b7e-a0f4-4c1f-a7e6-13c46ae17d27": {
-    "asset": 1554114631991,
-    "meta": 1554114632005,
+    "asset": 1554892675691,
+    "meta": 1554893894181,
     "relativePath": "prefabs\\MoneyFlow\\Money.prefab"
   },
   "c5c3691b-6c18-4589-b5fc-11ef60e713d2": {
-    "asset": 1554121263227,
-    "meta": 1554121263243,
+    "asset": 1554892675691,
+    "meta": 1554893894181,
     "relativePath": "prefabs\\MoneyFlow\\MoneyBg.prefab"
   },
   "e4af025b-32a2-4ea7-80f6-3538ea41931b": {
-    "asset": 1553930188059,
-    "meta": 1554112635026,
+    "asset": 1554892675691,
+    "meta": 1554893894197,
     "relativePath": "prefabs\\Num2Sprite.prefab"
   },
   "a83f8413-9d3e-4d02-b4f5-74f7df95bcbe": {
-    "asset": 1553930188061,
-    "meta": 1554112635033,
+    "asset": 1554892675706,
+    "meta": 1554893894197,
     "relativePath": "prefabs\\player.prefab"
   },
   "348dc4d3-c865-452b-ad8f-17f44e2e2ba3": {
-    "asset": 1553930188061,
-    "meta": 1554112635039,
+    "asset": 1554892675691,
+    "meta": 1554893894213,
     "relativePath": "prefabs\\Poker.prefab"
   },
   "39ac696a-0b93-4560-8439-2f5cacebcbda": {
-    "asset": 1552984374905,
+    "asset": 1554892675706,
     "meta": 1552474302000,
     "relativePath": "resources\\Animations"
   },
   "1a6b0ba0-c562-46e9-be05-5786984b4149": {
-    "asset": 1553930188062,
-    "meta": 1554112635232,
+    "asset": 1554892675706,
+    "meta": 1554893894213,
     "relativePath": "prefabs\\PokerSet.prefab"
   },
   "0c0733e2-71e4-4eb5-a695-0f82444e997e": {
@@ -230,12 +230,12 @@
     "relativePath": "resources\\Animations\\dealer.anim"
   },
   "d5da6f66-a78a-4a1b-b3e5-36730dff66c4": {
-    "asset": 1554120669660,
-    "meta": 1554120669677,
+    "asset": 1554892675706,
+    "meta": 1554893894603,
     "relativePath": "resources\\Animations\\gameStart.anim"
   },
   "52caa371-ac03-4ac2-a622-c486ee772638": {
-    "asset": 1552984374867,
+    "asset": 1554892675706,
     "meta": 1552474302000,
     "relativePath": "resources\\Animations\\moneyflow"
   },
@@ -381,7 +381,7 @@
   },
   "6cb204c5-674e-4635-bb04-e61eb5c6ddf8": {
     "asset": 1552474302000,
-    "meta": 1552984387028,
+    "meta": 1554893894681,
     "relativePath": "resources\\Animations\\moneyflow\\effect_000.png"
   },
   "e9d8d172-f5e7-4495-b2a5-8dabb6c2c9ee": {
@@ -785,7 +785,7 @@
     "relativePath": "resources\\card\\Cards.png"
   },
   "d47f1b64-722d-4e30-b34c-85aef08d0ebd": {
-    "asset": 1554112629072,
+    "asset": 1554892675706,
     "meta": 1552474304000,
     "relativePath": "resources\\layout"
   },
@@ -865,7 +865,7 @@
     "relativePath": "resources\\layout\\表演狀態Layout_02分數.jpg"
   },
   "5b3b1f2a-cba4-47f7-be08-d22c511b2dde": {
-    "asset": 1554112609600,
+    "asset": 1554892675706,
     "meta": 1552474304000,
     "relativePath": "resources\\newnew"
   },
@@ -1571,7 +1571,7 @@
   },
   "a48cac0d-aad1-4c6b-bca5-2f43dffb96c1": {
     "asset": 1552474304000,
-    "meta": 1554112635631,
+    "meta": 1554893894719,
     "relativePath": "resources\\newnew\\frame_a01.png"
   },
   "29dd66c8-e196-4b62-9ed6-fc6dcb0d2624": {
@@ -2710,7 +2710,7 @@
     "relativePath": "resources\\player\\img\\playerPic4.png"
   },
   "c0e3b88c-75bc-4d57-a941-42654b9107ed": {
-    "asset": 1552984375715,
+    "asset": 1554892675706,
     "meta": 1552474302000,
     "relativePath": "resources\\TalkMenu"
   },
@@ -2726,7 +2726,7 @@
   },
   "b8a5f3b8-a01b-4f20-800c-d9744d64ba36": {
     "asset": 1552474302000,
-    "meta": 1552985898710,
+    "meta": 1554893894968,
     "relativePath": "resources\\TalkMenu\\transpartent.png"
   },
   "827fdb3e-9cc5-45d9-9473-fdabe3442608": {
@@ -2985,7 +2985,7 @@
     "relativePath": "resources\\UIList\\Content\\TLaizi\\TLaiziRule.plist"
   },
   "e485850c-a511-482e-86bb-c6533903e388": {
-    "asset": 1554112609596,
+    "asset": 1554892675706,
     "meta": 1552474304000,
     "relativePath": "resources\\UIList\\UI"
   },
@@ -3491,7 +3491,7 @@
   },
   "256380cc-a701-4cef-ab56-8fa4f92afb29": {
     "asset": 1552474304000,
-    "meta": 1554112636631,
+    "meta": 1554893895842,
     "relativePath": "resources\\UIList\\UI\\others.plist"
   },
   "5b14d91e-fe14-4182-a3b0-ea949f810c14": {
@@ -3515,8 +3515,8 @@
     "relativePath": "resources\\UIList\\UI\\others.png"
   },
   "3a006caa-7f57-492d-a186-15647a22f95a": {
-    "asset": 1554892552830,
-    "meta": 1554892552894,
+    "asset": 1554892675660,
+    "meta": 1554893894816,
     "relativePath": "Scene\\MainScene.fire"
   },
   "4eb4998b-f7d1-46fc-a304-cf3f4be87a43": {
@@ -3525,248 +3525,248 @@
     "relativePath": "resources\\UIList\\UI\\setting.png"
   },
   "63587515-9cb9-4660-83a2-c0337e307e78": {
-    "asset": 1552642416865,
-    "meta": 1552984395598,
+    "asset": 1554892675660,
+    "meta": 1554893895023,
     "relativePath": "Scripts\\Animations\\AnimationBase.ts"
   },
   "2908b3ca-772a-41b3-80f6-f5a156b1b014": {
-    "asset": 1552642400021,
-    "meta": 1552984395641,
+    "asset": 1554892675660,
+    "meta": 1554893895092,
     "relativePath": "Scripts\\Animations\\SplineAnimation.ts"
   },
   "65346f1f-2250-41a5-9774-9a5101459114": {
-    "asset": 1552558689133,
-    "meta": 1552984395695,
+    "asset": 1554892675660,
+    "meta": 1554893895170,
     "relativePath": "Scripts\\Common\\AnimationMgr.ts"
   },
   "1bda1ca1-8a78-436d-96f9-6d4ad22e7b62": {
-    "asset": 1552567395074,
-    "meta": 1552984395712,
+    "asset": 1554892675675,
+    "meta": 1554893895186,
     "relativePath": "Scripts\\Common\\AudioMgr.ts"
   },
   "84576e5a-5a30-4a4b-8195-4e5ae40f233d": {
-    "asset": 1552654718047,
-    "meta": 1552984395747,
+    "asset": 1554892675675,
+    "meta": 1554893895217,
     "relativePath": "Scripts\\Common\\FlexDialog.ts"
   },
   "245f82cc-cdfa-4fd8-9489-61fb0c9e5010": {
-    "asset": 1552656118953,
-    "meta": 1552984395796,
+    "asset": 1554892675675,
+    "meta": 1554893895264,
     "relativePath": "Scripts\\Common\\MiscTool.ts"
   },
   "d40492a4-a479-40cc-890f-91bec1e37be5": {
-    "asset": 1552655953750,
-    "meta": 1552984395823,
+    "asset": 1554892675675,
+    "meta": 1554893895295,
     "relativePath": "Scripts\\Common\\ResourcesMgr.ts"
   },
   "6c28da7f-b6e0-4c35-bedb-9327a21f55b8": {
-    "asset": 1552466848721,
-    "meta": 1552984395842,
+    "asset": 1554892675675,
+    "meta": 1554893895311,
     "relativePath": "Scripts\\Common\\Transitions.ts"
   },
   "9d02e4bd-f8f4-4d0c-90af-65701f5794d8": {
-    "asset": 1552656155154,
-    "meta": 1552984395868,
+    "asset": 1554892675675,
+    "meta": 1554893895389,
     "relativePath": "Scripts\\Common\\Util.ts"
   },
   "003962e2-10cd-4735-8f61-d5d529c96e85": {
-    "asset": 1552971647858,
-    "meta": 1550902328229,
+    "asset": 1554892675691,
+    "meta": 1554892675691,
     "relativePath": "Scripts\\PlayerInfo\\Model"
   },
   "28f59a11-57d5-457d-8d23-34eb03fa7151": {
-    "asset": 1550572175295,
-    "meta": 1552984395937,
+    "asset": 1554892675691,
+    "meta": 1554893895764,
     "relativePath": "Scripts\\PlayerInfo\\Model\\PlayerInfo.ts"
   },
   "5f884a6e-1357-4111-9f92-6ccc6e72625c": {
-    "asset": 1554121442616,
-    "meta": 1552984383787,
+    "asset": 1554892675706,
+    "meta": 1554892675691,
     "relativePath": "prefabs"
   },
   "4e8207d5-53e5-4834-9904-9432a6d1871d": {
     "asset": 1552984375753,
-    "meta": 1552984383830,
+    "meta": 1554892675706,
     "relativePath": "resources"
   },
   "d02fa678-b413-4672-9377-a6104abf1352": {
-    "asset": 1554885361755,
-    "meta": 1552984385342,
+    "asset": 1554892675660,
+    "meta": 1554892675660,
     "relativePath": "Scene"
   },
   "ee49a14b-c4b5-4f58-9c9e-aa0b66d5e3cf": {
-    "asset": 1552971652814,
-    "meta": 1552984385346,
+    "asset": 1554892675691,
+    "meta": 1554892675660,
     "relativePath": "Scripts"
   },
   "1e1285a2-76ae-4921-85c2-c762b8e56dbb": {
-    "asset": 1554121468372,
-    "meta": 1552971652786,
+    "asset": 1554892675660,
+    "meta": 1554892675660,
     "relativePath": "Scripts\\Animations"
   },
   "069f2014-2686-4a51-8a5c-4fee662f64d4": {
-    "asset": 1552971647986,
-    "meta": 1552971652794,
+    "asset": 1554892675675,
+    "meta": 1554892675660,
     "relativePath": "Scripts\\Common"
   },
   "d422e853-0e0c-4e1a-8c2d-907c9fe5d2de": {
-    "asset": 1554885361755,
-    "meta": 1552971652806,
+    "asset": 1554892675691,
+    "meta": 1554892675675,
     "relativePath": "Scripts\\Home"
   },
   "c16c27f2-22fc-46ee-ab6c-5230c9d81504": {
-    "asset": 1553930188059,
-    "meta": 1552971652810,
+    "asset": 1554892675691,
+    "meta": 1554892675691,
     "relativePath": "Scripts\\Network"
   },
   "6518567e-fbb3-41a8-bff6-70dba4a94e28": {
-    "asset": 1552971647853,
-    "meta": 1552971652816,
+    "asset": 1554892675691,
+    "meta": 1554892675691,
     "relativePath": "Scripts\\PlayerInfo"
   },
   "4061fa88-2fe0-45a6-8df9-324bf822a0af": {
-    "asset": 1552969599025,
-    "meta": 1552986699462,
+    "asset": 1554892675691,
+    "meta": 1554893895764,
     "relativePath": "Scripts\\Network\\socket.io.js"
   },
   "964713b9-f737-4261-91b6-12446f37a083": {
-    "asset": 1552988770929,
-    "meta": 1552988805655,
+    "asset": 1554892675675,
+    "meta": 1554893895233,
     "relativePath": "Scripts\\Common\\Global.ts"
   },
   "cd721341-445f-4e0c-8155-ba205b4e8309": {
-    "asset": 1553054967738,
-    "meta": 1553059372478,
+    "asset": 1554892675675,
+    "meta": 1554893895202,
     "relativePath": "Scripts\\Common\\EventListener.ts"
   },
   "ad93c11d-8bcf-4e35-a669-1e0b0206ef7e": {
-    "asset": 1553930188051,
-    "meta": 1554112635824,
+    "asset": 1554892675675,
+    "meta": 1554893895436,
     "relativePath": "Scripts\\Home\\HomeViewController.ts"
   },
   "5c10bce6-4d05-4de5-bb7a-840a23a7b055": {
-    "asset": 1553078173200,
-    "meta": 1553078410656,
+    "asset": 1554892675660,
+    "meta": 1554893895092,
     "relativePath": "Scripts\\Animations\\SequenceAnimation.ts"
   },
   "552c52fb-2da9-4acf-b3b2-f273b4b478d6": {
-    "asset": 1553154702736,
-    "meta": 1553154702735,
+    "asset": 1554892675706,
+    "meta": 1554892675706,
     "relativePath": "prefabs\\TalkMenuController"
   },
   "340649d8-71cb-4f6f-ba90-1e52b45078c7": {
-    "asset": 1554112609585,
-    "meta": 1553154702737,
+    "asset": 1554892675706,
+    "meta": 1554892675706,
     "relativePath": "prefabs\\UIControllers"
   },
   "34f542f1-ad51-46b7-826b-d5193473290b": {
-    "asset": 1553154702738,
-    "meta": 1553154784656,
+    "asset": 1554892675706,
+    "meta": 1554893894541,
     "relativePath": "prefabs\\UIControllers\\BtnListController.js"
   },
   "1fec11f7-457b-486f-837d-5430dfae4360": {
-    "asset": 1553154702738,
-    "meta": 1553154784664,
+    "asset": 1554892675706,
+    "meta": 1554893894541,
     "relativePath": "prefabs\\UIControllers\\HelpPageController.js"
   },
   "85b6702d-97b1-4645-b47f-5248856a6c86": {
-    "asset": 1553154702738,
-    "meta": 1553154784695,
+    "asset": 1554892675706,
+    "meta": 1554893894556,
     "relativePath": "prefabs\\UIControllers\\OptionPageController.js"
   },
   "f1b93ce2-7d98-4418-97db-c3fcc97562e9": {
-    "asset": 1554112609585,
-    "meta": 1554112635279,
+    "asset": 1554892675706,
+    "meta": 1554893894588,
     "relativePath": "prefabs\\UIControllers\\scrollBar.js"
   },
   "0d7e3d30-c45d-48e8-9252-c95f7b6ba4cb": {
-    "asset": 1554112609585,
-    "meta": 1554112635289,
+    "asset": 1554892675706,
+    "meta": 1554893894588,
     "relativePath": "prefabs\\UIControllers\\VolumeControl.js"
   },
   "2edc972a-2e27-4396-b30a-60d5c74f9eeb": {
-    "asset": 1554885361765,
-    "meta": 1554891653217,
+    "asset": 1554892675691,
+    "meta": 1554893895733,
     "relativePath": "Scripts\\Home\\Time\\TimeController.ts"
   },
   "ba8f18ae-e1d5-4cbb-830b-a520172cf98d": {
-    "asset": 1554885361765,
-    "meta": 1554891653207,
+    "asset": 1554892675691,
+    "meta": 1554893895701,
     "relativePath": "Scripts\\Home\\Stage\\StageController.ts"
   },
   "e2db2922-0319-49d5-be93-5d88e594d896": {
-    "asset": 1553160007630,
-    "meta": 1553160011984,
+    "asset": 1554892675706,
+    "meta": 1554893894447,
     "relativePath": "prefabs\\TalkMenuController\\TalkMenuController.js"
   },
   "561cf467-7555-4b17-916a-3618161f2d54": {
-    "asset": 1554112609582,
-    "meta": 1554112636461,
+    "asset": 1554892675691,
+    "meta": 1554893895686,
     "relativePath": "Scripts\\Home\\Stage\\ShowCard.ts"
   },
   "7f971f09-d82a-48bb-a536-40448cb5696b": {
-    "asset": 1554885361755,
-    "meta": 1554891653137,
+    "asset": 1554892675691,
+    "meta": 1554893895498,
     "relativePath": "Scripts\\Home\\Player\\PlayerInfoViewController.ts"
   },
   "23188f93-a2d9-42b0-bb96-a658a79d84ce": {
-    "asset": 1554112628433,
+    "asset": 1554892675644,
     "meta": 1554112628433,
     "relativePath": "Font"
   },
   "9591cd1e-666d-4bf5-bca0-541dddaf2f8b": {
-    "asset": 1554112609573,
-    "meta": 1554112635014,
+    "asset": 1554892675644,
+    "meta": 1554893894166,
     "relativePath": "Font\\TengXiangHeiJian-W3-1.ttf"
   },
   "0d0fc5d0-9e62-400d-aae0-c2362b48459d": {
-    "asset": 1553930188060,
-    "meta": 1554112635049,
+    "asset": 1554892675706,
+    "meta": 1554893894463,
     "relativePath": "prefabs\\State.prefab"
   },
   "0deb96d0-2d0b-4dec-8991-240e14d732ce": {
-    "asset": 1554112609598,
-    "meta": 1554112635625,
+    "asset": 1554892675706,
+    "meta": 1554893894698,
     "relativePath": "resources\\layout\\waoiting.png"
   },
   "976c3c98-70a9-46f4-8212-14f56c5f18b2": {
-    "asset": 1554885361755,
-    "meta": 1553930188052,
+    "asset": 1554892675691,
+    "meta": 1554892675675,
     "relativePath": "Scripts\\Home\\Player"
   },
   "727933ac-411e-4d0a-a1ac-30e8c35856a1": {
-    "asset": 1553930188051,
-    "meta": 1554112635969,
+    "asset": 1554892675675,
+    "meta": 1554893895451,
     "relativePath": "Scripts\\Home\\Num2Sprite.ts"
   },
   "f2e9e026-5fb9-4d14-be97-35cce056e0e6": {
-    "asset": 1553930188052,
-    "meta": 1554112636115,
+    "asset": 1554892675675,
+    "meta": 1554893895498,
     "relativePath": "Scripts\\Home\\Player\\Player.ts"
   },
   "8d102522-0987-4fb2-a358-d65f4377a901": {
-    "asset": 1554121673782,
-    "meta": 1553930188054,
+    "asset": 1554892675691,
+    "meta": 1554892675691,
     "relativePath": "Scripts\\Home\\Poker"
   },
   "51cffc1b-d8cd-42dd-aa98-faaef4cde913": {
-    "asset": 1554885361765,
-    "meta": 1553930188056,
+    "asset": 1554892675691,
+    "meta": 1554892675691,
     "relativePath": "Scripts\\Home\\Stage"
   },
   "54d42823-994e-4964-92d4-d872c3830efe": {
-    "asset": 1553930188055,
-    "meta": 1554112636392,
+    "asset": 1554892675691,
+    "meta": 1554893895576,
     "relativePath": "Scripts\\Home\\Poker\\PokerSet.ts"
   },
   "47aec9ce-ff2c-4741-852d-f26366f5a40a": {
-    "asset": 1554885361765,
-    "meta": 1553930188058,
+    "asset": 1554892675691,
+    "meta": 1554892675691,
     "relativePath": "Scripts\\Home\\Time"
   },
   "fa061d68-82fa-4645-8425-4a52882e2292": {
-    "asset": 1554112609583,
-    "meta": 1554112636512,
+    "asset": 1554892675691,
+    "meta": 1554893895733,
     "relativePath": "Scripts\\Home\\Time\\Clock.ts"
   },
   "e851e89b-faa2-4484-bea6-5c01dd9f06e2": {
@@ -3990,28 +3990,28 @@
     "relativePath": "prefab\\webview.prefab"
   },
   "a6ba8dec-410e-4885-8ee9-44b635734f37": {
-    "asset": 1554118401362,
-    "meta": 1554118405078,
+    "asset": 1554892675660,
+    "meta": 1554893895077,
     "relativePath": "Scripts\\Animations\\moneyBgAnime.ts"
   },
   "412976b6-5e90-42f4-b209-14db85c544de": {
-    "asset": 1554118644364,
-    "meta": 1554118647973,
+    "asset": 1554892675691,
+    "meta": 1554893895748,
     "relativePath": "Scripts\\Network\\NetworkManager.ts"
   },
   "2dfd7be3-12ed-46d4-ba69-ebaef568e4c3": {
-    "asset": 1554121075680,
-    "meta": 1554121076731,
+    "asset": 1554892675660,
+    "meta": 1554893895061,
     "relativePath": "Scripts\\Animations\\moneyAnime.ts"
   },
   "cbc3d42e-1244-4c06-bbf8-474d47813f38": {
-    "asset": 1554121702083,
-    "meta": 1554121705167,
+    "asset": 1554892675691,
+    "meta": 1554893895576,
     "relativePath": "Scripts\\Home\\Poker\\PokerControl.ts"
   },
   "676baf82-8639-4cbd-945e-3f782138571a": {
-    "asset": 1554885361755,
-    "meta": 1554891653024,
+    "asset": 1554892675675,
+    "meta": 1554893895420,
     "relativePath": "Scripts\\Home\\AnimationController.ts"
   }
 }

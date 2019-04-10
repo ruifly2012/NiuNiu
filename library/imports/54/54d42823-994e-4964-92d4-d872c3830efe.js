@@ -1,6 +1,6 @@
 "use strict";
 cc._RF.push(module, '54d42gjmU5JZJLU2HLDgw7+', 'PokerSet');
-// Scripts/Home/PokerSet/PokerSet.ts
+// Scripts/Home/Poker/PokerSet.ts
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var _a = cc._decorator, ccclass = _a.ccclass, property = _a.property;
