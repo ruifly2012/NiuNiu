@@ -1,0 +1,80 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "goldcow.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "goldcow_000": {
+      "__uuid__": "7e1d2799-b55c-4766-81c5-221cec67934c"
+    },
+    "goldcow_001": {
+      "__uuid__": "d1a9782c-34eb-4619-afb5-481d83870b70"
+    },
+    "goldcow_002": {
+      "__uuid__": "fcf57572-e6f4-40b8-884a-4f6f78c3f93a"
+    },
+    "goldcow_003": {
+      "__uuid__": "87fece26-7008-477f-9e81-70c7b86801b0"
+    },
+    "goldcow_004": {
+      "__uuid__": "b6ba6cbd-8298-4f81-9f60-31718182214f"
+    },
+    "goldcow_005": {
+      "__uuid__": "b251a0cc-47f4-4024-8a62-51ad8f39502c"
+    },
+    "goldcow_006": {
+      "__uuid__": "d4266681-764e-4d05-baf7-0dc9a352d325"
+    },
+    "goldcow_007": {
+      "__uuid__": "fc90a933-c319-4a01-8d8d-77f8204fd6a0"
+    },
+    "goldcow_008": {
+      "__uuid__": "d4538e76-ae06-4fbe-8358-41ba1c41a4e0"
+    },
+    "goldcow_009": {
+      "__uuid__": "9ed71b68-5f5a-41ac-b8da-4acd5c034b77"
+    },
+    "goldcow_010": {
+      "__uuid__": "51699e4c-05a7-4aa8-bb8e-2b165b555d4c"
+    },
+    "goldcow_011": {
+      "__uuid__": "9dd32b37-bb45-4207-8ade-b876f2a9cdb8"
+    },
+    "goldcow_012": {
+      "__uuid__": "6fe80c52-c120-42d1-8c31-158d5b9fe44b"
+    },
+    "goldcow_013": {
+      "__uuid__": "54289d91-e652-4b24-a580-393eb2c8a43b"
+    },
+    "goldcow_014": {
+      "__uuid__": "21986863-f4a4-4b82-9c18-b8f4d69fff1b"
+    },
+    "goldcow_015": {
+      "__uuid__": "082e88c6-31fe-47ec-af5c-1f559d59d22c"
+    },
+    "goldcow_016": {
+      "__uuid__": "caa7dd1e-236c-4ea0-8a6c-510f8f73657a"
+    },
+    "goldcow_017": {
+      "__uuid__": "9d02a4fc-f9fc-48e7-b433-21ccb04325b7"
+    },
+    "goldcow_018": {
+      "__uuid__": "f4e21324-ce5f-48f0-acfa-6dcb413a0277"
+    },
+    "goldcow_019": {
+      "__uuid__": "6b85b944-7584-4fd1-85b7-0b9fff069b80"
+    },
+    "goldcow_020": {
+      "__uuid__": "91e78e06-6405-4350-905d-b80c804d7d35"
+    },
+    "goldcow_021": {
+      "__uuid__": "e2a4190b-dfd8-46ed-b484-9e32eb53cd71"
+    },
+    "goldcow_022": {
+      "__uuid__": "a549ed81-23ea-40e8-adfc-2c82a88b7c34"
+    },
+    "goldcow_023": {
+      "__uuid__": "d8ad36b0-c38d-43a3-a115-1c4ef9ba2724"
+    }
+  }
+}

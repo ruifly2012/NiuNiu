@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "bookmark_a_01",
+    "texture": "f4e7e9fe-efff-4fbb-8fb6-445abdf34b08",
+    "atlas": "",
+    "rect": [
+      1,
+      18,
+      268,
+      68
+    ],
+    "offset": [
+      0,
+      -9
+    ],
+    "originalSize": [
+      270,
+      86
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

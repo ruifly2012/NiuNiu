@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "關於我們",
+    "texture": "1f6c6e00-7827-4b1e-b5bb-b5db4e7abae0",
+    "atlas": "",
+    "rect": [
+      90,
+      101,
+      1626,
+      601
+    ],
+    "offset": [
+      23,
+      -28.5
+    ],
+    "originalSize": [
+      1760,
+      746
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

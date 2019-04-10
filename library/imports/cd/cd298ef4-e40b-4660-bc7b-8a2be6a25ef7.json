@@ -1,0 +1,38 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "Menu.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "MenuButton_a": {
+      "__uuid__": "cf926b2b-44ae-4dd8-b4da-9ffdf72b892e"
+    },
+    "MenuButton_b": {
+      "__uuid__": "8c8fb84e-eae1-4af2-8fc4-50eed5cf5527"
+    },
+    "MenuButton_c": {
+      "__uuid__": "038d3894-baa9-49d9-a837-d6dfdc481d77"
+    },
+    "Menu_Frame": {
+      "__uuid__": "a3b5af3d-865a-432d-9125-f445e72cf863"
+    },
+    "btn_history": {
+      "__uuid__": "812e45ee-65ac-4f3f-95fb-700d67a32bcb"
+    },
+    "btn_option": {
+      "__uuid__": "ca6afe6b-7419-4479-aa94-44a7f2725fcd"
+    },
+    "icon_help": {
+      "__uuid__": "b01bddf5-1e4f-487f-b87e-07e3b42372ac"
+    },
+    "txt_help": {
+      "__uuid__": "5bad8ac3-bd57-4ca7-92ab-d741fda1a31a"
+    },
+    "txt_history": {
+      "__uuid__": "0cb79dd9-3e90-4c7e-b597-db7ef0b46c7e"
+    },
+    "txt_option": {
+      "__uuid__": "7ab3fcf1-f3ce-4d40-bd9e-2f2192b49002"
+    }
+  }
+}

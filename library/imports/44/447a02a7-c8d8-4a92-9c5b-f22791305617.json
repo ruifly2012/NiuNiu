@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "有電2",
+    "texture": "066bbd0f-0512-40bb-aefa-85bfd5470e0e",
+    "atlas": "",
+    "rect": [
+      6,
+      6,
+      34,
+      18
+    ],
+    "offset": [
+      -2.5,
+      0.5
+    ],
+    "originalSize": [
+      51,
+      31
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

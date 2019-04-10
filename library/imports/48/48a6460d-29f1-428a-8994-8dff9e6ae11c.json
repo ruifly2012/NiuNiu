@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Prize_ICON_Light",
+    "texture": "202d678c-8c37-4b11-a061-e841e1355a9c",
+    "atlas": "",
+    "rect": [
+      10,
+      5,
+      280,
+      290
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      300,
+      300
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "無電1",
+    "texture": "23d5749a-2e40-4ba4-999c-c8d89793b356",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      51,
+      31
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      51,
+      31
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

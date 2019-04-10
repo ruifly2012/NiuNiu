@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "silvercow_005",
+    "texture": "4b4270f1-af1e-4221-a441-505c0da9753e",
+    "atlas": "c5d19f1f-df3f-493f-8760-95f52811710f",
+    "rect": [
+      218,
+      648,
+      215,
+      193
+    ],
+    "offset": [
+      -5,
+      -6
+    ],
+    "originalSize": [
+      267,
+      219
+    ],
+    "rotated": 1,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

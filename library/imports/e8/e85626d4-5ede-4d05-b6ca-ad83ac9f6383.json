@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "聊天",
+    "texture": "a0e48a4e-846a-48ed-847e-c413ebe909bf",
+    "atlas": "",
+    "rect": [
+      1,
+      0,
+      72,
+      59
+    ],
+    "offset": [
+      0.5,
+      0
+    ],
+    "originalSize": [
+      73,
+      59
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

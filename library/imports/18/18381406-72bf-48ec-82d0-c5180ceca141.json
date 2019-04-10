@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "KJO",
+    "texture": "0e949df7-3e5e-4384-8fa6-e152ec8fe678",
+    "atlas": "",
+    "rect": [
+      7,
+      0,
+      98,
+      200
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      112,
+      200
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

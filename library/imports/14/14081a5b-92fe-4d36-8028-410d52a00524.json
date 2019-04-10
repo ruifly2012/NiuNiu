@@ -1,0 +1,14 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "TLaiziOther.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "玩法說明": {
+      "__uuid__": "58726f89-31df-4257-8034-4a0301690d0b"
+    },
+    "結算規則": {
+      "__uuid__": "f8980432-58de-479d-8e88-08f9304067ff"
+    }
+  }
+}

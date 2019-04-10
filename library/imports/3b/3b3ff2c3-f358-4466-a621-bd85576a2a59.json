@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "記錄按下",
+    "texture": "9a933726-ae25-4e28-a007-a78580f53d96",
+    "atlas": "",
+    "rect": [
+      2,
+      2,
+      95,
+      94
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      99,
+      99
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

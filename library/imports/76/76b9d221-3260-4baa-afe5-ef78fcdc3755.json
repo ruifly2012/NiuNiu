@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "RD-K",
+    "texture": "26128d10-393a-45d2-ba6c-8da936507722",
+    "atlas": "",
+    "rect": [
+      1,
+      4,
+      27,
+      28
+    ],
+    "offset": [
+      0,
+      0.5
+    ],
+    "originalSize": [
+      29,
+      37
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "WIFI_0格",
+    "texture": "e1203b40-317a-46c3-b172-92757758f1e7",
+    "atlas": "",
+    "rect": [
+      15,
+      25,
+      10,
+      10
+    ],
+    "offset": [
+      -0.5,
+      -12.5
+    ],
+    "originalSize": [
+      41,
+      35
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "waoiting",
+    "texture": "0deb96d0-2d0b-4dec-8991-240e14d732ce",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      969,
+      546
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      969,
+      546
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

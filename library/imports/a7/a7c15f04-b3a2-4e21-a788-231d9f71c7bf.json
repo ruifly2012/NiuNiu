@@ -1,0 +1,44 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "dealer.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "Dealer_000": {
+      "__uuid__": "b8268b07-78cd-48e7-8c6f-3961fc7cbbcb"
+    },
+    "Dealer_001": {
+      "__uuid__": "5788a2a7-42a8-4c12-a852-999846941c4a"
+    },
+    "Dealer_002": {
+      "__uuid__": "65dab9fd-d8ea-4680-bc97-9a557d49e924"
+    },
+    "Dealer_003": {
+      "__uuid__": "0f4c6438-5f94-4a3e-add7-9bc581584b5d"
+    },
+    "Dealer_004": {
+      "__uuid__": "206776b9-f98b-480a-a415-5b52885eae02"
+    },
+    "Dealer_005": {
+      "__uuid__": "3a15ab70-7637-4192-8cb6-b6d1485f775b"
+    },
+    "Dealer_006": {
+      "__uuid__": "edfb6106-4c7a-42f6-b9f4-15b25322d82f"
+    },
+    "Dealer_007": {
+      "__uuid__": "735acca5-4779-46da-904c-12ca8350ad8a"
+    },
+    "Dealer_008": {
+      "__uuid__": "98417d3d-5e12-445e-b222-c6c65c916106"
+    },
+    "Dealer_009": {
+      "__uuid__": "aada9876-6ba2-4825-98cc-ed7f654f2eae"
+    },
+    "Dealer_010": {
+      "__uuid__": "08c78b74-d6d5-4a04-a6a9-bf94e8279eae"
+    },
+    "Dealer_011": {
+      "__uuid__": "97b288f6-d9bb-4b5f-9096-39dbf27d1954"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "LaiziRule.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "牌型規則1": {
+      "__uuid__": "e97025a2-4337-4eab-9492-0f77112a035b"
+    },
+    "牌型規則2": {
+      "__uuid__": "cd965c7f-21ab-425b-a8dc-ab5c66be6b50"
+    },
+    "開局叫牌": {
+      "__uuid__": "e5d9b288-4c0e-47ba-b593-59200f1dec4c"
+    }
+  }
+}

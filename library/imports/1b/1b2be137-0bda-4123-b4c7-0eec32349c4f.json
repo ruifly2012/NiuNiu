@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "離開",
+    "texture": "88cf4cce-5ce4-44cb-bfc0-d892561e6341",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      71,
+      57
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      71,
+      57
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

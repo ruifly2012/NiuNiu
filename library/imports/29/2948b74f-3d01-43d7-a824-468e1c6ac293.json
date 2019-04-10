@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "scroll_thumb",
+    "texture": "be326492-4927-4339-a5c0-af7869a7d5ca",
+    "atlas": "",
+    "rect": [
+      3,
+      2,
+      10,
+      30
+    ],
+    "offset": [
+      0,
+      -1
+    ],
+    "originalSize": [
+      16,
+      32
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

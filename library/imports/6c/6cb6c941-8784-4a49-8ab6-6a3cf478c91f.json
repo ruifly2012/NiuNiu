@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "託管普通-改",
+    "texture": "0d0bd6d8-0a63-47a3-bf75-633c0844d7e2",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      80,
+      63
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      80,
+      63
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

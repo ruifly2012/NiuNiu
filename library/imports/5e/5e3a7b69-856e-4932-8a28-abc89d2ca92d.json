@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "allkill",
+    "texture": "24f083d7-d6f1-4fae-8656-22ba72954150",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      1864,
+      1172
+    ],
+    "offset": [
+      0,
+      1
+    ],
+    "originalSize": [
+      1864,
+      1174
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

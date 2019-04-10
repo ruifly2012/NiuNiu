@@ -1,0 +1,29 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "託管按下-改",
+    "texture": "b5017c00-2986-45c9-a3cb-dd3cc3323c33",
+    "atlas": "256380cc-a701-4cef-ab56-8fa4f92afb29",
+    "rect": [
+      1855,
+      175,
+      80,
+      63
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      80,
+      63
+    ],
+    "rotated": 1,
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "caw_btn_yes_a",
+    "texture": "285aa441-371a-46d6-865b-1dd4747471a0",
+    "atlas": "",
+    "rect": [
+      0,
+      6,
+      185,
+      94
+    ],
+    "offset": [
+      0,
+      -3
+    ],
+    "originalSize": [
+      185,
+      100
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

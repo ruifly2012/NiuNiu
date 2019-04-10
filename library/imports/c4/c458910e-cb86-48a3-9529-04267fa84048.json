@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "牌型倍數",
+    "texture": "e0617c61-4530-4a45-a612-b5f8fd44e102",
+    "atlas": "",
+    "rect": [
+      75,
+      103,
+      1309,
+      1481
+    ],
+    "offset": [
+      -150.5,
+      -35.5
+    ],
+    "originalSize": [
+      1760,
+      1616
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

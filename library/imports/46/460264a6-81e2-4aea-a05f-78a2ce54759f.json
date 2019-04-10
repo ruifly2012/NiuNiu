@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Subtitle_prompt",
+    "texture": "b051019e-9862-4203-8d57-366faa2b7632",
+    "atlas": "",
+    "rect": [
+      50,
+      2,
+      104,
+      54
+    ],
+    "offset": [
+      1,
+      -1
+    ],
+    "originalSize": [
+      202,
+      56
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

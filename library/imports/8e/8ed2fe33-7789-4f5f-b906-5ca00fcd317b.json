@@ -1,0 +1,11 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "aboutus.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "關於我們": {
+      "__uuid__": "a13844d5-6b93-4d47-af45-4546f641d6ec"
+    }
+  }
+}

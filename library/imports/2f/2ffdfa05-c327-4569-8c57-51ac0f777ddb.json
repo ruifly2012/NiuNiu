@@ -1,0 +1,80 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "5cows.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "5cows_000": {
+      "__uuid__": "2dc19491-3f25-4121-8a7b-c68f58b835ed"
+    },
+    "5cows_001": {
+      "__uuid__": "f6a14a9c-1fb2-4d15-a3c1-5c01812ca990"
+    },
+    "5cows_002": {
+      "__uuid__": "11261267-914a-42fa-9e32-ad670c16cfe6"
+    },
+    "5cows_003": {
+      "__uuid__": "d3bc3638-813c-410b-ac50-d528b3be3026"
+    },
+    "5cows_004": {
+      "__uuid__": "77f2903d-1678-499f-8d6c-05238c4f72d5"
+    },
+    "5cows_005": {
+      "__uuid__": "4bf51c46-09de-4948-9b7f-43b6b7d3de4a"
+    },
+    "5cows_006": {
+      "__uuid__": "a3433477-f2c4-4525-afc7-967dd26a63e8"
+    },
+    "5cows_007": {
+      "__uuid__": "d097faf8-1814-4c73-a275-6ffe692c2037"
+    },
+    "5cows_008": {
+      "__uuid__": "3e219909-9572-43d2-92c2-9ffa17a5c6e3"
+    },
+    "5cows_009": {
+      "__uuid__": "1a4034d3-badc-4852-b59a-8413fd4bd775"
+    },
+    "5cows_010": {
+      "__uuid__": "5b276f64-dfde-4494-8654-af42a11d7898"
+    },
+    "5cows_011": {
+      "__uuid__": "d384be0c-d736-4a73-b044-a2ad5c5cd646"
+    },
+    "5cows_012": {
+      "__uuid__": "42b3f4fb-8317-4af5-bd48-04d01caec13a"
+    },
+    "5cows_013": {
+      "__uuid__": "42b49f96-be31-48e3-a8b7-322f9f2aec06"
+    },
+    "5cows_014": {
+      "__uuid__": "cb1d0689-c75a-40da-9d3b-9096f0c75d07"
+    },
+    "5cows_015": {
+      "__uuid__": "52a71e6f-720a-4a94-8fdb-0505acad180c"
+    },
+    "5cows_016": {
+      "__uuid__": "c9d5aaf1-b0ed-4d1a-b13a-bd67161a48f3"
+    },
+    "5cows_017": {
+      "__uuid__": "2235bdf9-1fe0-4512-a92a-3c9ac81ddd91"
+    },
+    "5cows_018": {
+      "__uuid__": "9707cc9d-0e1a-4b31-b36a-3a1a21674783"
+    },
+    "5cows_019": {
+      "__uuid__": "4d94d210-3475-4fb2-9af4-20aa22ddc799"
+    },
+    "5cows_020": {
+      "__uuid__": "b81baa91-5148-42ea-ad76-8ac61e2f5577"
+    },
+    "5cows_021": {
+      "__uuid__": "8ddc555f-411a-4be3-a0dd-6b5bb9f4b324"
+    },
+    "5cows_022": {
+      "__uuid__": "ad16c1cb-2d80-48e6-9df1-5a249b8c8168"
+    },
+    "5cows_023": {
+      "__uuid__": "457c19a9-ae70-4a6f-ac0b-974e40f02036"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "託管無效-改",
+    "texture": "58bc07ec-4c1a-4b0e-b123-cdd19dff0573",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      80,
+      63
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      80,
+      63
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

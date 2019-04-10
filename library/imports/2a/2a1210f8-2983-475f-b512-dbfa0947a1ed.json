@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "comma",
+    "texture": "37c24a0d-0336-4b31-8d57-32096d7afe20",
+    "atlas": "",
+    "rect": [
+      4,
+      14,
+      7,
+      11
+    ],
+    "offset": [
+      -0.5,
+      -7
+    ],
+    "originalSize": [
+      16,
+      25
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

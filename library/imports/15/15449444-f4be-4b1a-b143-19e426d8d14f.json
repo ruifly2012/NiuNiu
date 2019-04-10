@@ -1,0 +1,44 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "setting.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "btn_mute_bgm00": {
+      "__uuid__": "a29d73be-4a78-46af-9fb9-6abc23d3d442"
+    },
+    "btn_mute_bgm01": {
+      "__uuid__": "24de7458-e760-4bde-a17b-67c07e6bbf63"
+    },
+    "btn_mute_bgm02": {
+      "__uuid__": "7ef0830f-88c8-4635-b6f4-a37c16f81e49"
+    },
+    "btn_plus02": {
+      "__uuid__": "5305fe3c-6b35-44d5-ac1c-fbb235d36088"
+    },
+    "panel_bottom01": {
+      "__uuid__": "16516ba7-549b-4d0d-9e1a-5e4b2ec253ed"
+    },
+    "panel_top01-2": {
+      "__uuid__": "cfd52ee5-6e21-43f3-9ab6-0024b6d0a7b3"
+    },
+    "panel_top01-3": {
+      "__uuid__": "6f37dbe1-b77e-4009-b8ee-01efba7b6eab"
+    },
+    "panel_top01-4": {
+      "__uuid__": "3b66d1c0-bc3b-4188-b911-fda4b3a843c5"
+    },
+    "panel_top01": {
+      "__uuid__": "d5556b1b-1633-440d-b8e1-526574f8fc78"
+    },
+    "txt_music": {
+      "__uuid__": "0a6a330c-9fd8-4df0-aac9-2f9a77d5bf83"
+    },
+    "txt_sound": {
+      "__uuid__": "e5937fd5-df19-408e-9c64-9da1aa78ba46"
+    },
+    "txt_voice": {
+      "__uuid__": "559c97d9-c38c-4229-bade-1cdfa56150b7"
+    }
+  }
+}

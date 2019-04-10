@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Win_ribon",
+    "texture": "46081363-8e99-484e-aea7-8aee5c0dd172",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      735,
+      227
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      735,
+      227
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

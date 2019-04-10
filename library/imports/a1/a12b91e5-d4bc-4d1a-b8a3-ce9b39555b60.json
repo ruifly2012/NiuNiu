@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Bet_num_a09",
+    "texture": "9fcc35dc-7060-4fdf-9a40-f0ed0838a0e2",
+    "atlas": "",
+    "rect": [
+      2,
+      1,
+      23,
+      37
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      28,
+      40
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

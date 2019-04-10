@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "時間4",
+    "texture": "e44fdcf8-fbe3-4452-aa1d-7576c04151a9",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      15,
+      20
+    ],
+    "offset": [
+      -0.5,
+      0
+    ],
+    "originalSize": [
+      16,
+      20
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

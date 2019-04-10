@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "結算規則",
+    "texture": "02a45272-ea80-49cc-ae6d-9f04cc8980c9",
+    "atlas": "",
+    "rect": [
+      98,
+      100,
+      1463,
+      1420
+    ],
+    "offset": [
+      -50.5,
+      -28
+    ],
+    "originalSize": [
+      1760,
+      1564
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

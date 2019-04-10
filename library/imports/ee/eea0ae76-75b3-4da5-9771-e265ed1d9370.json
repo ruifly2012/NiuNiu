@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "WIFI_無電",
+    "texture": "d09bae5f-c4a2-49ce-8fd5-4b25597400f3",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      41,
+      35
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      41,
+      35
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

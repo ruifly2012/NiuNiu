@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "牌型算法",
+    "texture": "c19df308-0433-4f6e-976c-ce42546bbb4f",
+    "atlas": "",
+    "rect": [
+      103,
+      100,
+      1598,
+      540
+    ],
+    "offset": [
+      22,
+      -21
+    ],
+    "originalSize": [
+      1760,
+      698
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

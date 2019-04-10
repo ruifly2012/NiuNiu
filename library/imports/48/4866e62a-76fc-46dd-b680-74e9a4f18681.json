@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "玩家頭像下金錢數點1",
+    "texture": "23d07588-2b45-443a-8e47-92161bb8389c",
+    "atlas": "",
+    "rect": [
+      4,
+      14,
+      7,
+      11
+    ],
+    "offset": [
+      -0.5,
+      -7
+    ],
+    "originalSize": [
+      16,
+      25
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

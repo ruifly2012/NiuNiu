@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "LaiziRule",
+    "texture": "481f8e4e-6935-40da-b2cf-a83a6d3853ed",
+    "atlas": "",
+    "rect": [
+      2,
+      3,
+      1760,
+      1334
+    ],
+    "offset": [
+      -0.5,
+      -0.5
+    ],
+    "originalSize": [
+      1765,
+      1339
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

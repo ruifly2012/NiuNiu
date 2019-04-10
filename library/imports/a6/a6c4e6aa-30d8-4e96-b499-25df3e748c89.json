@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Award_text_13",
+    "texture": "c6830ea3-0dc1-4c93-b9f8-1c592eb6051d",
+    "atlas": "",
+    "rect": [
+      18,
+      13,
+      193,
+      54
+    ],
+    "offset": [
+      -0.5,
+      -4
+    ],
+    "originalSize": [
+      230,
+      72
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

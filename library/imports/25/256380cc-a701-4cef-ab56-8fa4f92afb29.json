@@ -1,0 +1,101 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "others.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "WIFI_0格": {
+      "__uuid__": "48666ca0-ff71-4e70-a9f5-660deaf585ba"
+    },
+    "WIFI_1格": {
+      "__uuid__": "13c9a770-088d-4dd8-9e95-492eeaa9cc7a"
+    },
+    "WIFI_2格": {
+      "__uuid__": "c5e96fa7-222d-456c-ab0c-42d4f4507830"
+    },
+    "WIFI_3格": {
+      "__uuid__": "8b70c76f-fbbe-40c6-97bd-a2d998b57af5"
+    },
+    "WIFI_無電": {
+      "__uuid__": "e5c946cb-0a9d-4fb5-8272-d43fc6e8c2cf"
+    },
+    "btn_back00": {
+      "__uuid__": "4f8b59ac-ac52-42c6-a001-fdc9e0254cdb"
+    },
+    "btn_back01": {
+      "__uuid__": "c44d863a-c159-4015-8b89-fb2202931fc1"
+    },
+    "btn_back02": {
+      "__uuid__": "43d3ef1f-0090-42f4-867a-26e117a777a0"
+    },
+    "btn_x0": {
+      "__uuid__": "cdc8403b-ef43-4b31-8000-3fc9d0b0ce76"
+    },
+    "btn_x1": {
+      "__uuid__": "3bf5ec56-3a0d-4616-b483-ff87cbe90f4b"
+    },
+    "btn_x2": {
+      "__uuid__": "edf26a87-a102-49ad-a00e-0f80841eb941"
+    },
+    "frame_arrow": {
+      "__uuid__": "90d7f3a7-cb80-4c7f-a86d-1db08234e00d"
+    },
+    "img_lobby_A01": {
+      "__uuid__": "d2fa559e-fe80-4a92-9023-bdb1416af42d"
+    },
+    "img_main02": {
+      "__uuid__": "9830e2f2-e235-4968-aae8-ff64d5c7e64b"
+    },
+    "scroll_thumb": {
+      "__uuid__": "1afd025f-f99f-44b3-a083-72f6feb27741"
+    },
+    "scroll_thumb02": {
+      "__uuid__": "8ea6156b-cd83-40a2-a2df-587e13161d78"
+    },
+    "txt_qrsc": {
+      "__uuid__": "83dd2711-0fc4-49cf-a283-f5a343758c80"
+    },
+    "txt_tishi": {
+      "__uuid__": "5fa9d0ad-c8c7-47f3-9c70-4adba4acd8ef"
+    },
+    "txt_title02": {
+      "__uuid__": "6c3d7f99-f536-4ae7-85ec-7c8e3e417507"
+    },
+    "txt_title03": {
+      "__uuid__": "bba05846-f6d4-4be7-b3bd-2d4c33eae0ef"
+    },
+    "txt_title08": {
+      "__uuid__": "976583de-2f8c-4405-9404-e9229d3cedc4"
+    },
+    "xxxx01": {
+      "__uuid__": "ea18f69b-114c-4049-9be5-d36e20ed1bb0"
+    },
+    "有電1": {
+      "__uuid__": "fd2e7340-7e48-4ab6-9ca6-add81bdbb573"
+    },
+    "有電2": {
+      "__uuid__": "d3daf986-807a-470e-a048-22a862eeef16"
+    },
+    "無電1": {
+      "__uuid__": "74de0b2b-18b3-4eb0-b57d-4167e519cc31"
+    },
+    "無電2": {
+      "__uuid__": "fe8730b1-2526-4988-ba46-854bcca042b1"
+    },
+    "聊天": {
+      "__uuid__": "2b85b6cc-e27c-46b3-84c3-fb4473fa1d6c"
+    },
+    "託管按下-改": {
+      "__uuid__": "32ec6abc-5b0d-4163-a5c5-a0b342a8c057"
+    },
+    "託管普通-改": {
+      "__uuid__": "678db48c-5d29-4ec0-8be0-e35b7254544a"
+    },
+    "託管無效-改": {
+      "__uuid__": "630a8165-5927-42e9-b79c-98edf3cd3e48"
+    },
+    "離開": {
+      "__uuid__": "70e05503-b964-41eb-962a-9ff490bddc21"
+    }
+  }
+}

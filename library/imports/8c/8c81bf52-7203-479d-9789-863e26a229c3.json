@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "地主明牌",
+    "texture": "2241661f-d8da-43fc-957a-29e21b1ba69b",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      356,
+      96
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      356,
+      96
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

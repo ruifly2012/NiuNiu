@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Talkmenu",
+    "texture": "827fdb3e-9cc5-45d9-9473-fdabe3442608",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      848,
+      708
+    ],
+    "offset": [
+      0,
+      1
+    ],
+    "originalSize": [
+      848,
+      710
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

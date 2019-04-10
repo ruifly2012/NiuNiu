@@ -1,0 +1,23 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "Talkmenu.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "TalkMenu_frame": {
+      "__uuid__": "d88224f6-c8ec-400a-8ac3-a27671f599a3"
+    },
+    "TalkMenu_title": {
+      "__uuid__": "6e5412b3-0ac5-45a1-80b8-fd10b14867cf"
+    },
+    "Talk_frame": {
+      "__uuid__": "628afb36-21b8-4e7f-9cf7-2e7505960109"
+    },
+    "Talk_light": {
+      "__uuid__": "05051427-11d7-4355-801a-f2943eb29597"
+    },
+    "line_01": {
+      "__uuid__": "4b8dd1d8-3eda-4f71-afa2-4df164475bc2"
+    }
+  }
+}

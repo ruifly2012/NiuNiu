@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "Win_star",
+    "texture": "3549e958-0249-4b63-bdaa-5b9e8c6e2ec1",
+    "atlas": "",
+    "rect": [
+      1,
+      1,
+      185,
+      161
+    ],
+    "offset": [
+      -0.5,
+      0.5
+    ],
+    "originalSize": [
+      188,
+      164
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

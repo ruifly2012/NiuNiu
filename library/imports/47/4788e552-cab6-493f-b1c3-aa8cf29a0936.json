@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "img_lobby_A01",
+    "texture": "b7203ba1-e525-4cd0-9c8b-478199635979",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      1920,
+      170
+    ],
+    "offset": [
+      0,
+      3
+    ],
+    "originalSize": [
+      1920,
+      176
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

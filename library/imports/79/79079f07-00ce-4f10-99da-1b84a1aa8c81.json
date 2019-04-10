@@ -1,0 +1,35 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "btns.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "btn_b1": {
+      "__uuid__": "4cf0b436-e84b-43c5-ac35-3f2c7bd0bfec"
+    },
+    "btn_b2": {
+      "__uuid__": "73ee4d2a-f206-4e71-9b64-62cb00c90eca"
+    },
+    "btn_guest00": {
+      "__uuid__": "ffcc5968-37f2-4003-94f1-b7f09c8aef9c"
+    },
+    "btn_r1": {
+      "__uuid__": "85a4ccb0-6cb5-4f22-968b-e3eb13bd94d3"
+    },
+    "btn_r2": {
+      "__uuid__": "7bb8e2e1-3aed-42d3-a27e-62a1ee112fee"
+    },
+    "txt_qr01": {
+      "__uuid__": "e4eacad8-e608-4413-9484-552bd09b300e"
+    },
+    "txt_qr02": {
+      "__uuid__": "ac2963e6-44aa-4675-bca6-45b39e65f0e4"
+    },
+    "txt_qx01": {
+      "__uuid__": "398476e9-d36b-484b-90b7-7343a90dd96a"
+    },
+    "txt_qx02": {
+      "__uuid__": "3cdc44d6-5306-4809-ab11-6b0227a655ba"
+    }
+  }
+}

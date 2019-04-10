@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "txt_qrsc",
+    "texture": "bc460a56-d1aa-49e7-adb8-eb8b913a1a43",
+    "atlas": "",
+    "rect": [
+      0,
+      0,
+      202,
+      56
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      202,
+      56
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

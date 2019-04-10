@@ -1,0 +1,53 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "silvercow.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "silvercow_000": {
+      "__uuid__": "75b56cd2-d14e-4284-a809-f7db3c4f5c45"
+    },
+    "silvercow_001": {
+      "__uuid__": "9165319d-ca7d-4c13-bccb-16e1be941bd6"
+    },
+    "silvercow_002": {
+      "__uuid__": "f9e572b7-2b7e-452e-bd65-bbefe1c14cab"
+    },
+    "silvercow_003": {
+      "__uuid__": "357932a9-21e8-4a12-9dc2-6aa31f1f7567"
+    },
+    "silvercow_004": {
+      "__uuid__": "fe553823-37ee-4463-8891-b630ed62e30d"
+    },
+    "silvercow_005": {
+      "__uuid__": "4f6c2ba8-80d3-4a12-9930-31c73b0dcbc6"
+    },
+    "silvercow_006": {
+      "__uuid__": "c2bdda33-a5aa-4efc-8319-b1447f59b6ee"
+    },
+    "silvercow_007": {
+      "__uuid__": "f0ddbd9f-bd96-42f9-88fb-b52b4745a84e"
+    },
+    "silvercow_008": {
+      "__uuid__": "b489fc58-50dc-42ec-bc31-5d0b49a4188d"
+    },
+    "silvercow_009": {
+      "__uuid__": "6db970b2-1352-4d1e-a2b7-e54331b1c08b"
+    },
+    "silvercow_010": {
+      "__uuid__": "1a484fbc-ea6a-4663-985a-79f888219f9f"
+    },
+    "silvercow_011": {
+      "__uuid__": "2515f3b4-a2e5-4423-b09f-4c0585f88799"
+    },
+    "silvercow_012": {
+      "__uuid__": "0b0b51da-71d5-482d-b596-bed3c491693f"
+    },
+    "silvercow_013": {
+      "__uuid__": "e72408b8-0a42-4b70-aa02-e47ecc2bc1a2"
+    },
+    "silvercow_014": {
+      "__uuid__": "a97eef70-b40e-456c-a5d1-e455360d1938"
+    }
+  }
+}

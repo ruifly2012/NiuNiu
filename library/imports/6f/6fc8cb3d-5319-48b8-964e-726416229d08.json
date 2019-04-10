@@ -1,0 +1,80 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_name": "victory.plist",
+  "_objFlags": 0,
+  "_native": "",
+  "_spriteFrames": {
+    "victory_000": {
+      "__uuid__": "3d1f83d9-f3da-4d79-9ca0-dc8b77100944"
+    },
+    "victory_001": {
+      "__uuid__": "d3b1d134-eb35-4b7d-bde8-009922f80217"
+    },
+    "victory_002": {
+      "__uuid__": "495a4915-1e54-45ea-be9e-ab1aa9ca40db"
+    },
+    "victory_003": {
+      "__uuid__": "622828ec-a740-437f-a43b-3ce5a1ddece9"
+    },
+    "victory_004": {
+      "__uuid__": "b116cefa-7aa5-4982-9561-90134d2b7e91"
+    },
+    "victory_005": {
+      "__uuid__": "14980d9f-2252-43f7-aba5-58ad99051e76"
+    },
+    "victory_006": {
+      "__uuid__": "a37d1c04-2c87-40e8-953a-daec5a1461ee"
+    },
+    "victory_007": {
+      "__uuid__": "1c055d04-de78-46c1-b0d7-face5bfcf091"
+    },
+    "victory_008": {
+      "__uuid__": "e031c286-5304-4885-83ff-e48a17da54f8"
+    },
+    "victory_009": {
+      "__uuid__": "4bd817d4-55f6-4b46-a992-082066995954"
+    },
+    "victory_010": {
+      "__uuid__": "8dcd69bd-b408-440f-829c-15ebf8d2331a"
+    },
+    "victory_011": {
+      "__uuid__": "07b39bc9-9b51-4b6e-ab45-4c62c24b0d65"
+    },
+    "victory_012": {
+      "__uuid__": "06a57822-048f-40a1-90ca-0894d539909c"
+    },
+    "victory_013": {
+      "__uuid__": "5b990fad-826e-4ea9-b2af-bfa37b00b651"
+    },
+    "victory_014": {
+      "__uuid__": "86df1c93-2dd3-4b13-b188-2a232ce6491e"
+    },
+    "victory_015": {
+      "__uuid__": "36c106e2-c526-4d33-b8b7-f85ad6d22e7e"
+    },
+    "victory_016": {
+      "__uuid__": "29691bd1-d488-4f7c-a510-668ab7426f93"
+    },
+    "victory_017": {
+      "__uuid__": "900275e1-57b5-4239-9a65-c5c00c65c319"
+    },
+    "victory_018": {
+      "__uuid__": "be3de2c1-2379-4305-8080-95afeaf2eaff"
+    },
+    "victory_019": {
+      "__uuid__": "0913e477-88ea-40bc-9dfc-44ff093ab463"
+    },
+    "victory_020": {
+      "__uuid__": "e3d3b59d-1dca-48e6-8287-f0650aae4bb1"
+    },
+    "victory_021": {
+      "__uuid__": "74652e18-0b2c-4ad8-affb-8198251f5ccf"
+    },
+    "victory_022": {
+      "__uuid__": "a2edb85d-6b7f-4f43-b0c9-d8a26036c544"
+    },
+    "victory_023": {
+      "__uuid__": "97192ff7-62b4-45fd-99bd-1c0a39b9243e"
+    }
+  }
+}

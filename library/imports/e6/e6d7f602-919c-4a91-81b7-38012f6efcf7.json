@@ -1,0 +1,28 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "goldcow",
+    "texture": "ceed8a6a-7b75-4f51-a821-8e77704c980b",
+    "atlas": "",
+    "rect": [
+      2,
+      2,
+      1018,
+      1336
+    ],
+    "offset": [
+      0,
+      0
+    ],
+    "originalSize": [
+      1022,
+      1340
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}
