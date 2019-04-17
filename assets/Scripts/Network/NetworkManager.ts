@@ -3,7 +3,9 @@ import global from "../Common/Global";
 export default class NetworkManager {
     
     private _socket;
-    private serverURL:string = "http://140.118.175.76:5070/";
+    //private serverURL:string = "http://140.118.175.76:5070/";
+    private serverURL:string = "http://60.251.26.6:8073/";
+    
 
     ConnectServer() {
         cc.log("con server");
@@ -11,6 +13,16 @@ export default class NetworkManager {
             reconnection: false
         });
         cc.log("connect success");
+        let no:number = 6006;
+        let data = {"oid": 1} ;
+        let json= {
+            "no" : no,
+            "data" : data
+        };
+        console.log("json:"+json); 
+        this._socket.emit("action",json ,function(data){
+            console.log(data);
+        })
         this.eventRegister();
     };
 
@@ -30,6 +42,18 @@ export default class NetworkManager {
 
         this._socket.on("stageChange", function (stage, timeout) {
             global.Instance.EventListener.notify("stageChange", stage, timeout);
+        });
+
+        this._socket.on("stageChange", function (stage, timeout) {
+            global.Instance.EventListener.notify("stageChange", stage, timeout);
+        });
+
+        this._socket.on("action", function (data) {
+            console.log("action : " + data);
+        });
+
+        this._socket.on("response", function (data) {
+            console.log("response : " + data);
         });
 
         this._socket.on("kingsRate", function (Info) {
