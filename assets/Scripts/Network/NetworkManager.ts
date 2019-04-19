@@ -13,20 +13,31 @@ export default class NetworkManager {
             reconnection: false
         });
         cc.log("connect success");
-        let no:number = 6006;
-        let data = {"oid": 1} ;
-        let json= {
-            "no" : no,
-            "data" : data
-        };
-        console.log("json:"+json); 
-        this._socket.emit("action",json ,function(data){
-            console.log(data);
-        })
         this.eventRegister();
     };
 
     socket(){ return this._socket; }
+
+    LogIn(token:string){
+        let no:number = 6006;
+        let json= {
+            "no" : no,
+            "data" : token
+        };
+        console.log("token Reg : "+ token);
+        this._socket.emit("action",json ,function(data){
+            console.log(data);
+        })
+
+        let tableJson= {
+            "no" : 6001,
+            "data" : {"oid": 1}
+        };
+        console.log("table req:"+tableJson); 
+        this._socket.emit("action",JSON.stringify(tableJson) ,function(data){
+            console.log(data);
+        })
+    }
 
     eventRegister(){
         //socket event listener

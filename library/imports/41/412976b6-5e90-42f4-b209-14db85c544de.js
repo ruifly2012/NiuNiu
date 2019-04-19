@@ -15,20 +15,29 @@ var NetworkManager = /** @class */ (function () {
             reconnection: false
         });
         cc.log("connect success");
-        var no = 6006;
-        var data = { "oid": 1 };
-        var json = {
-            "no": no,
-            "data": data
-        };
-        console.log("json:" + json);
-        this._socket.emit("action", json, function (data) {
-            console.log(data);
-        });
         this.eventRegister();
     };
     ;
     NetworkManager.prototype.socket = function () { return this._socket; };
+    NetworkManager.prototype.LogIn = function (token) {
+        var no = 6006;
+        var json = {
+            "no": no,
+            "data": token
+        };
+        console.log("token Reg : " + token);
+        this._socket.emit("action", json, function (data) {
+            console.log(data);
+        });
+        var tableJson = {
+            "no": 6001,
+            "data": { "oid": 1 }
+        };
+        console.log("table req:" + tableJson);
+        this._socket.emit("action", JSON.stringify(tableJson), function (data) {
+            console.log(data);
+        });
+    };
     NetworkManager.prototype.eventRegister = function () {
         //socket event listener
         this._socket.on("SwitchScene", function (SceneIndex) {

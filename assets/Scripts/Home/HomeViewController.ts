@@ -26,8 +26,11 @@ export default class HomeViewController extends cc.Component {
         }
 
         //emit id to server
-        global.Instance.EventListener.notify("login", this.editBox.string);
-		cc.log("click login");
+        //global.Instance.EventListener.notify("login", this.editBox.string);
+
+
+        cc.log("click login");
+        global.Instance.network.LogIn(this.editBox.string);
 
     }
 

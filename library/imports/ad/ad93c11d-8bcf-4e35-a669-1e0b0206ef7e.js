@@ -22,8 +22,9 @@ var HomeViewController = /** @class */ (function (_super) {
             return;
         }
         //emit id to server
-        Global_1.default.Instance.EventListener.notify("login", this.editBox.string);
+        //global.Instance.EventListener.notify("login", this.editBox.string);
         cc.log("click login");
+        Global_1.default.Instance.network.LogIn(this.editBox.string);
     };
     HomeViewController.prototype.onLoad = function () {
         var self = this;

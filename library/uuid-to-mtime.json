@@ -3639,11 +3639,6 @@
     "meta": 1554893895202,
     "relativePath": "Scripts\\Common\\EventListener.ts"
   },
-  "ad93c11d-8bcf-4e35-a669-1e0b0206ef7e": {
-    "asset": 1554892675675,
-    "meta": 1554893895436,
-    "relativePath": "Scripts\\Home\\HomeViewController.ts"
-  },
   "5c10bce6-4d05-4de5-bb7a-840a23a7b055": {
     "asset": 1554892675660,
     "meta": 1554893895092,
@@ -4009,9 +4004,14 @@
     "meta": 1554893895420,
     "relativePath": "Scripts\\Home\\AnimationController.ts"
   },
+  "ad93c11d-8bcf-4e35-a669-1e0b0206ef7e": {
+    "asset": 1555663885697,
+    "meta": 1555663889313,
+    "relativePath": "Scripts\\Home\\HomeViewController.ts"
+  },
   "412976b6-5e90-42f4-b209-14db85c544de": {
-    "asset": 1555482177951,
-    "meta": 1555486417751,
+    "asset": 1555663961378,
+    "meta": 1555663964732,
     "relativePath": "Scripts\\Network\\NetworkManager.ts"
   }
 }

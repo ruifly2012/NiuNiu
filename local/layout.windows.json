@@ -27,7 +27,7 @@
                 "children": [
                   "assets"
                 ],
-                "height": 379.20001220703125,
+                "height": 379.1875,
                 "type": "panel",
                 "width": 344.7749938964844
               }
@@ -43,7 +43,7 @@
                 "children": [
                   "scene"
                 ],
-                "height": 494.8999938964844,
+                "height": 495.26251220703125,
                 "type": "panel",
                 "width": 822.4625244140625
               },
@@ -53,7 +53,7 @@
                   "console",
                   "timeline"
                 ],
-                "height": 266.4875183105469,
+                "height": 266.13751220703125,
                 "type": "panel",
                 "width": 822.4625244140625
               }
