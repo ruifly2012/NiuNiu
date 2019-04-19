@@ -47,7 +47,33 @@ var moneyAnime = /** @class */ (function (_super) {
         animeState.wrapMode = cc.WrapMode.Loop;
         animeState.repeatCount = 5;
         //set action
-        action = cc.sequence(cc.show(), cc.moveTo(interval, toX + yOffset / 3, toY + xOffset / 3), cc.hide()); //change x y to mess the route
+        /*
+    action = cc.sequence(
+        cc.show(),
+        cc.moveTo(interval , toX+ yOffset/3 , toY+ xOffset/3).easing(cc.easeSineInOut()),
+        cc.hide());//change x y to mess the route
+        */
+        //   
+        /*
+     action = cc.sequence(
+         cc.show(),
+         cc.moveTo(interval*0.7 , toX*0.8 +  fromX*0.2 , toY*0.2 + fromY*0.8).easing(cc.easeSineInOut()),
+         cc.moveTo(interval*0.8 , toX+ yOffset/3 , toY+ xOffset/3).easing(cc.easeCubicActionInOut()),
+         cc.hide());//change x y to mess the route
+         
+     action = cc.sequence(
+         cc.show(),
+         cc.moveTo(interval*0.7 , (toX+ yOffset/3)*0.8 +  (fromX + xOffset)*0.2 , (toY+ xOffset/3)*0.2 + (fromY + yOffset)*0.8).easing(cc.easeSineInOut()),
+         cc.moveTo(interval*0.8 , toX+ yOffset/3 , toY+ xOffset/3).easing(cc.easeCubicActionInOut()),
+         cc.hide());//change x y to mess the route
+         self.node.runAction(action);
+        */
+        //self.node.runAction(cc.show());
+        action = cc.sequence(cc.show(), 
+        //x,y sametime
+        cc.spawn(
+        //x y use seperate func
+        cc.moveBy(interval, (toX + yOffset / 3) - (fromX + xOffset), 0).easing(cc.easeQuadraticActionOut()), cc.moveBy(interval, 0, (toY + xOffset / 3) - (fromY + yOffset)).easing(cc.easeSineIn())), cc.hide());
         self.node.runAction(action);
     };
     moneyAnime.prototype.moneyFlow = function (from, to, xOffset, yOffset, speedAndIntervalVal) {

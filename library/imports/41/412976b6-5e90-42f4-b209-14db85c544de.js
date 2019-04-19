@@ -27,7 +27,7 @@ var NetworkManager = /** @class */ (function () {
         };
         console.log("token Reg : " + token);
         this._socket.emit("action", json, function (data) {
-            console.log(data);
+            console.log("token callback : " + data);
         });
         var tableJson = {
             "no": 6001,
@@ -35,7 +35,7 @@ var NetworkManager = /** @class */ (function () {
         };
         console.log("table req:" + tableJson);
         this._socket.emit("action", JSON.stringify(tableJson), function (data) {
-            console.log(data);
+            console.log("table req callback: " + data);
         });
     };
     NetworkManager.prototype.eventRegister = function () {

@@ -26,7 +26,7 @@ export default class NetworkManager {
         };
         console.log("token Reg : "+ token);
         this._socket.emit("action",json ,function(data){
-            console.log(data);
+            console.log("token callback : "+data);
         })
 
         let tableJson= {
@@ -35,7 +35,7 @@ export default class NetworkManager {
         };
         console.log("table req:"+tableJson); 
         this._socket.emit("action",JSON.stringify(tableJson) ,function(data){
-            console.log(data);
+            console.log("table req callback: "+data);
         })
     }
 
