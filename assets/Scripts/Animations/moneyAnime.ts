@@ -3,7 +3,7 @@ const {ccclass, property} = cc._decorator;
 export default class moneyAnime extends cc.Component {
 
     private frames:[cc.SpriteFrame] = [new cc.SpriteFrame];
-
+    private curvePos:cc.Vec2[];
     onLoad(){
         let self = this;
         //add component
@@ -26,12 +26,15 @@ export default class moneyAnime extends cc.Component {
         let self = this;
         let animation = self.node.getComponent(cc.Animation);
 
+        let startPos: cc.Vec2 = cc.v2(fromX + xOffset, fromY + yOffset);
+        let endPos: cc.Vec2 = cc.v2(toX+ yOffset/3, toY+ xOffset/3);
+        
         //set clip
         let clip = cc.AnimationClip.createWithSpriteFrames(self.frames, 17);
         clip.name = "anim_run";
         clip.wrapMode = cc.WrapMode.Loop;
         //set start position
-        let action = cc.place(fromX + xOffset , fromY + yOffset);
+        let action = cc.place(startPos);
         self.node.runAction(action);
         //play anime
         animation.addClip(clip);
@@ -40,36 +43,28 @@ export default class moneyAnime extends cc.Component {
         animeState.wrapMode = cc.WrapMode.Loop;
         animeState.repeatCount = 5;
         //set action
-            /*
-        action = cc.sequence(
-            cc.show(),
-            cc.moveTo(interval , toX+ yOffset/3 , toY+ xOffset/3).easing(cc.easeSineInOut()),
-            cc.hide());//change x y to mess the route
-            */
-        //   
-           /*
-        action = cc.sequence(
-            cc.show(),
-            cc.moveTo(interval*0.7 , toX*0.8 +  fromX*0.2 , toY*0.2 + fromY*0.8).easing(cc.easeSineInOut()),
-            cc.moveTo(interval*0.8 , toX+ yOffset/3 , toY+ xOffset/3).easing(cc.easeCubicActionInOut()),
-            cc.hide());//change x y to mess the route
-            
-        action = cc.sequence(
-            cc.show(),
-            cc.moveTo(interval*0.7 , (toX+ yOffset/3)*0.8 +  (fromX + xOffset)*0.2 , (toY+ xOffset/3)*0.2 + (fromY + yOffset)*0.8).easing(cc.easeSineInOut()),
-            cc.moveTo(interval*0.8 , toX+ yOffset/3 , toY+ xOffset/3).easing(cc.easeCubicActionInOut()),
-            cc.hide());//change x y to mess the route
-            self.node.runAction(action);
-           */
-        //self.node.runAction(cc.show());
+
+
+        let midPoint:cc.Vec2;
+        if(startPos.y > endPos.y){
+            midPoint = cc.v2(endPos.x*(1.2) + startPos.x*(-0.2), startPos.y*(1.5) + endPos.y*-0.5);
+        }
+        else{
+            midPoint = cc.v2(endPos.x*(1.2) + startPos.x*(-0.2), endPos.y*(1.5) + startPos.y*-0.5);
+        }
+        
+        let path = [startPos,midPoint,endPos];
         action = cc.sequence(
             cc.show(),
             //x,y sametime
+            /*
             cc.spawn(
                 //x y use seperate func
                 cc.moveBy(interval , (toX+ yOffset/3) - (fromX + xOffset) , 0).easing(cc.easeQuadraticActionOut()),
                 cc.moveBy(interval , 0 , (toY+ xOffset/3) - (fromY + yOffset)).easing(cc.easeSineIn()),
             ),
+            */
+            cc.bezierTo(interval, path),
             cc.hide()
         )
         self.node.runAction(action);
