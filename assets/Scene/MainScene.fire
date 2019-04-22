@@ -59291,7 +59291,7 @@
         "__id__": 1644
       }
     ],
-    "_active": false,
+    "_active": true,
     "_level": 0,
     "_components": [
       {
@@ -77273,7 +77273,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 280.23,
-      "height": 80
+      "height": 40
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -77315,8 +77315,8 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_string": "Client20190313\n",
-    "_N$string": "Client20190313\n",
+    "_string": "Client20190422",
+    "_N$string": "Client20190422",
     "_fontSize": 40,
     "_lineHeight": 40,
     "_enableWrapText": true,

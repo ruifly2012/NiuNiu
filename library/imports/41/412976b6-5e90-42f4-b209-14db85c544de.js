@@ -8,6 +8,7 @@ var NetworkManager = /** @class */ (function () {
     function NetworkManager() {
         //private serverURL:string = "http://140.118.175.76:5070/";
         this.serverURL = "http://60.251.26.6:8073/";
+        this.self = this;
     }
     NetworkManager.prototype.ConnectServer = function () {
         cc.log("con server");
@@ -20,6 +21,7 @@ var NetworkManager = /** @class */ (function () {
     ;
     NetworkManager.prototype.socket = function () { return this._socket; };
     NetworkManager.prototype.LogIn = function (token) {
+        var self = this;
         var no = 6006;
         var json = {
             "no": no,
@@ -27,15 +29,16 @@ var NetworkManager = /** @class */ (function () {
         };
         console.log("token Reg : " + token);
         this._socket.emit("action", json, function (data) {
-            console.log("token callback : " + data);
-        });
-        var tableJson = {
-            "no": 6001,
-            "data": { "oid": 1 }
-        };
-        console.log("table req:" + tableJson);
-        this._socket.emit("action", JSON.stringify(tableJson), function (data) {
-            console.log("table req callback: " + data);
+            console.log("token callback : " + JSON.stringify(data));
+            //req table after token register finish
+            var tableJson = {
+                "no": 6001,
+                "data": { "oid": 1 }
+            };
+            console.log("table req:" + tableJson);
+            self._socket.emit("action", tableJson, function (tableData) {
+                console.log("table req callback: " + JSON.stringify(tableData));
+            });
         });
     };
     NetworkManager.prototype.eventRegister = function () {
@@ -55,10 +58,10 @@ var NetworkManager = /** @class */ (function () {
             Global_1.default.Instance.EventListener.notify("stageChange", stage, timeout);
         });
         this._socket.on("action", function (data) {
-            console.log("action : " + data);
+            console.log("action : " + JSON.stringify(data));
         });
         this._socket.on("response", function (data) {
-            console.log("response : " + data);
+            console.log("response : " + JSON.stringify(data));
         });
         this._socket.on("kingsRate", function (Info) {
             //cc.log("Network get kingsRate");

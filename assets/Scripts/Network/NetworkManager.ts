@@ -6,6 +6,7 @@ export default class NetworkManager {
     //private serverURL:string = "http://140.118.175.76:5070/";
     private serverURL:string = "http://60.251.26.6:8073/";
     
+    private self = this;
 
     ConnectServer() {
         cc.log("con server");
@@ -19,6 +20,7 @@ export default class NetworkManager {
     socket(){ return this._socket; }
 
     LogIn(token:string){
+        let self = this;
         let no:number = 6006;
         let json= {
             "no" : no,
@@ -26,17 +28,19 @@ export default class NetworkManager {
         };
         console.log("token Reg : "+ token);
         this._socket.emit("action",json ,function(data){
-            console.log("token callback : "+data);
+            console.log("token callback : "+JSON.stringify(data));
+            //req table after token register finish
+            let tableJson= {
+                "no" : 6001,
+                "data" : {"oid": 1}
+            };
+            console.log("table req:"+tableJson); 
+            self._socket.emit("action",tableJson ,function(tableData){
+                console.log("table req callback: "+JSON.stringify(tableData));
+            })
         })
 
-        let tableJson= {
-            "no" : 6001,
-            "data" : {"oid": 1}
-        };
-        console.log("table req:"+tableJson); 
-        this._socket.emit("action",JSON.stringify(tableJson) ,function(data){
-            console.log("table req callback: "+data);
-        })
+       
     }
 
     eventRegister(){
@@ -60,11 +64,11 @@ export default class NetworkManager {
         });
 
         this._socket.on("action", function (data) {
-            console.log("action : " + data);
+            console.log("action : " + JSON.stringify(data));
         });
 
         this._socket.on("response", function (data) {
-            console.log("response : " + data);
+            console.log("response : " + JSON.stringify(data));
         });
 
         this._socket.on("kingsRate", function (Info) {
