@@ -10,6 +10,7 @@ var HomeViewController = /** @class */ (function (_super) {
     function HomeViewController() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.loginMenu = null;
+        _this.playGround = null;
         _this.message = null;
         _this.editBox = null;
         return _this;
@@ -28,7 +29,9 @@ var HomeViewController = /** @class */ (function (_super) {
     };
     HomeViewController.prototype.onLoad = function () {
         var self = this;
-        cc.log("before con server");
+        //hide all
+        this.loginMenu.active = false;
+        this.playGround.active = false;
         //connect server when start
         Global_1.default.Instance.network.ConnectServer();
         // 換場景註冊
@@ -36,26 +39,29 @@ var HomeViewController = /** @class */ (function (_super) {
             cc.log("switch scene to" + SceneIndex);
             switch (SceneIndex) {
                 case 0:
-                    cc.log("login active");
+                    cc.log("[switch scene] login active");
                     self.loginMenu.active = true;
+                    self.playGround.active = false;
                     break;
                 case 1:
-                    cc.log("game active");
+                    cc.log("[switch scene] game active");
                     self.loginMenu.active = false;
+                    self.playGround.active = true;
                     break;
                 default:
-                    cc.log("login hide");
-                    self.loginMenu.active = false;
+                    cc.log("[switch scene] WTF?");
+                    break;
             }
         });
         // start scene ==> login menu
         Global_1.default.Instance.EventListener.notify("SwitchScene", 0);
-        Global_1.default.Instance.EventListener.on("login", function (event, uid) {
-            Global_1.default.Instance.network.socket().emit("login", uid, function (Success) {
+        /*
+        global.Instance.EventListener.on("login", function (event,uid) {
+            global.Instance.network.socket().emit("login", uid, function (Success) { // 按了login，只是換到遊戲場景
                 if (Success) {
-                    Global_1.default.Instance.uid = uid; // 代表global所儲存的是以本使用者的訊息為主軸，存入使用者填寫的名子
-                    cc.log("globalID : %s", Global_1.default.Instance.uid);
-                    Global_1.default.Instance.EventListener.notify("SwitchScene", 1); // 要windowsController換到遊戲場景
+                    global.Instance.uid = uid; // 代表global所儲存的是以本使用者的訊息為主軸，存入使用者填寫的名子
+                    cc.log("globalID : %s",global.Instance.uid);
+                    global.Instance.EventListener.notify("SwitchScene", 1); // 要windowsController換到遊戲場景
                 }
                 else {
                     cc.log("log fail");
@@ -63,10 +69,14 @@ var HomeViewController = /** @class */ (function (_super) {
                 }
             });
         });
+        */
     };
     __decorate([
         property(cc.Node)
     ], HomeViewController.prototype, "loginMenu", void 0);
+    __decorate([
+        property(cc.Node)
+    ], HomeViewController.prototype, "playGround", void 0);
     __decorate([
         property(cc.Label)
     ], HomeViewController.prototype, "message", void 0);

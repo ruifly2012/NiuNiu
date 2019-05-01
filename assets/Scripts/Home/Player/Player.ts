@@ -13,11 +13,11 @@ export default class Player extends cc.Component {
 
     onLoad() {
         var self = this;
-        //ªì©l¤Æ¡A§ä¨ìname/img/moneyªº¦ì§}
+        //ï¿½ï¿½lï¿½Æ¡Aï¿½ï¿½ï¿½name/img/moneyï¿½ï¿½ï¿½ï¿½}
         this.Obj.name = cc.find("nameandcoin/name", this.node).getComponent(cc.Label);
         this.Obj.img = cc.find("pic", this.node).getComponent(cc.Sprite);
         this.Obj.money = cc.find("nameandcoin/Money", this.node).getComponent("Num2Sprite");
-        this.node.active = false;
+        //this.node.active = false;
     }
 
     setName(name) {
@@ -38,7 +38,7 @@ export default class Player extends cc.Component {
     }
 
     setCoin(coin) {
-        this.Obj.money.setNum(coin); // ©I¥sNum2Spriteªº¨ç¦¡
+        this.Obj.money.setNum(coin); // ï¿½Iï¿½sNum2Spriteï¿½ï¿½ï¿½ç¦¡
     }
 
 }

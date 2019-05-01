@@ -1,7 +1,14 @@
-﻿//import PlayerInfo from "../PlayerInfo/Model/PlayerInfo";
-import global from "../../Common/Global";
-
+﻿import global from "../../Common/Global";
+import * as NN from "../../NNDefine";
 const { ccclass, property } = cc._decorator;
+
+enum player{
+    prepre = 0,
+    pre,
+    me,
+    next,
+    nextnext
+}
 
 @ccclass
 export default class PlayerInfoViewController extends cc.Component {
@@ -9,33 +16,16 @@ export default class PlayerInfoViewController extends cc.Component {
     //ctor
     //=====================================================================
     private playerInfo: any = null; 
-    private playerScript: any = {
-        PreRival: null,
-        Me: null,
-        NextRival: null,
-        PrePreRival: null,
-        NextNextRival: null
-    };
+    private playerScript = [];
     private defaultImgs: any = ["newnew/common/playerPic1", "newnew/common/playerPic2", "newnew/common/playerPic3", "newnew/common/playerPic4", "newnew/common/playerPic5", "newnew/common/playerPic6"];
     private autoPlaying: cc.Node;
+    private playerCount: number;
     //=====================================================================
 
     //property
     //================================================
     @property(cc.Node)
-    Me: cc.Node = null;
-
-    @property(cc.Node)
-    PreRival: cc.Node = null;
-
-    @property(cc.Node)
-    NextRival: cc.Node = null;
-
-    @property(cc.Node)
-    PrePreRival: cc.Node = null;
-
-    @property(cc.Node)
-    NextNextRival: cc.Node = null;
+    players: cc.Node[] = [];
 
     // IF WANT TO CHANGE TO ARRAY, HERE IS THE SOLUTION
     /*@property(cc.Node)
@@ -45,7 +35,14 @@ export default class PlayerInfoViewController extends cc.Component {
     Autoplaying: cc.Node = null;
     //=================================================
 
-   
+    private static inst: PlayerInfoViewController = null;
+
+    static get Inst(): PlayerInfoViewController{
+        if(!PlayerInfoViewController.inst){
+            PlayerInfoViewController.inst = new PlayerInfoViewController();
+        }
+        return this.inst;
+    }
 
     autoPlay() {
         global.Instance.EventListener.notify("AIswitch");
@@ -54,11 +51,13 @@ export default class PlayerInfoViewController extends cc.Component {
     onLoad() {
         let self = this;
 
+        /*
         this.playerScript.PreRival = this.PreRival.getComponent("Player");
         this.playerScript.Me = this.Me.getComponent("Player");
         this.playerScript.NextRival = this.NextRival.getComponent("Player");
         this.playerScript.PrePreRival = this.PrePreRival.getComponent("Player");
         this.playerScript.NextNextRival = this.NextNextRival.getComponent("Player");
+        */
 
         cc.loader.loadResDir("newnew/common", function (err, assets) { });
 
@@ -70,61 +69,79 @@ export default class PlayerInfoViewController extends cc.Component {
         });*/
     }
 
+    init(){
+        this.playerCount = NN.GameInfo.Inst.playerCount;
+        for(let index = 0;index< this.playerCount;index++){
+            cc.log("get player" + index + this.players[index]);
+            cc.log("all] player" + this.players);
+            
+            this.playerScript[index] = this.players[index].getComponent("Player");
 
+            cc.loader.loadRes(this.defaultImgs[NN.GameInfo.Inst.players[index].iconID], cc.SpriteFrame, function (err, spriteFrame) {
+                this.playerScript[index].setImg(spriteFrame);
+            });
+        }
+    }
 
+    updatePlayer(){
+        for(let index = 0;index< this.playerCount;index++){
+            this.playerScript[index].setName(NN.GameInfo.Inst.players[index].name);
+            this.playerScript[index].setCoin(NN.GameInfo.Inst.players[index].money);
+        }
+    }
 
     showKingAnime(kingUID) {
-        this.Me.getChildByName("dizhuIcon").active = true;
+        //this.Me.getChildByName("dizhuIcon").active = true;
     }
 
-    UpdateRoom(playerInfo) {
-        cc.log("updateRoom");
-        let self = this;
+    // UpdateRoom(playerInfo) {
+    //     cc.log("updateRoom");
+    //     let self = this;
 
-        //cc.log(playerInfo);
+    //     //cc.log(playerInfo);
         
-        this.playerScript.Me.setName(playerInfo.Me.name);
-        this.playerScript.PreRival.setName(playerInfo.Pre.name);
-        this.playerScript.NextRival.setName(playerInfo.Next.name);
-        this.playerScript.PrePreRival.setName(playerInfo.PrePre.name);
-        this.playerScript.NextNextRival.setName(playerInfo.NextNext.name);
+    //     this.playerScript.Me.setName(playerInfo.Me.name);
+    //     this.playerScript.PreRival.setName(playerInfo.Pre.name);
+    //     this.playerScript.NextRival.setName(playerInfo.Next.name);
+    //     this.playerScript.PrePreRival.setName(playerInfo.PrePre.name);
+    //     this.playerScript.NextNextRival.setName(playerInfo.NextNext.name);
 
 
-        this.playerScript.Me.setCoin(playerInfo.Me.coin);
-        this.playerScript.PreRival.setCoin(playerInfo.Pre.coin);
-        this.playerScript.NextRival.setCoin(playerInfo.Next.coin);
-        this.playerScript.PrePreRival.setCoin(playerInfo.PrePre.coin);
-        this.playerScript.NextNextRival.setCoin(playerInfo.NextNext.coin);
+    //     this.playerScript.Me.setCoin(playerInfo.Me.coin);
+    //     this.playerScript.PreRival.setCoin(playerInfo.Pre.coin);
+    //     this.playerScript.NextRival.setCoin(playerInfo.Next.coin);
+    //     this.playerScript.PrePreRival.setCoin(playerInfo.PrePre.coin);
+    //     this.playerScript.NextNextRival.setCoin(playerInfo.NextNext.coin);
 
-        if (playerInfo.Me.img != null)
-            cc.loader.loadRes(this.defaultImgs[playerInfo.Me.img], cc.SpriteFrame, function (err, spriteFrame) {
+    //     if (playerInfo.Me.img != null)
+    //         cc.loader.loadRes(this.defaultImgs[playerInfo.Me.img], cc.SpriteFrame, function (err, spriteFrame) {
 
-                self.playerScript.Me.setImg(spriteFrame);
-            });
-
-
-        if (playerInfo.Pre.img != null)
-            cc.loader.loadRes(this.defaultImgs[playerInfo.Pre.img], cc.SpriteFrame, function (err, spriteFrame) {
-                self.playerScript.PreRival.setImg(spriteFrame);
-            });
+    //             self.playerScript.Me.setImg(spriteFrame);
+    //         });
 
 
-        if (playerInfo.Next.img != null)
-            cc.loader.loadRes(this.defaultImgs[playerInfo.Next.img], cc.SpriteFrame, function (err, spriteFrame) {
-                self.playerScript.NextRival.setImg(spriteFrame);
-            });
-
-        if (playerInfo.PrePre.img != null)
-            cc.loader.loadRes(this.defaultImgs[playerInfo.PrePre.img], cc.SpriteFrame, function (err, spriteFrame) {
-                self.playerScript.PrePreRival.setImg(spriteFrame);
-            });
+    //     if (playerInfo.Pre.img != null)
+    //         cc.loader.loadRes(this.defaultImgs[playerInfo.Pre.img], cc.SpriteFrame, function (err, spriteFrame) {
+    //             self.playerScript.PreRival.setImg(spriteFrame);
+    //         });
 
 
-        if (playerInfo.NextNext.img != null)
-            cc.loader.loadRes(this.defaultImgs[playerInfo.NextNext.img], cc.SpriteFrame, function (err, spriteFrame) {
-                self.playerScript.NextNextRival.setImg(spriteFrame);
-            });
+    //     if (playerInfo.Next.img != null)
+    //         cc.loader.loadRes(this.defaultImgs[playerInfo.Next.img], cc.SpriteFrame, function (err, spriteFrame) {
+    //             self.playerScript.NextRival.setImg(spriteFrame);
+    //         });
+
+    //     if (playerInfo.PrePre.img != null)
+    //         cc.loader.loadRes(this.defaultImgs[playerInfo.PrePre.img], cc.SpriteFrame, function (err, spriteFrame) {
+    //             self.playerScript.PrePreRival.setImg(spriteFrame);
+    //         });
 
 
-    }
+    //     if (playerInfo.NextNext.img != null)
+    //         cc.loader.loadRes(this.defaultImgs[playerInfo.NextNext.img], cc.SpriteFrame, function (err, spriteFrame) {
+    //             self.playerScript.NextNextRival.setImg(spriteFrame);
+    //         });
+
+
+    // }
 }

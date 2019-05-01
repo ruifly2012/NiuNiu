@@ -22,7 +22,7 @@ var Player = /** @class */ (function (_super) {
         this.Obj.name = cc.find("nameandcoin/name", this.node).getComponent(cc.Label);
         this.Obj.img = cc.find("pic", this.node).getComponent(cc.Sprite);
         this.Obj.money = cc.find("nameandcoin/Money", this.node).getComponent("Num2Sprite");
-        this.node.active = false;
+        //this.node.active = false;
     };
     Player.prototype.setName = function (name) {
         if (name == '') {

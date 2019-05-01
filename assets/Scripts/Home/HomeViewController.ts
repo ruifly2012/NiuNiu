@@ -7,7 +7,10 @@ const {ccclass, property} = cc._decorator;
 export default class HomeViewController extends cc.Component {
 
     @property(cc.Node)
-    public loginMenu: cc.Node = null;
+    loginMenu: cc.Node = null;
+
+    @property(cc.Node)
+    playGround: cc.Node = null;
 
     @property(cc.Label)
     public message: cc.Label = null;
@@ -36,25 +39,30 @@ export default class HomeViewController extends cc.Component {
 
     onLoad () {
         let self = this;
-        cc.log("before con server");
+        //hide all
+        this.loginMenu.active = false;
+        this.playGround.active = false;
         //connect server when start
         global.Instance.network.ConnectServer();
+
 
         // 換場景註冊
         global.Instance.EventListener.on("SwitchScene", function (event,SceneIndex) {
             cc.log("switch scene to" + SceneIndex);
             switch(SceneIndex){
                 case 0:
-                    cc.log("login active");
+                    cc.log("[switch scene] login active");
                     self.loginMenu.active = true;
+                    self.playGround.active = false;
                     break;
                 case 1:
-                    cc.log("game active");
+                    cc.log("[switch scene] game active");
                     self.loginMenu.active = false;
+                    self.playGround.active = true;
                     break;
                 default:
-                    cc.log("login hide");
-                    self.loginMenu.active = false;
+                    cc.log("[switch scene] WTF?");
+                    break;
             }
             
         });
@@ -62,6 +70,7 @@ export default class HomeViewController extends cc.Component {
         // start scene ==> login menu
         global.Instance.EventListener.notify("SwitchScene", 0);
 
+        /*
         global.Instance.EventListener.on("login", function (event,uid) { 
             global.Instance.network.socket().emit("login", uid, function (Success) { // 按了login，只是換到遊戲場景
                 if (Success) {
@@ -75,5 +84,6 @@ export default class HomeViewController extends cc.Component {
                 }
             });
         });
+        */
     }
 }
