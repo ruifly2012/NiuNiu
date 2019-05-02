@@ -1,44 +1,53 @@
+import global from "../../Common/Global";
 
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class Player extends cc.Component {
+export default class Player extends cc.Component 
+{
+    @property(cc.Sprite) head: cc.Sprite = null;
+    @property(cc.Label) playerName: cc.Label = null;
+    @property(cc.Label) money: cc.Label = null;
+    private self: Player;
+    start() 
+    {
+        cc.log("player onStart");
 
-    private Obj: any = { // include name/img/money
-        name: null
-    }
-    private Info: any = { // name only
-        name:null
-    }
-
-    onLoad() {
-        var self = this;
-        //��l�ơA���name/img/money����}
-        this.Obj.name = cc.find("nameandcoin/name", this.node).getComponent(cc.Label);
-        this.Obj.img = cc.find("pic", this.node).getComponent(cc.Sprite);
-        this.Obj.money = cc.find("nameandcoin/Money", this.node).getComponent("Num2Sprite");
-        //this.node.active = false;
-    }
-
-    setName(name) {
-
-        if (name == '') {
-            this.node.active = false;
-        } else {
-            this.node.active = true;
-        }
-
-        this.Info.name = name;
-        this.Obj.name.string = name;
+        // TEST data
+        let id = "test id";
+        let icon = "playerPic" + (Math.floor(Math.random() * 4) + 1);
+        let credit = 1;//Math.floor(Math.random() * 1000000); 
+        this.init(id, icon, credit);
     }
 
-    setImg(Img) {
-
-        this.Obj.img.spriteFrame = Img;
+    init(id: string, headSprite: string, money: number){
+        this.setName(id);
+        this.setMoney(money);
+        this.setHeadSprite(headSprite);
     }
 
-    setCoin(coin) {
-        this.Obj.money.setNum(coin); // �I�sNum2Sprite���禡
+    setHeadSprite(spriteName: string)
+    {
+        let spr = global.Instance.resources.load(spriteName);
+        if (spr != null)
+            this.head.spriteFrame = spr;
+        else
+            cc.error("Error: Load " + spriteName + " failed.");
     }
 
+    setMoney(amount: number)
+    {
+        this.money.string = amount.toLocaleString();
+    }
+
+    setName(str: string)
+    {
+        cc.log(this);
+        this.playerName.string = str;
+    }
+
+    test(){
+        cc.log("playerTest");
+        this.setMoney(99999);
+    }
 }

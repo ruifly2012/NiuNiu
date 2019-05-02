@@ -34,6 +34,7 @@ var HomeViewController = /** @class */ (function (_super) {
         this.playGround.active = false;
         //connect server when start
         Global_1.default.Instance.network.ConnectServer();
+        Global_1.default.Instance.resources.preload();
         // 換場景註冊
         Global_1.default.Instance.EventListener.on("SwitchScene", function (event, SceneIndex) {
             cc.log("switch scene to" + SceneIndex);

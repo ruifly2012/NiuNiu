@@ -72,7 +72,7 @@ var PlayerInfoViewController = /** @class */ (function (_super) {
     Object.defineProperty(PlayerInfoViewController, "Inst", {
         get: function () {
             if (!PlayerInfoViewController_1.inst) {
-                PlayerInfoViewController_1.inst = new PlayerInfoViewController_1();
+                return undefined;
             }
             return this.inst;
         },
@@ -84,6 +84,7 @@ var PlayerInfoViewController = /** @class */ (function (_super) {
     };
     PlayerInfoViewController.prototype.onLoad = function () {
         var self = this;
+        PlayerInfoViewController_1.inst = this;
         /*
         this.playerScript.PreRival = this.PreRival.getComponent("Player");
         this.playerScript.Me = this.Me.getComponent("Player");
@@ -100,24 +101,19 @@ var PlayerInfoViewController = /** @class */ (function (_super) {
         });*/
     };
     PlayerInfoViewController.prototype.init = function () {
-        this.playerCount = NN.GameInfo.Inst.playerCount;
-        var _loop_1 = function (index) {
-            cc.log("get player" + index + this_1.players[index]);
-            cc.log("all] player" + this_1.players);
-            this_1.playerScript[index] = this_1.players[index].getComponent("Player");
-            cc.loader.loadRes(this_1.defaultImgs[NN.GameInfo.Inst.players[index].iconID], cc.SpriteFrame, function (err, spriteFrame) {
-                this.playerScript[index].setImg(spriteFrame);
-            });
-        };
-        var this_1 = this;
+        PlayerInfoViewController_1.inst.playerCount = NN.GameInfo.Inst.playerCount;
         for (var index = 0; index < this.playerCount; index++) {
-            _loop_1(index);
+            cc.log("get player" + index + this.players[index]);
+            cc.log(this);
+            PlayerInfoViewController_1.inst.playerScript[index] = this.players[index].getComponent("Player");
+            PlayerInfoViewController_1.inst.playerScript[index].test();
+            PlayerInfoViewController_1.inst.playerScript[index].setHeadSprite("playerPic1");
         }
     };
     PlayerInfoViewController.prototype.updatePlayer = function () {
         for (var index = 0; index < this.playerCount; index++) {
-            this.playerScript[index].setName(NN.GameInfo.Inst.players[index].name);
-            this.playerScript[index].setCoin(NN.GameInfo.Inst.players[index].money);
+            PlayerInfoViewController_1.inst.playerScript[index].setName(NN.GameInfo.Inst.players[index].name);
+            PlayerInfoViewController_1.inst.playerScript[index].setMoney(NN.GameInfo.Inst.players[index].money);
         }
     };
     PlayerInfoViewController.prototype.showKingAnime = function (kingUID) {

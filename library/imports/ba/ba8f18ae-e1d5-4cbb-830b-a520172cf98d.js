@@ -341,7 +341,8 @@ var StageController = /** @class */ (function (_super) {
     };
     // king rate
     StageController.prototype.kingRateClick = function (event, customEventData) {
-        Global_1.default.Instance.network.socket().emit("kingRate", Global_1.default.Instance.uid, customEventData);
+        //global.Instance.network.socket().emit("kingRate", global.Instance.uid, customEventData);
+        Global_1.default.Instance.network.rob_bet(customEventData);
         this.clearTimer();
     };
     // bet rate

@@ -382,7 +382,8 @@ export default class StageController extends cc.Component {
 
     // king rate
     kingRateClick(event,customEventData){
-        global.Instance.network.socket().emit("kingRate", global.Instance.uid, customEventData);
+        //global.Instance.network.socket().emit("kingRate", global.Instance.uid, customEventData);
+        global.Instance.network.rob_bet(customEventData);
         this.clearTimer();
     }
 

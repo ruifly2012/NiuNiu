@@ -26,6 +26,7 @@ export default class Global extends cc.Component{
             Global.instance.transitions = new Transitions();
             Global.instance.animation = new AnimationMgr();   
             Global.instance.misc = new MiscTool();        
+            Global.instance.resources = new ResourcesMgr();
         }
         return this.instance;
     }
@@ -35,9 +36,9 @@ export default class Global extends cc.Component{
     transitions: Transitions = null;
     animation: AnimationMgr = null;
     misc: MiscTool = null;
+    resources: ResourcesMgr = null;    
 
     audio: AudioMgr = null;   
-    resources: ResourcesMgr = null;    
     util: Util = null;
     
  

@@ -20,8 +20,8 @@ var Global = /** @class */ (function (_super) {
         _this.transitions = null;
         _this.animation = null;
         _this.misc = null;
-        _this.audio = null;
         _this.resources = null;
+        _this.audio = null;
         _this.util = null;
         return _this;
     }
@@ -35,6 +35,7 @@ var Global = /** @class */ (function (_super) {
                 Global_1.instance.transitions = new Transitions_1.default();
                 Global_1.instance.animation = new AnimationMgr_1.default();
                 Global_1.instance.misc = new MiscTool_1.default();
+                Global_1.instance.resources = new ResourcesMgr_1.default();
             }
             return this.instance;
         },

@@ -45,6 +45,26 @@ export default class NetworkManager {
        
     }
 
+    /**
+     * 搶莊
+     * @param rate 倍率
+     */
+    rob_bet(rate: number){
+        let self = this;
+        let no:number = 6072;
+        let json= {
+            "no" : no,
+            "data" : {
+                "rob_bet" : rate
+            }
+        };
+        //console.log("token Reg : "+ token);
+        this._socket.emit("action",json ,function(code,data){
+            if(data != 200) cc.warn("rob_bet error" + data.error);
+            else cc.log("rob_bet success");
+        })
+    }
+
     eventRegister(){
         //socket event listener
         this._socket.on("SwitchScene", function (SceneIndex) {
@@ -90,6 +110,14 @@ export default class NetworkManager {
                     gameInfo.players[0].uid = data.main_player.uid;
                     gameInfo.players[0].money = data.main_player.coins;
                     gameInfo.players[0].name = data.main_player.nickname;
+                    /*
+                    data.players.forEach(function(element,index) {
+                        gameInfo.players[index+1].uid = element.uid;
+                        gameInfo.players[index+1].money = element.coins;
+                        gameInfo.players[index+1].name = element.nickname;
+                    });
+                    cc.warn("len: "+ data.players.length);
+                    */
                     PlayerInfoViewController.Inst.init();
                     PlayerInfoViewController.Inst.updatePlayer();
                     break;

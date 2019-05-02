@@ -1,6 +1,5 @@
 import global from "../Common/Global";
 
-
 const {ccclass, property} = cc._decorator;
 
 @ccclass
@@ -44,7 +43,7 @@ export default class HomeViewController extends cc.Component {
         this.playGround.active = false;
         //connect server when start
         global.Instance.network.ConnectServer();
-
+        global.Instance.resources.preload();
 
         // 換場景註冊
         global.Instance.EventListener.on("SwitchScene", function (event,SceneIndex) {

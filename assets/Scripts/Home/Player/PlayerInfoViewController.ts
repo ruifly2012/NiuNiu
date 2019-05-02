@@ -1,5 +1,6 @@
 ﻿import global from "../../Common/Global";
 import * as NN from "../../NNDefine";
+import Player from "./Player";
 const { ccclass, property } = cc._decorator;
 
 enum player{
@@ -16,7 +17,7 @@ export default class PlayerInfoViewController extends cc.Component {
     //ctor
     //=====================================================================
     private playerInfo: any = null; 
-    private playerScript = [];
+    private playerScript: Player[] = [];
     private defaultImgs: any = ["newnew/common/playerPic1", "newnew/common/playerPic2", "newnew/common/playerPic3", "newnew/common/playerPic4", "newnew/common/playerPic5", "newnew/common/playerPic6"];
     private autoPlaying: cc.Node;
     private playerCount: number;
@@ -39,7 +40,7 @@ export default class PlayerInfoViewController extends cc.Component {
 
     static get Inst(): PlayerInfoViewController{
         if(!PlayerInfoViewController.inst){
-            PlayerInfoViewController.inst = new PlayerInfoViewController();
+            return undefined
         }
         return this.inst;
     }
@@ -50,7 +51,7 @@ export default class PlayerInfoViewController extends cc.Component {
 
     onLoad() {
         let self = this;
-
+        PlayerInfoViewController.inst = this;
         /*
         this.playerScript.PreRival = this.PreRival.getComponent("Player");
         this.playerScript.Me = this.Me.getComponent("Player");
@@ -70,23 +71,20 @@ export default class PlayerInfoViewController extends cc.Component {
     }
 
     init(){
-        this.playerCount = NN.GameInfo.Inst.playerCount;
+        PlayerInfoViewController.inst.playerCount = NN.GameInfo.Inst.playerCount;
         for(let index = 0;index< this.playerCount;index++){
             cc.log("get player" + index + this.players[index]);
-            cc.log("all] player" + this.players);
-            
-            this.playerScript[index] = this.players[index].getComponent("Player");
-
-            cc.loader.loadRes(this.defaultImgs[NN.GameInfo.Inst.players[index].iconID], cc.SpriteFrame, function (err, spriteFrame) {
-                this.playerScript[index].setImg(spriteFrame);
-            });
+            cc.log(this);
+            PlayerInfoViewController.inst.playerScript[index] = this.players[index].getComponent("Player");
+            PlayerInfoViewController.inst.playerScript[index].test();
+            PlayerInfoViewController.inst.playerScript[index].setHeadSprite("playerPic1");
         }
     }
 
     updatePlayer(){
         for(let index = 0;index< this.playerCount;index++){
-            this.playerScript[index].setName(NN.GameInfo.Inst.players[index].name);
-            this.playerScript[index].setCoin(NN.GameInfo.Inst.players[index].money);
+            PlayerInfoViewController.inst.playerScript[index].setName(NN.GameInfo.Inst.players[index].name);
+            PlayerInfoViewController.inst.playerScript[index].setMoney(NN.GameInfo.Inst.players[index].money);
         }
     }
 
