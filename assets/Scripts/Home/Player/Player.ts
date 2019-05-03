@@ -42,12 +42,7 @@ export default class Player extends cc.Component
 
     setName(str: string)
     {
-        cc.log(this);
         this.playerName.string = str;
     }
 
-    test(){
-        cc.log("playerTest");
-        this.setMoney(99999);
-    }
 }

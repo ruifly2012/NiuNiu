@@ -74,9 +74,7 @@ export default class PlayerInfoViewController extends cc.Component {
         PlayerInfoViewController.inst.playerCount = NN.GameInfo.Inst.playerCount;
         for(let index = 0;index< this.playerCount;index++){
             cc.log("get player" + index + this.players[index]);
-            cc.log(this);
             PlayerInfoViewController.inst.playerScript[index] = this.players[index].getComponent("Player");
-            PlayerInfoViewController.inst.playerScript[index].test();
             PlayerInfoViewController.inst.playerScript[index].setHeadSprite("playerPic1");
         }
     }
@@ -85,6 +83,8 @@ export default class PlayerInfoViewController extends cc.Component {
         for(let index = 0;index< this.playerCount;index++){
             PlayerInfoViewController.inst.playerScript[index].setName(NN.GameInfo.Inst.players[index].name);
             PlayerInfoViewController.inst.playerScript[index].setMoney(NN.GameInfo.Inst.players[index].money);
+            PlayerInfoViewController.inst.playerScript[index].setHeadSprite("playerPic" + NN.GameInfo.Inst.players[index].iconID);
+            
         }
     }
 

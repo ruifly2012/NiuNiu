@@ -3764,11 +3764,6 @@
     "meta": 1556679591761,
     "relativePath": "prefabs\\Canvas.prefab"
   },
-  "b98f4f4e-4637-4da9-b715-2f56be23b95e": {
-    "asset": 1556684414715,
-    "meta": 1556689000525,
-    "relativePath": "Scripts\\NNDefine.ts"
-  },
   "a3fb5158-a748-4f45-ae80-c2511dfc1b76": {
     "asset": 1556785049311,
     "meta": 1556784782352,
@@ -4029,24 +4024,29 @@
     "meta": 1556794917266,
     "relativePath": "Scripts\\Common\\Global.ts"
   },
+  "b98f4f4e-4637-4da9-b715-2f56be23b95e": {
+    "asset": 1556856259267,
+    "meta": 1556856659445,
+    "relativePath": "Scripts\\NNDefine.ts"
+  },
+  "ba8f18ae-e1d5-4cbb-830b-a520172cf98d": {
+    "asset": 1556856792330,
+    "meta": 1556856860443,
+    "relativePath": "Scripts\\Home\\Stage\\StageController.ts"
+  },
   "7f971f09-d82a-48bb-a536-40448cb5696b": {
-    "asset": 1556796856042,
-    "meta": 1556796858642,
+    "asset": 1556856935345,
+    "meta": 1556856946106,
     "relativePath": "Scripts\\Home\\Player\\PlayerInfoViewController.ts"
   },
   "ea5c6db1-e447-4485-9e70-55f0eee64102": {
-    "asset": 1556810262120,
-    "meta": 1556810264712,
+    "asset": 1556857129647,
+    "meta": 1556861148142,
     "relativePath": "Scripts\\Home\\Player\\Player.ts"
   },
-  "ba8f18ae-e1d5-4cbb-830b-a520172cf98d": {
-    "asset": 1556810941479,
-    "meta": 1556810949254,
-    "relativePath": "Scripts\\Home\\Stage\\StageController.ts"
-  },
   "412976b6-5e90-42f4-b209-14db85c544de": {
-    "asset": 1556811137441,
-    "meta": 1556811152440,
+    "asset": 1556861137254,
+    "meta": 1556861148143,
     "relativePath": "Scripts\\Network\\NetworkManager.ts"
   }
 }

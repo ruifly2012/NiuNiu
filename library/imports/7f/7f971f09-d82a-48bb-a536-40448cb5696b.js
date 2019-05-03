@@ -104,9 +104,7 @@ var PlayerInfoViewController = /** @class */ (function (_super) {
         PlayerInfoViewController_1.inst.playerCount = NN.GameInfo.Inst.playerCount;
         for (var index = 0; index < this.playerCount; index++) {
             cc.log("get player" + index + this.players[index]);
-            cc.log(this);
             PlayerInfoViewController_1.inst.playerScript[index] = this.players[index].getComponent("Player");
-            PlayerInfoViewController_1.inst.playerScript[index].test();
             PlayerInfoViewController_1.inst.playerScript[index].setHeadSprite("playerPic1");
         }
     };
@@ -114,6 +112,7 @@ var PlayerInfoViewController = /** @class */ (function (_super) {
         for (var index = 0; index < this.playerCount; index++) {
             PlayerInfoViewController_1.inst.playerScript[index].setName(NN.GameInfo.Inst.players[index].name);
             PlayerInfoViewController_1.inst.playerScript[index].setMoney(NN.GameInfo.Inst.players[index].money);
+            PlayerInfoViewController_1.inst.playerScript[index].setHeadSprite("playerPic" + NN.GameInfo.Inst.players[index].iconID);
         }
     };
     PlayerInfoViewController.prototype.showKingAnime = function (kingUID) {

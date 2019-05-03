@@ -43,7 +43,7 @@
                 "children": [
                   "scene"
                 ],
-                "height": 454.01251220703125,
+                "height": 454.375,
                 "type": "panel",
                 "width": 821.6749877929688
               },
@@ -53,7 +53,7 @@
                   "console",
                   "timeline"
                 ],
-                "height": 266.5874938964844,
+                "height": 266.2250061035156,
                 "type": "panel",
                 "width": 821.6749877929688
               }

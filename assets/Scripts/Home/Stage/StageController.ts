@@ -389,9 +389,10 @@ export default class StageController extends cc.Component {
 
     // bet rate
     betRateClick(event,customEventData){
-        global.Instance.network.socket().emit("playerRate", global.Instance.uid, customEventData);
+        //global.Instance.network.socket().emit("playerRate", global.Instance.uid, customEventData);
+        global.Instance.network.place_bet(customEventData);
         this.clearTimer();
-        cc.log(customEventData + "bet");
+        //cc.log(customEventData + "bet");
     }
 
     //no niu button

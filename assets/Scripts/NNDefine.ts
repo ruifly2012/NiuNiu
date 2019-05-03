@@ -51,5 +51,6 @@ export class Player{
     name: string;
     money: number;
     iconID: number;
+    vip: number;
     poker: number[];
 }

@@ -347,9 +347,10 @@ var StageController = /** @class */ (function (_super) {
     };
     // bet rate
     StageController.prototype.betRateClick = function (event, customEventData) {
-        Global_1.default.Instance.network.socket().emit("playerRate", Global_1.default.Instance.uid, customEventData);
+        //global.Instance.network.socket().emit("playerRate", global.Instance.uid, customEventData);
+        Global_1.default.Instance.network.place_bet(customEventData);
         this.clearTimer();
-        cc.log(customEventData + "bet");
+        //cc.log(customEventData + "bet");
     };
     //no niu button
     StageController.prototype.noBuffButtonClick = function () {

@@ -50,7 +50,6 @@ export default class NetworkManager {
      * @param rate 倍率
      */
     rob_bet(rate: number){
-        let self = this;
         let no:number = 6072;
         let json= {
             "no" : no,
@@ -58,14 +57,34 @@ export default class NetworkManager {
                 "rob_bet" : rate
             }
         };
-        //console.log("token Reg : "+ token);
         this._socket.emit("action",json ,function(code,data){
-            if(data != 200) cc.warn("rob_bet error" + data.error);
+            cc.log("code : " + code);
+            if(code != 200) cc.warn("rob_bet error : " + data.error);
             else cc.log("rob_bet success");
         })
     }
 
+    /**
+     * 一般倍率下注
+     * @param rate 倍率
+     */
+    place_bet(rate: number){
+        let no:number = 6073;
+        let json= {
+            "no" : no,
+            "data" : {
+                "place_bet" : rate
+            }
+        };
+        this._socket.emit("action",json ,function(code,data){
+            cc.log("code : " + code);
+            if(code != 200) cc.warn("place_bet error : " + data.error);
+            else cc.log("place_bet success");
+        })
+    }
+
     eventRegister(){
+        let self = this;
         //socket event listener
         this._socket.on("SwitchScene", function (SceneIndex) {
             //cc.log("get switch scene req");
@@ -94,33 +113,24 @@ export default class NetworkManager {
             if(data == 6001)  //get table success
                 global.Instance.EventListener.notify("SwitchScene", 1); 
             switch(data.no){    
-                case 6101:
-                    //stage info
-                    
-                    //room
-                    //data.room
-
-                    //get players data
-                    let playerCount = 4;
-                    let gameInfo: NN.GameInfo = NN.GameInfo.Inst;
-                    gameInfo.playerCount = playerCount;
-                    for (let index = 0; index < playerCount; index++) {
-                        gameInfo.players.push(new NN.Player());
-                    }
-                    gameInfo.players[0].uid = data.main_player.uid;
-                    gameInfo.players[0].money = data.main_player.coins;
-                    gameInfo.players[0].name = data.main_player.nickname;
-                    /*
-                    data.players.forEach(function(element,index) {
-                        gameInfo.players[index+1].uid = element.uid;
-                        gameInfo.players[index+1].money = element.coins;
-                        gameInfo.players[index+1].name = element.nickname;
-                    });
-                    cc.warn("len: "+ data.players.length);
-                    */
-                    PlayerInfoViewController.Inst.init();
-                    PlayerInfoViewController.Inst.updatePlayer();
+                ///////stage info////////////
+                case 6101://rob bet stage info
+                    self.receiveStageInfo(data);
                     break;
+                case 6103://place bet stage info
+                    self.placeBetStageInfo(data);
+                    break;
+                case 6107:
+                    self.receiveCard(data);
+                    break;
+                //////bet///////////////    
+                case 6102:
+                    self.receiveRobBet(data);
+                    break;
+                case 6104:
+                    self.receivePlaceBet(data);
+                    break;
+                //////clock / stage change///////    
                 case 6107:
                     global.Instance.EventListener.notify("stageChange", data.stage, data.time);
                     cc.warn("change stage" + data.stage + "time:"+data.time);
@@ -162,5 +172,71 @@ export default class NetworkManager {
 
     }
     
+    /**
+     * 6101
+     * @param data 
+     */
+    receiveStageInfo(data){
+        //stage info
+        //room
+        //data.room
+
+        //get players data
+        let playerCount = 2;
+        let gameInfo: NN.GameInfo = NN.GameInfo.Inst;
+        gameInfo.playerCount = playerCount;
+        for (let index = 0; index < playerCount; index++) {
+            gameInfo.players.push(new NN.Player());
+        }
+        gameInfo.players[0].uid = data.main_player.uid;
+        gameInfo.players[0].money = data.main_player.coins;
+        gameInfo.players[0].name = data.main_player.nickname;
+        gameInfo.players[0].iconID = data.main_player.avatar;
+        
+        let playerIndex = 0;
+        for (let _key in data.players) {
+            playerIndex++;
+            gameInfo.players[playerIndex].uid = data.players[_key].uid;
+            gameInfo.players[playerIndex].money = data.players[_key].coins;
+            gameInfo.players[playerIndex].name = data.players[_key].nickname;
+            gameInfo.players[playerIndex].iconID = data.players[_key].avatar;
+            gameInfo.players[playerIndex].vip = data.players[_key].vip;
+        }
+
+        PlayerInfoViewController.Inst.init();
+        PlayerInfoViewController.Inst.updatePlayer();                        
+    }
+
+    /**
+     * 6103
+     * @param data 
+     */
+    placeBetStageInfo(data){
+
+    }
+
+    /**
+     * 6102
+     * @param data 
+     */
+    receiveRobBet(data){
+
+    }
+
+    /**
+     * 6103
+     * @param data 
+     */
+    receivePlaceBet(data){
+
+    }
+
+    /**
+     * 6107
+     * @param data
+     */
+    receiveCard(data){
+
+    }
 
 }
