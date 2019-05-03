@@ -107,7 +107,6 @@ var NetworkManager = /** @class */ (function () {
             console.log("response : " + JSON.stringify(data));
             if (data == 6001) //get table success
                 Global_1.default.Instance.EventListener.notify("SwitchScene", 1);
-            cc.log("data.no: " + data.no);
             switch (data.no) {
                 ///////stage info////////////
                 case 6101: //rob bet stage info

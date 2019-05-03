@@ -112,13 +112,7 @@ export default class NetworkManager {
             console.log("response : " + JSON.stringify(data));
             if(data == 6001)  //get table success
                 global.Instance.EventListener.notify("SwitchScene", 1); 
-            switch(data.no){    
-                ///////stage info////////////
-                case 6101://rob bet stage info
-                    self.receiveStageInfo(data);
-             cc.log("data.no: "+data.no); 
             switch(data.no){   
-                
                 ///////stage info////////////
                 case 6101://rob bet stage info
                     self.receiveStageInfo(data);

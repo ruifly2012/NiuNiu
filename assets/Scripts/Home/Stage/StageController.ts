@@ -381,14 +381,14 @@ export default class StageController extends cc.Component {
     }
 
     // king rate
-    kingRateClick(event,customEventData){
+    kingRateClick(event,customEventData : number){
         //global.Instance.network.socket().emit("kingRate", global.Instance.uid, customEventData);
         global.Instance.network.rob_bet(customEventData);
         this.clearTimer();
     }
 
     // bet rate
-    betRateClick(event,customEventData){
+    betRateClick(event,customEventData: number){
         //global.Instance.network.socket().emit("playerRate", global.Instance.uid, customEventData);
         global.Instance.network.place_bet(customEventData);
         this.clearTimer();
