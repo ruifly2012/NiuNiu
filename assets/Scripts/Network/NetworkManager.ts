@@ -54,7 +54,7 @@ export default class NetworkManager {
         let json= {
             "no" : no,
             "data" : {
-                "rob_bet" : rate
+                "rob_bet" : 1//use 1 to test int problem
             }
         };
         this._socket.emit("action",json ,function(code,data){
@@ -116,11 +116,17 @@ export default class NetworkManager {
                 ///////stage info////////////
                 case 6101://rob bet stage info
                     self.receiveStageInfo(data);
+             cc.log("data.no: "+data.no); 
+            switch(data.no){   
+                
+                ///////stage info////////////
+                case 6101://rob bet stage info
+                    self.receiveStageInfo(data);
                     break;
                 case 6103://place bet stage info
                     self.placeBetStageInfo(data);
                     break;
-                case 6107:
+                case 6105:
                     self.receiveCard(data);
                     break;
                 //////bet///////////////    
@@ -132,8 +138,8 @@ export default class NetworkManager {
                     break;
                 //////clock / stage change///////    
                 case 6107:
-                    global.Instance.EventListener.notify("stageChange", data.stage, data.time);
                     cc.warn("change stage" + data.stage + "time:"+data.time);
+                    global.Instance.EventListener.notify("stageChange", data.stage, data.time);
                     break;
                 default:
                 break;
