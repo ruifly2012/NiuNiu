@@ -1,7 +1,7 @@
 {
   "__type__": "cc.SpriteFrame",
   "content": {
-    "name": "grab_01",
+    "name": "grab_1",
     "texture": "30563b11-c36b-4aa4-9579-0e9611ab96cd",
     "atlas": "",
     "rect": [

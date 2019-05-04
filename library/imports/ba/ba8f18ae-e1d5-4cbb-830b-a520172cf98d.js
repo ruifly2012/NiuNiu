@@ -64,6 +64,17 @@ var StageController = /** @class */ (function (_super) {
         _this.Timer = null;
         return _this;
     }
+    StageController_1 = StageController;
+    Object.defineProperty(StageController, "Inst", {
+        get: function () {
+            if (!StageController_1.inst) {
+                return undefined;
+            }
+            return this.inst;
+        },
+        enumerable: true,
+        configurable: true
+    });
     StageController.prototype.init = function () {
         this.CardObj = {
             // �ثe���A
@@ -97,6 +108,7 @@ var StageController = /** @class */ (function (_super) {
     };
     StageController.prototype.onLoad = function () {
         var self = this;
+        StageController_1.inst = this;
         this.init(); // ���ܼƧ��b�������u�ꪺ��m
         this.PokerSetScript.Me = this.CardObj.cards.Me.getComponent("PokerSet");
         this.PokerSetScript.Pre = this.CardObj.cards.Pre.getComponent("PokerSet");
@@ -169,6 +181,10 @@ var StageController = /** @class */ (function (_super) {
             cc.log("get pokerAnimation : ", Info.Me);
             self.playPokerAnimation(Info);
         });
+    };
+    StageController.prototype.dealerTest = function (rate) {
+        cc.warn("test img: " + "grab_" + rate);
+        this.CardObj.currentStatus.Me.getComponent("PokerControl").showstatus("grab_" + rate);
     };
     StageController.prototype.UpdateDealer = function (Info) {
         this.cardInfo = Info;
@@ -382,6 +398,8 @@ var StageController = /** @class */ (function (_super) {
         this.clearTimer();
         self.CardObj.cards.Me.active = true;
     };
+    var StageController_1;
+    StageController.inst = null;
     __decorate([
         property(cc.Node)
     ], StageController.prototype, "playerInfo", void 0);
@@ -397,7 +415,7 @@ var StageController = /** @class */ (function (_super) {
     __decorate([
         property(cc.Node)
     ], StageController.prototype, "Timer", void 0);
-    StageController = __decorate([
+    StageController = StageController_1 = __decorate([
         ccclass
     ], StageController);
     return StageController;

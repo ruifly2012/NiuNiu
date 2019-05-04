@@ -5,6 +5,16 @@ const {ccclass, property} = cc._decorator;
 @ccclass
 export default class StageController extends cc.Component {
 
+
+    private static inst: StageController = null;
+
+    static get Inst(): StageController{
+        if(!StageController.inst){
+            return undefined
+        }
+        return this.inst;
+    }
+
     private CardObj: any = {
         currentStatus: {
             Me: null,
@@ -109,6 +119,7 @@ export default class StageController extends cc.Component {
     }
     onLoad() { // ��l�Ƭ����ާ@
         let self = this;
+        StageController.inst = this;
 
         this.init(); // ���ܼƧ��b�������u�ꪺ��m
 
@@ -189,6 +200,11 @@ export default class StageController extends cc.Component {
             self.playPokerAnimation(Info);
         });
 
+    }
+
+    dealerTest(rate: string){
+        cc.warn("test img: "+ "grab_" + rate);
+        this.CardObj.currentStatus.Me.getComponent("PokerControl").showstatus("grab_" + rate);
     }
 
     UpdateDealer(Info){

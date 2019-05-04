@@ -15,6 +15,7 @@ export default class ResourcesMgr extends cc.Component {
         super();
 
         this.assetList.push("player/img");
+        this.assetList.push("text");
 
         cc.game.addPersistRootNode(this.node);
     }
@@ -63,6 +64,7 @@ export default class ResourcesMgr extends cc.Component {
             cc.log("[Resources] Load " + name + " success");
             return this.spriteFrame[name];
         }
+        cc.warn("[Resources] Load " + name + " fail");
         return null;
     }
 

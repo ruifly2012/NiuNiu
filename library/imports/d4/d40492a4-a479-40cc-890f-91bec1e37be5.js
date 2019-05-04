@@ -16,6 +16,7 @@ var ResourcesMgr = /** @class */ (function (_super) {
         /**各場景須預讀取的檔案列表 */
         _this.assetList = [];
         _this.assetList.push("player/img");
+        _this.assetList.push("text");
         cc.game.addPersistRootNode(_this.node);
         return _this;
     }
@@ -59,6 +60,7 @@ var ResourcesMgr = /** @class */ (function (_super) {
             cc.log("[Resources] Load " + name + " success");
             return this.spriteFrame[name];
         }
+        cc.warn("[Resources] Load " + name + " fail");
         return null;
     };
     ResourcesMgr = __decorate([

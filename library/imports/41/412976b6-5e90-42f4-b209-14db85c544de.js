@@ -5,7 +5,8 @@ cc._RF.push(module, '41297a2XpBC9LIJFNuFxUTe', 'NetworkManager');
 Object.defineProperty(exports, "__esModule", { value: true });
 var Global_1 = require("../Common/Global");
 var NN = require("../NNDefine");
-var PlayerInfoViewController_1 = require("../Home/Player/PlayerInfoViewController");
+var PlayerController_1 = require("../Home/Player/PlayerController");
+var StageController_1 = require("../Home/Stage/StageController");
 var NetworkManager = /** @class */ (function () {
     function NetworkManager() {
         //private serverURL:string = "http://140.118.175.76:5070/";
@@ -52,7 +53,7 @@ var NetworkManager = /** @class */ (function () {
         var json = {
             "no": no,
             "data": {
-                "rob_bet": 1 //use 1 to test int problem
+                "rob_bet": rate
             }
         };
         this._socket.emit("action", json, function (code, data) {
@@ -186,8 +187,8 @@ var NetworkManager = /** @class */ (function () {
             gameInfo.players[playerIndex].iconID = data.players[_key].avatar;
             gameInfo.players[playerIndex].vip = data.players[_key].vip;
         }
-        PlayerInfoViewController_1.default.Inst.init();
-        PlayerInfoViewController_1.default.Inst.updatePlayer();
+        PlayerController_1.default.Inst.init();
+        PlayerController_1.default.Inst.updatePlayer();
     };
     /**
      * 6103
@@ -200,6 +201,8 @@ var NetworkManager = /** @class */ (function () {
      * @param data
      */
     NetworkManager.prototype.receiveRobBet = function (data) {
+        cc.warn("rcv :" + data.rob_bet);
+        StageController_1.default.Inst.dealerTest(data.rob_bet);
     };
     /**
      * 6103

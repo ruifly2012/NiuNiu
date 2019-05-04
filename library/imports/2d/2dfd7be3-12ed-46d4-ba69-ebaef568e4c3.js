@@ -49,6 +49,7 @@ var moneyAnime = /** @class */ (function (_super) {
         animeState.wrapMode = cc.WrapMode.Loop;
         animeState.repeatCount = 5;
         //set action
+        //calc mid point to draw curve
         var midPoint;
         if (startPos.y > endPos.y) {
             midPoint = cc.v2(endPos.x * (1.2) + startPos.x * (-0.2), startPos.y * (1.5) + endPos.y * -0.5);
@@ -57,24 +58,13 @@ var moneyAnime = /** @class */ (function (_super) {
             midPoint = cc.v2(endPos.x * (1.2) + startPos.x * (-0.2), endPos.y * (1.5) + startPos.y * -0.5);
         }
         var path = [startPos, midPoint, endPos];
-        action = cc.sequence(cc.show(), 
-        //x,y sametime
-        /*
-        cc.spawn(
-            //x y use seperate func
-            cc.moveBy(interval , (toX+ yOffset/3) - (fromX + xOffset) , 0).easing(cc.easeQuadraticActionOut()),
-            cc.moveBy(interval , 0 , (toY+ xOffset/3) - (fromY + yOffset)).easing(cc.easeSineIn()),
-        ),
-        */
-        cc.bezierTo(interval, path), cc.hide());
+        action = cc.sequence(cc.show(), cc.bezierTo(interval, path), cc.hide());
         self.node.runAction(action);
     };
     moneyAnime.prototype.moneyFlow = function (from, to, xOffset, yOffset, speedAndIntervalVal) {
         if (xOffset === void 0) { xOffset = 0; }
         if (yOffset === void 0) { yOffset = 0; }
         var self = this;
-        //cc.log("from "+fromSeat+" to "+toSeat);
-        //cc.log("from "+from+" to "+to);
         var pos = [
             { x: -418, y: 331 },
             { x: -811, y: 53 },

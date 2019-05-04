@@ -1,6 +1,7 @@
 import global from "../Common/Global";
 import * as NN from "../NNDefine";
-import PlayerInfoViewController from "../Home/Player/PlayerInfoViewController"
+import PlayerController from "../Home/Player/PlayerController"
+import stageController from "../Home/Stage/StageController"
 
 export default class NetworkManager {
     
@@ -54,7 +55,7 @@ export default class NetworkManager {
         let json= {
             "no" : no,
             "data" : {
-                "rob_bet" : 1//use 1 to test int problem
+                "rob_bet" : rate
             }
         };
         this._socket.emit("action",json ,function(code,data){
@@ -203,8 +204,8 @@ export default class NetworkManager {
             gameInfo.players[playerIndex].vip = data.players[_key].vip;
         }
 
-        PlayerInfoViewController.Inst.init();
-        PlayerInfoViewController.Inst.updatePlayer();                        
+        PlayerController.Inst.init();
+        PlayerController.Inst.updatePlayer();                        
     }
 
     /**
@@ -220,7 +221,8 @@ export default class NetworkManager {
      * @param data 
      */
     receiveRobBet(data){
-
+        cc.warn("rcv :" + data.rob_bet);
+        stageController.Inst.dealerTest(data.rob_bet);
     }
 
     /**

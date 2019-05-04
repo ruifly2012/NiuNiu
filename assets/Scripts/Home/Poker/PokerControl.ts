@@ -235,6 +235,8 @@ export default class PokerControl extends cc.Component {
         self.pokerTxt1.enabled = false;
         //cc.log("show poker status %s", status);
 
+        self.status.getComponent(cc.Sprite).spriteFrame = global.Instance.resources.load(status);
+
 
         cc.loader.loadRes("text/" + status, cc.SpriteFrame, function (err, spriteFrame) {
             if (err) cc.log(" fail show poker status %s", status);

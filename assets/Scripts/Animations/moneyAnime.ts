@@ -3,7 +3,6 @@ const {ccclass, property} = cc._decorator;
 export default class moneyAnime extends cc.Component {
 
     private frames:[cc.SpriteFrame] = [new cc.SpriteFrame];
-    private curvePos:cc.Vec2[];
     onLoad(){
         let self = this;
         //add component
@@ -42,9 +41,11 @@ export default class moneyAnime extends cc.Component {
         animeState.speed = speed;
         animeState.wrapMode = cc.WrapMode.Loop;
         animeState.repeatCount = 5;
+
         //set action
 
 
+        //calc mid point to draw curve
         let midPoint:cc.Vec2;
         if(startPos.y > endPos.y){
             midPoint = cc.v2(endPos.x*(1.2) + startPos.x*(-0.2), startPos.y*(1.5) + endPos.y*-0.5);
@@ -56,14 +57,6 @@ export default class moneyAnime extends cc.Component {
         let path = [startPos,midPoint,endPos];
         action = cc.sequence(
             cc.show(),
-            //x,y sametime
-            /*
-            cc.spawn(
-                //x y use seperate func
-                cc.moveBy(interval , (toX+ yOffset/3) - (fromX + xOffset) , 0).easing(cc.easeQuadraticActionOut()),
-                cc.moveBy(interval , 0 , (toY+ xOffset/3) - (fromY + yOffset)).easing(cc.easeSineIn()),
-            ),
-            */
             cc.bezierTo(interval, path),
             cc.hide()
         )
@@ -75,8 +68,6 @@ export default class moneyAnime extends cc.Component {
     moneyFlow(from:number,to:number,xOffset:number = 0,yOffset:number = 0, speedAndIntervalVal : number){
         let self = this;
 
-        //cc.log("from "+fromSeat+" to "+toSeat);
-        //cc.log("from "+from+" to "+to);
         let pos: {x: number, y: number}[] = [
             { x : -418, y: 331},//prepre
             { x : -811, y: 53}, //pre
