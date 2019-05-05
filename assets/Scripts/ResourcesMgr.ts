@@ -19,9 +19,9 @@ export default class ResourcesMgr extends cc.Component {
         // ResourceIndex.TW
         let list = [];
         list.push("MobileStatus");
-        list.push("poker");
 
         list.push("playerIcon");
+        list.push("text");
         this.assetList = list;
 
         cc.game.addPersistRootNode(this.node);

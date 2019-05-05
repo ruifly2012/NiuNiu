@@ -5,7 +5,7 @@ const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class Clock extends cc.Component {
-    @property(cc.Sprite) bg: cc.Sprite = null;
+    @property(cc.Node) bg: cc.Node = null;
     @property(cc.Label) text: cc.Label = null;
     @property(Number) shakeTic: number = 0.05;
     @property(Number) shakeAngle: number = 7;
@@ -20,18 +20,21 @@ export default class Clock extends cc.Component {
     }
 
     init(){
-        this.bg.node.stopAllActions();
-        this.bg.node.rotation = 0;
+        this.bg.stopAllActions();
+        this.bg.rotation = 0;
         this.countDown = 0;
         this.text.string = "";
         this.onFinished = null;
         this.timer = null;
         this.isActive = false;
+        this.node.opacity = 0;
     }
 
     startCountDown(times: number, callback?) {
         if (this.isActive) return;
         this.init();
+        this.node.opacity = 255;
+        cc.warn("clock start");
         
         this.isActive = true;
         this.countDown = times;
@@ -42,6 +45,7 @@ export default class Clock extends cc.Component {
             this.countDown--;
             if (this.countDown <= 0) {
                 if (this.onFinished != undefined) {
+                    cc.log("clock Callback");
                     this.onFinished();
                 }
 
@@ -68,7 +72,7 @@ export default class Clock extends cc.Component {
         this.text.string = this.countDown.toString();
 
         if (this.countDown == 5) {
-            this.bg.node.stopAllActions();
+            this.bg.stopAllActions();
             let action = cc.repeatForever(
                 cc.sequence(
                     cc.rotateTo(this.shakeTic, this.shakeAngle),
@@ -77,7 +81,7 @@ export default class Clock extends cc.Component {
                     cc.rotateTo(this.shakeTic, this.shakeAngle),//.easing(cc.easeSineIn()),
                 ),
             );
-            this.bg.node.runAction(action);
+            this.bg.runAction(action);
         }
     }
 }

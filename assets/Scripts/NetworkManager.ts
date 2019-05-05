@@ -1,5 +1,6 @@
 import Game from "./Game";
 import * as Define from "./Define";
+import UIMgr from "./UIMgr";
 
 export default class NetworkManager {
     
@@ -93,27 +94,25 @@ export default class NetworkManager {
 
         this._socket.on("response", function (data) {
             console.log("response : " + JSON.stringify(data));
-            if(data == 6001)  //get table success
-                Game.Inst.EventListener.notify("SwitchScene", 1); 
             switch(data.no){   
                 ///////stage info////////////
                 case 6101://rob bet stage info
                     Game.Inst.EventListener.notify("startGame");
                     Game.Inst.EventListener.notify("RobBetInfo",data);
                     break;
-                // case 6103://place bet stage info
-                //     self.placeBetStageInfo(data);
-                //     break;
+                case 6103://place bet stage info
+                    self.placeBetStageInfo(data);
+                    break;
                 // case 6105:
                 //     self.receiveCard(data);
                 //     break;
                 // //////bet///////////////    
-                // case 6102:
-                //     self.receiveRobBet(data);
-                //     break;
-                // case 6104:
-                //     self.receivePlaceBet(data);
-                //     break;
+                case 6102:
+                    self.receiveRobBet(data);
+                    break;
+                case 6104:
+                    self.receivePlaceBet(data);
+                    break;
                 // //////clock / stage change///////    
                 // case 6107:
                 //     cc.warn("change stage" + data.stage + "time:"+data.time);
@@ -128,66 +127,31 @@ export default class NetworkManager {
     }
     
 
-
-
-    /**
-     * 6101
-     * @param data 
-     */
-    // receiveStageInfo(data){
-    //     //stage info
-    //     //room
-    //     //data.room
-
-    //     //get players data
-    //     let playerCount = 2;
-    //     let gameInfo: NN.GameInfo = NN.GameInfo.Inst;
-    //     gameInfo.playerCount = playerCount;
-    //     for (let index = 0; index < playerCount; index++) {
-    //         gameInfo.players.push(new NN.Player());
-    //     }
-    //     gameInfo.players[0].uid = data.main_player.uid;
-    //     gameInfo.players[0].money = data.main_player.coins;
-    //     gameInfo.players[0].name = data.main_player.nickname;
-    //     gameInfo.players[0].iconID = data.main_player.avatar;
-        
-    //     let playerIndex = 0;
-    //     for (let _key in data.players) {
-    //         playerIndex++;
-    //         gameInfo.players[playerIndex].uid = data.players[_key].uid;
-    //         gameInfo.players[playerIndex].money = data.players[_key].coins;
-    //         gameInfo.players[playerIndex].name = data.players[_key].nickname;
-    //         gameInfo.players[playerIndex].iconID = data.players[_key].avatar;
-    //         gameInfo.players[playerIndex].vip = data.players[_key].vip;
-    //     }
-
-    //     PlayerController.Inst.init();
-    //     PlayerController.Inst.updatePlayer();                        
-    // }
-
     /**
      * 6103
      * @param data 
      */
     placeBetStageInfo(data){
-
+        cc.warn("rcv :" + JSON.stringify(data));
+        UIMgr.Inst.getPlayerByUID(data.banker).setKing(true);
     }
 
     /**
      * 6102
      * @param data 
      */
-    // receiveRobBet(data){
-    //     cc.warn("rcv :" + data.rob_bet);
-    //     stageController.Inst.dealerTest(data.rob_bet);
-    // }
+    receiveRobBet(data){
+        cc.warn("rcv :" + JSON.stringify(data));
+        UIMgr.Inst.getPlayerByUID(data.player).setStatus(Define.BetType.RobBet,data.rob_bet);
+    }
 
     /**
-     * 6103
+     * 6104
      * @param data 
      */
     receivePlaceBet(data){
-
+        cc.warn("rcv :" + JSON.stringify(data));
+        UIMgr.Inst.getPlayerByUID(data.player).setStatus(Define.BetType.PlaceBet,data.rob_bet);
     }
 
     /**

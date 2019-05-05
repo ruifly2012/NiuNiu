@@ -6,54 +6,45 @@ import UIMgr from "../UIMgr";
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class RobBet extends StateBase {
+export default class PlaceBet extends StateBase {
 
     @property({type:cc.Enum(Define.GameState),serializable:true})
-    public state:Define.GameState = Define.GameState.RobBet;
+    public state:Define.GameState = Define.GameState.PlaceBet;
 
     onLoad(){
         
     }
     
     public stateInitialize(){
-        cc.warn("rob!!!");
+        cc.warn("place bet!!!");
          //init playerPoker
-        this.playStartGameAnim();
-        UIMgr.Inst.showRobBet(true);
+        UIMgr.Inst.showPlaceBet(true);
         this.startCountDown();
     }
 
     public stateRelease(){
-        UIMgr.Inst.showRobBet(false);
+        UIMgr.Inst.showPlaceBet(false);
         UIMgr.Inst.stopClock();
         UIMgr.Inst.players.forEach(element => {
             element.hideStatus();
         });
     }
-
     public stateUpdate(dt: number){
-    }
-
-    playStartGameAnim(){
-        UIMgr.Inst.animMgr.playStartGame(()=>{
-            //after start game
-            cc.log("start game !");
-        });
     }
 
     startCountDown() {
         let self = this;
         //啟動clock
         UIMgr.Inst.setClockAct(5, ()=>{
-            self.m_FSM.setState(Define.GameState.PlaceBet)
+            self.m_FSM.setState(Define.GameState.ChooseCard)
         });
     }
 
-    robBetClick(event, customData: number){
-        cc.warn("[rob_bet]click"+customData);
-        Game.Inst.networkMgr.rob_bet(customData);
-        UIMgr.Inst.showRobBet(false);
-        UIMgr.Inst.players[0].setStatus(Define.BetType.RobBet,customData);
+    placeBetClick(event, customData: number){
+        cc.warn("[place_bet]click"+customData);
+        Game.Inst.networkMgr.place_bet(customData);
+        UIMgr.Inst.showPlaceBet(false);
+        UIMgr.Inst.players[0].setStatus(Define.BetType.PlaceBet,customData);
     }
 
 }

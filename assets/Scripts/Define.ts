@@ -43,6 +43,10 @@ export enum CardType {
     smallCow,
 }
 
+export enum BetType{
+    RobBet = 0,
+    PlaceBet
+}
 export class GameInfo{
     private static instance: GameInfo = null;
 
@@ -83,8 +87,10 @@ export class RoomInfo{
     game_rate: number;
 }
 
+
+
 export class Player{
-    UID: number;
+    UID: string;
     name: string;
     money: number;
     iconID: number;
@@ -92,21 +98,37 @@ export class Player{
     /**性別 */
     gender: string;
     /**VIP號碼 */
-    vip: number;
+    vip: string;
 
     /**
      * 存player資料
      * @param data player Json
      */
     assign(data){
+        cc.warn("ASSIGN PLAYER");
         this.UID = data.uid;
         this.name = data.nickname;
         this.money = data.coins;
         this.iconID = data.avatar;
+        cc.warn("this.UID = "+data.uid);
+        cc.warn("this.name = "+data.nickname);
+        cc.warn("this.money = "+data.coins);
+        cc.warn("this.iconID = "+data.avatar);
     }
 }
 
 export default class Converter {
+    /**取得玩家頭像旁倍率顯示 */
+    static getBetTypeText(type: BetType): string {
+        switch (type) {
+            case BetType.RobBet: return "grab_";
+            case BetType.PlaceBet: return "BetTest_"
+            default:
+                cc.error("[TWDefineConverter]");
+                break;
+        }
+        return "NONE";
+    }
     /**取得普通牌型美術字素材名稱 */
     static getCardTypeTextureText(type: CardType): string {
         switch (type) {

@@ -1,4 +1,5 @@
 import Game from "../Game";
+import Converter, * as Define from "../Define";
 
 const {ccclass, property} = cc._decorator;
 
@@ -10,6 +11,7 @@ export default class Player extends cc.Component
     @property(cc.Label) money: cc.Label = null;
     @property(cc.Node) shineBG: cc.Node = null;
     @property(cc.Node) kingIcon: cc.Node = null;
+    @property(cc.Sprite) status: cc.Sprite  = null;
     
     start() 
     {
@@ -59,5 +61,19 @@ export default class Player extends cc.Component
 
     setKing(active: boolean = false){
         this.kingIcon.active = active;
+    }
+
+    setStatus(type: Define.BetType, rate: number){
+        cc.log("[playerStatus]" + Converter.getBetTypeText(type) + rate);
+        let spr = Game.Inst.resourcesMgr.load(Converter.getBetTypeText(type) + rate);
+        if (spr != null)
+            this.status.spriteFrame = spr;
+        else
+            cc.error("Error: Load " + Converter.getBetTypeText(type) + rate + " failed.");
+    }
+
+    hideStatus(){
+        cc.log("[player] hide status");
+        this.status.spriteFrame = null;
     }
 }

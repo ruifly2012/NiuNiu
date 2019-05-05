@@ -15,7 +15,7 @@ export default class TWAnimMgr extends cc.Component {
 
     playStartGame(callback?) {
         this.startGame.active = true;
-        Game.Inst.animationMgr.play("StartGameAnim", 1.5, false, () => {
+        Game.Inst.animationMgr.play("StartGameAnim", 0.2, false, () => {
             this.startGame.active = false;
             if (callback != undefined) {
                 callback();

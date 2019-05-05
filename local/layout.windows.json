@@ -6,9 +6,9 @@
       "url": "app://editor/index.html",
       "windowType": "dockable",
       "x": -8,
-      "y": -8,
+      "y": 0,
       "width": 1552,
-      "height": 840,
+      "height": 832,
       "layout": {
         "children": [
           {
@@ -18,23 +18,23 @@
                 "children": [
                   "hierarchy"
                 ],
-                "height": 402,
+                "height": 398.4250183105469,
                 "type": "panel",
-                "width": 338.8625183105469
+                "width": 272.32501220703125
               },
               {
                 "active": 0,
                 "children": [
                   "assets"
                 ],
-                "height": 317,
+                "height": 314.1750183105469,
                 "type": "panel",
-                "width": 338.8625183105469
+                "width": 272.32501220703125
               }
             ],
-            "height": 721,
+            "height": 714.6000366210938,
             "type": "dock-v",
-            "width": 338.8625183105469
+            "width": 272.32501220703125
           },
           {
             "children": [
@@ -43,9 +43,9 @@
                 "children": [
                   "scene"
                 ],
-                "height": 453,
+                "height": 446.6000061035156,
                 "type": "panel",
-                "width": 827.6749877929688
+                "width": 891.7750244140625
               },
               {
                 "active": 0,
@@ -55,21 +55,21 @@
                 ],
                 "height": 266,
                 "type": "panel",
-                "width": 827.6749877929688
+                "width": 891.7750244140625
               }
             ],
-            "height": 721,
+            "height": 714.6000366210938,
             "type": "dock-v",
-            "width": 827.6749877929688
+            "width": 891.7750244140625
           },
           {
             "active": 0,
             "children": [
               "inspector"
             ],
-            "height": 721,
+            "height": 714.6000366210938,
             "type": "panel",
-            "width": 367.8500061035156
+            "width": 367.0874938964844
           }
         ],
         "type": "dock-h"

@@ -18,17 +18,20 @@
     "_children": [
       {
         "__id__": 2
-      }
-    ],
-    "_active": true,
-    "_level": 1,
-    "_components": [
+      },
       {
         "__id__": 25
       }
     ],
+    "_active": true,
+    "_level": 4,
+    "_components": [
+      {
+        "__id__": 28
+      }
+    ],
     "_prefab": {
-      "__id__": 26
+      "__id__": 29
     },
     "_opacity": 255,
     "_color": {
@@ -50,8 +53,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": -810,
-      "y": 10,
+      "x": -515,
+      "y": -328,
       "z": 0
     },
     "_scale": {
@@ -252,7 +255,7 @@
     "asset": {
       "__uuid__": "08d8011a-77b1-42f4-b140-b3ade1bfe174"
     },
-    "fileId": "5bdVhvp7xMq4hY8BCDSbcu",
+    "fileId": "16tLaUw0hDDZp8rfcy6xrX",
     "sync": false
   },
   {
@@ -353,7 +356,7 @@
     "asset": {
       "__uuid__": "08d8011a-77b1-42f4-b140-b3ade1bfe174"
     },
-    "fileId": "9eeMoWLeJJzqzwzBBTn2Wp",
+    "fileId": "b3q5gWBtdFjpj2wea0SCtk",
     "sync": false
   },
   {
@@ -454,7 +457,7 @@
     "asset": {
       "__uuid__": "08d8011a-77b1-42f4-b140-b3ade1bfe174"
     },
-    "fileId": "e2hVJOetNE1LxeB8DGJ2Hw",
+    "fileId": "d1OWIXs/5Le60Tb9blfdtv",
     "sync": false
   },
   {
@@ -555,7 +558,7 @@
     "asset": {
       "__uuid__": "08d8011a-77b1-42f4-b140-b3ade1bfe174"
     },
-    "fileId": "39s57bJV1KTYt/4GTYjzG1",
+    "fileId": "c5Ns9Wa9xDFbJByWQWwhvG",
     "sync": false
   },
   {
@@ -653,7 +656,7 @@
     "asset": {
       "__uuid__": "08d8011a-77b1-42f4-b140-b3ade1bfe174"
     },
-    "fileId": "02k1/2CQhHkKMXn2eopXHy",
+    "fileId": "11jzuN+xpGgqAS6PeD8wtk",
     "sync": false
   },
   {
@@ -753,7 +756,7 @@
     "asset": {
       "__uuid__": "08d8011a-77b1-42f4-b140-b3ade1bfe174"
     },
-    "fileId": "81CE7kFWRL5IM+eXZ8BrEX",
+    "fileId": "5ateBB0ZFKHISQWMMP8Qif",
     "sync": false
   },
   {
@@ -854,7 +857,7 @@
     "asset": {
       "__uuid__": "08d8011a-77b1-42f4-b140-b3ade1bfe174"
     },
-    "fileId": "9bpi3syMlHqZRTT+1Ur4sU",
+    "fileId": "7emkCbyuFNVKqtJUeuY9+N",
     "sync": false
   },
   {
@@ -865,7 +868,106 @@
     "asset": {
       "__uuid__": "08d8011a-77b1-42f4-b140-b3ade1bfe174"
     },
-    "fileId": "46a+CQNx1ICqMiL20qEy9w",
+    "fileId": "53TV5ptGFLSKY5wni0msW5",
+    "sync": false
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "Status",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 1
+    },
+    "_children": [],
+    "_active": true,
+    "_level": 5,
+    "_components": [
+      {
+        "__id__": 26
+      }
+    ],
+    "_prefab": {
+      "__id__": 27
+    },
+    "_opacity": 255,
+    "_color": {
+      "__type__": "cc.Color",
+      "r": 255,
+      "g": 255,
+      "b": 255,
+      "a": 255
+    },
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 103,
+      "height": 42
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_position": {
+      "__type__": "cc.Vec3",
+      "x": 235,
+      "y": 111,
+      "z": 0
+    },
+    "_scale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_rotationX": 0,
+    "_rotationY": 0,
+    "_quat": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_skewX": 0,
+    "_skewY": 0,
+    "groupIndex": 0,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.Sprite",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 25
+    },
+    "_enabled": true,
+    "_spriteFrame": null,
+    "_type": 0,
+    "_sizeMode": 1,
+    "_fillType": 0,
+    "_fillCenter": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "_fillStart": 0,
+    "_fillRange": 0,
+    "_isTrimmedMode": true,
+    "_state": 0,
+    "_atlas": null,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__uuid__": "08d8011a-77b1-42f4-b140-b3ade1bfe174"
+    },
+    "fileId": "73SXO5IKNLKZ4NqXHDbXVk",
     "sync": false
   },
   {
@@ -890,6 +992,9 @@
     },
     "kingIcon": {
       "__id__": 21
+    },
+    "status": {
+      "__id__": 25
     },
     "_id": ""
   },
