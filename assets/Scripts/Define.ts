@@ -105,15 +105,10 @@ export class Player{
      * @param data player Json
      */
     assign(data){
-        cc.warn("ASSIGN PLAYER");
         this.UID = data.uid;
         this.name = data.nickname;
         this.money = data.coins;
         this.iconID = data.avatar;
-        cc.warn("this.UID = "+data.uid);
-        cc.warn("this.name = "+data.nickname);
-        cc.warn("this.money = "+data.coins);
-        cc.warn("this.iconID = "+data.avatar);
     }
 }
 
@@ -181,17 +176,28 @@ export default class Converter {
     }
 
     static getServerPokerConvert(_poker: number): PokerValue{
-        if(_poker > 51 || _poker < 0){
+        if(_poker > 53 || _poker < 0){
             cc.error("");
             return undefined;
         }
 
         let pokerType: PokerType;
-        switch((Math.floor(_poker % 4) + 1)){
-            case 1: pokerType = PokerType.Diamond;
-            case 2: pokerType = PokerType.Club;
-            case 3: pokerType = PokerType.Hearts;
-            case 4: pokerType = PokerType.Spade;
+        switch((Math.floor(_poker / 13) + 1)){
+            case 1: 
+                pokerType = PokerType.Club;
+                break;
+            case 2: 
+                pokerType = PokerType.Diamond;
+                break;
+            case 3: 
+                pokerType = PokerType.Hearts;
+                break;
+            case 4: 
+                pokerType = PokerType.Spade;
+                break;
+            case 5:
+                pokerType = PokerType.Joker;
+                break;
         }
 
         return new PokerValue(pokerType,Math.floor(_poker % 13) + 1);

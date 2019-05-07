@@ -5,7 +5,7 @@ import DistributePokerAnimation from "./Anime/DistributePokerAnimation";
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class TWAnimMgr extends cc.Component {
+export default class AnimMgr extends cc.Component {
     @property(cc.Node) startGame: cc.Node = null;
     @property(cc.Node) distribute: cc.Node = null;
     

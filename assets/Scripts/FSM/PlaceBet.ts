@@ -18,17 +18,21 @@ export default class PlaceBet extends StateBase {
     public stateInitialize(){
         cc.warn("place bet!!!");
          //init playerPoker
-        UIMgr.Inst.showPlaceBet(true);
-        this.startCountDown();
-        
+        Game.Inst.EventListener.on("startBet",()=>{
+            UIMgr.Inst.showPlaceBet(true);
+            this.startCountDown();
+            this.registerTimeSync();
+        })
     }
 
     public stateRelease(){
+        Game.Inst.EventListener.clear();
         UIMgr.Inst.showPlaceBet(false);
         UIMgr.Inst.stopClock();
         UIMgr.Inst.players.forEach(element => {
             element.hideStatus();
         });
+
     }
     public stateUpdate(dt: number){
     }
@@ -46,6 +50,15 @@ export default class PlaceBet extends StateBase {
         Game.Inst.networkMgr.place_bet(customData);
         UIMgr.Inst.showPlaceBet(false);
         UIMgr.Inst.players[0].setStatus(Define.BetType.PlaceBet,customData);
+    }
+
+    registerTimeSync(){
+        Game.Inst.EventListener.on("getTime",function(event,data){
+            if(data.stage == Define.GameState.PlaceBet){
+                // cc.warn("update time : " + data.time);
+                UIMgr.Inst.clock.countDown = data.time;
+            }
+        })
     }
 
 }

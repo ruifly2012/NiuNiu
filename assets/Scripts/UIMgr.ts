@@ -1,8 +1,9 @@
-import TWAnimMgr from "./AnimMgr";
+import AnimMgr from "./AnimMgr";
 import Player from "./components/Player";
 import * as Define from "./Define";
 import Game from "./Game";
 import Clock from "./components/Clock";
+import ChooseCardUIMgr from "./UI/ChooseCardUIMgr";
 
 const { ccclass, property } = cc._decorator;
 
@@ -21,7 +22,9 @@ export default class UIMgr extends cc.Component {
         return this.instance;
     }
 
-    @property(TWAnimMgr) animMgr: TWAnimMgr = null;
+    @property(AnimMgr) animMgr: AnimMgr = null;
+
+    @property(ChooseCardUIMgr) chooseCardUIMgr: ChooseCardUIMgr = null;
 
     @property([Player]) players: Player[] = [];
 
@@ -45,7 +48,10 @@ export default class UIMgr extends cc.Component {
         this.rob_bet = this.gameUI.children[1];
         this.place_bet = this.gameUI.children[2];
         this.choose_card = this.gameUI.children[3];
-        
+        this.waiting.active = false;
+        this.rob_bet.active = false;
+        this.place_bet.active = false;
+        this.choose_card.active = false;
         
 
         Game.Inst.EventListener.on("RobBetInfo",function(evt,data){
@@ -106,13 +112,12 @@ export default class UIMgr extends cc.Component {
     }
 
     /**
-     * clset clock
+     * set clock
      * @param time time
      */
     setClockAct(time: number, callback?) {
         cc.log("start clock");
-        this.clock.init();
-        this.clock.startCountDown(time, callback)
+        this.clock.startCountDown(time, callback);
     }
 
 

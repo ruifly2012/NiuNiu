@@ -1,4 +1,5 @@
 import Game from "../Game";
+import UIMgr from "../UIMgr";
 
 
 const {ccclass, property} = cc._decorator;
@@ -13,7 +14,9 @@ export enum PokerType
     /**方塊 */
     Diamond,
     /**梅花 */
-    Club
+    Club,
+    /**鬼牌 */
+    Joker
 }
 
 export class PokerValue
@@ -25,7 +28,7 @@ export class PokerValue
     /**當前撲克牌花色 */
     type: PokerType = PokerType.Spade;
     /**當前撲克牌數字 */
-    value: Number = 0;
+    value: number = 0;
 }
 
 @ccclass
@@ -38,26 +41,26 @@ export default class Poker extends cc.Component
     @property(cc.Sprite) cardFrontTypeMiddle: cc.Sprite = null;
     @property(cc.Sprite) cardFrontTextDown: cc.Sprite = null;
     @property(cc.Sprite) cardFrontTypeDown: cc.Sprite = null;
+    @property(cc.Node) shiny: cc.Node = null;
 
     private _pokerValue: PokerValue;
-    isBack: boolean = false;
-    isChoose: boolean = false;
-    isClickAble: boolean =false;
+    private isClickAble: boolean =false;
+    isSelect: boolean = false;
+    cardIndex = 0;
+    cardVal: number = 0;
 
     public get pokerValue(){
         return this._pokerValue;
     }
 
     start(){
-        this.isChoose = false;
-        this.isClickAble =false;
+       this.setCardLight(false);
+       this.setClickAble(false);
     }
 
     setCardLight(isOn: boolean = false){
-        if(isOn)
-            this.cardFront.spriteFrame = Game.Inst.resourcesMgr.load("LT");
-        else
-            this.cardFront.spriteFrame = Game.Inst.resourcesMgr.load("PC");
+        this.shiny.active = isOn;
+        this.isSelect = isOn;
     } 
 
     private enableCardFront(){
@@ -92,7 +95,8 @@ export default class Poker extends cc.Component
         let valueSprite = Game.Inst.resourcesMgr.load(value);
         let middleSprite = Game.Inst.resourcesMgr.load(middle);
 
-        this.setCardLight(false);
+        if(!this.cardFront.spriteFrame)
+            this.cardFront.spriteFrame = Game.Inst.resourcesMgr.load("PC");
 
         this.cardFrontTextUp.spriteFrame = valueSprite;
         this.cardFrontTypeUp.spriteFrame = typeSprite;
@@ -107,7 +111,7 @@ export default class Poker extends cc.Component
      * @param _value 牌面數值
      * @param _size 撲克牌大小
      */
-    setPokerValue(_type: PokerType, _value: Number,_size: number = 1.0)
+    setPokerValue(_type: PokerType, _value: number,_size: number = 1.0)
     {
         if (_type == PokerType.None || _value < 1 || _value > 13)
         {
@@ -119,7 +123,7 @@ export default class Poker extends cc.Component
         let typeSpriteName: string = "";
         let middleSpriteName: string = "";
         let isBlack: boolean = false;
-
+        this.cardVal = _value;
         switch (_type)
         {
             case PokerType.Spade:
@@ -146,16 +150,22 @@ export default class Poker extends cc.Component
                 valueSpriteName = "KD-";
                 isBlack = true;
                 break;
+            case PokerType.Joker:
+                if(_value == 1) isBlack = true;
+                else isBlack = false;
+
+                valueSpriteName = (isBlack ? "K" : "R") + "D-JOKER";
+                middleSpriteName = (isBlack ? "K" : "R") + "JO";
+                this.cardFrontTypeMiddle.sizeMode = cc.Sprite.SizeMode.CUSTOM;
+                this.cardFrontTypeMiddle.node.setContentSize(cc.size(90,160));
+                this.setCardFront("NaN", valueSpriteName, middleSpriteName);
+                this.setSize(_size);
+                this.enableCardFront();
+                return;
         }
 
         switch (_value)
         {
-            case 0:
-                valueSpriteName += "JOHER";
-                middleSpriteName = (isBlack ? "K" : "R") + "JO";
-                this.cardFrontTypeMiddle.sizeMode = cc.Sprite.SizeMode.CUSTOM;
-                this.cardFrontTypeMiddle.node.setContentSize(cc.size(90,160));
-                break;
             case 1:
                 valueSpriteName += "A";
                 this.cardFrontTypeMiddle.sizeMode = cc.Sprite.SizeMode.RAW;
@@ -219,6 +229,19 @@ export default class Poker extends cc.Component
         else{
             this.enableCardFront();
         }
+    }
+
+    /**
+     * 設置是否可點擊
+     * @param isOn 可否點擊
+     */
+    setClickAble(isOn: boolean = false){
+        this.isClickAble = isOn;
+    }
+
+    cardClicked(){
+        if(this.isClickAble)
+            UIMgr.Inst.chooseCardUIMgr.cardClick(this.cardIndex);
     }
 
     /**

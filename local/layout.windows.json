@@ -18,7 +18,7 @@
                 "children": [
                   "hierarchy"
                 ],
-                "height": 402,
+                "height": 402.8999938964844,
                 "type": "panel",
                 "width": 272.88751220703125
               },
@@ -27,12 +27,12 @@
                 "children": [
                   "assets"
                 ],
-                "height": 317,
+                "height": 317.70001220703125,
                 "type": "panel",
                 "width": 272.88751220703125
               }
             ],
-            "height": 721,
+            "height": 722.6000366210938,
             "type": "dock-v",
             "width": 272.88751220703125
           },
@@ -43,7 +43,7 @@
                 "children": [
                   "scene"
                 ],
-                "height": 450,
+                "height": 451,
                 "type": "panel",
                 "width": 893.6375122070312
               },
@@ -53,12 +53,12 @@
                   "console",
                   "timeline"
                 ],
-                "height": 269,
+                "height": 269.6000061035156,
                 "type": "panel",
                 "width": 893.6375122070312
               }
             ],
-            "height": 721,
+            "height": 722.6000366210938,
             "type": "dock-v",
             "width": 893.6375122070312
           },
@@ -67,7 +67,7 @@
             "children": [
               "inspector"
             ],
-            "height": 721,
+            "height": 722.6000366210938,
             "type": "panel",
             "width": 367.8500061035156
           }
@@ -82,6 +82,17 @@
         "inspector",
         "scene"
       ]
+    },
+    "about": {
+      "main": false,
+      "url": "app://editor/page/app-about.html",
+      "windowType": "dockable",
+      "x": 568,
+      "y": 321,
+      "width": 400,
+      "height": 202,
+      "layout": null,
+      "panels": []
     }
   },
   "panels": {

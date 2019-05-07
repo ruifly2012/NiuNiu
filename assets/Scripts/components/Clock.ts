@@ -20,7 +20,7 @@ export default class Clock extends cc.Component {
     }
 
     init(){
-        cc.warn("clock init");
+        cc.log("[clock] clock init");
         this.stopCountDown();
         this.bg.stopAllActions();
         this.bg.rotation = 0;
@@ -34,24 +34,27 @@ export default class Clock extends cc.Component {
 
     startCountDown(times: number, callback?) {
         if (this.isActive) return;
+        this.init();
         this.node.opacity = 255;
         this.isActive = true;
         this.countDown = times;
         this.setClockTime();
         this.onFinished = callback;
-        cc.warn("clock start");
         this.timer = function () {
-            cc.log("countDown : "+this.countDown);
             this.countDown--;
             if (this.countDown <= 0) {
+                ////////////////clock issue//////
                 if (this.onFinished != undefined) {
-                    cc.log("clock Callback");
+                    this.unschedule(this.timer);
                     this.onFinished();
                 }
-
-                this.unschedule(this.timer);
+                else{
+                    this.unschedule(this.timer);
+                    this.init();
+                }
             }
             else {
+                Game.Inst.networkMgr.get_time();
                 this.setClockTime();
             }
         }.bind(this);

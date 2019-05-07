@@ -21,9 +21,11 @@ export default class RobBet extends StateBase {
         this.playStartGameAnim();
         UIMgr.Inst.showRobBet(true);
         this.startCountDown();
+        this.registerTimeSync();
     }
 
     public stateRelease(){
+        Game.Inst.EventListener.clear();
         UIMgr.Inst.showRobBet(false);
         UIMgr.Inst.stopClock();
         UIMgr.Inst.players.forEach(element => {
@@ -45,7 +47,7 @@ export default class RobBet extends StateBase {
         let self = this;
         //啟動clock
         UIMgr.Inst.setClockAct(5, ()=>{
-            self.m_FSM.setState(Define.GameState.ChooseCard);
+            self.m_FSM.setState(Define.GameState.PlaceBet);
         });
     }
 
@@ -54,6 +56,15 @@ export default class RobBet extends StateBase {
         Game.Inst.networkMgr.rob_bet(customData);
         UIMgr.Inst.showRobBet(false);
         UIMgr.Inst.players[0].setStatus(Define.BetType.RobBet,customData);
+    }
+
+    registerTimeSync(){
+        Game.Inst.EventListener.on("getTime",function(event,data){
+            if(data.stage == Define.GameState.RobBet){
+                // cc.warn("update time : " + data.time);
+                UIMgr.Inst.clock.countDown = data.time;
+            }
+        })
     }
 
 }

@@ -84,6 +84,7 @@ export default class DistributePokerAnimation extends AnimationBase {
             let node:cc.Node = this.pokerPool.getComponent("NodePool").request();
             node.parent = this.playerPoker;
             node.getComponent("Poker").setShowBack(true); 
+            node.getComponent("Poker").cardIndex = index; 
             node.active = false;
         }
         //generate other poker
@@ -91,6 +92,7 @@ export default class DistributePokerAnimation extends AnimationBase {
             let node:cc.Node = this.pokerPool.getComponent("NodePool").request();
             node.parent = this.playerPoker;
             node.getComponent("Poker").setShowBack(true); 
+            node.getComponent("Poker").cardIndex = index;
             node.active = false;
         }
     }

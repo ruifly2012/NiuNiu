@@ -52,6 +52,23 @@ export default class NetworkManager {
     }
 
     /**
+     * 取得時間
+     */
+    get_time(){
+        let no:number = 6070;
+        let json= {
+            "no" : no
+        };
+        this._socket.emit("action",json ,function(code,data){
+            if(code == 200) {
+                Game.Inst.EventListener.notify("getTime",data);
+            }
+            else
+                cc.warn("get time error : " + data.error);
+        })
+    }
+
+    /**
      * 搶莊
      * @param rate 倍率
      */
@@ -103,9 +120,9 @@ export default class NetworkManager {
                 case 6103://place bet stage info
                     self.placeBetStageInfo(data);
                     break;
-                // case 6105:
-                //     self.receiveCard(data);
-                //     break;
+                case 6105://all result send
+                    self.receiveCard(data);
+                    break;
                 // //////bet///////////////    
                 case 6102:
                     self.receiveRobBet(data);
@@ -132,8 +149,8 @@ export default class NetworkManager {
      * @param data 
      */
     placeBetStageInfo(data){
-        cc.warn("rcv :" + JSON.stringify(data));
         UIMgr.Inst.getPlayerByUID(data.banker).setKing(true);
+        Game.Inst.EventListener.notify("startBet");
     }
 
     /**
@@ -141,7 +158,6 @@ export default class NetworkManager {
      * @param data 
      */
     receiveRobBet(data){
-        cc.warn("rcv :" + JSON.stringify(data));
         UIMgr.Inst.getPlayerByUID(data.player).setStatus(Define.BetType.RobBet,data.rob_bet);
     }
 
@@ -150,16 +166,17 @@ export default class NetworkManager {
      * @param data 
      */
     receivePlaceBet(data){
-        cc.warn("rcv :" + JSON.stringify(data));
         UIMgr.Inst.getPlayerByUID(data.player).setStatus(Define.BetType.PlaceBet,data.place_bet);
     }
 
     /**
-     * 6107
+     * 6105
      * @param data
      */
     receiveCard(data){
-
+        cc.warn("my cards : " + data.main_player.cards);
+        Define.GameInfo.Inst.players[0].poker = data.main_player.cards;
+        Game.Inst.EventListener.notify("getCard");
     }
 
 }

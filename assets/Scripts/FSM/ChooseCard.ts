@@ -21,22 +21,35 @@ export default class ChooseCard extends StateBase {
         //test
         UIMgr.Inst.animMgr.playDistributePoker(()=>{
             UIMgr.Inst.showChooseCard(true);
+            UIMgr.Inst.chooseCardUIMgr.activate();
         });
+        this.registerTimeSync();
     }
 
     public stateRelease(){
+        Game.Inst.EventListener.clear();
         UIMgr.Inst.stopClock();
+        UIMgr.Inst.chooseCardUIMgr.unRegClickEvent();
     }
     public stateUpdate(dt: number){
     }
 
     startCountDown() {
         //啟動clock
-        UIMgr.Inst.setClockAct(12);
+        UIMgr.Inst.setClockAct(15);
     }
 
     playDistribute(callback?){
         UIMgr.Inst.animMgr.playDistributePoker(callback);
+    }
+
+    registerTimeSync(){
+        Game.Inst.EventListener.on("getTime",function(event,data){
+            if(data.stage == Define.GameState.ChooseCard){
+                // cc.warn("update time : " + data.time);
+                UIMgr.Inst.clock.countDown = data.time;
+            }
+        })
     }
 
 }
