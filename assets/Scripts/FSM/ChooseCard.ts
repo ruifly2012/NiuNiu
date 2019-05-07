@@ -18,6 +18,10 @@ export default class ChooseCard extends StateBase {
     public stateInitialize(){
         cc.warn("choose card!!!");
         this.startCountDown();
+        //test
+        UIMgr.Inst.animMgr.playDistributePoker(()=>{
+            UIMgr.Inst.showChooseCard(true);
+        });
     }
 
     public stateRelease(){
@@ -29,6 +33,10 @@ export default class ChooseCard extends StateBase {
     startCountDown() {
         //啟動clock
         UIMgr.Inst.setClockAct(12);
+    }
+
+    playDistribute(callback?){
+        UIMgr.Inst.animMgr.playDistributePoker(callback);
     }
 
 }

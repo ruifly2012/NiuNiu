@@ -31,7 +31,6 @@ export class PokerValue
 @ccclass
 export default class Poker extends cc.Component 
 {
-    @property(cc.Sprite) cardFold: cc.Sprite = null;
     @property(cc.Sprite) cardFront: cc.Sprite = null;
     @property(cc.Sprite) cardBack: cc.Sprite = null;
     @property(cc.Sprite) cardFrontTextUp: cc.Sprite = null;
@@ -42,20 +41,26 @@ export default class Poker extends cc.Component
 
     private _pokerValue: PokerValue;
     isBack: boolean = false;
-    isFold: boolean = false;
+    isChoose: boolean = false;
+    isClickAble: boolean =false;
 
-    public get pokerValue()
-    {
+    public get pokerValue(){
         return this._pokerValue;
     }
 
-    start()
-    {
-        this.cardFold.node.active = false;
+    start(){
+        this.isChoose = false;
+        this.isClickAble =false;
     }
 
-    private enableCardFront()
-    {
+    setCardLight(isOn: boolean = false){
+        if(isOn)
+            this.cardFront.spriteFrame = Game.Inst.resourcesMgr.load("LT");
+        else
+            this.cardFront.spriteFrame = Game.Inst.resourcesMgr.load("PC");
+    } 
+
+    private enableCardFront(){
         this.cardFront.node.active = true;
         this.cardFrontTextUp.node.active = true;
         this.cardFrontTypeUp.node.active = true;
@@ -87,8 +92,7 @@ export default class Poker extends cc.Component
         let valueSprite = Game.Inst.resourcesMgr.load(value);
         let middleSprite = Game.Inst.resourcesMgr.load(middle);
 
-        if (this.cardFront.spriteFrame == null)
-            this.cardFront.spriteFrame = Game.Inst.resourcesMgr.load("PC");
+        this.setCardLight(false);
 
         this.cardFrontTextUp.spriteFrame = valueSprite;
         this.cardFrontTypeUp.spriteFrame = typeSprite;
@@ -146,6 +150,12 @@ export default class Poker extends cc.Component
 
         switch (_value)
         {
+            case 0:
+                valueSpriteName += "JOHER";
+                middleSpriteName = (isBlack ? "K" : "R") + "JO";
+                this.cardFrontTypeMiddle.sizeMode = cc.Sprite.SizeMode.CUSTOM;
+                this.cardFrontTypeMiddle.node.setContentSize(cc.size(90,160));
+                break;
             case 1:
                 valueSpriteName += "A";
                 this.cardFrontTypeMiddle.sizeMode = cc.Sprite.SizeMode.RAW;
@@ -192,45 +202,22 @@ export default class Poker extends cc.Component
      * @param _size 縮放大小
      */
     setSize(_size: number){
+        cc.log("[POKER] set size" + _size);
         this.node.scale = _size;
     }
 
     /**
      * 設置是否開啟撲克牌背
-     * @param ison 是否開啟
+     * @param isOn 是否開啟
      */
-    setShowBack(ison: boolean = false)
-    {
-        //cc.log("test1");
-        if (ison)
-        {
-            //if(this.cardBack.spriteFrame == null){
-                this.cardBack.spriteFrame = Game.Inst.resourcesMgr.load("BK");
-                cc.log(this.cardBack);
-            //}
+    setShowBack(isOn: boolean = false){
+        if (isOn){
+            this.cardBack.spriteFrame = Game.Inst.resourcesMgr.load("BK");
+            cc.log(this.cardBack);
             this.disableCardFront();
         }
-        else
-        {
+        else{
             this.enableCardFront();
-        }
-    }
-
-    /**
-     * 設置是否放棄撲克牌
-     * @param ison 是否開啟
-     */
-    setShowFold(ison: boolean = false)
-    {
-        cc.log("test2");
-        if (ison)
-        {
-            this.disableCardFront();
-            this.cardFold.node.active = true;
-        }
-        else
-        {
-            this.cardFold.node.active = false;
         }
     }
 

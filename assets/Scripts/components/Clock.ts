@@ -20,6 +20,8 @@ export default class Clock extends cc.Component {
     }
 
     init(){
+        cc.warn("clock init");
+        this.stopCountDown();
         this.bg.stopAllActions();
         this.bg.rotation = 0;
         this.countDown = 0;
@@ -32,16 +34,14 @@ export default class Clock extends cc.Component {
 
     startCountDown(times: number, callback?) {
         if (this.isActive) return;
-        this.init();
         this.node.opacity = 255;
-        cc.warn("clock start");
-        
         this.isActive = true;
         this.countDown = times;
         this.setClockTime();
         this.onFinished = callback;
-
+        cc.warn("clock start");
         this.timer = function () {
+            cc.log("countDown : "+this.countDown);
             this.countDown--;
             if (this.countDown <= 0) {
                 if (this.onFinished != undefined) {
@@ -50,7 +50,6 @@ export default class Clock extends cc.Component {
                 }
 
                 this.unschedule(this.timer);
-                this.init();
             }
             else {
                 this.setClockTime();
@@ -64,7 +63,6 @@ export default class Clock extends cc.Component {
         if (this.isActive) {
             if(this.timer != undefined)
                 this.unschedule(this.timer);
-            this.init();
         }
     }
 

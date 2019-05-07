@@ -151,7 +151,7 @@ export default class NetworkManager {
      */
     receivePlaceBet(data){
         cc.warn("rcv :" + JSON.stringify(data));
-        UIMgr.Inst.getPlayerByUID(data.player).setStatus(Define.BetType.PlaceBet,data.rob_bet);
+        UIMgr.Inst.getPlayerByUID(data.player).setStatus(Define.BetType.PlaceBet,data.place_bet);
     }
 
     /**

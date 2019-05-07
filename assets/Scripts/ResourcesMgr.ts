@@ -21,6 +21,7 @@ export default class ResourcesMgr extends cc.Component {
         list.push("MobileStatus");
 
         list.push("playerIcon");
+        list.push("poker");
         list.push("text");
         this.assetList = list;
 
@@ -28,8 +29,7 @@ export default class ResourcesMgr extends cc.Component {
     }
 
     /**
-     * 讀取指定場景所需的動態資源
-     * @param idx 指定場景ID
+     * 讀取動態資源
      * @param onloading loading中途觸發事件
      */
     preload(onloading: Function = undefined) {

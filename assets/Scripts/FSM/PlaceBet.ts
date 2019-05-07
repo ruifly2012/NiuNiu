@@ -20,6 +20,7 @@ export default class PlaceBet extends StateBase {
          //init playerPoker
         UIMgr.Inst.showPlaceBet(true);
         this.startCountDown();
+        
     }
 
     public stateRelease(){

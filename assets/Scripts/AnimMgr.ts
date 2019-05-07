@@ -1,11 +1,14 @@
 import Game from "./Game";
 import Converter, * as Define from "./Define";
+import DistributePokerAnimation from "./Anime/DistributePokerAnimation";
 
 const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class TWAnimMgr extends cc.Component {
     @property(cc.Node) startGame: cc.Node = null;
+    @property(cc.Node) distribute: cc.Node = null;
+    
 
 
     onLoad() {
@@ -23,12 +26,6 @@ export default class TWAnimMgr extends cc.Component {
         })
     }
 
-//     playHomeRun(callback?) {
-//         this.homeRun.active = true;
-//         Game.Inst.animationMgr.play("HomeRunAnim", 0.5, false, () => {
-//             this.homeRun.active = false;
-//         });
-//     }
 
 //     playDeal(hand: TW.TWHand = 0, callback?) {
 //         let dealAnime: CardDealAnimation = this.cardDeal.getComponent(CardDealAnimation);
@@ -57,18 +54,18 @@ export default class TWAnimMgr extends cc.Component {
 //             }
 //         })
 //     }
-//     /**
-//  * 發牌動畫
-//  */
-//     playDistributePoker(callback?) {
-//         let pokerAnime: DistributePokerAnimation = this.distribute.getComponent(DistributePokerAnimation);
-//         //set player number
-//         pokerAnime.playerCount = TW.TWGamInfo.Inst.playerCount;
-//         Game.Inst.animationMgr.play("DistributePokerAnim", 1.5, false, () => {
-//             if (callback != undefined)
-//                 callback();
-//         });
-//     }
+    /**
+     * 發牌動畫
+     */
+    playDistributePoker(callback?) {
+        let pokerAnime: DistributePokerAnimation = this.distribute.getComponent(DistributePokerAnimation);
+        //set player number
+        pokerAnime.playerCount = Define.GameInfo.Inst.playerCount;
+        Game.Inst.animationMgr.play("DistributePokerAnim", 1.5, false, () => {
+            if (callback != undefined)
+                callback();
+        });
+    }
 
 // 	/**
 //      * 三墩動畫

@@ -45,7 +45,7 @@ export default class RobBet extends StateBase {
         let self = this;
         //啟動clock
         UIMgr.Inst.setClockAct(5, ()=>{
-            self.m_FSM.setState(Define.GameState.PlaceBet)
+            self.m_FSM.setState(Define.GameState.ChooseCard);
         });
     }
 

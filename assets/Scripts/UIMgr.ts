@@ -35,6 +35,8 @@ export default class UIMgr extends cc.Component {
 
     private rob_bet: cc.Node;
     private place_bet: cc.Node;
+    private choose_card: cc.Node;
+    
     
 
     onLoad() {
@@ -42,6 +44,8 @@ export default class UIMgr extends cc.Component {
         this.waiting = this.gameUI.children[0];
         this.rob_bet = this.gameUI.children[1];
         this.place_bet = this.gameUI.children[2];
+        this.choose_card = this.gameUI.children[3];
+        
         
 
         Game.Inst.EventListener.on("RobBetInfo",function(evt,data){
@@ -67,7 +71,11 @@ export default class UIMgr extends cc.Component {
 
     showPlaceBet(active: boolean = false){
         this.place_bet.active = active;
-        cc.warn("[UI]place bet" + active);
+    }
+
+    showChooseCard(active: boolean = false){
+        this.choose_card.active = active;
+        cc.warn("[UI]choose " + active);
     }
 
     isPlayersActive(active: boolean = false){
@@ -109,7 +117,7 @@ export default class UIMgr extends cc.Component {
 
 
     stopClock(){
-        this.clock.stopCountDown();
+        this.clock.init();
     }
 
 }
