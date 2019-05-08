@@ -1,11 +1,12 @@
 import Poker, { PokerValue } from "../components/Poker";
 import Converter,* as Define from "../Define";
 import Game from "../Game";
+import UIMgr from "../UIMgr";
 
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class UIMgr extends cc.Component {
+export default class ChooseCardUIMgr extends cc.Component {
 
     @property(cc.Node)
     pokerRoot: cc.Node = null;
@@ -16,6 +17,7 @@ export default class UIMgr extends cc.Component {
     private poker:cc.Node[] = [];
     private choosed:number[] = [];
     private chooseCardNum: number = 0;
+    choosedNiu: boolean = false;
 
     onLoad() {
         this.chooseCardNum = 0;
@@ -28,15 +30,15 @@ export default class UIMgr extends cc.Component {
             
         }
         Game.Inst.EventListener.on("getCard",()=>{
-            this.showCard();
+            this.setCard();
         });
     }
 
-    showCard(){
+    setCard(){
         let pokerVal:number[] = Define.GameInfo.Inst.players[0].poker;
         for(let index = 0;index<5;index++){
             let val:PokerValue = Converter.getServerPokerConvert(pokerVal[index]);
-            this.poker[index].getComponent(Poker).setPokerValue(val.type,val.value);
+            this.poker[index].getComponent(Poker).setPokerValue(val.type,val.value, 0.9);
             this.registerClickEvent();
         }
     }
@@ -56,7 +58,7 @@ export default class UIMgr extends cc.Component {
     }
     
     cardClick(index: number){
-        cc.log("click"+index);
+        //cc.log("click"+index);
         if(this.poker[index].getComponent(Poker).isSelect){
             this.poker[index].getComponent(Poker).setCardLight(false);
             let removeIndex = this.choosed.indexOf(index);
@@ -84,11 +86,10 @@ export default class UIMgr extends cc.Component {
      * 更新亮框 & 數字顯示
      */
     updateChooseCard(){
-        cc.warn("update card");
-        cc.warn(this.choosed);
+        //cc.warn("update card");
         //light
         this.choosed.forEach(element => {
-            cc.log("choosed pos"+element);
+            //cc.log("choosed pos"+element);
             this.poker[element].getComponent(Poker).setCardLight(true);
         });
         //num
@@ -103,13 +104,23 @@ export default class UIMgr extends cc.Component {
             if(tmpNum > 10) tmpNum = 10;
             this.numDisplay[index].string = tmpNum.toString();
             sum += tmpNum;
-            cc.log("choosed"+tmpNum);
+            //cc.log("choosed"+tmpNum);
             index++;
         });
         this.numDisplay[3].string = sum.toString();
+        //update choose niu or not
+        if(sum %10 == 0)
+            this.choosedNiu = true;
+        else 
+            this.choosedNiu = false;
     }
 
-
-
+    niuClickCorrect(pressNiu: boolean): Boolean{
+        //card type error or choosed < 3 card
+        if(pressNiu != this.choosedNiu || this.chooseCardNum < 3)
+            return false;
+        return true;
+            
+    }
 
 }

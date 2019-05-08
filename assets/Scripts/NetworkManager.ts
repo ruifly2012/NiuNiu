@@ -45,9 +45,9 @@ export default class NetworkManager {
             "no" : 6001,
             "data" : {"oid": Define.RoomInfo.Inst.game_option_id}//13: 2player
         };//2 player
-        console.log("table req:"+tableJson); 
+        //console.log("table req:"+tableJson); 
         this._socket.emit("action",tableJson ,function(errCode,message){
-            console.log("table req callback: "+JSON.stringify(errCode) +"," + message);
+            //console.log("table req callback: "+JSON.stringify(errCode) +"," + message);
         })
     }
 
@@ -100,9 +100,25 @@ export default class NetworkManager {
             }
         };
         this._socket.emit("action",json ,function(code,data){
-            cc.log("code : " + code);
             if(code != 200) cc.warn("place_bet error : " + data.error);
             else cc.log("place_bet success");
+        })
+    }
+
+    /**
+     * 選牌完成
+     */
+    chooseCardComplete(){
+        let no:number = 6074;
+        let json= {
+            "no" : no,
+            "data" : {
+                "deal_card" : 1
+            }
+        };
+        this._socket.emit("action",json ,function(code,data){
+            if(code != 200) cc.warn("chooseCard error : " + data.error);
+            else cc.log("chooseCard success");
         })
     }
 
@@ -111,7 +127,7 @@ export default class NetworkManager {
 
         this._socket.on("response", function (data) {
             console.log("response : " + JSON.stringify(data));
-            switch(data.no){   
+            switch(data.no){
                 ///////stage info////////////
                 case 6101://rob bet stage info
                     Game.Inst.EventListener.notify("startGame");
@@ -130,13 +146,11 @@ export default class NetworkManager {
                 case 6104:
                     self.receivePlaceBet(data);
                     break;
-                // //////clock / stage change///////    
-                // case 6107:
-                //     cc.warn("change stage" + data.stage + "time:"+data.time);
-                //     Game.Inst.EventListener.notify("stageChange", data.stage, data.time);
-                //     break;
+                case 6106:
+                    self.receiveOtherChoose(data);
+                    break;
                 default:
-                break;
+                    break;
             }
         });
         
@@ -177,6 +191,13 @@ export default class NetworkManager {
         cc.warn("my cards : " + data.main_player.cards);
         Define.GameInfo.Inst.players[0].poker = data.main_player.cards;
         Game.Inst.EventListener.notify("getCard");
+    }
+
+    receiveOtherChoose(data){
+        let index = UIMgr.Inst.getPlayerIndexByUID(data.player)
+        cc.warn("get other complete choose");
+        UIMgr.Inst.CardStatusUIMgr.setComplete(index,true);
+        Game.Inst.EventListener.notify("cardChooseComplete");
     }
 
 }

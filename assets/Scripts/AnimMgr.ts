@@ -26,6 +26,9 @@ export default class AnimMgr extends cc.Component {
         })
     }
 
+    playCardTypeError(){
+        Game.Inst.animationMgr.play("CardTypeErrorAnim", 0.2,false,()=>{cc.warn("cardErrorAnim finish");}); 
+    }
 
 //     playDeal(hand: TW.TWHand = 0, callback?) {
 //         let dealAnime: CardDealAnimation = this.cardDeal.getComponent(CardDealAnimation);

@@ -11,6 +11,10 @@ export default class ChooseCard extends StateBase {
     @property({type:cc.Enum(Define.GameState),serializable:true})
     public state:Define.GameState = Define.GameState.ChooseCard;
 
+    selfComplete: boolean = false;
+    allOtherComplete: boolean = false;
+    otherComplete: number = 0;
+
     onLoad(){
         
     }
@@ -23,10 +27,12 @@ export default class ChooseCard extends StateBase {
             UIMgr.Inst.showChooseCard(true);
             UIMgr.Inst.chooseCardUIMgr.activate();
         });
-        this.registerTimeSync();
+        this.registerEvent();
     }
 
     public stateRelease(){
+        cc.warn("change to calc");
+        UIMgr.Inst.showChooseCard(false);
         Game.Inst.EventListener.clear();
         UIMgr.Inst.stopClock();
         UIMgr.Inst.chooseCardUIMgr.unRegClickEvent();
@@ -39,8 +45,29 @@ export default class ChooseCard extends StateBase {
         UIMgr.Inst.setClockAct(15);
     }
 
+    registerEvent(){
+        
+        this.registerTimeSync();
+        this.registerComplete();
+    }
+
     playDistribute(callback?){
         UIMgr.Inst.animMgr.playDistributePoker(callback);
+    }
+
+    registerComplete(){
+        Game.Inst.EventListener.on("cardChooseComplete",()=>{
+            this.otherComplete++;
+            cc.warn("complete num : " + this.otherComplete);
+            if(this.otherComplete + 1 == Define.GameInfo.Inst.playerCount){
+                cc.warn("all other complete" );
+                this.allOtherComplete = true;
+                //change stage when all complete
+                if(this.selfComplete){
+                    this.m_FSM.setState(Define.GameState.Calc);
+                }
+            }
+        })
     }
 
     registerTimeSync(){
@@ -50,6 +77,22 @@ export default class ChooseCard extends StateBase {
                 UIMgr.Inst.clock.countDown = data.time;
             }
         })
+    }
+
+    niuClick(event, customdata: number){
+        let pressNiu: boolean = false;
+        if(customdata == 1) pressNiu = true;
+        if(UIMgr.Inst.chooseCardUIMgr.niuClickCorrect(pressNiu)){
+            UIMgr.Inst.showChooseCard(false);
+            Game.Inst.networkMgr.chooseCardComplete();
+            this.selfComplete = true;
+            //change stage when all complete
+            if(this.allOtherComplete){
+                this.m_FSM.setState(Define.GameState.Calc);
+            }
+        }
+        else
+            UIMgr.Inst.animMgr.playCardTypeError();
     }
 
 }

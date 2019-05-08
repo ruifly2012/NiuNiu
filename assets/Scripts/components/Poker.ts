@@ -212,7 +212,7 @@ export default class Poker extends cc.Component
      * @param _size 縮放大小
      */
     setSize(_size: number){
-        cc.log("[POKER] set size" + _size);
+        //cc.log("[POKER] set size" + _size);
         this.node.scale = _size;
     }
 
@@ -223,7 +223,7 @@ export default class Poker extends cc.Component
     setShowBack(isOn: boolean = false){
         if (isOn){
             this.cardBack.spriteFrame = Game.Inst.resourcesMgr.load("BK");
-            cc.log(this.cardBack);
+            //cc.log(this.cardBack);
             this.disableCardFront();
         }
         else{

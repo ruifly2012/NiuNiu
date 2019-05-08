@@ -4,6 +4,7 @@ import * as Define from "./Define";
 import Game from "./Game";
 import Clock from "./components/Clock";
 import ChooseCardUIMgr from "./UI/ChooseCardUIMgr";
+import CardStatusUIMgr from "./UI/CardStatusUIMgr";
 
 const { ccclass, property } = cc._decorator;
 
@@ -25,6 +26,8 @@ export default class UIMgr extends cc.Component {
     @property(AnimMgr) animMgr: AnimMgr = null;
 
     @property(ChooseCardUIMgr) chooseCardUIMgr: ChooseCardUIMgr = null;
+
+    @property(CardStatusUIMgr) CardStatusUIMgr: CardStatusUIMgr = null;
 
     @property([Player]) players: Player[] = [];
 
@@ -63,6 +66,14 @@ export default class UIMgr extends cc.Component {
         for(let index = 0;index < Define.GameInfo.Inst.playerCount;index++){
             if(Define.GameInfo.Inst.players[index].UID == UID)
                 return this.players[index];
+        }
+        return undefined;
+    }
+
+    getPlayerIndexByUID(UID: string): number{
+        for(let index = 0;index < Define.GameInfo.Inst.playerCount;index++){
+            if(Define.GameInfo.Inst.players[index].UID == UID)
+                return index;
         }
         return undefined;
     }

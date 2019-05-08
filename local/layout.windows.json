@@ -7,8 +7,8 @@
       "windowType": "dockable",
       "x": -8,
       "y": -8,
-      "width": 1552,
-      "height": 840,
+      "width": 1936,
+      "height": 1056,
       "layout": {
         "children": [
           {
@@ -18,23 +18,23 @@
                 "children": [
                   "hierarchy"
                 ],
-                "height": 402.8999938964844,
+                "height": 522.125,
                 "type": "panel",
-                "width": 272.88751220703125
+                "width": 341
               },
               {
                 "active": 0,
                 "children": [
                   "assets"
                 ],
-                "height": 317.70001220703125,
+                "height": 411.09375,
                 "type": "panel",
-                "width": 272.88751220703125
+                "width": 341
               }
             ],
-            "height": 722.6000366210938,
+            "height": 935.21875,
             "type": "dock-v",
-            "width": 272.88751220703125
+            "width": 341
           },
           {
             "children": [
@@ -43,9 +43,9 @@
                 "children": [
                   "scene"
                 ],
-                "height": 451,
+                "height": 584.125,
                 "type": "panel",
-                "width": 893.6375122070312
+                "width": 1115.984375
               },
               {
                 "active": 0,
@@ -53,23 +53,23 @@
                   "console",
                   "timeline"
                 ],
-                "height": 269.6000061035156,
+                "height": 349.078125,
                 "type": "panel",
-                "width": 893.6375122070312
+                "width": 1115.984375
               }
             ],
-            "height": 722.6000366210938,
+            "height": 935.21875,
             "type": "dock-v",
-            "width": 893.6375122070312
+            "width": 1115.984375
           },
           {
             "active": 0,
             "children": [
               "inspector"
             ],
-            "height": 722.6000366210938,
+            "height": 935.21875,
             "type": "panel",
-            "width": 367.8500061035156
+            "width": 459
           }
         ],
         "type": "dock-h"
@@ -82,17 +82,6 @@
         "inspector",
         "scene"
       ]
-    },
-    "about": {
-      "main": false,
-      "url": "app://editor/page/app-about.html",
-      "windowType": "dockable",
-      "x": 568,
-      "y": 321,
-      "width": 400,
-      "height": 202,
-      "layout": null,
-      "panels": []
     }
   },
   "panels": {

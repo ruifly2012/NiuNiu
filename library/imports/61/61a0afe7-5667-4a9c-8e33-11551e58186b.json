@@ -3,10 +3,10 @@
   "_name": "card_error",
   "_objFlags": 0,
   "_native": "",
-  "_duration": 0.2,
+  "_duration": 0.21666666666666667,
   "sample": 60,
   "speed": 0.2,
-  "wrapMode": "2",
+  "wrapMode": "1",
   "curveData": {
     "comps": {
       "cc.Sprite": {
@@ -82,21 +82,13 @@
             "value": {
               "__uuid__": "f0e145da-bed9-4f20-b1b5-2c82f1b91101"
             }
+          },
+          {
+            "frame": 0.2,
+            "value": null
           }
         ]
       }
-    },
-    "props": {
-      "scale": [
-        {
-          "frame": 0,
-          "value": {
-            "__type__": "cc.Vec2",
-            "x": 1,
-            "y": 0.75
-          }
-        }
-      ]
     }
   },
   "events": []
