@@ -47,6 +47,7 @@ export default class SceneLoading extends cc.Component {
 
         this.isLoading = false;
         this.stateStr = "SwitchingScene";
+        cc.log("change to game");
         Game.Inst.mainStateMgr.changeStage(GameState.Game);
     }
 

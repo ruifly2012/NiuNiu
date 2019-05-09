@@ -3,7 +3,7 @@ import Player from "./components/Player";
 import * as Define from "./Define";
 import Game from "./Game";
 import Clock from "./components/Clock";
-import ChooseCardUIMgr from "./UI/ChooseCardUIMgr";
+import CardUIMgr from "./UI/CardUIMgr";
 import CardStatusUIMgr from "./UI/CardStatusUIMgr";
 
 const { ccclass, property } = cc._decorator;
@@ -25,7 +25,7 @@ export default class UIMgr extends cc.Component {
 
     @property(AnimMgr) animMgr: AnimMgr = null;
 
-    @property(ChooseCardUIMgr) chooseCardUIMgr: ChooseCardUIMgr = null;
+    @property(CardUIMgr) chooseCardUIMgr: CardUIMgr = null;
 
     @property(CardStatusUIMgr) CardStatusUIMgr: CardStatusUIMgr = null;
 

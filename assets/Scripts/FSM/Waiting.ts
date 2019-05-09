@@ -25,16 +25,12 @@ export default class Waiting extends StateBase {
     }
 
     public stateInitialize() {
-        let playerCount = 2;
-        //generate player
-        let gameInfo: Define.GameInfo = Define.GameInfo.Inst;
-        gameInfo.playerCount = playerCount;
-        for (let index = 0; index < playerCount; index++) {
-            gameInfo.players.push(new Define.Player());
-        }
+        this.initPlayer();
+
         UIMgr.Inst.showWaiting(true);
         UIMgr.Inst.isPlayersActive(false);
         UIMgr.Inst.players[0].node.active = true;
+        
         //send game ask
         Game.Inst.networkMgr.getGameTable();
     }
@@ -42,6 +38,16 @@ export default class Waiting extends StateBase {
     public stateRelease() {
     }
     public stateUpdate(dt: number) {
+    }
+
+    initPlayer(){
+        let playerCount = 2;
+        //generate player
+        let gameInfo: Define.GameInfo = Define.GameInfo.Inst;
+        gameInfo.playerCount = playerCount;
+        for (let index = 0; index < playerCount; index++) {
+            gameInfo.players.push(new Define.Player());
+        }
     }
 
     

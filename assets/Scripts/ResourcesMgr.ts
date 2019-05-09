@@ -110,6 +110,7 @@ export default class ResourcesMgr extends cc.Component {
                 });
 
                 let clip = cc.AnimationClip.createWithSpriteFrames(sequenceSpriteFrame, sequenceSpriteFrame.length);
+                cc.log("play seq");
                 clip.name = clipname;
                 clip.speed = speed;
                 clip.wrapMode = loop ? cc.WrapMode.Loop : cc.WrapMode.Default;

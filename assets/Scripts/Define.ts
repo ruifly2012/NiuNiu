@@ -125,23 +125,14 @@ export default class Converter {
         }
         return "NONE";
     }
-    /**取得普通牌型美術字素材名稱 */
-    static getCardTypeTextureText(type: CardType): string {
+    /**取得牌型動畫素材名稱 */
+    static getCardTypeAnimText(type: CardType): string {
         switch (type) {
-            // case TWNormalCardType.None: return "NoneType";
-            // case TWNormalCardType.HighCard: return "HighCard";
-            // case TWNormalCardType.OnePair: return "OnePair";
-            // case TWNormalCardType.TwoPairs: return "TwoPairs";
-            // case TWNormalCardType.ThreeOfAKind: return "ThreeOfAKind";
-            // case TWNormalCardType.ChongThree: return "ChongThree";
-            // case TWNormalCardType.Flush: return "Flush";
-            // case TWNormalCardType.Straight: return "Straight";
-            // case TWNormalCardType.FullHouse: return "FullHouse";
-            // case TWNormalCardType.MiddleHandFullHouse: return "MiddleHandFullHouse";
-            // case TWNormalCardType.FourOfAKind: return "FourOfAKind";
-            // case TWNormalCardType.MiddleHandFourOfAKind: return "MiddleHandFourOfAKind";
-            // case TWNormalCardType.StraightFlush: return "StraightFlush";
-            // case TWNormalCardType.MiddleHandStraightFlush: return "MiddleHandStraightFlush";
+            case CardType.cowCow: return "cowCow";
+            case CardType.goldCow: return "goldCow";
+            case CardType.silverCow: return "silverCow";
+            case CardType.bomb: return "bomb";
+            case CardType.smallCow: return "5cow";
             default:
                 cc.error("[DefineConverter]");
                 break;

@@ -30,7 +30,7 @@ export default class NetworkManager {
             "data" : token
         };
         this._socket.emit("action",json ,function(code,data){
-            console.log("token callback : "+code + data);
+            cc.log("token callback : "+code + data);
             if(code == 200){
                 Game.Inst.EventListener.notify("enterGame");
             }

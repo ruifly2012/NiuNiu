@@ -1,12 +1,13 @@
 import AnimationBase from "../components/animation/AnimationBase";
+import NodePool from "../components/NodePool";
 
 const {ccclass, property} = cc._decorator;
 
 @ccclass
 export default class DistributePokerAnimation extends AnimationBase {
 
-    @property(cc.Node) 
-    pokerPool:cc.Node = null;
+    @property(NodePool) 
+    pokerPool:NodePool = null;
 
     @property(cc.Node)
     playerPoker:cc.Node = null;
@@ -70,13 +71,13 @@ export default class DistributePokerAnimation extends AnimationBase {
     initCard(){
         this.playerCount = 5;
         //clear exist poker
-        this.pokerPool.getComponent("NodePool").clearAll();//didn't work?
+        this.pokerPool.clearAll();//didn't work?
         this.playerPoker.children.forEach(element => {
             element.destroy();
         });
         //generate self poker
         for (let index:number = 0; index < 5; index++) {
-            let node:cc.Node = this.pokerPool.getComponent("NodePool").request();
+            let node:cc.Node = this.pokerPool.request();
             node.parent = this.playerPoker;
             node.getComponent("Poker").setShowBack(true); 
             node.getComponent("Poker").cardIndex = index; 
@@ -84,7 +85,7 @@ export default class DistributePokerAnimation extends AnimationBase {
         }
         //generate other poker
         for (let index:number = 5; index < 5* this.playerCount; index++) {
-            let node:cc.Node = this.pokerPool.getComponent("NodePool").request();
+            let node:cc.Node = this.pokerPool.request();
             node.parent = this.playerPoker;
             node.getComponent("Poker").setShowBack(true); 
             node.getComponent("Poker").cardIndex = index;

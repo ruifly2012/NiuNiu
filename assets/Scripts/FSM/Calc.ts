@@ -18,12 +18,11 @@ export default class Calc extends StateBase {
     public stateInitialize(){
         cc.warn("calc!!!");
 
-        UIMgr.Inst.animMgr.playCoinFlow(()=>{
-            UIMgr.Inst.players[1].setShiny();
+        UIMgr.Inst.animMgr.playShowAllCardAnim(()=>{
+            cc.log("afterShowAll");
+           this.moneyFlow();
+           UIMgr.Inst.animMgr.playCardTypeAnim(Define.CardType.smallCow);
         });
-
-        
-
     }
 
     public stateRelease(){
@@ -31,6 +30,12 @@ export default class Calc extends StateBase {
     }
 
     public stateUpdate(dt: number){
+    }
+
+    moneyFlow(){
+        UIMgr.Inst.animMgr.playCoinFlow(()=>{
+            UIMgr.Inst.players[1].setShiny();
+        });
     }
 
 

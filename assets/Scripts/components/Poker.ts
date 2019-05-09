@@ -160,7 +160,6 @@ export default class Poker extends cc.Component
                 this.cardFrontTypeMiddle.node.setContentSize(cc.size(90,160));
                 this.setCardFront("NaN", valueSpriteName, middleSpriteName);
                 this.setSize(_size);
-                this.enableCardFront();
                 return;
         }
 
@@ -204,7 +203,6 @@ export default class Poker extends cc.Component
 
         this.setCardFront(typeSpriteName, valueSpriteName, middleSpriteName);
         this.setSize(_size);
-        this.enableCardFront();
     }
 
     /**
