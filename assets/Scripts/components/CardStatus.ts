@@ -32,7 +32,7 @@ export default class CardStatus extends cc.Component
     setType(type: Define.CardType){
         cc.log("[typeStatus]" + "Award_text_" + type + ",");
         let text = Game.Inst.resourcesMgr.load("Award_text_" + type);
-        let bg = Game.Inst.resourcesMgr.load("Award_frame_01");
+        let bg = Game.Inst.resourcesMgr.load(Converter.getCardTypeBgTextureText(type));
         
         if (text != null)
             this.typeText.spriteFrame = text;

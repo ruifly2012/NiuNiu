@@ -30,6 +30,18 @@ export default class AnimMgr extends cc.Component {
         Game.Inst.animationMgr.play("CardTypeErrorAnim", 0.2,false,()=>{cc.warn("cardErrorAnim finish");}); 
     }
 
+    playCoinFlow(callback?){
+        Game.Inst.animationMgr.play("CoinFlowAnim",1,false,()=>{
+            cc.warn("coin flow complete");
+            if (callback != undefined) {
+                //callback();
+                cc.log(callback);
+            }
+        }); 
+    }
+
+    
+
 //     playDeal(hand: TW.TWHand = 0, callback?) {
 //         let dealAnime: CardDealAnimation = this.cardDeal.getComponent(CardDealAnimation);
 //         let waterAnime: WaterCalcAnimation = this.waterCalc.getComponent(WaterCalcAnimation);

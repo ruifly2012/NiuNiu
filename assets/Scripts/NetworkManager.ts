@@ -187,12 +187,22 @@ export default class NetworkManager {
      * 6105
      * @param data
      */
-    receiveCard(data){
-        cc.warn("my cards : " + data.main_player.cards);
+    receiveCard(data){//todo
         Define.GameInfo.Inst.players[0].poker = data.main_player.cards;
+        Define.GameInfo.Inst.players[0].cardType = data.main_player.points;
+        cc.warn("my cards : " + Define.GameInfo.Inst.players[0].poker + "type : " + Define.GameInfo.Inst.players[0].cardType);
         Game.Inst.EventListener.notify("getCard");
+
+        //get other player data
+        let playerIndex = 0;
+        for (let _key in data.players) {
+            playerIndex++;
+            Define.GameInfo.Inst.players[playerIndex].poker = data.players[_key].cards;
+            Define.GameInfo.Inst.players[playerIndex].cardType = data.players[_key].points;
+        }
     }
 
+    /**other player choose card complete */
     receiveOtherChoose(data){
         let index = UIMgr.Inst.getPlayerIndexByUID(data.player)
         cc.warn("get other complete choose");

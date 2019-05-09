@@ -24,6 +24,8 @@ export default class ResourcesMgr extends cc.Component {
         list.push("poker");
         list.push("text");
         list.push("CardType");
+        list.push("coins/coin1");
+        list.push("coins/coin2");
         this.assetList = list;
 
         cc.game.addPersistRootNode(this.node);
@@ -69,9 +71,10 @@ export default class ResourcesMgr extends cc.Component {
      */
     load(name: string) {
         if (name in this.spriteFrame) {
-            cc.log("[Resources] Load " + name + " success");
+            //cc.log("[Resources] Load " + name + " success");
             return this.spriteFrame[name];
         }
+        cc.log("load fail");
         return null;
     }
 
@@ -93,7 +96,7 @@ export default class ResourcesMgr extends cc.Component {
     loadSequenceAnumation(animator: cc.Animation,path: string = "Sequence", clipname: string, speed: number = 1.0, loop: boolean = false) {
         let sequenceSpriteFrame = [];
 
-        cc.loader.loadResDir("animations/" + path + "/" + clipname, cc.SpriteFrame,
+        cc.loader.loadResDir("Animations/" + path + "/" + clipname, cc.SpriteFrame,
             (completedCount, totalCount, item) => { },
             (err, assets) => {
                 for (let i = 0; i < assets.length; i++) {

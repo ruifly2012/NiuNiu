@@ -1,5 +1,6 @@
 import Game from "../Game";
 import Converter, * as Define from "../Define";
+import SequenceAnimation from "./animation/SequenceAnimation";
 
 const {ccclass, property} = cc._decorator;
 
@@ -9,9 +10,11 @@ export default class Player extends cc.Component
     @property(cc.Sprite) head: cc.Sprite = null;
     @property(cc.Label) id: cc.Label = null;
     @property(cc.Label) money: cc.Label = null;
-    @property(cc.Node) shineBG: cc.Node = null;
     @property(cc.Node) kingIcon: cc.Node = null;
     @property(cc.Sprite) status: cc.Sprite  = null;
+    @property(SequenceAnimation) shineAnime: SequenceAnimation = null;
+    @property(cc.Label) moneyPlus: cc.Label = null;
+    @property(cc.Label) moneyMinus: cc.Label = null;
     
     start() 
     {
@@ -26,12 +29,13 @@ export default class Player extends cc.Component
 
     init(id: string, headSprite: string, money: number)
     {
-        this.shineBG.opacity = 0;
         this.setName(id);
         this.setMoney(money);
         this.setHeadSprite(headSprite);
-        this.setShiny(false);
         this.setKing(false);
+        this.moneyMinus.string = "";
+        this.moneyPlus.string = "";
+        
     }
 
     setHeadSprite(spriteName: string)
@@ -53,10 +57,17 @@ export default class Player extends cc.Component
         this.id.string = str;
     }
 
-    setShiny(active: boolean)
-    {
-        let t = 0.2;
-        this.shineBG.runAction(active? cc.fadeIn(t): cc.fadeOut(t));
+    /**
+     * 頭像背景閃爍效果
+     * @param speed 閃爍速度
+     * @param duration 持續時間
+     */
+    setShiny(speed: number = 2, duration: number = 2){
+        this.shineAnime.play(speed,true);
+        this.scheduleOnce(()=>{
+            this.shineAnime.stop();
+            this.shineAnime.node.getComponent(cc.Sprite).spriteFrame = null;
+        },duration);
     }
 
     setKing(active: boolean = false){
@@ -76,4 +87,37 @@ export default class Player extends cc.Component
         cc.log("[player] hide status");
         this.status.spriteFrame = null;
     }
+
+    moneyChange(amount: number){
+        amount = Math.random()*1000 - 500;
+        cc.log("change" + amount);
+        let str: string = "";
+        let label: cc.Label;
+        //set string
+        if(amount >= 0) {
+            str = "+";
+            label = this.moneyPlus;
+        }
+        else{
+            label = this.moneyMinus;
+        }
+        str += amount.toString()
+        label.string = str;
+        //anime
+        let action = cc.sequence(
+            cc.spawn(
+                cc.moveBy(0.5,0,50).easing(cc.easeBackOut()),
+                cc.fadeIn(0.5)
+            ),
+            cc.delayTime(0.2),
+            cc.fadeOut(0.5),
+            //back to initial
+            cc.moveBy(0,0,-50),
+            cc.callFunc(()=>{
+                label.string = "";
+            })
+        )
+        label.node.runAction(action);
+    }
+
 }

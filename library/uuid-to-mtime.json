@@ -25,7 +25,7 @@
     "relativePath": "prefab"
   },
   "d62ae2b1-8d5b-4e64-9d61-cc7feee557b6": {
-    "asset": 1554892675691,
+    "asset": 1557309160972,
     "meta": 1552474302000,
     "relativePath": "prefabs\\MoneyFlow"
   },
@@ -199,235 +199,85 @@
     "meta": 1557295574490,
     "relativePath": "resources\\Animations\\gameStart.anim"
   },
-  "52caa371-ac03-4ac2-a622-c486ee772638": {
-    "asset": 1554892675706,
-    "meta": 1552474302000,
-    "relativePath": "resources\\Animations\\moneyflow"
-  },
   "55e5df42-3478-4be9-8d76-1c18654a8362": {
     "asset": 1552983494000,
     "meta": 1557282944251,
     "relativePath": "resources\\Animations\\goldcow.anim"
   },
-  "929cbba2-961e-4dae-89fb-529d164d9753": {
-    "asset": 1552984374866,
-    "meta": 1552474302000,
-    "relativePath": "resources\\Animations\\moneyflow\\coin1"
-  },
-  "acc12c35-dcf0-4c1a-bd54-0272e10efc27": {
-    "asset": 1552474302000,
-    "meta": 1557282944279,
-    "relativePath": "resources\\Animations\\moneyflow\\coin1\\coin1_000.png"
-  },
-  "5e696946-a41b-4bb5-b0fc-81cb388267c0": {
-    "asset": 1552474302000,
-    "meta": 1557282944268,
-    "relativePath": "resources\\Animations\\moneyflow\\coin.zip"
-  },
-  "8ba27087-eec5-4a3c-85f8-fd412df4a01c": {
-    "asset": 1552474302000,
-    "meta": 1557282944285,
-    "relativePath": "resources\\Animations\\moneyflow\\coin1\\coin1_001.png"
-  },
-  "fcaa8084-b16d-4e80-8c66-24261fb9bf56": {
-    "asset": 1552474302000,
-    "meta": 1557282944311,
-    "relativePath": "resources\\Animations\\moneyflow\\coin1\\coin1_002.png"
-  },
-  "08355940-83d5-4657-96b7-e4a2bd5521d0": {
-    "asset": 1552474302000,
-    "meta": 1557282944308,
-    "relativePath": "resources\\Animations\\moneyflow\\coin1\\coin1_003.png"
-  },
-  "c10fc395-8889-4da0-921c-8d6d0bc85f66": {
-    "asset": 1552474302000,
-    "meta": 1557282944333,
-    "relativePath": "resources\\Animations\\moneyflow\\coin1\\coin1_004.png"
-  },
-  "2c0cdd5d-869f-44cf-beac-00c54d6a65e2": {
-    "asset": 1552474302000,
-    "meta": 1557282944326,
-    "relativePath": "resources\\Animations\\moneyflow\\coin1\\coin1_005.png"
-  },
-  "791dcff8-37a3-49fb-895a-365a4c4278ed": {
-    "asset": 1552474302000,
-    "meta": 1557282944365,
-    "relativePath": "resources\\Animations\\moneyflow\\coin1\\coin1_006.png"
-  },
-  "cb5fe581-0c0d-4441-87c5-91c7b49e3c80": {
-    "asset": 1552474302000,
-    "meta": 1557282944356,
-    "relativePath": "resources\\Animations\\moneyflow\\coin1\\coin1_007.png"
-  },
-  "1e62c761-099e-412e-a960-7c41a94ff730": {
-    "asset": 1552474302000,
-    "meta": 1557282944399,
-    "relativePath": "resources\\Animations\\moneyflow\\coin1\\coin1_008.png"
-  },
-  "57b2a8c2-a1e0-4108-80cc-50267f218805": {
-    "asset": 1552474302000,
-    "meta": 1557282944414,
-    "relativePath": "resources\\Animations\\moneyflow\\coin1\\coin1_010.png"
-  },
-  "9415a4fe-2232-4e4c-a1c4-a0fbc559a0d1": {
-    "asset": 1552474302000,
-    "meta": 1557282944395,
-    "relativePath": "resources\\Animations\\moneyflow\\coin1\\coin1_009.png"
-  },
-  "6d6d28cb-0daf-4cab-b670-e7522eb2d0c9": {
-    "asset": 1552984374888,
-    "meta": 1552474302000,
-    "relativePath": "resources\\Animations\\moneyflow\\coin2"
-  },
-  "67e5b3d5-7022-433a-ae77-afaabd99ad27": {
-    "asset": 1552474302000,
-    "meta": 1557282944420,
-    "relativePath": "resources\\Animations\\moneyflow\\coin1\\coin1_011.png"
-  },
-  "c3f3739c-4f3a-45e3-bcd9-c7f879bf0af9": {
-    "asset": 1552474302000,
-    "meta": 1557282944433,
-    "relativePath": "resources\\Animations\\moneyflow\\coin2\\coin2_000.png"
-  },
-  "e470b601-0d03-4fa6-a171-a0348a9e2dd1": {
-    "asset": 1552474302000,
-    "meta": 1557282944440,
-    "relativePath": "resources\\Animations\\moneyflow\\coin2\\coin2_001.png"
-  },
-  "dd45661d-65d2-4655-a473-89cd5a405823": {
-    "asset": 1552474302000,
-    "meta": 1557282944459,
-    "relativePath": "resources\\Animations\\moneyflow\\coin2\\coin2_002.png"
-  },
-  "573e0228-fafa-426b-8042-5294f4eb845a": {
-    "asset": 1552474302000,
-    "meta": 1557282944486,
-    "relativePath": "resources\\Animations\\moneyflow\\coin2\\coin2_004.png"
-  },
-  "69da789d-1774-4490-8fd8-8c17ad71e508": {
-    "asset": 1552474302000,
-    "meta": 1557282944463,
-    "relativePath": "resources\\Animations\\moneyflow\\coin2\\coin2_003.png"
-  },
-  "816c35cd-449b-47f2-9302-da34a6e996fc": {
-    "asset": 1552474302000,
-    "meta": 1557282944479,
-    "relativePath": "resources\\Animations\\moneyflow\\coin2\\coin2_005.png"
-  },
-  "94e24a39-d3d4-4f67-844d-4e1b648afb82": {
-    "asset": 1552474302000,
-    "meta": 1557282944512,
-    "relativePath": "resources\\Animations\\moneyflow\\coin2\\coin2_006.png"
-  },
-  "162ff25c-2068-40c6-8f23-3e859d803fbf": {
-    "asset": 1552474302000,
-    "meta": 1557282944517,
-    "relativePath": "resources\\Animations\\moneyflow\\coin2\\coin2_007.png"
-  },
-  "b08c88c9-c003-421f-abc5-bcb09c1e87c4": {
-    "asset": 1552474302000,
-    "meta": 1557282944549,
-    "relativePath": "resources\\Animations\\moneyflow\\coin2\\coin2_008.png"
-  },
-  "1069f771-6b93-467c-9475-084a8bca6feb": {
-    "asset": 1552474302000,
-    "meta": 1557282944539,
-    "relativePath": "resources\\Animations\\moneyflow\\coin2\\coin2_009.png"
-  },
-  "ca0b1e3a-e32a-4221-a9fa-88f3cfd7e028": {
-    "asset": 1552474302000,
-    "meta": 1557282944569,
-    "relativePath": "resources\\Animations\\moneyflow\\coin2\\coin2_010.png"
-  },
-  "4b271189-d465-4c63-8f33-bc9f232372a6": {
-    "asset": 1552474302000,
-    "meta": 1557282944565,
-    "relativePath": "resources\\Animations\\moneyflow\\coin2\\coin2_011.png"
-  },
-  "6cb204c5-674e-4635-bb04-e61eb5c6ddf8": {
-    "asset": 1552474302000,
-    "meta": 1557282944598,
-    "relativePath": "resources\\Animations\\moneyflow\\effect_000.png"
-  },
   "e9d8d172-f5e7-4495-b2a5-8dabb6c2c9ee": {
     "asset": 1552474302000,
-    "meta": 1557282944606,
-    "relativePath": "resources\\Animations\\moneyflow\\effect_001.png"
+    "meta": 1557368148012,
+    "relativePath": "resources\\Animations\\Sequence\\coinBG\\effect_1.png"
   },
   "35c64c6e-7b2e-4720-9d92-53f97974a405": {
     "asset": 1552474302000,
-    "meta": 1557282944639,
-    "relativePath": "resources\\Animations\\moneyflow\\effect_002.png"
+    "meta": 1557368151564,
+    "relativePath": "resources\\Animations\\Sequence\\coinBG\\effect_2.png"
   },
   "11218517-719f-4d67-ac26-095baff78fd8": {
     "asset": 1552474302000,
-    "meta": 1557282944665,
-    "relativePath": "resources\\Animations\\moneyflow\\effect_004.png"
+    "meta": 1557368158953,
+    "relativePath": "resources\\Animations\\Sequence\\coinBG\\effect_4.png"
   },
   "7c6ac2df-45ea-48d4-9656-2cf65e77c750": {
     "asset": 1552474302000,
-    "meta": 1557282944632,
-    "relativePath": "resources\\Animations\\moneyflow\\effect_003.png"
+    "meta": 1557368155140,
+    "relativePath": "resources\\Animations\\Sequence\\coinBG\\effect_3.png"
   },
   "8ff1d8d7-6a75-472b-8e37-7a48aed4433b": {
     "asset": 1552474302000,
-    "meta": 1557282944672,
-    "relativePath": "resources\\Animations\\moneyflow\\effect_005.png"
+    "meta": 1557368162846,
+    "relativePath": "resources\\Animations\\Sequence\\coinBG\\effect_5.png"
   },
   "edad995d-e31c-4171-9707-ec3c26cdf3dd": {
     "asset": 1552474302000,
-    "meta": 1557282944691,
-    "relativePath": "resources\\Animations\\moneyflow\\effect_006.png"
+    "meta": 1557368166246,
+    "relativePath": "resources\\Animations\\Sequence\\coinBG\\effect_6.png"
   },
   "b9762266-1362-47ab-9ddf-983b673a6986": {
     "asset": 1552474302000,
-    "meta": 1557282944715,
-    "relativePath": "resources\\Animations\\moneyflow\\effect_007.png"
+    "meta": 1557368168447,
+    "relativePath": "resources\\Animations\\Sequence\\coinBG\\effect_7.png"
   },
   "41e3f58f-41cc-47b6-a91e-fe21282d0927": {
     "asset": 1552474302000,
-    "meta": 1557282944721,
-    "relativePath": "resources\\Animations\\moneyflow\\effect_008.png"
+    "meta": 1557368170909,
+    "relativePath": "resources\\Animations\\Sequence\\coinBG\\effect_8.png"
   },
   "6fc114d1-548f-4e13-8870-b540327bcb7e": {
     "asset": 1552474302000,
-    "meta": 1557282944754,
-    "relativePath": "resources\\Animations\\moneyflow\\effect_009.png"
+    "meta": 1557368174496,
+    "relativePath": "resources\\Animations\\Sequence\\coinBG\\effect_9.png"
   },
   "8f320fc4-1929-4011-b659-fcd5fa7fd6a0": {
     "asset": 1552474302000,
-    "meta": 1557282944747,
-    "relativePath": "resources\\Animations\\moneyflow\\effect_010.png"
+    "meta": 1557368177883,
+    "relativePath": "resources\\Animations\\Sequence\\coinBG\\effect_10.png"
   },
   "4927b7b6-b8d5-4ea9-8748-54fa0f79b6e1": {
     "asset": 1552474302000,
-    "meta": 1557282944780,
-    "relativePath": "resources\\Animations\\moneyflow\\effect_011.png"
+    "meta": 1557368180296,
+    "relativePath": "resources\\Animations\\Sequence\\coinBG\\effect_11.png"
   },
   "00bab89f-36d5-49dc-bca5-9d296e2419a1": {
     "asset": 1552474302000,
-    "meta": 1557282944787,
-    "relativePath": "resources\\Animations\\moneyflow\\effect_012.png"
+    "meta": 1557368183597,
+    "relativePath": "resources\\Animations\\Sequence\\coinBG\\effect_12.png"
   },
   "daee6797-2769-47ef-bf5c-bef60822eb9c": {
     "asset": 1552474302000,
-    "meta": 1557282944815,
-    "relativePath": "resources\\Animations\\moneyflow\\effect_013.png"
+    "meta": 1557368186047,
+    "relativePath": "resources\\Animations\\Sequence\\coinBG\\effect_13.png"
   },
   "93733d37-bf25-40c5-b4a8-924361b81d77": {
     "asset": 1552474302000,
-    "meta": 1557282944809,
-    "relativePath": "resources\\Animations\\moneyflow\\effect_014.png"
-  },
-  "eb1d0785-9eb7-47b4-abff-7659888fa8bf": {
-    "asset": 1552983496000,
-    "meta": 1557282944831,
-    "relativePath": "resources\\Animations\\moneyflow\\moneyBG.anim"
+    "meta": 1557368190313,
+    "relativePath": "resources\\Animations\\Sequence\\coinBG\\effect_14.png"
   },
   "bd032f03-353c-4764-b3b3-9c5c578f6266": {
     "asset": 1552474302000,
-    "meta": 1557282944839,
-    "relativePath": "resources\\Animations\\moneyflow\\effect_015.png"
+    "meta": 1557368192699,
+    "relativePath": "resources\\Animations\\Sequence\\coinBG\\effect_15.png"
   },
   "7c645ee6-cff9-4f65-9bc7-c8f967ae03e9": {
     "asset": 1552984374893,
@@ -484,165 +334,10 @@
     "meta": 1557282944953,
     "relativePath": "resources\\Animations\\silvercow.anim"
   },
-  "ab1f272e-6a9c-43d8-a6c7-d98161cd1aef": {
-    "asset": 1552984374956,
-    "meta": 1552474302000,
-    "relativePath": "resources\\Animations\\牌型"
-  },
   "929c5afc-ef20-4ac6-b2fc-ac0ac12dd76b": {
     "asset": 1552983496000,
     "meta": 1557282944958,
     "relativePath": "resources\\Animations\\victory.anim"
-  },
-  "16274d7b-aec5-4805-877e-f7312962051f": {
-    "asset": 1552474302000,
-    "meta": 1557282944972,
-    "relativePath": "resources\\Animations\\牌型\\black_001.png"
-  },
-  "e103ff1c-c652-403c-a3a7-76d839b7bae4": {
-    "asset": 1552474302000,
-    "meta": 1557282944976,
-    "relativePath": "resources\\Animations\\牌型\\black_002.png"
-  },
-  "cf51e6ed-4d07-4550-b4bc-a8a301c0b72b": {
-    "asset": 1552474302000,
-    "meta": 1557282944996,
-    "relativePath": "resources\\Animations\\牌型\\black_004.png"
-  },
-  "17be584a-e9dd-42d4-acb1-274b2ae5da91": {
-    "asset": 1552474302000,
-    "meta": 1557282944991,
-    "relativePath": "resources\\Animations\\牌型\\black_003.png"
-  },
-  "f58dbaa8-c16e-4e7a-995e-19bd70882af2": {
-    "asset": 1552474302000,
-    "meta": 1557282945019,
-    "relativePath": "resources\\Animations\\牌型\\black_006.png"
-  },
-  "dcc0c14f-3050-4e1a-9bbf-2cef9426edb9": {
-    "asset": 1552474302000,
-    "meta": 1557282945014,
-    "relativePath": "resources\\Animations\\牌型\\black_005.png"
-  },
-  "975e965a-1ae4-42bc-ad18-b38b2d2af3c0": {
-    "asset": 1552474302000,
-    "meta": 1557282945035,
-    "relativePath": "resources\\Animations\\牌型\\blue_002.png"
-  },
-  "5bdb9c79-584c-431a-8627-1df4f98aa3b4": {
-    "asset": 1552474302000,
-    "meta": 1557282945043,
-    "relativePath": "resources\\Animations\\牌型\\blue_001.png"
-  },
-  "456910e3-f847-4a4b-9106-17cd462181cd": {
-    "asset": 1552474302000,
-    "meta": 1557282945077,
-    "relativePath": "resources\\Animations\\牌型\\blue_004.png"
-  },
-  "992fab86-7479-4281-89d7-c7c86219be5c": {
-    "asset": 1552474302000,
-    "meta": 1557282945057,
-    "relativePath": "resources\\Animations\\牌型\\blue_003.png"
-  },
-  "2ca9ff84-9b22-49fe-97c4-498289d75f7a": {
-    "asset": 1552474302000,
-    "meta": 1557282945082,
-    "relativePath": "resources\\Animations\\牌型\\blue_005.png"
-  },
-  "baf60cd2-3a9d-41cc-91ad-efdf3a5f0eda": {
-    "asset": 1552474302000,
-    "meta": 1557282945113,
-    "relativePath": "resources\\Animations\\牌型\\blue_006.png"
-  },
-  "a7c89b90-6e83-4158-a846-f569a784d452": {
-    "asset": 1552474302000,
-    "meta": 1557282945106,
-    "relativePath": "resources\\Animations\\牌型\\gray_001.png"
-  },
-  "2fa1e272-ce0c-4352-9bb8-f506108ab290": {
-    "asset": 1552474302000,
-    "meta": 1557282945138,
-    "relativePath": "resources\\Animations\\牌型\\gray_002.png"
-  },
-  "3ee1e98b-1b3a-4196-9f10-715543717379": {
-    "asset": 1552474302000,
-    "meta": 1557282945155,
-    "relativePath": "resources\\Animations\\牌型\\gray_004.png"
-  },
-  "67fbfad4-3278-425c-8922-d49ba21a58fa": {
-    "asset": 1552474302000,
-    "meta": 1557282945130,
-    "relativePath": "resources\\Animations\\牌型\\gray_003.png"
-  },
-  "5d51906a-5979-4540-8124-811f10134aa5": {
-    "asset": 1552474302000,
-    "meta": 1557282945158,
-    "relativePath": "resources\\Animations\\牌型\\gray_005.png"
-  },
-  "5a5cd841-166e-4db5-8463-5f3d5cfb580e": {
-    "asset": 1552474302000,
-    "meta": 1557282945183,
-    "relativePath": "resources\\Animations\\牌型\\gray_006.png"
-  },
-  "74b5fc40-7d96-49e3-af67-2c022ecd1fc0": {
-    "asset": 1552474302000,
-    "meta": 1557282945205,
-    "relativePath": "resources\\Animations\\牌型\\green_002.png"
-  },
-  "d0725be8-52ed-43d7-af04-cbf79b7be13f": {
-    "asset": 1552474302000,
-    "meta": 1557282945178,
-    "relativePath": "resources\\Animations\\牌型\\green_001.png"
-  },
-  "f436ae9c-d7db-477e-80a1-797ebb5693e3": {
-    "asset": 1552474302000,
-    "meta": 1557282945224,
-    "relativePath": "resources\\Animations\\牌型\\green_004.png"
-  },
-  "1e7743d8-abef-46fd-98f0-7d67a568668b": {
-    "asset": 1552474302000,
-    "meta": 1557282945200,
-    "relativePath": "resources\\Animations\\牌型\\green_003.png"
-  },
-  "0424afaf-bd43-4976-ba6a-10e2d19fd719": {
-    "asset": 1552474302000,
-    "meta": 1557282945220,
-    "relativePath": "resources\\Animations\\牌型\\green_005.png"
-  },
-  "691c3393-2e38-4d93-9de6-fcac6b788716": {
-    "asset": 1552474302000,
-    "meta": 1557282945241,
-    "relativePath": "resources\\Animations\\牌型\\green_006.png"
-  },
-  "e1cdf12e-16fa-4574-b67b-567ee32ef54a": {
-    "asset": 1552474302000,
-    "meta": 1557282945247,
-    "relativePath": "resources\\Animations\\牌型\\purple_001.png"
-  },
-  "321d5db6-ac11-443e-8a3e-fd6a81c8aeea": {
-    "asset": 1552474302000,
-    "meta": 1557282945270,
-    "relativePath": "resources\\Animations\\牌型\\purple_002.png"
-  },
-  "e16cbcf2-83e3-4cc4-ba20-92e855094e83": {
-    "asset": 1552474302000,
-    "meta": 1557282945285,
-    "relativePath": "resources\\Animations\\牌型\\purple_004.png"
-  },
-  "c0dfa7c0-91c6-4d59-b240-3da172f9a6fa": {
-    "asset": 1552474302000,
-    "meta": 1557282945263,
-    "relativePath": "resources\\Animations\\牌型\\purple_003.png"
-  },
-  "ae099f18-f597-47da-8de7-3349cb281337": {
-    "asset": 1552474302000,
-    "meta": 1557282945316,
-    "relativePath": "resources\\Animations\\牌型\\purple_006.png"
-  },
-  "5df2e94a-ae2b-4653-aa88-4d9c16c74e94": {
-    "asset": 1552474302000,
-    "meta": 1557282945290,
-    "relativePath": "resources\\Animations\\牌型\\purple_005.png"
   },
   "bf251242-adc0-4b16-80e4-3b23fde5b680": {
     "asset": 1552984374991,
@@ -1655,7 +1350,7 @@
     "relativePath": "resources"
   },
   "d02fa678-b413-4672-9377-a6104abf1352": {
-    "asset": 1557285507030,
+    "asset": 1557294573604,
     "meta": 1554892675660,
     "relativePath": "Scene"
   },
@@ -1755,7 +1450,7 @@
     "relativePath": "resources\\textures\\text\\BetTest_7.png"
   },
   "29deb8c1-326d-400e-9584-33dcbe056e2b": {
-    "asset": 1557287843519,
+    "asset": 1557308937819,
     "meta": 1557282898328,
     "relativePath": "Scripts\\components"
   },
@@ -1774,11 +1469,6 @@
     "meta": 1557282950804,
     "relativePath": "Scripts\\components\\animation\\OriginalAnimation.ts"
   },
-  "da22f72a-c80f-4687-b271-f72069e2c9e1": {
-    "asset": 1557282898334,
-    "meta": 1557282950858,
-    "relativePath": "Scripts\\components\\animation\\SequenceAnimation.ts"
-  },
   "0b6891e4-b3c7-4f57-be08-b3ed0338d912": {
     "asset": 1557282898329,
     "meta": 1557282950941,
@@ -1793,11 +1483,6 @@
     "asset": 1557282898330,
     "meta": 1557282951071,
     "relativePath": "Scripts\\components\\MobileStatus.ts"
-  },
-  "97a7911e-7570-4adb-8694-65b52d38d95b": {
-    "asset": 1557282898331,
-    "meta": 1557282951113,
-    "relativePath": "Scripts\\components\\NodePool.ts"
   },
   "11d53f8c-09cb-4f5a-adc7-b3bd4ebfd460": {
     "asset": 1557282898332,
@@ -1825,7 +1510,7 @@
     "relativePath": "Scripts\\AudioMgr.ts"
   },
   "226539e5-1e8f-49f9-b69d-d4aecdc2ada0": {
-    "asset": 1557282898325,
+    "asset": 1557305529551,
     "meta": 1557282898323,
     "relativePath": "Scripts\\FSM"
   },
@@ -1840,14 +1525,9 @@
     "relativePath": "Scripts\\Utils.ts"
   },
   "11339d1a-7854-423f-9a49-fcad7739b3ff": {
-    "asset": 1557299344060,
-    "meta": 1557299344126,
+    "asset": 1557374154701,
+    "meta": 1557374154730,
     "relativePath": "Scene\\NiuNiu.fire"
-  },
-  "fe90535d-b202-410a-a283-f51352f34314": {
-    "asset": 1557282898326,
-    "meta": 1557282951464,
-    "relativePath": "Scripts\\MiscHelper.ts"
   },
   "f5384d85-d600-4726-8770-3451a5a96cf8": {
     "asset": 1557282898318,
@@ -1860,17 +1540,17 @@
     "relativePath": "Scene\\scene_loading.fire"
   },
   "a1045b07-6089-4c89-aecb-2f03efd687d3": {
-    "asset": 1557282898319,
-    "meta": 1557282950543,
+    "asset": 1557309552804,
+    "meta": 1557309552822,
     "relativePath": "Scene\\scene_start.fire"
   },
   "08d8011a-77b1-42f4-b140-b3ade1bfe174": {
-    "asset": 1557294801902,
-    "meta": 1557294801924,
+    "asset": 1557374152964,
+    "meta": 1557374152978,
     "relativePath": "prefabs\\player.prefab"
   },
   "bc3fda23-d2ea-44d0-adf0-c9aa2451834b": {
-    "asset": 1557287419010,
+    "asset": 1557308182451,
     "meta": 1557282898337,
     "relativePath": "resources\\textures"
   },
@@ -2459,11 +2139,6 @@
     "meta": 1557282946414,
     "relativePath": "resources\\textures\\clock_bg.png"
   },
-  "56e34c40-dc56-43f0-8abd-77f669129d60": {
-    "asset": 1557282898331,
-    "meta": 1557282951149,
-    "relativePath": "Scripts\\components\\Player.ts"
-  },
   "e851e89b-faa2-4484-bea6-5c01dd9f06e2": {
     "asset": 1551778908000,
     "meta": 1557282941464,
@@ -2740,7 +2415,7 @@
     "relativePath": "resources\\textures\\poker\\RD-JOKER.png"
   },
   "07fea280-f50d-46e9-b7cc-6798559ba3a2": {
-    "asset": 1557282898321,
+    "asset": 1557310228852,
     "meta": 1557282898321,
     "relativePath": "Scripts\\Anime"
   },
@@ -2759,20 +2434,10 @@
     "meta": 1557282950902,
     "relativePath": "Scripts\\components\\Clock.ts"
   },
-  "b90360c9-598e-4892-b259-b5a7999c30f0": {
-    "asset": 1557282898324,
-    "meta": 1557282951383,
-    "relativePath": "Scripts\\FSM\\RobBet.ts"
-  },
   "ee0c5cd4-6ea1-4a89-9d02-fbdf811c89e4": {
     "asset": 1557282898324,
     "meta": 1557282951354,
     "relativePath": "Scripts\\FSM\\PlaceBet.ts"
-  },
-  "05a138b0-84ea-4064-91ab-4e84f01c159b": {
-    "asset": 1557285342834,
-    "meta": 1557285343983,
-    "relativePath": "Scripts\\AnimMgr.ts"
   },
   "d6a16b3f-605c-4d83-a837-3de42fad5d3e": {
     "asset": 1554199476009,
@@ -2909,16 +2574,6 @@
     "meta": 1557295366721,
     "relativePath": "prefabs\\PokerStatus.prefab"
   },
-  "d3ac557e-a7a4-471f-9bb9-3b6c11d2b365": {
-    "asset": 1557288102648,
-    "meta": 1557292324172,
-    "relativePath": "Scripts\\Define.ts"
-  },
-  "ac89af0a-d26c-4f07-a40f-5d5e9438c32b": {
-    "asset": 1557293310479,
-    "meta": 1557293315372,
-    "relativePath": "Scripts\\ResourcesMgr.ts"
-  },
   "cd6ff358-63f3-4d73-a30a-137783138f83": {
     "asset": 1557294573653,
     "meta": 1557294573607,
@@ -2999,16 +2654,6 @@
     "meta": 1557294574401,
     "relativePath": "Scene\\介面排版\\表演狀態Layout_04開始遊戲.jpg"
   },
-  "702980ec-f2c6-4000-b41b-5e294d745a97": {
-    "asset": 1557297583944,
-    "meta": 1557297585107,
-    "relativePath": "Scripts\\FSM\\ChooseCard.ts"
-  },
-  "b4f93673-1ce6-4fce-8a58-90c3ec8f3f81": {
-    "asset": 1557298277840,
-    "meta": 1557298279183,
-    "relativePath": "Scripts\\components\\CardStatus.ts"
-  },
   "31e35b9d-a53f-48cd-9f83-111670c2515e": {
     "asset": 1557297842029,
     "meta": 1557298279331,
@@ -3034,9 +2679,239 @@
     "meta": 1557300305538,
     "relativePath": "Scripts\\components\\Poker.ts"
   },
+  "b4f93673-1ce6-4fce-8a58-90c3ec8f3f81": {
+    "asset": 1557304486606,
+    "meta": 1557304495675,
+    "relativePath": "Scripts\\components\\CardStatus.ts"
+  },
+  "d3ac557e-a7a4-471f-9bb9-3b6c11d2b365": {
+    "asset": 1557304894644,
+    "meta": 1557305020739,
+    "relativePath": "Scripts\\Define.ts"
+  },
   "ebe69aa5-1081-4019-85cb-4a9a01eb83d5": {
-    "asset": 1557300336009,
-    "meta": 1557300338582,
+    "asset": 1557305018789,
+    "meta": 1557305020741,
     "relativePath": "Scripts\\NetworkManager.ts"
+  },
+  "a9e646ee-8c89-47e7-9895-2ccff4970664": {
+    "asset": 1557308219977,
+    "meta": 1557308179899,
+    "relativePath": "resources\\textures\\coins"
+  },
+  "99e3a1dc-6562-493c-aee5-268de93d770c": {
+    "asset": 1557310037860,
+    "meta": 1557308215967,
+    "relativePath": "resources\\textures\\coins\\coin1"
+  },
+  "2d5910ab-c417-419f-ae61-4c475ade1043": {
+    "asset": 1557308215955,
+    "meta": 1557308216034,
+    "relativePath": "resources\\textures\\coins\\coin1\\coin1_001.png"
+  },
+  "cdd92aa5-6619-4afe-b6df-736a5907fc83": {
+    "asset": 1557308215953,
+    "meta": 1557308216038,
+    "relativePath": "resources\\textures\\coins\\coin1\\coin1_000.png"
+  },
+  "1150d0a8-1732-4248-90e2-4f2d75dfae32": {
+    "asset": 1557308215955,
+    "meta": 1557308216058,
+    "relativePath": "resources\\textures\\coins\\coin1\\coin1_003.png"
+  },
+  "45a4e4b9-947c-40a8-8e86-0621eeeee8bf": {
+    "asset": 1557308215953,
+    "meta": 1557308216061,
+    "relativePath": "resources\\textures\\coins\\coin1\\coin1_002.png"
+  },
+  "5aac2098-080d-46b7-9c3f-f61686a69e88": {
+    "asset": 1557308215955,
+    "meta": 1557308216085,
+    "relativePath": "resources\\textures\\coins\\coin1\\coin1_004.png"
+  },
+  "ac684a4f-9461-4de4-9a07-bb36ff9cf2b9": {
+    "asset": 1557308215955,
+    "meta": 1557308216090,
+    "relativePath": "resources\\textures\\coins\\coin1\\coin1_005.png"
+  },
+  "5e471abb-db9f-4174-bef5-629420ecc23a": {
+    "asset": 1557308215957,
+    "meta": 1557308216108,
+    "relativePath": "resources\\textures\\coins\\coin1\\coin1_007.png"
+  },
+  "5576eb6a-1bd6-4a30-ac6c-32a2a65ae995": {
+    "asset": 1557308215957,
+    "meta": 1557308216111,
+    "relativePath": "resources\\textures\\coins\\coin1\\coin1_006.png"
+  },
+  "e4d040be-83dd-4651-85c2-b3225bb95e38": {
+    "asset": 1557308215958,
+    "meta": 1557308216132,
+    "relativePath": "resources\\textures\\coins\\coin1\\coin1_009.png"
+  },
+  "47674701-e556-4d9c-b619-4426f9ec7e39": {
+    "asset": 1557308215959,
+    "meta": 1557308216139,
+    "relativePath": "resources\\textures\\coins\\coin1\\coin1_008.png"
+  },
+  "3f5f794b-f60b-4c80-bd30-acebc578fc5c": {
+    "asset": 1557308215960,
+    "meta": 1557308216159,
+    "relativePath": "resources\\textures\\coins\\coin1\\coin1_010.png"
+  },
+  "352fe63e-af23-4d6e-a16d-d243196e4e19": {
+    "asset": 1557308215960,
+    "meta": 1557308216169,
+    "relativePath": "resources\\textures\\coins\\coin1\\coin1_011.png"
+  },
+  "8eaeec70-2441-4f60-bb98-8ed5b794052f": {
+    "asset": 1557310028750,
+    "meta": 1557308219982,
+    "relativePath": "resources\\textures\\coins\\coin2"
+  },
+  "a7345ca5-fece-410c-9423-2aec00f0f0a7": {
+    "asset": 1557308219970,
+    "meta": 1557308220048,
+    "relativePath": "resources\\textures\\coins\\coin2\\coin2_001.png"
+  },
+  "41246e3b-8163-456c-9eef-a13007497d90": {
+    "asset": 1557308219972,
+    "meta": 1557308220057,
+    "relativePath": "resources\\textures\\coins\\coin2\\coin2_000.png"
+  },
+  "73e1ef55-d918-415b-b46a-f545feef62dd": {
+    "asset": 1557308219972,
+    "meta": 1557308220081,
+    "relativePath": "resources\\textures\\coins\\coin2\\coin2_003.png"
+  },
+  "70ecb55c-cf81-4218-9ab3-607c6de6648e": {
+    "asset": 1557308219968,
+    "meta": 1557308220090,
+    "relativePath": "resources\\textures\\coins\\coin2\\coin2_002.png"
+  },
+  "99885810-3ba6-41bf-9000-be1932fe5436": {
+    "asset": 1557308219973,
+    "meta": 1557308220105,
+    "relativePath": "resources\\textures\\coins\\coin2\\coin2_005.png"
+  },
+  "e6f77cd7-709f-4d4a-b874-b58a3f2f196c": {
+    "asset": 1557308219973,
+    "meta": 1557308220111,
+    "relativePath": "resources\\textures\\coins\\coin2\\coin2_004.png"
+  },
+  "88f88e41-dff3-4454-bfca-b903c51329d6": {
+    "asset": 1557308219974,
+    "meta": 1557308220128,
+    "relativePath": "resources\\textures\\coins\\coin2\\coin2_006.png"
+  },
+  "99e4f507-d27b-408d-a4dc-d24bb74edb89": {
+    "asset": 1557308219974,
+    "meta": 1557308220137,
+    "relativePath": "resources\\textures\\coins\\coin2\\coin2_007.png"
+  },
+  "3015de2f-500a-42e3-b75e-4b20b98b4dad": {
+    "asset": 1557308219974,
+    "meta": 1557308220154,
+    "relativePath": "resources\\textures\\coins\\coin2\\coin2_008.png"
+  },
+  "3d272b57-21c6-4ffd-98a6-1d7a5959782b": {
+    "asset": 1557308219975,
+    "meta": 1557308220160,
+    "relativePath": "resources\\textures\\coins\\coin2\\coin2_009.png"
+  },
+  "efc61925-06a3-432a-a03c-ff1014c1a2ee": {
+    "asset": 1557308219975,
+    "meta": 1557308220175,
+    "relativePath": "resources\\textures\\coins\\coin2\\coin2_010.png"
+  },
+  "5a49750b-0633-42d9-8b19-ba4ab8cd6119": {
+    "asset": 1557308219975,
+    "meta": 1557308220179,
+    "relativePath": "resources\\textures\\coins\\coin2\\coin2_011.png"
+  },
+  "ab1c9ad8-4219-474f-ac73-b65004340c27": {
+    "asset": 1557308225546,
+    "meta": 1557310037867,
+    "relativePath": "resources\\textures\\coins\\coin1\\coin1.pac"
+  },
+  "fe15aecc-8a02-4e3c-a618-1d6e85b1b853": {
+    "asset": 1557323952103,
+    "meta": 1557323952133,
+    "relativePath": "prefabs\\MoneyFlow\\Coin.prefab"
+  },
+  "fe90535d-b202-410a-a283-f51352f34314": {
+    "asset": 1557309983691,
+    "meta": 1557309995524,
+    "relativePath": "Scripts\\MiscHelper.ts"
+  },
+  "cdff8bfa-d871-4a46-b013-0c4a37f2c814": {
+    "asset": 1557310024779,
+    "meta": 1557310028758,
+    "relativePath": "resources\\textures\\coins\\coin2\\coin2.pac"
+  },
+  "97a7911e-7570-4adb-8694-65b52d38d95b": {
+    "asset": 1557310933165,
+    "meta": 1557310951371,
+    "relativePath": "Scripts\\components\\NodePool.ts"
+  },
+  "399b2a9e-4ac6-4aed-ba1a-9e41b808d142": {
+    "asset": 1557319195531,
+    "meta": 1557319197336,
+    "relativePath": "Scripts\\Anime\\moneyAnime.ts"
+  },
+  "b90360c9-598e-4892-b259-b5a7999c30f0": {
+    "asset": 1557322928815,
+    "meta": 1557323121492,
+    "relativePath": "Scripts\\FSM\\RobBet.ts"
+  },
+  "1e57f62c-1a58-47de-bd6b-8bc1c73410c0": {
+    "asset": 1557323745498,
+    "meta": 1557323923102,
+    "relativePath": "Scripts\\components\\Coin.ts"
+  },
+  "702980ec-f2c6-4000-b41b-5e294d745a97": {
+    "asset": 1557366299962,
+    "meta": 1557366301093,
+    "relativePath": "Scripts\\FSM\\ChooseCard.ts"
+  },
+  "4ed904da-f964-4ca4-90c2-2a2530f5d436": {
+    "asset": 1557367662388,
+    "meta": 1557367663440,
+    "relativePath": "Scripts\\FSM\\Calc.ts"
+  },
+  "a8ad1443-1924-4d29-9b5b-fae9c939147d": {
+    "asset": 1557368192670,
+    "meta": 1557367804026,
+    "relativePath": "resources\\Animations\\Sequence\\coinBG"
+  },
+  "da22f72a-c80f-4687-b271-f72069e2c9e1": {
+    "asset": 1557368777118,
+    "meta": 1557368778042,
+    "relativePath": "Scripts\\components\\animation\\SequenceAnimation.ts"
+  },
+  "e6911062-ec99-4f0c-bfe7-b627959832c7": {
+    "asset": 1557370175324,
+    "meta": 1557370175330,
+    "relativePath": "resources\\Animations\\Sequence"
+  },
+  "ac89af0a-d26c-4f07-a40f-5d5e9438c32b": {
+    "asset": 1557370573230,
+    "meta": 1557370641677,
+    "relativePath": "Scripts\\ResourcesMgr.ts"
+  },
+  "05a138b0-84ea-4064-91ab-4e84f01c159b": {
+    "asset": 1557373783395,
+    "meta": 1557373784323,
+    "relativePath": "Scripts\\AnimMgr.ts"
+  },
+  "8999f2e9-70c4-48c6-ae8b-1140002b3f95": {
+    "asset": 1557375127878,
+    "meta": 1557375134123,
+    "relativePath": "Scripts\\Anime\\CoinFlowAnimation.ts"
+  },
+  "56e34c40-dc56-43f0-8abd-77f669129d60": {
+    "asset": 1557375170052,
+    "meta": 1557375180434,
+    "relativePath": "Scripts\\components\\Player.ts"
   }
 }

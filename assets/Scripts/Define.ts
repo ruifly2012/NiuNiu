@@ -99,6 +99,7 @@ export class Player{
     gender: string;
     /**VIP號碼 */
     vip: string;
+    cardType: CardType;
 
     /**
      * 存player資料
@@ -148,31 +149,35 @@ export default class Converter {
         return "NoneType";
     }
 
-    /**取得普通牌型背景圖素材名稱 */
+    /**取得牌型背景圖素材名稱 */
     static getCardTypeBgTextureText(type: CardType): string {
         switch (type) {
-            // case TWNormalCardType.None:
-            // case TWNormalCardType.HighCard:
-            // case TWNormalCardType.OnePair:
-            // case TWNormalCardType.TwoPairs:
-            // case TWNormalCardType.ThreeOfAKind:
-            // case TWNormalCardType.Flush:
-            // case TWNormalCardType.Straight:
-            // case TWNormalCardType.FullHouse: return "NormalBg";
-
-            // case TWNormalCardType.ChongThree:
-            // case TWNormalCardType.MiddleHandFullHouse:
-            // case TWNormalCardType.MiddleHandFourOfAKind:
-            // case TWNormalCardType.MiddleHandStraightFlush: return "SpecialBg"
-
-            // case TWNormalCardType.FourOfAKind:
-            // case TWNormalCardType.StraightFlush: return "GoldBg"
-            
+            case CardType.noCow:
+                return "Award_frame_01";
+            case CardType.cow1:
+            case CardType.cow2:
+            case CardType.cow3:
+            case CardType.cow4:
+            case CardType.cow5:
+            case CardType.cow6:
+                return "Award_frame_02"
+            case CardType.cow7:
+            case CardType.cow8:
+            case CardType.cow9:
+                return "Award_frame_03"
+            case CardType.cowCow:
+                return "Award_frame_04"
+            case CardType.silverCow:
+                return "Award_frame_05"
+            case CardType.goldCow:
+            case CardType.bomb:
+            case CardType.smallCow:
+                return "Award_frame_06"
             default:
                 cc.error("[TWDefineConverter]");
                 break;
         }
-        return "NormalBg";
+        return "Award_frame";
     }
 
     static getServerPokerConvert(_poker: number): PokerValue{
