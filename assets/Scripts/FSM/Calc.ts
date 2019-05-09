@@ -17,15 +17,22 @@ export default class Calc extends StateBase {
     
     public stateInitialize(){
         cc.warn("calc!!!");
+
         UIMgr.Inst.animMgr.playCoinFlow(()=>{
-            UIMgr.Inst.players[1].setShiny(true);
+            UIMgr.Inst.players[1].setShiny();
         });
+
+        
+
     }
 
     public stateRelease(){
+
     }
 
     public stateUpdate(dt: number){
     }
+
+
 
 }

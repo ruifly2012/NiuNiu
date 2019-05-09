@@ -47,8 +47,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.46122685185185186,
-      "y": 0.46122685185185186,
+      "x": 0.3607176038953993,
+      "y": 0.3607176038953993,
       "z": 1
     },
     "_quat": {
@@ -13310,8 +13310,11 @@
     "startGame": {
       "__id__": 359
     },
-    "distribute": {
-      "__id__": 361
+    "pokerAnime": {
+      "__id__": 362
+    },
+    "playePokerRoot": {
+      "__id__": 195
     },
     "_id": "926h1sURlJSbSjIhGMo+TM"
   },
@@ -14036,7 +14039,7 @@
       "__id__": 360
     },
     "_children": [],
-    "_active": false,
+    "_active": true,
     "_level": 3,
     "_components": [
       {
@@ -14144,7 +14147,7 @@
       "__id__": 360
     },
     "_children": [],
-    "_active": false,
+    "_active": true,
     "_level": 3,
     "_components": [
       {
@@ -14252,7 +14255,7 @@
       "__id__": 360
     },
     "_children": [],
-    "_active": false,
+    "_active": true,
     "_level": 3,
     "_components": [
       {
@@ -14360,7 +14363,7 @@
       "__id__": 360
     },
     "_children": [],
-    "_active": false,
+    "_active": true,
     "_level": 3,
     "_components": [
       {
@@ -36542,7 +36545,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "70359e65-cfc7-4f1b-a8b2-1f773475ace2"
+      "__uuid__": "dcad148e-e042-4dfe-8a2e-bd151c230480"
     },
     "_type": 0,
     "_sizeMode": 1,

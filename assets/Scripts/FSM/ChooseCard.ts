@@ -88,6 +88,9 @@ export default class ChooseCard extends StateBase {
             UIMgr.Inst.showChooseCard(false);
             Game.Inst.networkMgr.chooseCardComplete();
             this.selfComplete = true;
+            cc.warn("niuClick");
+            UIMgr.Inst.animMgr.playChooseCompleteAnim();
+
             //change stage when all complete
             if(this.allOtherComplete){
                 this.m_FSM.setState(Define.GameState.Calc);

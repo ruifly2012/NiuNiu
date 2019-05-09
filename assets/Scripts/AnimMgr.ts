@@ -7,7 +7,8 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class AnimMgr extends cc.Component {
     @property(cc.Node) startGame: cc.Node = null;
-    @property(cc.Node) distribute: cc.Node = null;
+    @property(DistributePokerAnimation) pokerAnime: DistributePokerAnimation = null;
+    @property(cc.Node) playePokerRoot: cc.Node = null;
     
 
 
@@ -40,42 +41,29 @@ export default class AnimMgr extends cc.Component {
         }); 
     }
 
-    
+    playChooseCompleteAnim(){
+        let pos: cc.Vec2 = cc.v2(-875,-730);
+        let Interval: number = 1;
+        for (let index:number = 0; index < 5; index++) {
+            let node:cc.Node = this.playePokerRoot.children[index];
+            cc.warn("moveto"+ (pos.x + 40*index)+ "," +  pos.y);
+            node.active = true;
+            //set start position
+            let action:cc.ActionInstant = cc.spawn(
+                cc.moveTo( Interval , pos.x + 40*index , pos.y).easing(cc.easeQuinticActionOut()),
+                cc.scaleTo(Interval,0.8).easing(cc.easeQuinticActionOut())
+            )
+            
+            node.runAction(action);  
+        }     
+    }
 
-//     playDeal(hand: TW.TWHand = 0, callback?) {
-//         let dealAnime: CardDealAnimation = this.cardDeal.getComponent(CardDealAnimation);
-//         let waterAnime: WaterCalcAnimation = this.waterCalc.getComponent(WaterCalcAnimation);
-//         //set playerNumber
-//         dealAnime.playerCount = TW.TWGamInfo.Inst.playerCount;
-//         dealAnime.hand = hand;
-//         waterAnime.hand = hand;
-//         waterAnime.waterCount = hand + 1;
-//         //deal anime
-//         Game.Inst.animationMgr.play("WaterCalcAnim", 1, false);
-//         Game.Inst.animationMgr.play("CardDealAnim", 1, false, () => {
-//             if (hand == 2) {
-//                 //water sum 
-//                 waterAnime.hand = hand + 1;
-//                 waterAnime.waterCount = hand + 2;
-//                 //deal anime
-//                 Game.Inst.animationMgr.play("WaterCalcAnim", 1, false);
-//                 //if bot hand finish, callback
-//                 if (callback != undefined) {
-//                     callback();
-//                 }
-//             }
-//             else {//else play next hand deal
-//                 this.playDeal(hand + 1, callback);
-//             }
-//         })
-//     }
     /**
      * 發牌動畫
      */
     playDistributePoker(callback?) {
-        let pokerAnime: DistributePokerAnimation = this.distribute.getComponent(DistributePokerAnimation);
         //set player number
-        pokerAnime.playerCount = Define.GameInfo.Inst.playerCount;
+        this.pokerAnime.playerCount = Define.GameInfo.Inst.playerCount;
         Game.Inst.animationMgr.play("DistributePokerAnim", 1.5, false, () => {
             if (callback != undefined)
                 callback();
