@@ -1,6 +1,7 @@
 import Game from "./Game";
 import Converter, * as Define from "./Define";
 import DistributePokerAnimation from "./Anime/DistributePokerAnimation";
+import CoinFlowAnimation from "./Anime/CoinFlowAnimation";
 import UIMgr from "./UIMgr";
 
 const { ccclass, property } = cc._decorator;
@@ -9,6 +10,7 @@ const { ccclass, property } = cc._decorator;
 export default class AnimMgr extends cc.Component {
     @property(cc.Node) startGame: cc.Node = null;
     @property(DistributePokerAnimation) pokerAnime: DistributePokerAnimation = null;
+    @property(CoinFlowAnimation) coinAnime:CoinFlowAnimation = null;
     @property(cc.Node) playePokerRoot: cc.Node = null;
     
 
@@ -32,7 +34,9 @@ export default class AnimMgr extends cc.Component {
         Game.Inst.animationMgr.play("CardTypeErrorAnim", 0.2,false,()=>{cc.warn("cardErrorAnim finish");}); 
     }
 
-    playCoinFlow(callback?){
+    playCoinFlow(fromSeat: number, toSeat: number, callback?){
+        this.coinAnime.fromSeat = fromSeat;
+        this.coinAnime.toSeat = toSeat;
         Game.Inst.animationMgr.play("CoinFlowAnim",1,false,()=>{
             cc.warn("coin flow complete");
             if (callback != undefined) {
@@ -56,9 +60,9 @@ export default class AnimMgr extends cc.Component {
         }     
     }
 
-    playCardTypeAnim(type: Define.CardType){
+    playCardTypeAnim(type: Define.CardType, callback?){
         cc.log("playType:"+Converter.getCardTypeAnimText(type));
-        Game.Inst.animationMgr.play(Converter.getCardTypeAnimText(type), 0.2,false,()=>{cc.warn("cardTypeAnime finish");}); 
+        Game.Inst.animationMgr.play(Converter.getCardTypeAnimText(type), 0.3,false, callback); 
     }
 
     /**
@@ -75,7 +79,7 @@ export default class AnimMgr extends cc.Component {
 
     playShowAllCardAnim(callback?){
         for(let index = 1; index < Define.GameInfo.Inst.playerCount; index++){
-            UIMgr.Inst.chooseCardUIMgr.setCard(index,()=>{
+            UIMgr.Inst.cardUIMgr.setCard(index,()=>{
                 UIMgr.Inst.CardStatusUIMgr.setType(index,Define.GameInfo.Inst.players[index].cardType);
                 if(callback != undefined)
                     callback();

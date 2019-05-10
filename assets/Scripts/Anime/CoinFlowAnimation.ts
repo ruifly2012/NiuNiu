@@ -58,9 +58,11 @@ export default class CoinFlowAnimation extends AnimationBase {
     play(speed: number,loop: boolean,onfinished?){
         this.duration = 1/speed;
 
+        /*
         //generate random test data
         this.fromSeat = MiscHelper.randomInt(0,4);
         this.toSeat = MiscHelper.randomInt(0,4);
+        */
 
 
         //this.init();

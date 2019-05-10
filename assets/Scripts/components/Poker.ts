@@ -239,7 +239,7 @@ export default class Poker extends cc.Component
 
     cardClicked(){
         if(this.isClickAble)
-            UIMgr.Inst.chooseCardUIMgr.cardClick(this.cardIndex);
+            UIMgr.Inst.cardUIMgr.cardClick(this.cardIndex);
     }
 
     /**

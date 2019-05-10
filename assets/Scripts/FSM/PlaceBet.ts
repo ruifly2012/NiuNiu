@@ -23,6 +23,10 @@ export default class PlaceBet extends StateBase {
             this.startCountDown();
             this.registerTimeSync();
         })
+        //listen change stage
+        Game.Inst.EventListener.on("gotoChooseCard",()=>{
+            this.m_FSM.setState(Define.GameState.ChooseCard);
+        })
     }
 
     public stateRelease(){

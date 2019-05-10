@@ -109,6 +109,8 @@ export default class ResourcesMgr extends cc.Component {
                     else return 0;
                 });
 
+                sequenceSpriteFrame.push(null);
+
                 let clip = cc.AnimationClip.createWithSpriteFrames(sequenceSpriteFrame, sequenceSpriteFrame.length);
                 cc.log("play seq");
                 clip.name = clipname;

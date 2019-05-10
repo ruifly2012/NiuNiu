@@ -22,6 +22,10 @@ export default class RobBet extends StateBase {
         UIMgr.Inst.showRobBet(true);
         this.startCountDown();
         this.registerTimeSync();
+        //listen change stage event
+        Game.Inst.EventListener.on("gotoPlaceBet",()=>{
+            this.m_FSM.setState(Define.GameState.PlaceBet);
+        })
     }
 
     public stateRelease(){

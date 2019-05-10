@@ -32,7 +32,7 @@ export default class Player extends cc.Component
         this.setName(id);
         this.setMoney(money);
         this.setHeadSprite(headSprite);
-        this.setKing(false);
+        this.setBanker(false);
         this.moneyMinus.string = "";
         this.moneyPlus.string = "";
         
@@ -70,7 +70,7 @@ export default class Player extends cc.Component
         },duration);
     }
 
-    setKing(active: boolean = false){
+    setBanker(active: boolean = false){
         this.kingIcon.active = active;
     }
 
@@ -89,7 +89,7 @@ export default class Player extends cc.Component
     }
 
     moneyChange(amount: number){
-        amount = Math.random()*1000 - 500;
+        //amount = Math.random()*1000 - 500;
         cc.log("change" + amount);
         let str: string = "";
         let label: cc.Label;

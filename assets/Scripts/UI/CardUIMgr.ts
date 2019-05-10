@@ -17,11 +17,14 @@ export default class CardUIMgr extends cc.Component {
     private poker:cc.Node[] = [];
     private choosed:number[] = [];
     private chooseCardNum: number = 0;
-    choosedNiu: boolean = false;
+    hasNiu: boolean = false;
+    getCard: boolean = false;
+    readyShow: boolean = false;
 
     onLoad() {
         this.chooseCardNum = 0;
         this.choosed = [];
+        cc.warn("reg getCard");
     }
 
     activate(){
@@ -29,16 +32,21 @@ export default class CardUIMgr extends cc.Component {
             this.poker.push(this.pokerRoot.children[index]);
             
         }
-        Game.Inst.EventListener.on("getCard",()=>{
-            this.setCard();
-        });
+        this.readyShow = true;
+        cc.warn("activate CardUI" + this.getCard + this.readyShow);
+        if(this.getCard) this.setCard();
+
+
+        
     }
 
     setCard(seat: number = 0,callback?){
+        let cardSize = 0.8;
+        if(seat == 0) cardSize = 0.9;
         let pokerVal:number[] = Define.GameInfo.Inst.players[seat].poker;
         for(let index = 0 ;index< 5;index++){
             let val:PokerValue = Converter.getServerPokerConvert(pokerVal[index]);
-            this.pokerRoot.children[index+5*seat].getComponent(Poker).setPokerValue(val.type,val.value, 0.9);
+            this.pokerRoot.children[index+5*seat].getComponent(Poker).setPokerValue(val.type,val.value, cardSize);
             this.pokerRoot.children[index+5*seat].getComponent(Poker).flip(0.5,0.1);
             if(callback != undefined){
                 this.scheduleOnce(function(){
@@ -115,16 +123,16 @@ export default class CardUIMgr extends cc.Component {
             index++;
         });
         this.numDisplay[3].string = sum.toString();
-        //update choose niu or not
-        if(sum %10 == 0)
-            this.choosedNiu = true;
+        //update choosed has niu or not
+        if(sum %10 == 0 ||  Define.GameInfo.Inst.players[0].cardType == Define.CardType.smallCow)
+            this.hasNiu = true;
         else 
-            this.choosedNiu = false;
+            this.hasNiu = false;
     }
 
     niuClickCorrect(pressNiu: boolean): Boolean{
         //card type error or choosed < 3 card
-        if(pressNiu != this.choosedNiu || this.chooseCardNum < 3)
+        if(pressNiu != this.hasNiu || this.chooseCardNum < 3)
             return false;
         return true;
             

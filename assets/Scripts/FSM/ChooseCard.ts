@@ -22,10 +22,9 @@ export default class ChooseCard extends StateBase {
     public stateInitialize(){
         cc.warn("choose card!!!");
         this.startCountDown();
-        //test
         UIMgr.Inst.animMgr.playDistributePoker(()=>{
             UIMgr.Inst.showChooseCard(true);
-            UIMgr.Inst.chooseCardUIMgr.activate();
+            UIMgr.Inst.cardUIMgr.activate();
         });
         this.registerEvent();
     }
@@ -35,7 +34,9 @@ export default class ChooseCard extends StateBase {
         UIMgr.Inst.showChooseCard(false);
         Game.Inst.EventListener.clear();
         UIMgr.Inst.stopClock();
-        UIMgr.Inst.chooseCardUIMgr.unRegClickEvent();
+        UIMgr.Inst.cardUIMgr.unRegClickEvent();
+        for(let index = 0;index< Define.GameInfo.Inst.playerCount;index++)
+            UIMgr.Inst.CardStatusUIMgr.setComplete(index,false);
     }
     public stateUpdate(dt: number){
     }
@@ -84,8 +85,9 @@ export default class ChooseCard extends StateBase {
     niuClick(event, customdata: number){
         let pressNiu: boolean = false;
         if(customdata == 1) pressNiu = true;
-        if(UIMgr.Inst.chooseCardUIMgr.niuClickCorrect(pressNiu)){
+        if(UIMgr.Inst.cardUIMgr.niuClickCorrect(pressNiu)){
             UIMgr.Inst.showChooseCard(false);
+            UIMgr.Inst.cardUIMgr.unRegClickEvent();
             Game.Inst.networkMgr.chooseCardComplete();
             this.selfComplete = true;
             //choose complete anime

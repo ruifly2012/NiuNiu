@@ -25,7 +25,7 @@ export default class UIMgr extends cc.Component {
 
     @property(AnimMgr) animMgr: AnimMgr = null;
 
-    @property(CardUIMgr) chooseCardUIMgr: CardUIMgr = null;
+    @property(CardUIMgr) cardUIMgr: CardUIMgr = null;
 
     @property(CardStatusUIMgr) CardStatusUIMgr: CardStatusUIMgr = null;
 
@@ -112,12 +112,12 @@ export default class UIMgr extends cc.Component {
     receiveRobBetInfo(data){
         cc.warn("RobBet"+JSON.stringify(data));
         Define.RoomInfo.Inst.assign(data.room);
-        Define.GameInfo.Inst.players[0].assign(data.main_player);
+        Define.GameInfo.Inst.players[0].initData(data.main_player);
         //get other player data
         let playerIndex = 0;
         for (let _key in data.players) {
             playerIndex++;
-            Define.GameInfo.Inst.players[playerIndex].assign(data.players[_key]);
+            Define.GameInfo.Inst.players[playerIndex].initData(data.players[_key]);
         }
         UIMgr.Inst.initPlayerInfo();
     }

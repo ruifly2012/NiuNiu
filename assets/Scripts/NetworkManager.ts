@@ -163,7 +163,10 @@ export default class NetworkManager {
      * @param data 
      */
     placeBetStageInfo(data){
-        UIMgr.Inst.getPlayerByUID(data.banker).setKing(true);
+        let bankerIndex =  UIMgr.Inst.getPlayerIndexByUID(data.banker);
+        Define.GameInfo.Inst.bankerIndex = bankerIndex;
+        UIMgr.Inst.players[bankerIndex].setBanker(true);
+        Game.Inst.EventListener.notify("gotoPlaceBet");
         Game.Inst.EventListener.notify("startBet");
     }
 
@@ -187,18 +190,19 @@ export default class NetworkManager {
      * 6105
      * @param data
      */
-    receiveCard(data){//todo
-        Define.GameInfo.Inst.players[0].poker = data.main_player.cards;
-        Define.GameInfo.Inst.players[0].cardType = data.main_player.points;
+    receiveCard(data){
+        Game.Inst.EventListener.notify("gotoChooseCard");
+        Define.GameInfo.Inst.players[0].finalData(data.main_player);
         cc.warn("my cards : " + Define.GameInfo.Inst.players[0].poker + "type : " + Define.GameInfo.Inst.players[0].cardType);
-        Game.Inst.EventListener.notify("getCard");
+        //show card
+        UIMgr.Inst.cardUIMgr.getCard = true;
+        if(UIMgr.Inst.cardUIMgr.readyShow) UIMgr.Inst.cardUIMgr.setCard();
 
         //get other player data
         let playerIndex = 0;
         for (let _key in data.players) {
             playerIndex++;
-            Define.GameInfo.Inst.players[playerIndex].poker = data.players[_key].cards;
-            Define.GameInfo.Inst.players[playerIndex].cardType = data.players[_key].points;
+            Define.GameInfo.Inst.players[playerIndex].finalData(data.players[_key]);
         }
     }
 

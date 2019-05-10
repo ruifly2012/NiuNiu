@@ -47,8 +47,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.46122685185185186,
-      "y": 0.46122685185185186,
+      "x": 0.3607638888888889,
+      "y": 0.3607638888888889,
       "z": 1
     },
     "_quat": {
@@ -11446,7 +11446,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "ChooseCard",
+    "_name": "CardUIMgr",
     "_objFlags": 0,
     "_parent": {
       "__id__": 317
@@ -13265,7 +13265,7 @@
     "animMgr": {
       "__id__": 358
     },
-    "chooseCardUIMgr": {
+    "cardUIMgr": {
       "__id__": 319
     },
     "CardStatusUIMgr": {
@@ -13309,6 +13309,9 @@
     },
     "pokerAnime": {
       "__id__": 362
+    },
+    "coinAnime": {
+      "__id__": 384
     },
     "playePokerRoot": {
       "__id__": 195
@@ -37774,7 +37777,7 @@
     },
     "_enabled": true,
     "_spriteFrame": {
-      "__uuid__": "e4f1c37e-5ca9-45a9-a444-d84e1b72837a"
+      "__uuid__": "dcad148e-e042-4dfe-8a2e-bd151c230480"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -38151,11 +38154,11 @@
   {
     "__type__": "cc.ClickEvent",
     "target": {
-      "__id__": 316
+      "__id__": 315
     },
     "component": "",
-    "_componentId": "05a13iwhOpAZJGrToTwHBWb",
-    "handler": "playCoinFlow",
+    "_componentId": "4ed90Ta+WRMpJDCKiUw9dQ2",
+    "handler": "moneyFlow",
     "customEventData": ""
   },
   {

@@ -59,6 +59,7 @@ export class GameInfo{
 
     players: Player[] = []; 
     playerCount: number;
+    bankerIndex: number;
     
 }
 
@@ -100,16 +101,28 @@ export class Player{
     /**VIP號碼 */
     vip: string;
     cardType: CardType;
+    /**結算金額浮動值 */
+    win_bet: number;
 
     /**
-     * 存player資料
+     * 存player初始資料
      * @param data player Json
      */
-    assign(data){
+    initData(data){
         this.UID = data.uid;
         this.name = data.nickname;
         this.money = data.coins;
         this.iconID = data.avatar;
+    }
+
+    /**
+     * 結算用資料
+     * @param data 
+     */
+    finalData(data){
+        this.poker = data.cards;
+        this.cardType = data.points;
+        this.win_bet = data.win_bet;
     }
 }
 
