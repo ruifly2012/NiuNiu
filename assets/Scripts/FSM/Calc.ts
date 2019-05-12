@@ -19,10 +19,7 @@ export default class Calc extends StateBase {
         cc.warn("calc!!!");
 
         UIMgr.Inst.animMgr.playShowAllCardAnim(()=>{
-            cc.log("afterShowAll");
-           this.playCardTypeAnim(0, ()=>{
             this.moneyFlow();
-           });
         });
     }
 
@@ -45,10 +42,10 @@ export default class Calc extends StateBase {
             //check really lose to banker
             let profit = Define.GameInfo.Inst.players[index].win_bet;
             if(profit < 0){
-                UIMgr.Inst.players[index].moneyChange(profit);
+                UIMgr.Inst.players[index].moneyChange(profit,40);
                 UIMgr.Inst.animMgr.playCoinFlow(index, bankerSeat, ()=>{
                     UIMgr.Inst.players[bankerSeat].setShiny();
-                    UIMgr.Inst.players[bankerSeat].moneyChange(-profit);
+                    UIMgr.Inst.players[bankerSeat].moneyChange(-profit,40);
                 });
             }
         }
@@ -61,20 +58,15 @@ export default class Calc extends StateBase {
             //check really lose to banker
             let profit = Define.GameInfo.Inst.players[index].win_bet;
             if(profit > 0){
-                UIMgr.Inst.players[bankerSeat].moneyChange(-profit);
+                UIMgr.Inst.players[bankerSeat].moneyChange(-profit,40);
                 UIMgr.Inst.animMgr.playCoinFlow(bankerSeat, index, ()=>{
                     UIMgr.Inst.players[index].setShiny();
-                    UIMgr.Inst.players[index].moneyChange(profit);
+                    UIMgr.Inst.players[index].moneyChange(profit,40);
                 });
             }
         }
     }
 
-    playCardTypeAnim(seat: number, callback?){
-        cc.log("card type anime");
-        cc.log(Define.GameInfo.Inst.players[seat].cardType);
-        Define.GameInfo.Inst.players[seat].cardType = Define.CardType.smallCow;
-        UIMgr.Inst.animMgr.playCardTypeAnim(Define.GameInfo.Inst.players[seat].cardType, callback);
-    }
+    
 
 }

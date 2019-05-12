@@ -88,9 +88,9 @@ export default class Player extends cc.Component
         this.status.spriteFrame = null;
     }
 
-    moneyChange(amount: number){
+    moneyChange(amount: number, moveDis: number = 40){
         //amount = Math.random()*1000 - 500;
-        cc.log("change" + amount);
+        cc.log("change" + amount + "move : " + moveDis);
         let str: string = "";
         let label: cc.Label;
         //set string
@@ -106,13 +106,13 @@ export default class Player extends cc.Component
         //anime
         let action = cc.sequence(
             cc.spawn(
-                cc.moveBy(0.5,0,50).easing(cc.easeBackOut()),
+                cc.moveBy(0.5,0,moveDis).easing(cc.easeBackOut()),
                 cc.fadeIn(0.5)
             ),
             cc.delayTime(0.2),
             cc.fadeOut(0.5),
             //back to initial
-            cc.moveBy(0,0,-50),
+            cc.moveBy(0,0,-moveDis),
             cc.callFunc(()=>{
                 label.string = "";
             })

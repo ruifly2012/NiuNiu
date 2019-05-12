@@ -7,6 +7,13 @@
     "scheme": "https",
     "skipRecord": false
   },
+  "appBundle": false,
+  "baidugame": {
+    "REMOTE_SERVER_ROOT": "",
+    "appid": "testappid",
+    "orientation": "portrait",
+    "subContext": ""
+  },
   "encryptJs": true,
   "excludeScenes": [],
   "fb-instant-games": {},
@@ -27,7 +34,7 @@
     "REMOTE_SERVER_ROOT": "",
     "orientation": "portrait"
   },
-  "startScene": "3a006caa-7f57-492d-a186-15647a22f95a",
+  "startScene": "a1045b07-6089-4c89-aecb-2f03efd687d3",
   "title": "niuniu",
   "webOrientation": "auto",
   "wechatgame": {
@@ -37,12 +44,5 @@
     "subContext": ""
   },
   "xxteaKey": "573add04-adf3-47",
-  "zipCompressJs": true,
-  "baidugame": {
-    "appid": "testappid",
-    "orientation": "portrait",
-    "REMOTE_SERVER_ROOT": "",
-    "subContext": ""
-  },
-  "appBundle": false
+  "zipCompressJs": true
 }

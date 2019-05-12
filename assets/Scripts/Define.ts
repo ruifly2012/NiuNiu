@@ -147,7 +147,7 @@ export default class Converter {
             case CardType.bomb: return "bomb";
             case CardType.smallCow: return "5cow";
             default:
-                cc.error("[DefineConverter]");
+                cc.log("[DefineConverter] not specuial type");
                 break;
         }
         return "NoneType";

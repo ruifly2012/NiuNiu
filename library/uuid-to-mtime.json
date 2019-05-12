@@ -24,21 +24,6 @@
     "meta": 1552197698000,
     "relativePath": "prefab"
   },
-  "d62ae2b1-8d5b-4e64-9d61-cc7feee557b6": {
-    "asset": 1557376489622,
-    "meta": 1552474302000,
-    "relativePath": "prefabs\\MoneyFlow"
-  },
-  "cfc36b7e-a0f4-4c1f-a7e6-13c46ae17d27": {
-    "asset": 1554892675691,
-    "meta": 1557411018685,
-    "relativePath": "prefabs\\MoneyFlow\\Money.prefab"
-  },
-  "c5c3691b-6c18-4589-b5fc-11ef60e713d2": {
-    "asset": 1554892675691,
-    "meta": 1557411018690,
-    "relativePath": "prefabs\\MoneyFlow\\MoneyBg.prefab"
-  },
   "e4af025b-32a2-4ea7-80f6-3538ea41931b": {
     "asset": 1554892675691,
     "meta": 1557411018691,
@@ -1110,7 +1095,7 @@
     "relativePath": "resources\\UIList\\UI\\setting.png"
   },
   "5f884a6e-1357-4111-9f92-6ccc6e72625c": {
-    "asset": 1557376489628,
+    "asset": 1557635978603,
     "meta": 1554892675691,
     "relativePath": "prefabs"
   },
@@ -1295,13 +1280,13 @@
     "relativePath": "Scripts\\Utils.ts"
   },
   "11339d1a-7854-423f-9a49-fcad7739b3ff": {
-    "asset": 1557460859289,
-    "meta": 1557460859389,
+    "asset": 1557635820900,
+    "meta": 1557635821024,
     "relativePath": "Scene\\NiuNiu.fire"
   },
   "f5384d85-d600-4726-8770-3451a5a96cf8": {
-    "asset": 1555122580300,
-    "meta": 1557411029032,
+    "asset": 1557467982599,
+    "meta": 1557467982631,
     "relativePath": "Scene\\scene_end.fire"
   },
   "e4f9b8ba-78e3-483f-861a-57dede24ba54": {
@@ -2477,7 +2462,7 @@
   "fe15aecc-8a02-4e3c-a618-1d6e85b1b853": {
     "asset": 1557376489622,
     "meta": 1557411018667,
-    "relativePath": "prefabs\\MoneyFlow\\Coin.prefab"
+    "relativePath": "prefabs\\Coin.prefab"
   },
   "fe90535d-b202-410a-a283-f51352f34314": {
     "asset": 1556951765074,
@@ -2493,11 +2478,6 @@
     "asset": 1555669970903,
     "meta": 1557411029988,
     "relativePath": "Scripts\\components\\NodePool.ts"
-  },
-  "399b2a9e-4ac6-4aed-ba1a-9e41b808d142": {
-    "asset": 1557376489587,
-    "meta": 1557411029542,
-    "relativePath": "Scripts\\Anime\\moneyAnime.ts"
   },
   "1e57f62c-1a58-47de-bd6b-8bc1c73410c0": {
     "asset": 1557376489609,
@@ -2777,12 +2757,12 @@
   "c7c1aec6-f9e9-4b9e-bad3-1a43e89f691e": {
     "asset": 1557410999420,
     "meta": 1557410999406,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow"
   },
   "1a6d7034-630a-43d9-a370-31e76ccba4e0": {
     "asset": 1557410999407,
     "meta": 1557411020834,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_1.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_1.png"
   },
   "d85c6fce-9ea5-4e52-ace3-09f0cc5f21e6": {
     "asset": 1557410999405,
@@ -2792,72 +2772,72 @@
   "63a6a0d8-36cd-4f77-86fa-134a2e015f5d": {
     "asset": 1557410999409,
     "meta": 1557411020854,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_11.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_11.png"
   },
   "4de73aee-9a02-4183-ac66-12ff1ea68526": {
     "asset": 1557410999408,
     "meta": 1557411020836,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_10.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_10.png"
   },
   "db73995d-c2d8-4c86-8dac-293ed59d96da": {
     "asset": 1557410999410,
     "meta": 1557411020857,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_12.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_12.png"
   },
   "302b65f7-10a3-4619-a4f0-65032b38a73c": {
     "asset": 1557410999411,
     "meta": 1557411020868,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_13.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_13.png"
   },
   "fa81d994-96e6-48f3-9b25-a5bdf1f26591": {
     "asset": 1557410999412,
     "meta": 1557411020877,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_14.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_14.png"
   },
   "68b435fe-f995-4c8a-af56-de5ba55d08d7": {
     "asset": 1557410999412,
     "meta": 1557411020885,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_15.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_15.png"
   },
   "9d847cb5-c12d-40a3-9089-a271ddf03567": {
     "asset": 1557410999414,
     "meta": 1557411020904,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_3.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_3.png"
   },
   "3414d216-eb9b-47eb-86a9-812ce008c97a": {
     "asset": 1557410999413,
     "meta": 1557411020893,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_2.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_2.png"
   },
   "2d55ac11-beeb-47ce-9326-0a10d84c3e3c": {
     "asset": 1557410999416,
     "meta": 1557411020920,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_5.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_5.png"
   },
   "fd572fbe-2e40-4fef-8a26-8137be254876": {
     "asset": 1557410999415,
     "meta": 1557411020910,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_4.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_4.png"
   },
   "6b59aea0-43cd-4542-8118-1fcf89cc2e20": {
     "asset": 1557410999417,
     "meta": 1557411020924,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_6.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_6.png"
   },
   "6975e1f3-4402-441d-b1fe-45e83986a0d3": {
     "asset": 1557410999418,
     "meta": 1557411020933,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_7.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_7.png"
   },
   "fd54a5c6-4e6f-4dfd-9c14-9edc48f823cf": {
     "asset": 1557410999419,
     "meta": 1557411020937,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_8.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_8.png"
   },
   "042254e2-4a68-4c3b-a3e6-03234aa25b3e": {
     "asset": 1557410999420,
     "meta": 1557411020947,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_9.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_9.png"
   },
   "59bb4136-91ca-4387-9a17-5b77e64d63ae": {
     "asset": 1557410999442,
@@ -3079,40 +3059,15 @@
     "meta": 1557457971376,
     "relativePath": "Scripts\\ResourcesMgr.ts"
   },
-  "601d2abd-9325-4b57-98bb-a049435775bd": {
-    "asset": 1557458311068,
-    "meta": 1557458386780,
-    "relativePath": "Scripts\\components\\Poker.ts"
-  },
   "31e35b9d-a53f-48cd-9f83-111670c2515e": {
     "asset": 1557458782652,
     "meta": 1557459533678,
     "relativePath": "Scripts\\UIMgr.ts"
   },
-  "05a138b0-84ea-4064-91ab-4e84f01c159b": {
-    "asset": 1557460535787,
-    "meta": 1557460749791,
-    "relativePath": "Scripts\\AnimMgr.ts"
-  },
-  "d3ac557e-a7a4-471f-9bb9-3b6c11d2b365": {
-    "asset": 1557459851066,
-    "meta": 1557460749877,
-    "relativePath": "Scripts\\Define.ts"
-  },
-  "4ed904da-f964-4ca4-90c2-2a2530f5d436": {
-    "asset": 1557460747045,
-    "meta": 1557460749911,
-    "relativePath": "Scripts\\FSM\\Calc.ts"
-  },
   "8999f2e9-70c4-48c6-ae8b-1140002b3f95": {
     "asset": 1557460971540,
     "meta": 1557461008692,
     "relativePath": "Scripts\\Anime\\CoinFlowAnimation.ts"
-  },
-  "56e34c40-dc56-43f0-8abd-77f669129d60": {
-    "asset": 1557460996024,
-    "meta": 1557461008694,
-    "relativePath": "Scripts\\components\\Player.ts"
   },
   "ee0c5cd4-6ea1-4a89-9d02-fbdf811c89e4": {
     "asset": 1557461643258,
@@ -3124,19 +3079,44 @@
     "meta": 1557461677831,
     "relativePath": "Scripts\\FSM\\RobBet.ts"
   },
-  "ebe69aa5-1081-4019-85cb-4a9a01eb83d5": {
-    "asset": 1557462575703,
-    "meta": 1557462603361,
-    "relativePath": "Scripts\\NetworkManager.ts"
-  },
-  "2c1f74ca-25d5-4aca-91ce-4387373be101": {
-    "asset": 1557462601302,
-    "meta": 1557462603363,
-    "relativePath": "Scripts\\UI\\CardUIMgr.ts"
-  },
   "702980ec-f2c6-4000-b41b-5e294d745a97": {
     "asset": 1557462719054,
     "meta": 1557462721534,
     "relativePath": "Scripts\\FSM\\ChooseCard.ts"
+  },
+  "d3ac557e-a7a4-471f-9bb9-3b6c11d2b365": {
+    "asset": 1557646764570,
+    "meta": 1557646768796,
+    "relativePath": "Scripts\\Define.ts"
+  },
+  "56e34c40-dc56-43f0-8abd-77f669129d60": {
+    "asset": 1557660918274,
+    "meta": 1557660920144,
+    "relativePath": "Scripts\\components\\Player.ts"
+  },
+  "601d2abd-9325-4b57-98bb-a049435775bd": {
+    "asset": 1557662043579,
+    "meta": 1557662048756,
+    "relativePath": "Scripts\\components\\Poker.ts"
+  },
+  "2c1f74ca-25d5-4aca-91ce-4387373be101": {
+    "asset": 1557663454667,
+    "meta": 1557663456041,
+    "relativePath": "Scripts\\UI\\CardUIMgr.ts"
+  },
+  "05a138b0-84ea-4064-91ab-4e84f01c159b": {
+    "asset": 1557663637594,
+    "meta": 1557663641609,
+    "relativePath": "Scripts\\AnimMgr.ts"
+  },
+  "4ed904da-f964-4ca4-90c2-2a2530f5d436": {
+    "asset": 1557663639363,
+    "meta": 1557663641609,
+    "relativePath": "Scripts\\FSM\\Calc.ts"
+  },
+  "ebe69aa5-1081-4019-85cb-4a9a01eb83d5": {
+    "asset": 1557664281576,
+    "meta": 1557664809848,
+    "relativePath": "Scripts\\NetworkManager.ts"
   }
 }

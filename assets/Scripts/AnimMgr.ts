@@ -60,11 +60,6 @@ export default class AnimMgr extends cc.Component {
         }     
     }
 
-    playCardTypeAnim(type: Define.CardType, callback?){
-        cc.log("playType:"+Converter.getCardTypeAnimText(type));
-        Game.Inst.animationMgr.play(Converter.getCardTypeAnimText(type), 0.3,false, callback); 
-    }
-
     /**
      * 發牌動畫
      */
@@ -78,13 +73,45 @@ export default class AnimMgr extends cc.Component {
     }
 
     playShowAllCardAnim(callback?){
-        for(let index = 1; index < Define.GameInfo.Inst.playerCount; index++){
-            UIMgr.Inst.cardUIMgr.setCard(index,()=>{
-                UIMgr.Inst.CardStatusUIMgr.setType(index,Define.GameInfo.Inst.players[index].cardType);
-                if(callback != undefined)
-                    callback();
-            });
+        let playerCount = Define.GameInfo.Inst.playerCount;
+        cc.warn("playerTotal"+playerCount);
+        cc.warn("playing"+0+"type"+Define.GameInfo.Inst.players[0].cardType);
+        this.playCardTypeAnim(Define.GameInfo.Inst.players[0].cardType);
+        for(let index = 1; index < playerCount - 1; index++){
+            this.scheduleOnce(()=>{ 
+                cc.log("schedule player" + index);
+                this.playShowCardAnim(index);
+            },index*2);
+        };
+        this.scheduleOnce(()=>{ 
+            cc.log("schedule player" + (playerCount - 100));
+            this.playShowCardAnim(playerCount - 1,callback);
+        },(playerCount-1)*2);
+        
+
+    }
+
+    playShowCardAnim(seat: number, callback?){
+        cc.log("play Type show card"+seat);
+        UIMgr.Inst.cardUIMgr.setCard(seat,()=>{
+            UIMgr.Inst.CardStatusUIMgr.setType(seat,Define.GameInfo.Inst.players[seat].cardType);
+            this.scheduleOnce(function(){
+                cc.warn("playing"+seat+"type"+Define.GameInfo.Inst.players[seat].cardType);
+                this.playCardTypeAnim(Define.GameInfo.Inst.players[seat].cardType, callback);
+            },1);
+        });
+    }
+
+    playCardTypeAnim(type: Define.CardType, callback?){
+        let animName: string = Converter.getCardTypeAnimText(type);
+        if(animName == "NoneType") {
+            if (callback != undefined)
+                callback();
         }
+        else{
+            Game.Inst.animationMgr.play(animName, 1,false, callback); 
+        }
+        cc.log("playType:"+animName);
     }
 
 }

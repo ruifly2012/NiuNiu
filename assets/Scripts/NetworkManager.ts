@@ -19,6 +19,12 @@ export default class NetworkManager {
         this.eventRegister();
     };
 
+    disConnect(){
+        cc.log("disconnect");
+        this._socket.disconnect();
+        this.eventUnregister();
+    }
+
     socket(){ return this._socket; }
 
     LogIn(oid: string, token:string){
@@ -156,7 +162,10 @@ export default class NetworkManager {
         
 
     }
-    
+
+    eventUnregister(){
+        this._socket.off("response");
+    }
 
     /**
      * 6103
@@ -209,7 +218,7 @@ export default class NetworkManager {
     /**other player choose card complete */
     receiveOtherChoose(data){
         let index = UIMgr.Inst.getPlayerIndexByUID(data.player)
-        cc.warn("get other complete choose");
+        //cc.warn("get other complete choose");
         UIMgr.Inst.CardStatusUIMgr.setComplete(index,true);
         Game.Inst.EventListener.notify("cardChooseComplete");
     }

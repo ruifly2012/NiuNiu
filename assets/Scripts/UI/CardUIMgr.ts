@@ -41,7 +41,7 @@ export default class CardUIMgr extends cc.Component {
     }
 
     setCard(seat: number = 0,callback?){
-        let cardSize = 0.8;
+        let cardSize = 0.7;
         if(seat == 0) cardSize = 0.9;
         let pokerVal:number[] = Define.GameInfo.Inst.players[seat].poker;
         for(let index = 0 ;index< 5;index++){

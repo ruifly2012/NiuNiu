@@ -88,9 +88,9 @@ export default class Poker extends cc.Component
 
     private setCardFront(type: string, value: string, middle: string)
     {
-        cc.log(type);
-        cc.log(value);
-        cc.log(middle);
+        //cc.log(type);
+        //cc.log(value);
+        //cc.log(middle);
         let typeSprite = Game.Inst.resourcesMgr.load(type);
         let valueSprite = Game.Inst.resourcesMgr.load(value);
         let middleSprite = Game.Inst.resourcesMgr.load(middle);
