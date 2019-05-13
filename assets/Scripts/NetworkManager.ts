@@ -17,6 +17,7 @@ export default class NetworkManager {
         });
         cc.log("connect success");
         this.eventRegister();
+        this.LogIn();
     };
 
     disConnect(){
@@ -27,18 +28,19 @@ export default class NetworkManager {
 
     socket(){ return this._socket; }
 
-    LogIn(oid: string, token:string){
+    LogIn(){
         //log oid for after use
-        Define.RoomInfo.Inst.game_option_id = Number(oid);
-
+        //Define.RoomInfo.Inst.game_option_id = Number(oid);
+        let token = Define.GameInfo.Inst.token;
         let json= {
             "no" : Number(6006),
             "data" : token
         };
-        this._socket.emit("action",json ,function(code,data){
+        this._socket.emit("action",json ,(code,data)=>{
             cc.log("token callback : "+code + data);
             if(code == 200){
-                Game.Inst.EventListener.notify("enterGame");
+                this.getGameTable();
+                //Game.Inst.EventListener.notify("enterGame");
             }
             
         })

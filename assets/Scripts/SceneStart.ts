@@ -1,6 +1,6 @@
 import Game from "./Game";
+import * as Define from "./Define";
 import { GameState } from "./MainStateMgr";
-import NetworkMgr from "./NetworkManager";
 
 /*  
     Oid test data
@@ -14,6 +14,7 @@ export default class SceneStart extends cc.Component
 {
     @property(cc.EditBox) editbox_oid: cc.EditBox = null;
     @property(cc.EditBox) editbox_token: cc.EditBox = null;
+    @property(cc.Label) version: cc.Label = null;
     
     onLoad()
     {
@@ -25,18 +26,21 @@ export default class SceneStart extends cc.Component
             return;
         }
 
-        //preload game
-        Game.Inst.mainStateMgr.preloadStage(GameState.Game);
+        if (window.version != null)
+            this.version.string = window.version;
+
+        // //preload game
+        // Game.Inst.mainStateMgr.preloadStage(GameState.Game);
 
         //connect server at first
         Game.Inst.networkMgr.ConnectServer();
 
         //Game.Inst.mainStateMgr.changeStage(GameState.Loading);
 
-        Game.Inst.EventListener.on("enterGame",()=>{
-            cc.log("enterGame");
-            Game.Inst.mainStateMgr.changeStage(GameState.Loading);
-        })
+        // Game.Inst.EventListener.on("enterGame",()=>{
+        //     cc.log("enterGame");
+        //     Game.Inst.mainStateMgr.changeStage(GameState.Loading);
+        // })
     }
 
     testButton(){
@@ -44,7 +48,10 @@ export default class SceneStart extends cc.Component
     }
 
     connect(oid: string, token: string){ 
-        Game.Inst.networkMgr.LogIn(oid, token);
+        //Game.Inst.networkMgr.LogIn(oid, token);
+        Define.RoomInfo.Inst.game_option_id = Number(oid);
+        Define.GameInfo.Inst.token = token;
+        Game.Inst.mainStateMgr.changeStage(GameState.Loading);
     }
 
     restart(){

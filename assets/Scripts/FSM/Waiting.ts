@@ -25,14 +25,15 @@ export default class Waiting extends StateBase {
     }
 
     public stateInitialize() {
+        Game.Inst.networkMgr.ConnectServer();
         this.initPlayer();
 
         UIMgr.Inst.showWaiting(true);
         UIMgr.Inst.isPlayersActive(false);
         UIMgr.Inst.players[0].node.active = true;
         
-        //send game ask
-        Game.Inst.networkMgr.getGameTable();
+        // //send game ask
+        // Game.Inst.networkMgr.getGameTable();
     }
 
     public stateRelease() {

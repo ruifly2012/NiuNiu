@@ -20,7 +20,7 @@
   "includeSDKBox": false,
   "inlineSpriteFrames": true,
   "inlineSpriteFrames_native": true,
-  "md5Cache": false,
+  "md5Cache": true,
   "mergeStartScene": false,
   "optimizeHotUpdate": false,
   "orientation": {
@@ -29,14 +29,15 @@
     "portrait": false,
     "upsideDown": false
   },
-  "packageName": "org.cocos2d.helloworld",
+  "packageName": "org.cocos2d.niuniu",
   "qqplay": {
     "REMOTE_SERVER_ROOT": "",
-    "orientation": "portrait"
+    "orientation": "portrait",
+    "zip": false
   },
   "startScene": "a1045b07-6089-4c89-aecb-2f03efd687d3",
   "title": "niuniu",
-  "webOrientation": "auto",
+  "webOrientation": "landscape",
   "wechatgame": {
     "REMOTE_SERVER_ROOT": "",
     "appid": "wx6ac3f5090a6b99c5",

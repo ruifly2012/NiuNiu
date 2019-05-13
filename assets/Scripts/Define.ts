@@ -60,7 +60,7 @@ export class GameInfo{
     players: Player[] = []; 
     playerCount: number;
     bankerIndex: number;
-    
+    token: string;
 }
 
 export class RoomInfo{

@@ -1280,8 +1280,8 @@
     "relativePath": "Scripts\\Utils.ts"
   },
   "11339d1a-7854-423f-9a49-fcad7739b3ff": {
-    "asset": 1557635820900,
-    "meta": 1557635821024,
+    "asset": 1557761578187,
+    "meta": 1557761578560,
     "relativePath": "Scene\\NiuNiu.fire"
   },
   "f5384d85-d600-4726-8770-3451a5a96cf8": {
@@ -1295,8 +1295,8 @@
     "relativePath": "Scene\\scene_loading.fire"
   },
   "a1045b07-6089-4c89-aecb-2f03efd687d3": {
-    "asset": 1557376489567,
-    "meta": 1557411029052,
+    "asset": 1557759312441,
+    "meta": 1557759312477,
     "relativePath": "Scene\\scene_start.fire"
   },
   "08d8011a-77b1-42f4-b140-b3ade1bfe174": {
@@ -2165,7 +2165,7 @@
     "relativePath": "resources\\textures\\poker\\RD-JOKER.png"
   },
   "07fea280-f50d-46e9-b7cc-6798559ba3a2": {
-    "asset": 1557410999302,
+    "asset": 1557663641080,
     "meta": 1557207894146,
     "relativePath": "Scripts\\Anime"
   },
@@ -2495,24 +2495,9 @@
     "relativePath": "Scripts\\components\\animation\\SequenceAnimation.ts"
   },
   "e6911062-ec99-4f0c-bfe7-b627959832c7": {
-    "asset": 1557410999443,
+    "asset": 1557663237433,
     "meta": 1557376489632,
     "relativePath": "resources\\Animations\\Sequence"
-  },
-  "9bf7f8b7-cbf1-4c41-b089-a46afba4e023": {
-    "asset": 1557410999315,
-    "meta": 1557411030384,
-    "relativePath": "Scripts\\SceneLoading.ts"
-  },
-  "bab4d57c-cd3d-493c-b8b3-eb71b3347665": {
-    "asset": 1557219949829,
-    "meta": 1557411030396,
-    "relativePath": "Scripts\\SceneStart.ts"
-  },
-  "a351fb1d-ef4c-43f2-a21a-d6fecdb6b7ef": {
-    "asset": 1557410999305,
-    "meta": 1557411030245,
-    "relativePath": "Scripts\\FSM\\Waiting.ts"
   },
   "1ba2b6d6-4c9c-4c25-ae71-89ac5335216d": {
     "asset": 1557410999375,
@@ -3049,11 +3034,6 @@
     "meta": 1557411029498,
     "relativePath": "Scripts\\Anime\\DistributePokerAnimation.ts"
   },
-  "1ba400e8-c31e-4500-b043-f5e2cd260e17": {
-    "asset": 1557379740479,
-    "meta": 1557411029291,
-    "relativePath": "Scene\\表演狀態Layout_01開牌畫面.jpg"
-  },
   "ac89af0a-d26c-4f07-a40f-5d5e9438c32b": {
     "asset": 1557457964588,
     "meta": 1557457971376,
@@ -3078,16 +3058,6 @@
     "asset": 1557461538522,
     "meta": 1557461677831,
     "relativePath": "Scripts\\FSM\\RobBet.ts"
-  },
-  "702980ec-f2c6-4000-b41b-5e294d745a97": {
-    "asset": 1557462719054,
-    "meta": 1557462721534,
-    "relativePath": "Scripts\\FSM\\ChooseCard.ts"
-  },
-  "d3ac557e-a7a4-471f-9bb9-3b6c11d2b365": {
-    "asset": 1557646764570,
-    "meta": 1557646768796,
-    "relativePath": "Scripts\\Define.ts"
   },
   "56e34c40-dc56-43f0-8abd-77f669129d60": {
     "asset": 1557660918274,
@@ -3114,9 +3084,34 @@
     "meta": 1557663641609,
     "relativePath": "Scripts\\FSM\\Calc.ts"
   },
+  "d3ac557e-a7a4-471f-9bb9-3b6c11d2b365": {
+    "asset": 1557761088142,
+    "meta": 1557761111912,
+    "relativePath": "Scripts\\Define.ts"
+  },
+  "a351fb1d-ef4c-43f2-a21a-d6fecdb6b7ef": {
+    "asset": 1557761110065,
+    "meta": 1557761111986,
+    "relativePath": "Scripts\\FSM\\Waiting.ts"
+  },
+  "bab4d57c-cd3d-493c-b8b3-eb71b3347665": {
+    "asset": 1557761083466,
+    "meta": 1557761112039,
+    "relativePath": "Scripts\\SceneStart.ts"
+  },
   "ebe69aa5-1081-4019-85cb-4a9a01eb83d5": {
-    "asset": 1557664281576,
-    "meta": 1557664809848,
+    "asset": 1557761252555,
+    "meta": 1557761254043,
     "relativePath": "Scripts\\NetworkManager.ts"
+  },
+  "702980ec-f2c6-4000-b41b-5e294d745a97": {
+    "asset": 1557761896706,
+    "meta": 1557761904474,
+    "relativePath": "Scripts\\FSM\\ChooseCard.ts"
+  },
+  "9bf7f8b7-cbf1-4c41-b089-a46afba4e023": {
+    "asset": 1557761901047,
+    "meta": 1557761904475,
+    "relativePath": "Scripts\\SceneLoading.ts"
   }
 }

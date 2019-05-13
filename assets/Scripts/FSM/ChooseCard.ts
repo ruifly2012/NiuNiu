@@ -35,6 +35,7 @@ export default class ChooseCard extends StateBase {
         Game.Inst.EventListener.clear();
         UIMgr.Inst.stopClock();
         UIMgr.Inst.cardUIMgr.unRegClickEvent();
+        //hide complete UI
         for(let index = 0;index< Define.GameInfo.Inst.playerCount;index++)
             UIMgr.Inst.CardStatusUIMgr.setComplete(index,false);
     }
@@ -44,6 +45,7 @@ export default class ChooseCard extends StateBase {
     startCountDown() {
         //啟動clock
         UIMgr.Inst.setClockAct(15,()=>{
+            this.completeChoose();
             this.m_FSM.setState(Define.GameState.Calc);
         });
     }
@@ -86,16 +88,7 @@ export default class ChooseCard extends StateBase {
         let pressNiu: boolean = false;
         if(customdata == 1) pressNiu = true;
         if(UIMgr.Inst.cardUIMgr.niuClickCorrect(pressNiu)){
-            UIMgr.Inst.showChooseCard(false);
-            UIMgr.Inst.cardUIMgr.unRegClickEvent();
-            Game.Inst.networkMgr.chooseCardComplete();
-            this.selfComplete = true;
-            //choose complete anime
-            cc.warn("niuClick");
-            UIMgr.Inst.animMgr.playChooseCompleteAnim();
-            //show card type
-            UIMgr.Inst.CardStatusUIMgr.setType(0,Define.GameInfo.Inst.players[0].cardType);
-
+            this.completeChoose();
             //change stage when all complete
             if(this.allOtherComplete){
                 this.m_FSM.setState(Define.GameState.Calc);
@@ -103,6 +96,18 @@ export default class ChooseCard extends StateBase {
         }
         else
             UIMgr.Inst.animMgr.playCardTypeError();
+    }
+
+    //move card & send complete
+    completeChoose(){
+        UIMgr.Inst.showChooseCard(false);
+            UIMgr.Inst.cardUIMgr.unRegClickEvent();
+            Game.Inst.networkMgr.chooseCardComplete();
+            this.selfComplete = true;
+            //choose complete anime
+            UIMgr.Inst.animMgr.playChooseCompleteAnim();
+            //show card type
+            UIMgr.Inst.CardStatusUIMgr.setType(0,Define.GameInfo.Inst.players[0].cardType);
     }
 
 }
