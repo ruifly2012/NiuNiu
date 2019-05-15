@@ -17,7 +17,6 @@ export default class Waiting extends StateBase {
         Game.Inst.EventListener.on("startGame",function(event,data){
             //goto rob bet
             UIMgr.Inst.showWaiting(false);
-            UIMgr.Inst.isPlayersActive(true);
             self.m_FSM.setState(Define.GameState.RobBet);
         });
 
@@ -25,9 +24,10 @@ export default class Waiting extends StateBase {
     }
 
     public stateInitialize() {
-        Game.Inst.networkMgr.ConnectServer();
         this.initPlayer();
-
+        // get table
+        Game.Inst.networkMgr.ConnectServer();
+        //show waiting UI & hide other player
         UIMgr.Inst.showWaiting(true);
         UIMgr.Inst.isPlayersActive(false);
         UIMgr.Inst.players[0].node.active = true;
@@ -41,8 +41,9 @@ export default class Waiting extends StateBase {
     public stateUpdate(dt: number) {
     }
 
+    /**init players */
     initPlayer(){
-        let playerCount = 2;
+        let playerCount = 5;
         //generate player
         let gameInfo: Define.GameInfo = Define.GameInfo.Inst;
         gameInfo.playerCount = playerCount;

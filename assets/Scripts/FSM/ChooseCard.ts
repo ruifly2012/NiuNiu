@@ -11,8 +11,11 @@ export default class ChooseCard extends StateBase {
     @property({type:cc.Enum(Define.GameState),serializable:true})
     public state:Define.GameState = Define.GameState.ChooseCard;
 
-    selfComplete: boolean = false;
-    allOtherComplete: boolean = false;
+    /**自己選完牌 */
+    isSelfComplete: boolean = false;
+    /**所有其餘玩家選牌完成 */
+    isAllOtherComplete: boolean = false;
+    /**完成選牌玩家數量 */
     otherComplete: number = 0;
 
     onLoad(){
@@ -31,6 +34,7 @@ export default class ChooseCard extends StateBase {
 
     public stateRelease(){
         cc.warn("change to calc");
+        //hide UI & clear listener
         UIMgr.Inst.showChooseCard(false);
         Game.Inst.EventListener.clear();
         UIMgr.Inst.stopClock();
@@ -43,7 +47,6 @@ export default class ChooseCard extends StateBase {
     }
 
     startCountDown() {
-        //啟動clock
         UIMgr.Inst.setClockAct(15,()=>{
             this.completeChoose();
             this.m_FSM.setState(Define.GameState.Calc);
@@ -56,6 +59,7 @@ export default class ChooseCard extends StateBase {
         this.registerComplete();
     }
 
+    /**發牌 */
     playDistribute(callback?){
         UIMgr.Inst.animMgr.playDistributePoker(callback);
     }
@@ -66,15 +70,18 @@ export default class ChooseCard extends StateBase {
             cc.warn("complete num : " + this.otherComplete);
             if(this.otherComplete + 1 == Define.GameInfo.Inst.playerCount){
                 cc.warn("all other complete" );
-                this.allOtherComplete = true;
+                this.isAllOtherComplete = true;
                 //change stage when all complete
-                if(this.selfComplete){
+                if(this.isSelfComplete){
                     this.m_FSM.setState(Define.GameState.Calc);
                 }
             }
         })
     }
 
+    /**
+     * get time from server to sync
+     */
     registerTimeSync(){
         Game.Inst.EventListener.on("getTime",function(event,data){
             if(data.stage == Define.GameState.ChooseCard){
@@ -84,13 +91,18 @@ export default class ChooseCard extends StateBase {
         })
     }
 
+    /**
+     * 點擊有牛/無牛按鈕
+     * @param event 
+     * @param customdata 0:無牛/1:有牛
+     */
     niuClick(event, customdata: number){
         let pressNiu: boolean = false;
         if(customdata == 1) pressNiu = true;
         if(UIMgr.Inst.cardUIMgr.niuClickCorrect(pressNiu)){
             this.completeChoose();
             //change stage when all complete
-            if(this.allOtherComplete){
+            if(this.isAllOtherComplete){
                 this.m_FSM.setState(Define.GameState.Calc);
             }
         }
@@ -103,7 +115,7 @@ export default class ChooseCard extends StateBase {
         UIMgr.Inst.showChooseCard(false);
             UIMgr.Inst.cardUIMgr.unRegClickEvent();
             Game.Inst.networkMgr.chooseCardComplete();
-            this.selfComplete = true;
+            this.isSelfComplete = true;
             //choose complete anime
             UIMgr.Inst.animMgr.playChooseCompleteAnim();
             //show card type

@@ -1,5 +1,6 @@
 import AnimationBase from "../components/animation/AnimationBase";
 import NodePool from "../components/NodePool";
+import { GameInfo } from "../Define";
 
 const {ccclass, property} = cc._decorator;
 
@@ -69,7 +70,7 @@ export default class DistributePokerAnimation extends AnimationBase {
      * 生成poker, 0-12 player1, 13-25 player2 ...
      */
     initCard(){
-        this.playerCount = 5;
+        this.playerCount = GameInfo.Inst.playerCount;
         //clear exist poker
         this.pokerPool.clearAll();//didn't work?
         this.playerPoker.children.forEach(element => {

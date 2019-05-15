@@ -104,12 +104,17 @@ export default class UIMgr extends cc.Component {
         });
     }
 
+    /**
+     * init player info and show
+     */
     initPlayerInfo() {
         let gameInfo: Define.GameInfo = Define.GameInfo.Inst;
         for (let i = 0; i < gameInfo.playerCount; i++) {
             cc.log("init"+i+"player");
             this.players[i].init(gameInfo.players[i].name,"headIcon" + gameInfo.players[i].iconID,gameInfo.players[i].money);
+            this.players[i].node.active = true;
         }
+
     }
 
     receiveRobBetInfo(data){
@@ -122,6 +127,7 @@ export default class UIMgr extends cc.Component {
             playerIndex++;
             Define.GameInfo.Inst.players[playerIndex].initData(data.players[_key]);
         }
+        Define.GameInfo.Inst.playerCount = playerIndex+1;
         UIMgr.Inst.initPlayerInfo();
     }
 

@@ -43,12 +43,16 @@ export default class PlaceBet extends StateBase {
 
     startCountDown() {
         let self = this;
-        //啟動clock
         UIMgr.Inst.setClockAct(5, ()=>{
             self.m_FSM.setState(Define.GameState.ChooseCard)
         });
     }
 
+    /**
+     * 下注倍數
+     * @param event 
+     * @param customData rate 
+     */
     placeBetClick(event, customData: number){
         cc.warn("[place_bet]click"+customData);
         Game.Inst.networkMgr.place_bet(customData);

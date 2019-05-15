@@ -49,12 +49,16 @@ export default class RobBet extends StateBase {
 
     startCountDown() {
         let self = this;
-        //啟動clock
         UIMgr.Inst.setClockAct(5, ()=>{
             self.m_FSM.setState(Define.GameState.PlaceBet);
         });
     }
 
+    /**
+     * 搶莊
+     * @param event 
+     * @param customData rate
+     */
     robBetClick(event, customData: number){
         cc.warn("[rob_bet]click"+customData);
         Game.Inst.networkMgr.rob_bet(customData);
@@ -62,6 +66,7 @@ export default class RobBet extends StateBase {
         UIMgr.Inst.players[0].setStatus(Define.BetType.RobBet,customData);
     }
 
+    /**sync time with server */
     registerTimeSync(){
         Game.Inst.EventListener.on("getTime",function(event,data){
             if(data.stage == Define.GameState.RobBet){
