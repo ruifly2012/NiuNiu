@@ -1105,7 +1105,7 @@
     "relativePath": "resources"
   },
   "d02fa678-b413-4672-9377-a6104abf1352": {
-    "asset": 1557410999300,
+    "asset": 1557761503277,
     "meta": 1554892675660,
     "relativePath": "Scene"
   },
@@ -1280,8 +1280,8 @@
     "relativePath": "Scripts\\Utils.ts"
   },
   "11339d1a-7854-423f-9a49-fcad7739b3ff": {
-    "asset": 1557761578187,
-    "meta": 1557761578560,
+    "asset": 1557900076284,
+    "meta": 1557900076323,
     "relativePath": "Scene\\NiuNiu.fire"
   },
   "f5384d85-d600-4726-8770-3451a5a96cf8": {
@@ -1295,8 +1295,8 @@
     "relativePath": "Scene\\scene_loading.fire"
   },
   "a1045b07-6089-4c89-aecb-2f03efd687d3": {
-    "asset": 1557759312441,
-    "meta": 1557759312477,
+    "asset": 1557900140984,
+    "meta": 1557900140994,
     "relativePath": "Scene\\scene_start.fire"
   },
   "08d8011a-77b1-42f4-b140-b3ade1bfe174": {
@@ -3039,11 +3039,6 @@
     "meta": 1557457971376,
     "relativePath": "Scripts\\ResourcesMgr.ts"
   },
-  "31e35b9d-a53f-48cd-9f83-111670c2515e": {
-    "asset": 1557458782652,
-    "meta": 1557459533678,
-    "relativePath": "Scripts\\UIMgr.ts"
-  },
   "8999f2e9-70c4-48c6-ae8b-1140002b3f95": {
     "asset": 1557460971540,
     "meta": 1557461008692,
@@ -3079,11 +3074,6 @@
     "meta": 1557663641609,
     "relativePath": "Scripts\\AnimMgr.ts"
   },
-  "4ed904da-f964-4ca4-90c2-2a2530f5d436": {
-    "asset": 1557663639363,
-    "meta": 1557663641609,
-    "relativePath": "Scripts\\FSM\\Calc.ts"
-  },
   "d3ac557e-a7a4-471f-9bb9-3b6c11d2b365": {
     "asset": 1557761088142,
     "meta": 1557761111912,
@@ -3113,5 +3103,20 @@
     "asset": 1557761901047,
     "meta": 1557761904475,
     "relativePath": "Scripts\\SceneLoading.ts"
+  },
+  "4ed904da-f964-4ca4-90c2-2a2530f5d436": {
+    "asset": 1557833389821,
+    "meta": 1557840156526,
+    "relativePath": "Scripts\\FSM\\Calc.ts"
+  },
+  "31e35b9d-a53f-48cd-9f83-111670c2515e": {
+    "asset": 1557898941087,
+    "meta": 1557899233216,
+    "relativePath": "Scripts\\UIMgr.ts"
+  },
+  "aafd3df7-03de-49ae-b19a-7bb135953467": {
+    "asset": 1557899624578,
+    "meta": 1557899626189,
+    "relativePath": "Scripts\\FSM\\End.ts"
   }
 }

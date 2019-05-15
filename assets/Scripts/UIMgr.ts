@@ -37,6 +37,9 @@ export default class UIMgr extends cc.Component {
     @property(Clock)
     clock: Clock = null;
 
+    @property(cc.Node)
+    continueBtn: cc.Node = null;
+
     private waiting: cc.Node;
 
     private rob_bet: cc.Node;

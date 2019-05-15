@@ -20,6 +20,7 @@ export default class Calc extends StateBase {
 
         UIMgr.Inst.animMgr.playShowAllCardAnim(()=>{
             this.moneyFlow();
+            this.m_FSM.setState(Define.GameState.End);
         });
     }
 
