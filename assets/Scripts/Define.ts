@@ -147,10 +147,25 @@ export default class Converter {
             case CardType.bomb: return "bomb";
             case CardType.smallCow: return "5cow";
             default:
-                cc.log("[DefineConverter] not specuial type");
+                cc.log("[DefineConverter] not special type");
                 break;
         }
         return "NoneType";
+    }
+
+    /**取得牌型動畫速度 */
+    static getCardTypeAnimRate(type: CardType): number {
+        switch (type) {
+            case CardType.cowCow: return 1;
+            case CardType.goldCow: return 0.7;
+            case CardType.silverCow: return 1;
+            case CardType.bomb: return 0.6;
+            case CardType.smallCow: return 0.5;
+            default:
+                cc.log("[DefineConverter] not special type");
+                break;
+        }
+        return 1;
     }
 
     /**取得牌型背景圖素材名稱 */

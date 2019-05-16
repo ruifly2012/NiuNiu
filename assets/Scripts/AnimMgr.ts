@@ -102,16 +102,18 @@ export default class AnimMgr extends cc.Component {
         });
     }
 
+    /**牌型動畫(若普通牌型則直接callback) */
     playCardTypeAnim(type: Define.CardType, callback?){
         let animName: string = Converter.getCardTypeAnimText(type);
+        let animRate: number = Converter.getCardTypeAnimRate(type);
         if(animName == "NoneType") {
             if (callback != undefined)
                 callback();
         }
         else{
-            Game.Inst.animationMgr.play(animName, 1,false, callback); 
+            Game.Inst.animationMgr.play(animName, animRate,false, callback); 
         }
-        cc.log("playType:"+animName);
+        cc.log("playType:"+animName + "RATE : "+animRate);
     }
 
 }

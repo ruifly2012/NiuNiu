@@ -5,6 +5,7 @@ import Game from "./Game";
 import Clock from "./components/Clock";
 import CardUIMgr from "./UI/CardUIMgr";
 import CardStatusUIMgr from "./UI/CardStatusUIMgr";
+import BetUIMgr from "./UI/BetUIMgr";
 
 const { ccclass, property } = cc._decorator;
 
@@ -28,6 +29,8 @@ export default class UIMgr extends cc.Component {
     @property(CardUIMgr) cardUIMgr: CardUIMgr = null;
 
     @property(CardStatusUIMgr) CardStatusUIMgr: CardStatusUIMgr = null;
+
+    @property(BetUIMgr) BetUIMgr: BetUIMgr = null;
 
     @property([Player]) players: Player[] = [];
 

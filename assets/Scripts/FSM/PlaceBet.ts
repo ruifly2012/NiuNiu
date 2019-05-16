@@ -27,6 +27,8 @@ export default class PlaceBet extends StateBase {
         Game.Inst.EventListener.on("gotoChooseCard",()=>{
             this.m_FSM.setState(Define.GameState.ChooseCard);
         })
+        //change to correct rate
+        UIMgr.Inst.BetUIMgr.activate();
     }
 
     public stateRelease(){

@@ -177,6 +177,8 @@ export default class NetworkManager {
         let bankerIndex =  UIMgr.Inst.getPlayerIndexByUID(data.banker);
         Define.GameInfo.Inst.bankerIndex = bankerIndex;
         UIMgr.Inst.players[bankerIndex].setBanker(true);
+        //set rate
+        UIMgr.Inst.BetUIMgr.setRate(data.main_player.place_bet_list);
         Game.Inst.EventListener.notify("gotoPlaceBet");
         Game.Inst.EventListener.notify("startBet");
     }
