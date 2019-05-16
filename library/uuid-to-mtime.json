@@ -34,11 +34,6 @@
     "meta": 1557920956980,
     "relativePath": "resources\\Animations\\card_error.anim"
   },
-  "7520b25b-635e-4d7a-8a96-eec93b22513c": {
-    "asset": 1552983494000,
-    "meta": 1557920956989,
-    "relativePath": "resources\\Animations\\coin.anim"
-  },
   "90337541-b254-4b6a-be73-9e431c3b9340": {
     "asset": 1552983494000,
     "meta": 1557920956991,
@@ -535,7 +530,7 @@
     "relativePath": "Scripts\\FSM"
   },
   "e02b767e-a47c-4ebf-bd3b-0d11cae39ac1": {
-    "asset": 1557410999316,
+    "asset": 1558000529165,
     "meta": 1556951601937,
     "relativePath": "Scripts\\UI"
   },
@@ -545,8 +540,8 @@
     "relativePath": "Scripts\\Utils.ts"
   },
   "11339d1a-7854-423f-9a49-fcad7739b3ff": {
-    "asset": 1558001497097,
-    "meta": 1558001497122,
+    "asset": 1558002160598,
+    "meta": 1558002160628,
     "relativePath": "Scene\\NiuNiu.fire"
   },
   "f5384d85-d600-4726-8770-3451a5a96cf8": {
@@ -933,61 +928,6 @@
     "asset": 1552474304000,
     "meta": 1557920963474,
     "relativePath": "resources\\textures\\transparentBG.png"
-  },
-  "83a6f80a-4235-40e4-a9a3-f35151767194": {
-    "asset": 1556958215749,
-    "meta": 1556958215733,
-    "relativePath": "resources\\textures\\num"
-  },
-  "99c77f9f-5d7d-47b4-816f-bb79d4c2e482": {
-    "asset": 1552474304000,
-    "meta": 1557920962032,
-    "relativePath": "resources\\textures\\num\\Bet_num_a01.png"
-  },
-  "c7c03abe-c4e4-4bd8-92f0-5101a109ba5d": {
-    "asset": 1552474304000,
-    "meta": 1557920962017,
-    "relativePath": "resources\\textures\\num\\Bet_num_a00.png"
-  },
-  "1662b704-25f1-40c9-a830-f504cebf6c04": {
-    "asset": 1552474304000,
-    "meta": 1557920962062,
-    "relativePath": "resources\\textures\\num\\Bet_num_a03.png"
-  },
-  "fb17e9a0-c0c8-469c-a5d6-5cfdd80b6013": {
-    "asset": 1552474304000,
-    "meta": 1557920962053,
-    "relativePath": "resources\\textures\\num\\Bet_num_a02.png"
-  },
-  "8e9acc37-72fc-4818-bb94-adfebea6d7ef": {
-    "asset": 1552474304000,
-    "meta": 1557920962084,
-    "relativePath": "resources\\textures\\num\\Bet_num_a04.png"
-  },
-  "dda15dbf-a7f9-41a2-86bf-5207670cc920": {
-    "asset": 1552474304000,
-    "meta": 1557920962092,
-    "relativePath": "resources\\textures\\num\\Bet_num_a05.png"
-  },
-  "75ca84d8-7cb9-4b1a-b48d-e5abd3c083f5": {
-    "asset": 1552474304000,
-    "meta": 1557920962116,
-    "relativePath": "resources\\textures\\num\\Bet_num_a06.png"
-  },
-  "822672db-aea7-4b04-838a-7711284d3f7b": {
-    "asset": 1552474304000,
-    "meta": 1557920962130,
-    "relativePath": "resources\\textures\\num\\Bet_num_a07.png"
-  },
-  "ac3c48b5-ac92-4085-970a-6f1aed58ec20": {
-    "asset": 1552474304000,
-    "meta": 1557920962153,
-    "relativePath": "resources\\textures\\num\\Bet_num_a08.png"
-  },
-  "7e90495d-a05d-4312-9cca-372c881d0d72": {
-    "asset": 1552474304000,
-    "meta": 1557920962171,
-    "relativePath": "resources\\textures\\num\\Bet_num_a09.png"
   },
   "1222803b-49a7-4f13-948f-445f9ed03ab7": {
     "asset": 1556960044114,
