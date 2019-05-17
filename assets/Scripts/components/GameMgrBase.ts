@@ -34,8 +34,6 @@ export default abstract class GameMgrBase extends cc.Component {
 
     // use this for initialization
     init() {
-        cc.log("TEST");
-        cc.warn("Init GameMgr ");
         this._FSM = new FSM();
         Game.Inst.currentGameMgr = this;
     }

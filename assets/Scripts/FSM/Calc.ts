@@ -11,6 +11,8 @@ export default class Calc extends StateBase {
     @property({type:cc.Enum(Define.GameState),serializable:true})
     public state:Define.GameState = Define.GameState.Calc;
 
+    private isAllKill: boolean = true;
+
     onLoad(){
         
     }
@@ -18,9 +20,23 @@ export default class Calc extends StateBase {
     public stateInitialize(){
         cc.warn("calc!!!");
 
+        let delay: number = 0;
+
+        this.isAllKill = true;
+
         UIMgr.Inst.animMgr.playShowAllCardAnim(()=>{
-            this.moneyFlow();
-            this.m_FSM.setState(Define.GameState.End);
+            if(this.isAllKill) {
+                this.allKill();
+                delay = 3;
+                cc.warn("delay");
+            }
+            this.scheduleOnce(()=>{
+                this.moneyFlow();
+                if(Define.GameInfo.Inst.players[0].win_bet > 0)
+                    this.victory()
+                this.m_FSM.setState(Define.GameState.End);
+            }, delay);
+            
         });
     }
 
@@ -59,6 +75,7 @@ export default class Calc extends StateBase {
             //check really lose to banker
             let profit = Define.GameInfo.Inst.players[index].win_bet;
             if(profit > 0){
+                this.isAllKill = false;
                 UIMgr.Inst.players[bankerSeat].moneyChange(-profit,40);
                 UIMgr.Inst.animMgr.playCoinFlow(bankerSeat, index, ()=>{
                     UIMgr.Inst.players[index].setShiny();
@@ -66,6 +83,14 @@ export default class Calc extends StateBase {
                 });
             }
         }
+    }
+
+    allKill(){
+        UIMgr.Inst.animMgr.playAllKill();
+    }
+
+    victory(){
+        UIMgr.Inst.animMgr.playVictory();
     }
 
     

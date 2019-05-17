@@ -28,7 +28,7 @@ export default class NodePool extends cc.Component {
             obj.name += this.defaultName + i.toString();
             this.pool.put(obj);
         }
-        cc.log("NodePool create instance : " + this.size);
+        //cc.log("NodePool create instance : " + this.size);
     }
 
     /**要求從Pool中拿取一個prefab*/
@@ -41,7 +41,7 @@ export default class NodePool extends cc.Component {
             obj = cc.instantiate(this.prefab);
             obj.name += this.defaultName + this.size.toString();
             this.pool.put(obj);
-            cc.log("NodePool add new");
+            //cc.log("NodePool add new");
             this.size++;
         }
         obj = this.pool.get();

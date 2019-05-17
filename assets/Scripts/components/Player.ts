@@ -18,7 +18,7 @@ export default class Player extends cc.Component
     
     start() 
     {
-        cc.log("player onStart");
+        //cc.log("player onStart");
 
         // TEST data
         let id = "test id";
@@ -84,13 +84,13 @@ export default class Player extends cc.Component
     }
 
     hideStatus(){
-        cc.log("[player] hide status");
+        //cc.log("[player] hide status");
         this.status.spriteFrame = null;
     }
 
     moneyChange(amount: number, moveDis: number = 40){
         //amount = Math.random()*1000 - 500;
-        cc.log("change" + amount + "move : " + moveDis);
+        //cc.log("change" + amount + "move : " + moveDis);
         let str: string = "";
         let label: cc.Label;
         //set string

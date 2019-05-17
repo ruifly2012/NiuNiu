@@ -79,12 +79,12 @@ export default class AnimMgr extends cc.Component {
         this.playCardTypeAnim(Define.GameInfo.Inst.players[0].cardType);
         for(let index = 1; index < playerCount - 1; index++){
             this.scheduleOnce(()=>{ 
-                cc.log("schedule player" + index);
+                //cc.log("schedule player" + index);
                 this.playShowCardAnim(index);
             },index*2);
         };
         this.scheduleOnce(()=>{ 
-            cc.log("schedule player" + (playerCount - 100));
+            //cc.log("schedule player" + (playerCount - 100));
             this.playShowCardAnim(playerCount - 1,callback);
         },(playerCount-1)*2);
         
@@ -92,7 +92,7 @@ export default class AnimMgr extends cc.Component {
     }
 
     playShowCardAnim(seat: number, callback?){
-        cc.log("play Type show card"+seat);
+        //cc.log("play Type show card"+seat);
         UIMgr.Inst.cardUIMgr.setCard(seat,()=>{
             UIMgr.Inst.CardStatusUIMgr.setType(seat,Define.GameInfo.Inst.players[seat].cardType);
             this.scheduleOnce(function(){
@@ -113,7 +113,16 @@ export default class AnimMgr extends cc.Component {
         else{
             Game.Inst.animationMgr.play(animName, animRate,false, callback); 
         }
-        cc.log("playType:"+animName + "RATE : "+animRate);
+        //cc.log("playType:"+animName + "RATE : "+animRate);
+    }
+
+    playAllKill(callback?){
+        Game.Inst.animationMgr.play("allKillText", 0.7,false);
+        Game.Inst.animationMgr.play("allKillLight", 1,false, callback);
+    }
+
+    playVictory(callback?){
+        Game.Inst.animationMgr.play("victory", 0.7,false, callback);
     }
 
 }

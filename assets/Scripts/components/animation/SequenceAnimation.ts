@@ -30,7 +30,7 @@ export default class SequenceAnimation extends AnimationBase {
     
     play(speed: number=1.0, loop: boolean = false,onfinished?) 
     {
-        cc.log("play anime");
+        //cc.log("play anime");
         Game.Inst.resourcesMgr.loadSequenceAnumation(this.animator,this.pathName,this.clip_name,speed,loop);
 
         if(this.onFinish != undefined){
