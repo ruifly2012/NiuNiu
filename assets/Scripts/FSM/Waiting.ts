@@ -14,7 +14,7 @@ export default class Waiting extends StateBase {
 
     onLoad() {
         let self = this;
-        Game.Inst.EventListener.on("startGame",function(event,data){
+        Game.Inst.EventListener.on("startGame",()=>{
             //goto rob bet
             UIMgr.Inst.showWaiting(false);
             self.m_FSM.setState(Define.GameState.RobBet);

@@ -32,7 +32,10 @@ export default class PlaceBet extends StateBase {
     }
 
     public stateRelease(){
-        Game.Inst.EventListener.clear();
+        Game.Inst.EventListener.off("startBet");
+        Game.Inst.EventListener.off("gotoChooseCard");
+        Game.Inst.EventListener.off("getTime");
+        
         UIMgr.Inst.showPlaceBet(false);
         UIMgr.Inst.stopClock();
         UIMgr.Inst.players.forEach(element => {
@@ -63,7 +66,7 @@ export default class PlaceBet extends StateBase {
     }
 
     registerTimeSync(){
-        Game.Inst.EventListener.on("getTime",function(event,data){
+        Game.Inst.EventListener.on("getTime",(data)=>{
             if(data.stage == Define.GameState.PlaceBet){
                 // cc.warn("update time : " + data.time);
                 UIMgr.Inst.clock.countDown = data.time;

@@ -6,19 +6,44 @@ export default class NetworkManager {
     
     private _socket;
     
-    private serverURL:string = "http://60.251.26.6:8073/";
+    static serverURL:string = "";
     
     private self = this;
 
+
     ConnectServer() {
         cc.log("con server");
-        this._socket = io.connect(this.serverURL, {
-            reconnection: false
-        });
+        if (NetworkManager.serverURL != ""){
+            this._socket = io.connect(NetworkManager.serverURL, {
+                reconnection: false
+            });
+        }
+        else{
+            this.loadConfig(() => {
+                this._socket = io.connect(NetworkManager.serverURL, {
+                    reconnection: false
+                });
+            });
+        }
         cc.log("connect success");
         this.eventRegister();
         this.LogIn();
     };
+
+    loadConfig(onLoaded?)
+    {
+        let url = "text/config.json";
+        cc.loader.loadRes(url, (err, res) =>
+        {
+            cc.log('[NetworkMgr] load'+ url +'], err' + err + '] result: ' + JSON.stringify(res));
+            let JsonObj = res['json'];
+
+            NetworkManager.serverURL = JsonObj['ServerURL'];
+
+            if (onLoaded != null)
+                onLoaded();
+        });
+    }
 
     disConnect(){
         cc.log("disconnect");

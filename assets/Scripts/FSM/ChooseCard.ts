@@ -36,7 +36,9 @@ export default class ChooseCard extends StateBase {
         cc.warn("change to calc");
         //hide UI & clear listener
         UIMgr.Inst.showChooseCard(false);
-        Game.Inst.EventListener.clear();
+        Game.Inst.EventListener.off("cardChooseComplete");
+        Game.Inst.EventListener.off("getTime");
+        
         UIMgr.Inst.stopClock();
         UIMgr.Inst.cardUIMgr.unRegClickEvent();
         //hide complete UI
@@ -83,7 +85,7 @@ export default class ChooseCard extends StateBase {
      * get time from server to sync
      */
     registerTimeSync(){
-        Game.Inst.EventListener.on("getTime",function(event,data){
+        Game.Inst.EventListener.on("getTime",(data)=>{
             if(data.stage == Define.GameState.ChooseCard){
                 // cc.warn("update time : " + data.time);
                 UIMgr.Inst.clock.countDown = data.time;

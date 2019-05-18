@@ -6,6 +6,7 @@ import NetworkMgr from "./NetworkManager";
 import EventListener from "./EventListener";
 import MainStateMgr ,{ GameState } from "./MainStateMgr";
 import AnimationMgr from "./AnimationMgrBase";
+import LocalizationMgr from "./LocalizationMgr";
 
 /**
  * 遊戲主要控制物件
@@ -24,6 +25,7 @@ export default class Game {
             Game.instance.mainStateMgr = new MainStateMgr();
             Game.instance.mainStateMgr.init();
             Game.instance.networkMgr = new NetworkMgr();
+            Game.instance.text = new LocalizationMgr();
             Game.instance.resourcesMgr = new ResourcesMgr();
             Game.instance.animationMgr = new AnimationMgr();
             Game.instance.audioMgr = new AudioMgr();
@@ -44,6 +46,8 @@ export default class Game {
     public audioMgr: AudioMgr;
     /**網路管理 */
     public networkMgr: NetworkMgr;
+    /**在地化文字管理 */
+    public text: LocalizationMgr;
     /**動態資源管理 */
     public resourcesMgr: ResourcesMgr;
     /**通用功能 */

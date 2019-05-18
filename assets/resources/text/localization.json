@@ -1,0 +1,24 @@
+{
+    "Language": "CN",
+    "CN":
+    {
+        "Confirm": "确定",
+        "Cancel": "取消",
+		"TalkMenu0": "你太牛了",
+		"TalkMenu1": "凉了凉了",
+		"TalkMenu2": "你真Skr人才",
+		"TalkMenu3": "哈哈，小心摆乌龙",
+		"TalkMenu4": "来啊！至尊一条龙",
+		"TalkMenu5": "快点吧，媳妇还在等我开饭",
+		"TalkMenu6": "惊不惊喜，意不意外",
+		"TalkMenu7": "哎呀，杯具啦",
+		"TalkMenu8": "這能贏就真的牛了",
+		"TalkMenu9": "扎心了，老铁"
+    },
+    
+    "TW":
+    {
+        "Confirm": "OK",
+		"Cancel": "Cancel"
+    }
+}

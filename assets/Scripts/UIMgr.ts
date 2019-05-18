@@ -63,7 +63,7 @@ export default class UIMgr extends cc.Component {
         this.choose_card.active = false;
         
 
-        Game.Inst.EventListener.on("RobBetInfo",function(evt,data){
+        Game.Inst.EventListener.on("RobBetInfo",(data)=>{
             UIMgr.Inst.receiveRobBetInfo(data);
         })
     }

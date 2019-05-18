@@ -9,23 +9,33 @@ export default class EventListener {
     
     get length() {return this._callbacks.length}
     
-    on(self:any, callback_func:Function) 
-    {
+    on(eventName:string, callback_func:Function) {
+        if(this._callbacks[eventName] != undefined){
+            cc.warn("[EventListener] duplicate register");
+        }
+        this._callbacks[eventName] = callback_func;
     
-        let check = this._callbacks.find((x) => x.func == callback_func && x.owner == self);
+        let check = this._callbacks.find((x) => x.func == callback_func && x.owner == eventName);
         
         if(check){    
             console.log('Bind Event Error!!');
             return;
         }
 
-        let obj = {func:callback_func, owner:self};
+        let obj = {func:callback_func, owner:eventName};
         this._callbacks.push(obj);
     }
+
+    off(eventName:string){
+        if(this._callbacks[eventName] != undefined){
+            this._callbacks[eventName] = undefined;
+        }
+    }
     
-    notify(...args:any[]):any{    
-        let tmp_callback = this._callbacks.filter( x => x.owner === args[0] );
-        tmp_callback.map((x)=>{x.func.bind(x.owner)(...args)})
+    notify(eventName: string, data?):any{
+        if(this._callbacks[eventName] != undefined){
+            this._callbacks[eventName](data);
+        }
     }
     
     clear()

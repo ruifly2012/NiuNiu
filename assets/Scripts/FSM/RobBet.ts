@@ -29,7 +29,8 @@ export default class RobBet extends StateBase {
     }
 
     public stateRelease(){
-        Game.Inst.EventListener.clear();
+        Game.Inst.EventListener.off("gotoPlaceBet");
+        Game.Inst.EventListener.off("getTime");
         UIMgr.Inst.showRobBet(false);
         UIMgr.Inst.stopClock();
         UIMgr.Inst.players.forEach(element => {
@@ -68,7 +69,7 @@ export default class RobBet extends StateBase {
 
     /**sync time with server */
     registerTimeSync(){
-        Game.Inst.EventListener.on("getTime",function(event,data){
+        Game.Inst.EventListener.on("getTime",(data)=>{
             if(data.stage == Define.GameState.RobBet){
                 // cc.warn("update time : " + data.time);
                 UIMgr.Inst.clock.countDown = data.time;
