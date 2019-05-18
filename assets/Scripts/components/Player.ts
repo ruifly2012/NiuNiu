@@ -15,11 +15,13 @@ export default class Player extends cc.Component
     @property(SequenceAnimation) shineAnime: SequenceAnimation = null;
     @property(cc.Label) moneyPlus: cc.Label = null;
     @property(cc.Label) moneyMinus: cc.Label = null;
+    @property(cc.Node) talkBox: cc.Node = null;
+    private talkBoxText: cc.Label = null;
     
     start() 
     {
         //cc.log("player onStart");
-
+        this.talkBoxText = this.talkBox.getChildByName("Text").getComponent(cc.Label);
         // TEST data
         let id = "test id";
         let icon = "headIcon" + (Math.floor(Math.random() * 16) + 1);
@@ -35,6 +37,8 @@ export default class Player extends cc.Component
         this.setBanker(false);
         this.moneyMinus.string = "";
         this.moneyPlus.string = "";
+        this.talkBox.opacity = 255;
+        this.talkBox.scaleY = 0;
         
     }
 
@@ -118,6 +122,35 @@ export default class Player extends cc.Component
             })
         )
         label.node.runAction(action);
+    }
+
+    talk(index: number) {
+
+        let showString: string = Game.Inst.text.get("TalkMenu" + index.toString());
+        this.talkBoxText.string = showString;
+
+        let showT: number = 0.2;
+        let delayT: number = 3;
+        let outT: number = 0.2;
+        this.talkBox.stopAllActions();
+        this.talkBox.scaleY = 0;
+        this.talkBox.opacity = 255;
+
+        let seq = cc.sequence(
+            cc.delayTime(0.01),
+            cc.callFunc(() => {
+                this.talkBox.setContentSize(this.talkBoxText.node.width + 80, this.talkBox.getContentSize().height);
+                this.talkBoxText.node.position = cc.v2(40, 66);
+            }),
+            cc.scaleTo(showT, this.talkBox.scaleX, 1).easing(cc.easeBezierAction(0, 1, 1.12, 1)),
+            cc.delayTime(delayT),
+            cc.fadeOut(outT).easing(cc.easeCubicActionOut()),
+            cc.callFunc(() => {
+                this.talkBox.scaleY = 0;
+                this.talkBox.opacity = 255;
+            })
+        );
+        this.talkBox.runAction(seq);
     }
 
 }

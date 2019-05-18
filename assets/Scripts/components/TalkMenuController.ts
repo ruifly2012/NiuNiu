@@ -22,12 +22,9 @@ export default class TalkMenuController extends cc.Component {
         this.initInnerContent();
         this.mainPanel.active = false;
         this.flagIsOpen = false;
-
-        Game.Inst.EventListener.on("spam_message", (msg) => { this.receiveSpamMassage(msg); });
     }
 
     onDestroy() {
-        Game.Inst.EventListener.off("spam_message");
     }
 
     private initInnerContent() {
@@ -96,23 +93,11 @@ export default class TalkMenuController extends cc.Component {
         this.disable();
 
         this.mainPlayer.talk(Number(customEventData));
-        let data = { "event": "spam_message", "message_index": Number(customEventData) };
-        Game.Inst.networkMgr.sendMessage(JSON.stringify(data));
+        Game.Inst.networkMgr.sendCannedMsg(Number(customEventData));
 
         this.scheduleOnce(() => {
             this.enable();
         }, this.interactableDuration);
     }
 
-    receiveSpamMassage(msg: SpamMessageRespone) {
-        cc.warn("receiveUpdate interface example: ");
-        cc.log(msg);
-
-        for (let i = 0; i < this.otherPlayer.length; i++) {
-            if (this.otherPlayer[i].getUID() == msg.speaker_uid) {
-                this.otherPlayer[i].talk(msg.message_index);
-                break;
-            }
-        }
-    }
 }

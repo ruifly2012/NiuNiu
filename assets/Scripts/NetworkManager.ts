@@ -155,11 +155,31 @@ export default class NetworkManager {
         })
     }
 
+    /**
+     * 罐頭訊息
+     */
+    sendCannedMsg(canNum: number){
+        let no:number = 6011;
+        let json= {
+            "no" : no,
+            "data" : {
+                "canned_num" : canNum
+            }
+        };
+        this._socket.emit("action",json ,function(code,data){
+            if(code == 200) {
+                cc.log("send can msg");
+            }
+            else
+                cc.warn("send can msg error : " + data.error);
+        })
+    }
+
     eventRegister(){
         let self = this;
 
         this._socket.on("response", function (data) {
-            console.log("response : " + JSON.stringify(data));
+            cc.log("response : " + JSON.stringify(data));
             switch(data.no){
                 ///////stage info////////////
                 case 6101://rob bet stage info
@@ -182,6 +202,8 @@ export default class NetworkManager {
                 case 6106:
                     self.receiveOtherChoose(data);
                     break;
+                case 6011:
+                    self.rcvCannedMsg(data);
                 default:
                     break;
             }
@@ -250,6 +272,15 @@ export default class NetworkManager {
         //cc.warn("get other complete choose");
         UIMgr.Inst.CardStatusUIMgr.setComplete(index,true);
         Game.Inst.EventListener.notify("cardChooseComplete");
+    }
+
+    /**
+     * 罐頭訊息
+     */
+    rcvCannedMsg(data){
+        let index = UIMgr.Inst.getPlayerIndexByUID(data.uid);
+        UIMgr.Inst.players[index].talk(data.canned_num);
+        cc.warn("player"+index+"rcv canned msg"+data.canned_num);
     }
 
 }
