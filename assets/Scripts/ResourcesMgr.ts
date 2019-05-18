@@ -26,6 +26,8 @@ export default class ResourcesMgr extends cc.Component {
         list.push("CardType");
         list.push("coins/coin1");
         list.push("coins/coin2");
+        list.push("SettingMenu/Preload");
+        
         this.assetList = list;
 
         cc.game.addPersistRootNode(this.node);
