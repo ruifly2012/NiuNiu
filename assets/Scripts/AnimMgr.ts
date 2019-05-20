@@ -3,6 +3,7 @@ import Converter, * as Define from "./Define";
 import DistributePokerAnimation from "./Anime/DistributePokerAnimation";
 import CoinFlowAnimation from "./Anime/CoinFlowAnimation";
 import UIMgr from "./UIMgr";
+import { CardType } from "../../build/web-mobile/src/project.dev.76297";
 
 const { ccclass, property } = cc._decorator;
 
@@ -123,6 +124,41 @@ export default class AnimMgr extends cc.Component {
 
     playVictory(callback?){
         Game.Inst.animationMgr.play("victory", 0.7,false, callback);
+    }
+
+    testPlay(){
+        this.playStartGame(()=>{
+            this.playDistributePoker(()=>{
+                this.playAllKill(()=>{
+                    this.playCardTypeAnim(Define.CardType.smallCow,()=>{
+                        this.playCardTypeAnim(Define.CardType.cowCow,()=>{
+                            this.playCardTypeAnim(Define.CardType.goldCow,()=>{
+                                this.playCardTypeAnim(Define.CardType.silverCow,()=>{
+                                    this.playCardTypeAnim(Define.CardType.bomb,()=>{
+                                        this.playVictory(()=>{
+                                            this.playCardTypeError();
+                                        })
+                                    })
+                                })
+                            })
+                        })
+                    })
+                });
+            });
+        });
+    }
+
+    testMoney(){
+        let from = Math.floor(Math.random()*4.99);
+        let to = Math.floor(Math.random()*4.99);
+        while(to == from){
+            to = Math.floor(Math.random()*4.99);
+        }
+        
+        this.playCoinFlow(from,to,()=>{
+            UIMgr.Inst.players[to].setShiny();
+            UIMgr.Inst.players[to].moneyChange(200,40);
+        });
     }
 
 }

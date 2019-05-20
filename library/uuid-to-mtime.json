@@ -520,8 +520,8 @@
     "relativePath": "Scripts\\Utils.ts"
   },
   "11339d1a-7854-423f-9a49-fcad7739b3ff": {
-    "asset": 1558181188673,
-    "meta": 1558181188731,
+    "asset": 1558322461015,
+    "meta": 1558322461047,
     "relativePath": "Scene\\NiuNiu.fire"
   },
   "f5384d85-d600-4726-8770-3451a5a96cf8": {
@@ -2284,11 +2284,6 @@
     "meta": 1558062831471,
     "relativePath": "Scripts\\components\\NodePool.ts"
   },
-  "05a138b0-84ea-4064-91ab-4e84f01c159b": {
-    "asset": 1558063758771,
-    "meta": 1558063763085,
-    "relativePath": "Scripts\\AnimMgr.ts"
-  },
   "4ed904da-f964-4ca4-90c2-2a2530f5d436": {
     "asset": 1558066745381,
     "meta": 1558066764054,
@@ -2628,11 +2623,6 @@
     "asset": 1558165995727,
     "meta": 1558166010245,
     "relativePath": "Scripts\\FSM\\RobBet.ts"
-  },
-  "a351fb1d-ef4c-43f2-a21a-d6fecdb6b7ef": {
-    "asset": 1558165999337,
-    "meta": 1558166010268,
-    "relativePath": "Scripts\\FSM\\Waiting.ts"
   },
   "117efcd3-1a21-4810-8822-954929c3ad71": {
     "asset": 1558166003582,
@@ -3033,5 +3023,15 @@
     "asset": 1558180857288,
     "meta": 1558180865670,
     "relativePath": "Scripts\\components\\Setting\\HelpMenu.ts"
+  },
+  "05a138b0-84ea-4064-91ab-4e84f01c159b": {
+    "asset": 1558322518723,
+    "meta": 1558322523449,
+    "relativePath": "Scripts\\AnimMgr.ts"
+  },
+  "a351fb1d-ef4c-43f2-a21a-d6fecdb6b7ef": {
+    "asset": 1558322513541,
+    "meta": 1558322523450,
+    "relativePath": "Scripts\\FSM\\Waiting.ts"
   }
 }
