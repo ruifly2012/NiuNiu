@@ -66,7 +66,7 @@ export default class Player extends cc.Component
      * @param speed 閃爍速度
      * @param duration 持續時間
      */
-    setShiny(speed: number = 2, duration: number = 2){
+    setShiny(speed: number = 2, duration: number = 0.5){
         this.shineAnime.play(speed,true);
         this.scheduleOnce(()=>{
             this.shineAnime.stop();

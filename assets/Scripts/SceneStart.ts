@@ -30,6 +30,9 @@ export default class SceneStart extends cc.Component
         if (window.version != null)
             this.version.string = window.version;
 
+        this.editbox_oid.string = "13";
+        this.editbox_token.string = Math.floor(Math.random()*10000).toString();
+
     }
 
     testButton(){

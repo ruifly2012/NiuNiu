@@ -38,8 +38,8 @@ export default class Utils extends cc.Component {
                 cvs.fitWidth = false;
             }
             else {
-                cvs.fitHeight = false;
-                cvs.fitWidth = true;
+                cvs.fitHeight = true;
+                cvs.fitWidth = false;
             }
         }
     }

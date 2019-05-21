@@ -6,7 +6,7 @@
       "url": "app://editor/index.html",
       "windowType": "dockable",
       "x": -8,
-      "y": -8,
+      "y": 0,
       "width": 1552,
       "height": 840,
       "layout": {
@@ -18,7 +18,7 @@
                 "children": [
                   "hierarchy"
                 ],
-                "height": 405.8999938964844,
+                "height": 406.3374938964844,
                 "type": "panel",
                 "width": 274.07501220703125
               },
@@ -27,7 +27,7 @@
                 "children": [
                   "assets"
                 ],
-                "height": 314.6875,
+                "height": 314.26251220703125,
                 "type": "panel",
                 "width": 274.07501220703125
               }

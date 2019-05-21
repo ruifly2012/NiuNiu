@@ -118,8 +118,10 @@ export default class AnimMgr extends cc.Component {
     }
 
     playAllKill(callback?){
-        Game.Inst.animationMgr.play("allKillText", 0.7,false);
-        Game.Inst.animationMgr.play("allKillLight", 1,false, callback);
+        Game.Inst.animationMgr.play("allKillText", 0.5,false);
+        this.scheduleOnce(()=>{
+            Game.Inst.animationMgr.play("allKillLight", 1.4,false, callback);
+        },0.4);
     }
 
     playVictory(callback?){
@@ -159,6 +161,10 @@ export default class AnimMgr extends cc.Component {
             UIMgr.Inst.players[to].setShiny();
             UIMgr.Inst.players[to].moneyChange(200,40);
         });
+    }
+
+    testAllKIll(){
+        this.playAllKill();
     }
 
 }

@@ -30,7 +30,7 @@ export default class Waiting extends StateBase {
         //show waiting UI & hide other player
         UIMgr.Inst.showWaiting(true);
         UIMgr.Inst.isPlayersActive(false);
-        UIMgr.Inst.players[0].node.active = true;
+        //UIMgr.Inst.players[0].node.active = true;
         
         // //send game ask
         // Game.Inst.networkMgr.getGameTable();
