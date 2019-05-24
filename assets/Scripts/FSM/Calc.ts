@@ -23,6 +23,16 @@ export default class Calc extends StateBase {
         let delay: number = 0;
 
         this.isAllKill = true;
+        for(let index = 0;index < Define.GameInfo.Inst.playerCount;index++){
+            //skip self
+            if(index == Define.GameInfo.Inst.bankerIndex) continue;
+            //check all kill
+            let profit = Define.GameInfo.Inst.players[index].win_bet;
+            if(profit > 0){
+                this.isAllKill = false;
+                cc.log("not all kill by player"+index);
+            }
+        }
 
         UIMgr.Inst.animMgr.playShowAllCardAnim(()=>{
             if(this.isAllKill) {

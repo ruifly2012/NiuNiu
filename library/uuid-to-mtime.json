@@ -495,8 +495,8 @@
     "relativePath": "Scripts\\UI"
   },
   "11339d1a-7854-423f-9a49-fcad7739b3ff": {
-    "asset": 1558678846694,
-    "meta": 1558678846734,
+    "asset": 1558681416483,
+    "meta": 1558681416524,
     "relativePath": "Scene\\NiuNiu.fire"
   },
   "f5384d85-d600-4726-8770-3451a5a96cf8": {
@@ -1532,12 +1532,12 @@
   "c7c1aec6-f9e9-4b9e-bad3-1a43e89f691e": {
     "asset": 1558506221659,
     "meta": 1557389263240,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow"
   },
   "1a6d7034-630a-43d9-a370-31e76ccba4e0": {
     "asset": 1554199474196,
     "meta": 1558506290507,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_1.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_1.png"
   },
   "d85c6fce-9ea5-4e52-ace3-09f0cc5f21e6": {
     "asset": 1554199474075,
@@ -1547,72 +1547,72 @@
   "63a6a0d8-36cd-4f77-86fa-134a2e015f5d": {
     "asset": 1554199474192,
     "meta": 1558506290556,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_11.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_11.png"
   },
   "4de73aee-9a02-4183-ac66-12ff1ea68526": {
     "asset": 1554199474191,
     "meta": 1558506290536,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_10.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_10.png"
   },
   "db73995d-c2d8-4c86-8dac-293ed59d96da": {
     "asset": 1554199474192,
     "meta": 1558506290561,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_12.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_12.png"
   },
   "302b65f7-10a3-4619-a4f0-65032b38a73c": {
     "asset": 1554199474193,
     "meta": 1558506290607,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_13.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_13.png"
   },
   "fa81d994-96e6-48f3-9b25-a5bdf1f26591": {
     "asset": 1554199474194,
     "meta": 1558506290612,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_14.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_14.png"
   },
   "68b435fe-f995-4c8a-af56-de5ba55d08d7": {
     "asset": 1554199474195,
     "meta": 1558506290643,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_15.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_15.png"
   },
   "9d847cb5-c12d-40a3-9089-a271ddf03567": {
     "asset": 1554199474198,
     "meta": 1558506290682,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_3.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_3.png"
   },
   "3414d216-eb9b-47eb-86a9-812ce008c97a": {
     "asset": 1554199474197,
     "meta": 1558506290648,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_2.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_2.png"
   },
   "2d55ac11-beeb-47ce-9326-0a10d84c3e3c": {
     "asset": 1554199474199,
     "meta": 1558506290715,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_5.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_5.png"
   },
   "fd572fbe-2e40-4fef-8a26-8137be254876": {
     "asset": 1554199474198,
     "meta": 1558506290677,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_4.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_4.png"
   },
   "6b59aea0-43cd-4542-8118-1fcf89cc2e20": {
     "asset": 1554199474200,
     "meta": 1558506290718,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_6.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_6.png"
   },
   "6975e1f3-4402-441d-b1fe-45e83986a0d3": {
     "asset": 1554199474201,
     "meta": 1558506290742,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_7.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_7.png"
   },
   "fd54a5c6-4e6f-4dfd-9c14-9edc48f823cf": {
     "asset": 1554199474189,
     "meta": 1558506290756,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_8.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_8.png"
   },
   "042254e2-4a68-4c3b-a3e6-03234aa25b3e": {
     "asset": 1554199474190,
     "meta": 1558506290772,
-    "relativePath": "resources\\Animations\\Sequence\\cowcow\\niuniu_9.png"
+    "relativePath": "resources\\Animations\\Sequence\\cowCow\\niuniu_9.png"
   },
   "59bb4136-91ca-4387-9a17-5b77e64d63ae": {
     "asset": 1558506221659,
@@ -2949,20 +2949,10 @@
     "meta": 1558506298216,
     "relativePath": "Scripts\\FSM\\Waiting.ts"
   },
-  "4ed904da-f964-4ca4-90c2-2a2530f5d436": {
-    "asset": 1558518321156,
-    "meta": 1558518342430,
-    "relativePath": "Scripts\\FSM\\Calc.ts"
-  },
   "5ad06a7e-3d36-488b-9bc3-0914787a36ce": {
     "asset": 1558518396651,
     "meta": 1558518574714,
     "relativePath": "Scripts\\components\\Setting\\HistoryMenu.ts"
-  },
-  "05a138b0-84ea-4064-91ab-4e84f01c159b": {
-    "asset": 1558518717131,
-    "meta": 1558518718966,
-    "relativePath": "Scripts\\AnimMgr.ts"
   },
   "f55ec128-ad77-40d5-a671-5db63638a717": {
     "asset": 1558677766246,
@@ -3003,5 +2993,15 @@
     "asset": 1558679939063,
     "meta": 1558679940763,
     "relativePath": "Scripts\\NetworkManager.ts"
+  },
+  "05a138b0-84ea-4064-91ab-4e84f01c159b": {
+    "asset": 1558681483371,
+    "meta": 1558681498877,
+    "relativePath": "Scripts\\AnimMgr.ts"
+  },
+  "4ed904da-f964-4ca4-90c2-2a2530f5d436": {
+    "asset": 1558681497533,
+    "meta": 1558681498879,
+    "relativePath": "Scripts\\FSM\\Calc.ts"
   }
 }
