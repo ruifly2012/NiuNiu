@@ -375,7 +375,7 @@
     "relativePath": "Scripts"
   },
   "23188f93-a2d9-42b0-bb96-a658a79d84ce": {
-    "asset": 1558506221673,
+    "asset": 1558677766228,
     "meta": 1555490362649,
     "relativePath": "Font"
   },
@@ -2924,11 +2924,6 @@
     "meta": 1558506298442,
     "relativePath": "Scripts\\SceneStart.ts"
   },
-  "b7f0db4a-8a40-434f-b609-056b17a077f0": {
-    "asset": 1558506221684,
-    "meta": 1558506298580,
-    "relativePath": "Scripts\\Utils.ts"
-  },
   "798d5d24-b35d-4293-ad42-62dff40032c3": {
     "asset": 1558506221786,
     "meta": 1558506292483,
@@ -2969,11 +2964,6 @@
     "meta": 1558518718966,
     "relativePath": "Scripts\\AnimMgr.ts"
   },
-  "ebe69aa5-1081-4019-85cb-4a9a01eb83d5": {
-    "asset": 1558518858963,
-    "meta": 1558518863745,
-    "relativePath": "Scripts\\NetworkManager.ts"
-  },
   "f55ec128-ad77-40d5-a671-5db63638a717": {
     "asset": 1558677766246,
     "meta": 1558677766231,
@@ -3003,5 +2993,15 @@
     "asset": 1558678783147,
     "meta": 1558678784391,
     "relativePath": "Scripts\\UI\\CardUIMgr.ts"
+  },
+  "b7f0db4a-8a40-434f-b609-056b17a077f0": {
+    "asset": 1558679115078,
+    "meta": 1558679117061,
+    "relativePath": "Scripts\\Utils.ts"
+  },
+  "ebe69aa5-1081-4019-85cb-4a9a01eb83d5": {
+    "asset": 1558679939063,
+    "meta": 1558679940763,
+    "relativePath": "Scripts\\NetworkManager.ts"
   }
 }

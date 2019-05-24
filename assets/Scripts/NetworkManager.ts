@@ -15,15 +15,19 @@ export default class NetworkManager {
         cc.log("con server");
         if (NetworkManager.serverURL != ""){
             this._socket = io.connect(NetworkManager.serverURL);
+            this.eventRegister();
+            this.LogIn();
         }
         else{
             this.loadConfig(() => {
                 this._socket = io.connect(NetworkManager.serverURL);
+                this.eventRegister();
+                this.LogIn();
             });
         }
         cc.log("connect success");
-        this.eventRegister();
-        this.LogIn();
+        
+        
     };
 
     loadConfig(onLoaded?)

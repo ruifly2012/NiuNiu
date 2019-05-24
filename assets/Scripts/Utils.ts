@@ -34,8 +34,8 @@ export default class Utils extends cc.Component {
             cc.warn("getVisibleSize: " + size);
 
             if (size.height / size.width > 0.5625) {
-                cvs.fitHeight = true;
-                cvs.fitWidth = false;
+                cvs.fitHeight = false;
+                cvs.fitWidth = true;
             }
             else {
                 cvs.fitHeight = true;
