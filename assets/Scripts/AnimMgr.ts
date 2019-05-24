@@ -3,7 +3,6 @@ import Converter, * as Define from "./Define";
 import DistributePokerAnimation from "./Anime/DistributePokerAnimation";
 import CoinFlowAnimation from "./Anime/CoinFlowAnimation";
 import UIMgr from "./UIMgr";
-import { CardType } from "../../build/web-mobile/src/project.dev.76297";
 
 const { ccclass, property } = cc._decorator;
 
@@ -165,6 +164,10 @@ export default class AnimMgr extends cc.Component {
 
     testAllKIll(){
         this.playAllKill();
+    }
+
+    testRec(){
+        Game.Inst.networkMgr.get_record();
     }
 
 }

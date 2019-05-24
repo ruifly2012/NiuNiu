@@ -14,15 +14,11 @@ export default class NetworkManager {
     ConnectServer() {
         cc.log("con server");
         if (NetworkManager.serverURL != ""){
-            this._socket = io.connect(NetworkManager.serverURL, {
-                reconnection: false
-            });
+            this._socket = io.connect(NetworkManager.serverURL);
         }
         else{
             this.loadConfig(() => {
-                this._socket = io.connect(NetworkManager.serverURL, {
-                    reconnection: false
-                });
+                this._socket = io.connect(NetworkManager.serverURL);
             });
         }
         cc.log("connect success");
@@ -281,6 +277,21 @@ export default class NetworkManager {
         let index = UIMgr.Inst.getPlayerIndexByUID(data.uid);
         UIMgr.Inst.players[index].talk(data.canned_num);
         cc.warn("player"+index+"rcv canned msg"+data.canned_num);
+    }
+
+    /**獲得注單 */
+    get_record(){
+        let no:number = 6007;
+        let json= {
+            "no" : no
+        };
+        this._socket.emit("action",json ,function(code,data){
+            if(code != 200) cc.warn("get_record error : " + data);
+            else {
+                cc.log(data);
+                cc.log(code);
+            }
+        })
     }
 
 }

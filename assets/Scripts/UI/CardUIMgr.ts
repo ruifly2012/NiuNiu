@@ -48,13 +48,13 @@ export default class CardUIMgr extends cc.Component {
             let val:PokerValue = Converter.getServerPokerConvert(pokerVal[index]);
             this.pokerRoot.children[index+5*seat].getComponent(Poker).setPokerValue(val.type,val.value, cardSize);
             this.pokerRoot.children[index+5*seat].getComponent(Poker).flip(0.5,0.1);
-            if(callback != undefined){
-                this.scheduleOnce(function(){
-                    callback();
-                },0.5);
-            }
-            this.registerClickEvent();
         }
+        if(callback != undefined){
+            this.scheduleOnce(function(){
+                callback();
+            },0.5);
+        }
+        this.registerClickEvent();
     }
 
     /**set card clickable */

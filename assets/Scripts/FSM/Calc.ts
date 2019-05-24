@@ -54,7 +54,7 @@ export default class Calc extends StateBase {
 
     bankerWin(bankerSeat: number){
         for(let index = 0;index < Define.GameInfo.Inst.playerCount;index++){
-            //slip self
+            //skip self
             if(index == bankerSeat) continue;
             //check really lose to banker
             let profit = Define.GameInfo.Inst.players[index].win_bet;
@@ -70,7 +70,7 @@ export default class Calc extends StateBase {
 
     bankerLose(bankerSeat: number){
         for(let index = 0;index < Define.GameInfo.Inst.playerCount;index++){
-            //slip self
+            //skip self
             if(index == bankerSeat) continue;
             //check really lose to banker
             let profit = Define.GameInfo.Inst.players[index].win_bet;

@@ -27,7 +27,7 @@ export default class HistoryMenu extends MenuBase {
         for(historyCount = 0;historyCount < 30;historyCount++){
             tempComponent = cc.instantiate(this.contentComponent).getComponent(HistoryComponent);
             let tempProfit: number = MiscHelper.randomInt(-100,100);
-            tempComponent.init(historyCount,"abc","十三水",(tempProfit >= 0),Math.abs(tempProfit).toString(),3876544);
+            tempComponent.init(historyCount,"abc","牛牛",(tempProfit >= 0),Math.abs(tempProfit).toString(),3876544);
             componentHeight = tempComponent.Height;
 
             tempComponent.node.parent = this.contentNode;
