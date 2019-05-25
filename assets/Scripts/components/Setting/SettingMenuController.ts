@@ -48,6 +48,9 @@ export default class SettingMenuController extends cc.Component {
     }
     disable() {
         this.close();
+        for(let i = 0;i < this.menus.length;i++){
+            this.menus[i].close();
+        }
         this.controlBtn.interactable = false;
     }
 

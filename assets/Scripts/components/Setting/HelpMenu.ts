@@ -1,5 +1,6 @@
 import MenuBase from "./MenuBase";
 import Game from "../../Game";
+import NewScrollBar from "./NewScrollBar";
 
 const { ccclass, property } = cc._decorator;
 
@@ -17,6 +18,7 @@ export default class HelpMenu extends MenuBase {
     @property([cc.Node]) controlBtn: cc.Node[] = [];
     @property([cc.Node]) innerContent: cc.Node[] = [];
     @property(cc.ScrollView) content: cc.ScrollView = null;
+    @property(NewScrollBar) scrollbar: NewScrollBar = null;
     @property(cc.Node) innerContentNode: cc.Node = null;
     controlBtnObj: cc.Button[] = [];
     controlBtnSprite: cc.Sprite[] = [];
@@ -44,6 +46,7 @@ export default class HelpMenu extends MenuBase {
         this.setButton();
         this.setContent();
         this.content.scrollToTop();
+        this.scrollbar.reset();
     }
 
     setMenu(event, customEventData) {
@@ -52,11 +55,12 @@ export default class HelpMenu extends MenuBase {
         this.setButton();
         this.setContent();
         this.content.scrollToTop();
+        this.scrollbar.reset();
     }
 
     private setButton() {
         for (let i = 0; i < this.controlBtn.length; i++) {
-            //cc.log(i);
+            cc.log(i);
             if (this.controlBtnObj[i].interactable) {
                 this.controlBtnSprite[i].spriteFrame = Game.Inst.resourcesMgr.load(HelpMenuType[i] + "_a");
             }
@@ -73,9 +77,8 @@ export default class HelpMenu extends MenuBase {
         for (let i = 0; i < this.innerContent.length; i++) {
             this.innerContent[i].active = false;
         }
-        cc.warn("now cintent"+this.nowMenuType);
         this.innerContent[this.nowMenuType].active = true;
-        this.innerContentNode.height = this.innerContent[this.nowMenuType].height + 50;
+        this.innerContentNode.height = this.innerContent[this.nowMenuType].height;
     }
 
 }

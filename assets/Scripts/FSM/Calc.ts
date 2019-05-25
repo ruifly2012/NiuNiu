@@ -11,8 +11,6 @@ export default class Calc extends StateBase {
     @property({type:cc.Enum(Define.GameState),serializable:true})
     public state:Define.GameState = Define.GameState.Calc;
 
-    private isAllKill: boolean = true;
-
     onLoad(){
         
     }
@@ -20,22 +18,13 @@ export default class Calc extends StateBase {
     public stateInitialize(){
         cc.warn("calc!!!");
 
+        //delay time for allkill anime
         let delay: number = 0;
 
-        this.isAllKill = true;
-        for(let index = 0;index < Define.GameInfo.Inst.playerCount;index++){
-            //skip self
-            if(index == Define.GameInfo.Inst.bankerIndex) continue;
-            //check all kill
-            let profit = Define.GameInfo.Inst.players[index].win_bet;
-            if(profit > 0){
-                this.isAllKill = false;
-                cc.log("not all kill by player"+index);
-            }
-        }
+
 
         UIMgr.Inst.animMgr.playShowAllCardAnim(()=>{
-            if(this.isAllKill) {
+            if(this.isAllKill()) {
                 this.allKill();
                 delay = 3;
                 cc.warn("delay");
@@ -57,6 +46,26 @@ export default class Calc extends StateBase {
     public stateUpdate(dt: number){
     }
 
+    //check show all kill or not
+    isAllKill() : boolean{
+        //show anyway if only 2 player
+        if(Define.GameInfo.Inst.playerCount == 2)
+            return true;
+        //check if banker win all the other
+        for(let index = 0;index < Define.GameInfo.Inst.playerCount;index++){
+            //skip self
+            if(index == Define.GameInfo.Inst.bankerIndex) continue;
+            //check all kill
+            let profit = Define.GameInfo.Inst.players[index].win_bet;
+            if(profit > 0){
+                cc.log("not all kill by player"+index);
+                return false;
+            }
+        }
+        return true;
+    }
+
+    //show banker get and then banker give
     moneyFlow(){
         this.bankerWin(Define.GameInfo.Inst.bankerIndex);
         this.bankerLose(Define.GameInfo.Inst.bankerIndex);
@@ -85,7 +94,6 @@ export default class Calc extends StateBase {
             //check really lose to banker
             let profit = Define.GameInfo.Inst.players[index].win_bet;
             if(profit > 0){
-                this.isAllKill = false;
                 UIMgr.Inst.players[bankerSeat].moneyChange(-profit,40);
                 UIMgr.Inst.animMgr.playCoinFlow(bankerSeat, index, ()=>{
                     UIMgr.Inst.players[index].setShiny();
