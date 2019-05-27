@@ -7,8 +7,8 @@
       "windowType": "dockable",
       "x": -8,
       "y": -8,
-      "width": 1936,
-      "height": 1056,
+      "width": 1554,
+      "height": 882,
       "layout": {
         "children": [
           {
@@ -18,23 +18,23 @@
                 "children": [
                   "hierarchy"
                 ],
-                "height": 527.125,
+                "height": 429.2124938964844,
                 "type": "panel",
-                "width": 343
+                "width": 275
               },
               {
                 "active": 0,
                 "children": [
                   "assets"
                 ],
-                "height": 407.875,
+                "height": 332.1750183105469,
                 "type": "panel",
-                "width": 343
+                "width": 275
               }
             ],
-            "height": 937,
+            "height": 763.4000244140625,
             "type": "dock-v",
-            "width": 343
+            "width": 275
           },
           {
             "children": [
@@ -43,9 +43,9 @@
                 "children": [
                   "scene"
                 ],
-                "height": 537.15625,
+                "height": 437.6499938964844,
                 "type": "panel",
-                "width": 1115
+                "width": 894
               },
               {
                 "active": 0,
@@ -53,23 +53,23 @@
                   "console",
                   "timeline"
                 ],
-                "height": 397.84375,
+                "height": 323.75,
                 "type": "panel",
-                "width": 1115
+                "width": 894
               }
             ],
-            "height": 937,
+            "height": 763.4000244140625,
             "type": "dock-v",
-            "width": 1115
+            "width": 894
           },
           {
             "active": 0,
             "children": [
               "inspector"
             ],
-            "height": 937,
+            "height": 763.4000244140625,
             "type": "panel",
-            "width": 458
+            "width": 367
           }
         ],
         "type": "dock-h"
@@ -82,7 +82,8 @@
         "inspector",
         "scene"
       ]
-    }
+    },
+    "window-1558935647167": {}
   },
   "panels": {
     "sprite-editor": {

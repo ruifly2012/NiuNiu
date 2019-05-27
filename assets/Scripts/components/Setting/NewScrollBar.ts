@@ -11,12 +11,12 @@ export default class NewScrollBar extends cc.Component {
     @property(cc.Node) content: cc.Node = null;
 
     onLoad(){
-        this.bar.y = this.back.height / 2;
+        this.bar.y = this.back.y + this.back.height/2 - 10;
         this.scrollview.node.on("scrolling",this.callback,this);
     }
 
     reset(){
-        this.bar.y = this.back.height / 2;
+        this.bar.y = this.back.y + this.back.height/2 - 10;
         if(this.content.height <= this.scrollview.node.height){
             this.back.active = false;
         }
@@ -29,7 +29,7 @@ export default class NewScrollBar extends cc.Component {
         let offset = Math.floor(this.scrollview.getScrollOffset().y);
         var Max = this.scrollview.getMaxScrollOffset().y
         let backHeight = this.back.height;
-        let newY = backHeight / 2 - offset / Max * backHeight;
+        let newY = this.back.y + backHeight/2- offset / Max * backHeight - 10;
         this.bar.y = newY;
     }
 }

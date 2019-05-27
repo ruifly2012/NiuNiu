@@ -108,19 +108,10 @@ export default class Player extends cc.Component
         str += amount.toString()
         label.string = str;
         //anime
-        let action = cc.sequence(
-            cc.spawn(
-                cc.moveBy(0.5,0,moveDis).easing(cc.easeBackOut()),
-                cc.fadeIn(0.5)
-            ),
-            cc.delayTime(0.2),
-            cc.fadeOut(0.5),
-            //back to initial
-            cc.moveBy(0,0,-moveDis),
-            cc.callFunc(()=>{
-                label.string = "";
-            })
-        )
+        let action = cc.spawn(
+            cc.moveBy(0.5,0,moveDis).easing(cc.easeBackOut()),
+            cc.fadeIn(0.5)
+        );
         label.node.runAction(action);
     }
 

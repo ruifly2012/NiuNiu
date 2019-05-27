@@ -56,7 +56,7 @@ export default class DistributePokerAnimation extends AnimationBase {
         if ( onfinished != undefined ){
             this.scheduleOnce(function(){
                 onfinished();
-            },this.duration+1)
+            },this.duration+0.5)
         }
         
     }

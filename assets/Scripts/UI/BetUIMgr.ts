@@ -35,6 +35,11 @@ export default class BetUIMgr extends cc.Component {
         UIMgr.Inst.players[0].setStatus(Define.BetType.PlaceBet,this.rate[index]);
     }
 
+    autoClick(){
+        cc.warn("auto place bet");
+        UIMgr.Inst.players[0].setStatus(Define.BetType.PlaceBet,this.rate[0]);
+    }
+
 
 
 }

@@ -47,12 +47,12 @@ export default class CardUIMgr extends cc.Component {
         for(let index = 0 ;index< 5;index++){
             let val:PokerValue = Converter.getServerPokerConvert(pokerVal[index]);
             this.pokerRoot.children[index+5*seat].getComponent(Poker).setPokerValue(val.type,val.value, cardSize);
-            this.pokerRoot.children[index+5*seat].getComponent(Poker).flip(0.5,0.1);
+            this.pokerRoot.children[index+5*seat].getComponent(Poker).flip(0.25,0.1);
         }
         if(callback != undefined){
             this.scheduleOnce(function(){
                 callback();
-            },0.5);
+            },0.25);
         }
         this.registerClickEvent();
     }
@@ -131,11 +131,23 @@ export default class CardUIMgr extends cc.Component {
     }
 
     niuClickCorrect(pressNiu: boolean): Boolean{
-        //card type error or choosed < 3 card
-        if(pressNiu != this.hasNiu || this.chooseCardNum < 3)
-            return false;
-        return true;
-            
+        switch(Define.GameInfo.Inst.players[0].cardType){
+            //無牛
+            case Define.CardType.noCow:
+                if(!pressNiu) return true;
+                return false;
+            //特殊
+            case Define.CardType.goldCow:
+            case Define.CardType.silverCow:
+            case Define.CardType.smallCow:
+                if(pressNiu) return true;
+                return false;
+            //有牛    
+            default:
+                //選對三張
+                if(this.chooseCardNum == 3 && pressNiu && this.hasNiu)
+                    return true;
+                return false;
+        }
     }
-
 }

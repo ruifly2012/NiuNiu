@@ -24,12 +24,15 @@ export default class ChooseCard extends StateBase {
     
     public stateInitialize(){
         cc.warn("choose card!!!");
-        this.startCountDown();
         UIMgr.Inst.animMgr.playDistributePoker(()=>{
+            this.startCountDown();
+            this.registerEvent();
+            UIMgr.Inst.players.forEach(element => {
+                element.hideStatus();
+            });
             UIMgr.Inst.showChooseCard(true);
             UIMgr.Inst.cardUIMgr.activate();
         });
-        this.registerEvent();
     }
 
     public stateRelease(){

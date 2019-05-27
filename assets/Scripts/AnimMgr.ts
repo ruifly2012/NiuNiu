@@ -66,13 +66,16 @@ export default class AnimMgr extends cc.Component {
     playDistributePoker(callback?) {
         //set player number
         this.pokerAnime.playerCount = Define.GameInfo.Inst.playerCount;
-        Game.Inst.animationMgr.play("DistributePokerAnim", 1.5, false, () => {
+        Game.Inst.animationMgr.play("DistributePokerAnim", 3, false, () => {
             if (callback != undefined)
                 callback();
         });
     }
 
     playShowAllCardAnim(callback?){
+        //hide complete UI
+        for(let index = 0;index< Define.GameInfo.Inst.playerCount;index++)
+            UIMgr.Inst.CardStatusUIMgr.setComplete(index,false);
         let playerCount = Define.GameInfo.Inst.playerCount;
         cc.warn("playerTotal"+playerCount);
         cc.warn("playing"+0+"type"+Define.GameInfo.Inst.players[0].cardType);

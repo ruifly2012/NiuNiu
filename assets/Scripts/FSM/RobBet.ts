@@ -11,6 +11,7 @@ export default class RobBet extends StateBase {
     @property({type:cc.Enum(Define.GameState),serializable:true})
     public state:Define.GameState = Define.GameState.RobBet;
 
+    private choosed: boolean = false;
     onLoad(){
         
     }
@@ -18,10 +19,11 @@ export default class RobBet extends StateBase {
     public stateInitialize(){
         cc.warn("rob!!!");
          //init playerPoker
-        this.playStartGameAnim();
-        UIMgr.Inst.showRobBet(true);
-        this.startCountDown();
-        this.registerTimeSync();
+        this.playStartGameAnim(()=>{
+            UIMgr.Inst.showRobBet(true);
+            this.startCountDown();
+            this.registerTimeSync();
+        });
         //listen change stage event
         Game.Inst.EventListener.on("gotoPlaceBet",()=>{
             this.m_FSM.setState(Define.GameState.PlaceBet);
@@ -33,25 +35,35 @@ export default class RobBet extends StateBase {
         Game.Inst.EventListener.off("getTime");
         UIMgr.Inst.showRobBet(false);
         UIMgr.Inst.stopClock();
-        UIMgr.Inst.players.forEach(element => {
-            element.hideStatus();
-        });
     }
 
     public stateUpdate(dt: number){
     }
 
-    playStartGameAnim(){
+    playStartGameAnim(callback?){
         UIMgr.Inst.animMgr.playStartGame(()=>{
+            if(callback != undefined){
+                callback();
+            }
             //after start game
             cc.log("start game !");
         });
     }
 
     startCountDown() {
-        let self = this;
-        UIMgr.Inst.setClockAct(5, ()=>{
-            self.m_FSM.setState(Define.GameState.PlaceBet);
+        UIMgr.Inst.setClockAct(2, ()=>{
+            if(!this.choosed){
+                cc.log("auto rob");
+                
+                //not tell server ==> other player cannot see
+                UIMgr.Inst.players[0].setStatus(Define.BetType.RobBet,0);
+
+                /*
+                //tell server ==> goto next stage immediate ==> almost can't show
+                this.robBetClick(event,0);
+                */
+            }
+            this.m_FSM.setState(Define.GameState.PlaceBet);
         });
     }
 
@@ -61,6 +73,7 @@ export default class RobBet extends StateBase {
      * @param customData rate
      */
     robBetClick(event, customData: number){
+        this.choosed = true;
         cc.warn("[rob_bet]click"+customData);
         Game.Inst.networkMgr.rob_bet(customData);
         UIMgr.Inst.showRobBet(false);

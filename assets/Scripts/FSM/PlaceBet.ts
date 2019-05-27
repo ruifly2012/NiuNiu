@@ -17,9 +17,15 @@ export default class PlaceBet extends StateBase {
     
     public stateInitialize(){
         cc.warn("place bet!!!");
-         //init playerPoker
+
         Game.Inst.EventListener.on("startBet",()=>{
-            UIMgr.Inst.showPlaceBet(true);
+            //hide rob_bet status
+            UIMgr.Inst.players.forEach(element => {
+                element.hideStatus();
+            });
+            if(Define.GameInfo.Inst.bankerIndex != 0){
+                UIMgr.Inst.showPlaceBet(true);
+            }
             this.startCountDown();
             this.registerTimeSync();
         })
@@ -38,31 +44,23 @@ export default class PlaceBet extends StateBase {
         
         UIMgr.Inst.showPlaceBet(false);
         UIMgr.Inst.stopClock();
-        UIMgr.Inst.players.forEach(element => {
-            element.hideStatus();
-        });
-
     }
+    
     public stateUpdate(dt: number){
     }
 
     startCountDown() {
-        let self = this;
         UIMgr.Inst.setClockAct(5, ()=>{
-            self.m_FSM.setState(Define.GameState.ChooseCard)
+            if(Define.GameInfo.Inst.bankerIndex != 0){
+                //not tell server ==> other player cannot see
+                UIMgr.Inst.BetUIMgr.autoClick();
+                /*
+                //tell server ==> goto next stage immediate ==> almost can't show
+                UIMgr.Inst.BetUIMgr.placeBetClick(event,0);
+                */
+            }
+            this.m_FSM.setState(Define.GameState.ChooseCard)
         });
-    }
-
-    /**
-     * 下注倍數
-     * @param event 
-     * @param customData rate 
-     */
-    placeBetClick(event, customData: number){
-        cc.warn("[place_bet]click"+customData);
-        Game.Inst.networkMgr.place_bet(customData);
-        UIMgr.Inst.showPlaceBet(false);
-        UIMgr.Inst.players[0].setStatus(Define.BetType.PlaceBet,customData);
     }
 
     registerTimeSync(){
