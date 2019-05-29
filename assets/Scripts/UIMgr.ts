@@ -148,4 +148,52 @@ export default class UIMgr extends cc.Component {
         this.clock.init();
     }
 
+    /**
+     * 搶莊動畫
+     * @param robPlayers 有搶莊玩家index列表
+     * @param banker 莊家
+     */
+    setDealer(robPlayers:number[], banker:number){
+        robPlayers.sort();
+        cc.log(banker);
+        cc.log(robPlayers.length);
+        // only one rob bet
+        if(robPlayers.length == 1){
+            for(let i = 0; i < 3; i++){
+                let seq = cc.sequence(
+                    cc.delayTime(0.2*i),
+                    cc.callFunc(()=>{
+                        this.players[banker].setShiny(),
+                        this.players[banker].setBanker(true);
+                    })
+                ); 
+                this.node.runAction(seq);  
+            }
+            return;
+        }
+        //show rob anime
+        for(let index=0 ; ; index++){
+            if(index>=9 && banker == (robPlayers[index%robPlayers.length])){
+                cc.log("finished grabbing.");
+                let seq = cc.sequence(
+                    cc.delayTime(0.2*index),
+                    cc.callFunc(()=>{
+                        this.players[banker].setBanker(true);
+                        this.players[banker].setShiny();
+                    }),
+                ); 
+                this.node.runAction(seq);  
+                break;
+            }
+            else{   
+                let seq = cc.sequence(
+                    cc.delayTime(0.15*index),
+                    cc.callFunc(()=> this.players[robPlayers[index%robPlayers.length]].setShiny())
+                ); 
+                this.node.runAction(seq);  
+            }                    
+        }
+    }
+
+
 }

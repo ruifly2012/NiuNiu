@@ -67,6 +67,7 @@ export default class Player extends cc.Component
      * @param duration 持續時間
      */
     setShiny(speed: number = 2, duration: number = 0.5){
+        this.shineAnime.stop();
         this.shineAnime.play(speed,true);
         this.scheduleOnce(()=>{
             this.shineAnime.stop();
@@ -74,8 +75,8 @@ export default class Player extends cc.Component
         },duration);
     }
 
-    setBanker(active: boolean = false){
-        this.kingIcon.active = active;
+    setBanker(active: boolean = false, interval: number = 0.15){
+        this.kingIcon.runAction(active? cc.fadeIn(interval): cc.fadeOut(interval));
     }
 
     setStatus(type: Define.BetType, rate: number){

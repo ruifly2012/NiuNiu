@@ -2504,11 +2504,6 @@
     "meta": 1559115614019,
     "relativePath": "Scripts\\GameMgr.ts"
   },
-  "31e35b9d-a53f-48cd-9f83-111670c2515e": {
-    "asset": 1558506221684,
-    "meta": 1559115614559,
-    "relativePath": "Scripts\\UIMgr.ts"
-  },
   "1222803b-49a7-4f13-948f-445f9ed03ab7": {
     "asset": 1558506221679,
     "meta": 1559115614006,
@@ -2719,11 +2714,6 @@
     "meta": 1559115613500,
     "relativePath": "Scripts\\components\\Setting\\HelpMenu.ts"
   },
-  "56e34c40-dc56-43f0-8abd-77f669129d60": {
-    "asset": 1559115524130,
-    "meta": 1559115613386,
-    "relativePath": "Scripts\\components\\Player.ts"
-  },
   "2825bd92-af76-47f0-9e6c-d366f87780f4": {
     "asset": 1559115524126,
     "meta": 1559115612762,
@@ -2788,11 +2778,6 @@
     "asset": 1559117856290,
     "meta": 1559117879192,
     "relativePath": "Scripts\\FSM\\PlaceBet.ts"
-  },
-  "b90360c9-598e-4892-b259-b5a7999c30f0": {
-    "asset": 1559117803269,
-    "meta": 1559117879193,
-    "relativePath": "Scripts\\FSM\\RobBet.ts"
   },
   "e851e89b-faa2-4484-bea6-5c01dd9f06e2": {
     "asset": 1551778908000,
@@ -3013,5 +2998,20 @@
     "asset": 1551778908000,
     "meta": 1559118006073,
     "relativePath": "prefab\\videoplayer.prefab"
+  },
+  "56e34c40-dc56-43f0-8abd-77f669129d60": {
+    "asset": 1559119671053,
+    "meta": 1559119676731,
+    "relativePath": "Scripts\\components\\Player.ts"
+  },
+  "b90360c9-598e-4892-b259-b5a7999c30f0": {
+    "asset": 1559119375268,
+    "meta": 1559119676781,
+    "relativePath": "Scripts\\FSM\\RobBet.ts"
+  },
+  "31e35b9d-a53f-48cd-9f83-111670c2515e": {
+    "asset": 1559119538390,
+    "meta": 1559119676802,
+    "relativePath": "Scripts\\UIMgr.ts"
   }
 }
