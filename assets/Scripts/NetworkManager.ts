@@ -182,11 +182,12 @@ export default class NetworkManager {
             cc.log("response : " + JSON.stringify(data));
             if(data == 200) {
                 // get table success
-                Game.Inst.EventListener.notify("startGame");
+                // Game.Inst.EventListener.notify("startGame");
             }
             switch(data.no){
                 ///////stage info////////////
                 case 6101://rob bet stage info
+                Game.Inst.EventListener.notify("startGame");
                     Game.Inst.EventListener.notify("startRobBetFSM",data);
                     Game.Inst.EventListener.notify("RobBetInfo",data);
                     break;

@@ -59,6 +59,8 @@ export default class PlaceBet extends StateBase {
                 //tell server ==> goto next stage immediate ==> almost can't show
                 UIMgr.Inst.BetUIMgr.placeBetClick(event,0);
             }
+
+            UIMgr.Inst.stopClock();
             //wait server call, so that can show auto rate
             //this.m_FSM.setState(Define.GameState.ChooseCard)
         });

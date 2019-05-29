@@ -66,7 +66,7 @@ export default class RobBet extends StateBase {
                 //tell server ==> goto next stage immediate ==> almost can't show
                 this.robBetClick(event,0);
             }
-            
+            UIMgr.Inst.stopClock();
             //TODO:
             //rob bet anime
             //this.m_FSM.setState(Define.GameState.PlaceBet);

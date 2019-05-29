@@ -27,9 +27,10 @@ export default class Calc extends StateBase {
             if(this.isAllKill()) {
                 this.allKill();
                 delay = 3;
-                cc.warn("delay");
+                //cc.warn("delay");
             }
             this.scheduleOnce(()=>{
+                //cc.warn("money");
                 this.moneyFlow();
                 if(Define.GameInfo.Inst.players[0].win_bet > 0)
                     this.victory()
@@ -58,7 +59,7 @@ export default class Calc extends StateBase {
             //check all kill
             let profit = Define.GameInfo.Inst.players[index].win_bet;
             if(profit > 0){
-                cc.log("not all kill by player"+index);
+                //cc.log("not all kill by player"+index);
                 return false;
             }
         }
@@ -68,15 +69,17 @@ export default class Calc extends StateBase {
     //show banker get and then banker give
     moneyFlow(){
         this.bankerWin(Define.GameInfo.Inst.bankerIndex);
-        this.bankerLose(Define.GameInfo.Inst.bankerIndex);
+        this.scheduleOnce(()=>this.bankerLose(Define.GameInfo.Inst.bankerIndex),1.5);
     }
 
     bankerWin(bankerSeat: number){
+        //cc.log("win, count = "+Define.GameInfo.Inst.playerCount);
         for(let index = 0;index < Define.GameInfo.Inst.playerCount;index++){
             //skip self
             if(index == bankerSeat) continue;
             //check really lose to banker
             let profit = Define.GameInfo.Inst.players[index].win_bet;
+            //cc.log("player"+index+"profit"+profit);
             if(profit < 0){
                 UIMgr.Inst.players[index].moneyChange(profit,40);
                 UIMgr.Inst.animMgr.playCoinFlow(index, bankerSeat, ()=>{
@@ -88,11 +91,13 @@ export default class Calc extends StateBase {
     }
 
     bankerLose(bankerSeat: number){
+        //cc.log("lose, count = "+Define.GameInfo.Inst.playerCount);
         for(let index = 0;index < Define.GameInfo.Inst.playerCount;index++){
             //skip self
             if(index == bankerSeat) continue;
-            //check really lose to banker
+            //check really lose to other
             let profit = Define.GameInfo.Inst.players[index].win_bet;
+            //cc.log("player"+index+"profit"+profit);
             if(profit > 0){
                 UIMgr.Inst.players[bankerSeat].moneyChange(-profit,40);
                 UIMgr.Inst.animMgr.playCoinFlow(bankerSeat, index, ()=>{

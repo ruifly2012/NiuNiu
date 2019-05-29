@@ -73,10 +73,13 @@ export default class AnimMgr extends cc.Component {
     }
 
     playShowAllCardAnim(callback?){
-        //hide complete UI
-        for(let index = 0;index< Define.GameInfo.Inst.playerCount;index++)
-            UIMgr.Inst.CardStatusUIMgr.setComplete(index,false);
         let playerCount = Define.GameInfo.Inst.playerCount;
+        //hide complete UI    consider server delay,delay little(?)
+        this.scheduleOnce(()=>{
+            cc.log("hide"+(playerCount+1)+"player complete");
+            for(let index = 0;index< playerCount;index++)
+            UIMgr.Inst.CardStatusUIMgr.setComplete(index,false);
+        },1)
         cc.warn("playerTotal"+playerCount);
         cc.warn("playing"+0+"type"+Define.GameInfo.Inst.players[0].cardType);
         this.playCardTypeAnim(Define.GameInfo.Inst.players[0].cardType);

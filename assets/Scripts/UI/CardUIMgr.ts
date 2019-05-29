@@ -33,7 +33,7 @@ export default class CardUIMgr extends cc.Component {
             
         }
         this.readyShow = true;
-        cc.warn("activate CardUI" + this.getCard + this.readyShow);
+        //cc.warn("activate CardUI" + this.getCard + this.readyShow);
         if(this.getCard) this.setCard();
 
 
