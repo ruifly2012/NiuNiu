@@ -52,14 +52,15 @@ export default class PlaceBet extends StateBase {
     startCountDown() {
         UIMgr.Inst.setClockAct(5, ()=>{
             if(Define.GameInfo.Inst.bankerIndex != 0){
+                /*
                 //not tell server ==> other player cannot see
                 UIMgr.Inst.BetUIMgr.autoClick();
-                /*
+               */
                 //tell server ==> goto next stage immediate ==> almost can't show
                 UIMgr.Inst.BetUIMgr.placeBetClick(event,0);
-                */
             }
-            this.m_FSM.setState(Define.GameState.ChooseCard)
+            //wait server call, so that can show auto rate
+            //this.m_FSM.setState(Define.GameState.ChooseCard)
         });
     }
 

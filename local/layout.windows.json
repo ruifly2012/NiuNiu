@@ -18,23 +18,23 @@
                 "children": [
                   "hierarchy"
                 ],
-                "height": 429.2124938964844,
+                "height": 427.984375,
                 "type": "panel",
-                "width": 275
+                "width": 274.640625
               },
               {
                 "active": 0,
                 "children": [
                   "assets"
                 ],
-                "height": 332.1750183105469,
+                "height": 331.21875,
                 "type": "panel",
-                "width": 275
+                "width": 274.640625
               }
             ],
-            "height": 763.4000244140625,
+            "height": 761.21875,
             "type": "dock-v",
-            "width": 275
+            "width": 274.640625
           },
           {
             "children": [
@@ -43,9 +43,9 @@
                 "children": [
                   "scene"
                 ],
-                "height": 437.6499938964844,
+                "height": 436.96875,
                 "type": "panel",
-                "width": 894
+                "width": 892.84375
               },
               {
                 "active": 0,
@@ -53,23 +53,23 @@
                   "console",
                   "timeline"
                 ],
-                "height": 323.75,
+                "height": 322.25,
                 "type": "panel",
-                "width": 894
+                "width": 892.84375
               }
             ],
-            "height": 763.4000244140625,
+            "height": 761.21875,
             "type": "dock-v",
-            "width": 894
+            "width": 892.84375
           },
           {
             "active": 0,
             "children": [
               "inspector"
             ],
-            "height": 763.4000244140625,
+            "height": 761.21875,
             "type": "panel",
-            "width": 367
+            "width": 366.515625
           }
         ],
         "type": "dock-h"
@@ -82,8 +82,7 @@
         "inspector",
         "scene"
       ]
-    },
-    "window-1558935647167": {}
+    }
   },
   "panels": {
     "sprite-editor": {

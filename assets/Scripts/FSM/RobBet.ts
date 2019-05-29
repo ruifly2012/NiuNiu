@@ -18,12 +18,15 @@ export default class RobBet extends StateBase {
     
     public stateInitialize(){
         cc.warn("rob!!!");
-         //init playerPoker
-        this.playStartGameAnim(()=>{
+         //paly start game anime when get table success
+        this.playStartGameAnim();
+
+        //listen rob_bet stage event
+        Game.Inst.EventListener.on("startRobBetFSM",()=>{
             UIMgr.Inst.showRobBet(true);
             this.startCountDown();
             this.registerTimeSync();
-        });
+        })
         //listen change stage event
         Game.Inst.EventListener.on("gotoPlaceBet",()=>{
             this.m_FSM.setState(Define.GameState.PlaceBet);
@@ -51,19 +54,22 @@ export default class RobBet extends StateBase {
     }
 
     startCountDown() {
-        UIMgr.Inst.setClockAct(2, ()=>{
+        UIMgr.Inst.setClockAct(5, ()=>{
             if(!this.choosed){
                 cc.log("auto rob");
                 
+                /*
                 //not tell server ==> other player cannot see
                 UIMgr.Inst.players[0].setStatus(Define.BetType.RobBet,0);
+                */
 
-                /*
                 //tell server ==> goto next stage immediate ==> almost can't show
                 this.robBetClick(event,0);
-                */
             }
-            this.m_FSM.setState(Define.GameState.PlaceBet);
+            
+            //TODO:
+            //rob bet anime
+            //this.m_FSM.setState(Define.GameState.PlaceBet);
         });
     }
 

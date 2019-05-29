@@ -78,9 +78,9 @@ export default class NetworkManager {
             "no" : 6001,
             "data" : {"oid": Define.RoomInfo.Inst.game_option_id}//13: 2player
         };//2 player
-        //console.log("table req:"+tableJson); 
+        cc.log("table req:"+tableJson); 
         this._socket.emit("action",tableJson ,function(errCode,message){
-            //console.log("table req callback: "+JSON.stringify(errCode) +"," + message);
+            cc.log("table req callback: "+JSON.stringify(errCode) +"," + JSON.stringify(message));
         })
     }
 
@@ -180,10 +180,14 @@ export default class NetworkManager {
 
         this._socket.on("response", function (data) {
             cc.log("response : " + JSON.stringify(data));
+            if(data == 200) {
+                // get table success
+                Game.Inst.EventListener.notify("startGame");
+            }
             switch(data.no){
                 ///////stage info////////////
                 case 6101://rob bet stage info
-                    Game.Inst.EventListener.notify("startGame");
+                    Game.Inst.EventListener.notify("startRobBetFSM",data);
                     Game.Inst.EventListener.notify("RobBetInfo",data);
                     break;
                 case 6103://place bet stage info

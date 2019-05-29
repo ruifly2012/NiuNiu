@@ -20,7 +20,6 @@ export default class Waiting extends StateBase {
             self.m_FSM.setState(Define.GameState.RobBet);
         });
 
-        
     }
 
     public stateInitialize() {
