@@ -360,7 +360,7 @@
     "relativePath": "resources\\prefabs"
   },
   "4e8207d5-53e5-4834-9904-9432a6d1871d": {
-    "asset": 1558170435725,
+    "asset": 1559130916269,
     "meta": 1554892675706,
     "relativePath": "resources"
   },
@@ -425,7 +425,7 @@
     "relativePath": "resources\\textures\\text\\BetTest_7.png"
   },
   "29deb8c1-326d-400e-9584-33dcbe056e2b": {
-    "asset": 1559130812044,
+    "asset": 1559131968330,
     "meta": 1556947922722,
     "relativePath": "Scripts\\components"
   },
@@ -855,7 +855,7 @@
     "relativePath": "resources\\textures\\Big\\BG01.jpg"
   },
   "c9af9e53-6dc8-43e8-bc78-59f2286beb15": {
-    "asset": 1556957661559,
+    "asset": 1559132924446,
     "meta": 1556957272242,
     "relativePath": "resources\\textures\\waiting"
   },
@@ -3019,14 +3019,14 @@
     "meta": 1559132715853,
     "relativePath": "Scripts\\ResourcesMgr.ts"
   },
-  "31e35b9d-a53f-48cd-9f83-111670c2515e": {
-    "asset": 1559132707588,
-    "meta": 1559132715855,
-    "relativePath": "Scripts\\UIMgr.ts"
-  },
   "abb2db37-98d9-4009-b92a-9bbdd0c10730": {
     "asset": 1559132618460,
     "meta": 1559132715996,
     "relativePath": "resources\\textures\\waiting\\msgTitleBg.png"
+  },
+  "31e35b9d-a53f-48cd-9f83-111670c2515e": {
+    "asset": 1559133464327,
+    "meta": 1559133467073,
+    "relativePath": "Scripts\\UIMgr.ts"
   }
 }

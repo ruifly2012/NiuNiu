@@ -18,23 +18,23 @@
                 "children": [
                   "hierarchy"
                 ],
-                "height": 429.26251220703125,
+                "height": 428.76251220703125,
                 "type": "panel",
-                "width": 275.1125183105469
+                "width": 275
               },
               {
                 "active": 0,
                 "children": [
                   "assets"
                 ],
-                "height": 332.13751220703125,
+                "height": 331.0375061035156,
                 "type": "panel",
-                "width": 275.1125183105469
+                "width": 275
               }
             ],
-            "height": 763.4000244140625,
+            "height": 761.7999877929688,
             "type": "dock-v",
-            "width": 275.1125183105469
+            "width": 275
           },
           {
             "children": [
@@ -43,9 +43,9 @@
                 "children": [
                   "scene"
                 ],
-                "height": 438.57501220703125,
+                "height": 437.875,
                 "type": "panel",
-                "width": 893.5250244140625
+                "width": 894
               },
               {
                 "active": 0,
@@ -53,23 +53,23 @@
                   "console",
                   "timeline"
                 ],
-                "height": 322.82501220703125,
+                "height": 321.9125061035156,
                 "type": "panel",
-                "width": 893.5250244140625
+                "width": 894
               }
             ],
-            "height": 763.4000244140625,
+            "height": 761.7999877929688,
             "type": "dock-v",
-            "width": 893.5250244140625
+            "width": 894
           },
           {
             "active": 0,
             "children": [
               "inspector"
             ],
-            "height": 763.4000244140625,
+            "height": 761.7999877929688,
             "type": "panel",
-            "width": 367.3500061035156
+            "width": 367
           }
         ],
         "type": "dock-h"

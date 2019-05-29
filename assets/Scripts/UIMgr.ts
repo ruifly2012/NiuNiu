@@ -43,8 +43,6 @@ export default class UIMgr extends cc.Component {
     @property(cc.Node)
     continueBtn: cc.Node = null;
 
-    private waiting: cc.Node;
-
     private rob_bet: cc.Node;
     private place_bet: cc.Node;
     private choose_card: cc.Node;
@@ -53,11 +51,9 @@ export default class UIMgr extends cc.Component {
 
     onLoad() {
         UIMgr.instance = this;
-        this.waiting = this.gameUI.children[0];
-        this.rob_bet = this.gameUI.children[1];
-        this.place_bet = this.gameUI.children[2];
-        this.choose_card = this.gameUI.children[3];
-        this.waiting.active = false;
+        this.rob_bet = this.gameUI.children[0];
+        this.place_bet = this.gameUI.children[1];
+        this.choose_card = this.gameUI.children[2];
         this.rob_bet.active = false;
         this.place_bet.active = false;
         this.choose_card.active = false;
