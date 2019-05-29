@@ -15,8 +15,9 @@ export default class Waiting extends StateBase {
     onLoad() {
         let self = this;
         Game.Inst.EventListener.on("startGame",()=>{
+            //hide msg box
+            Game.Inst.utils.hideAllMessageBox();
             //goto rob bet
-            UIMgr.Inst.showWaiting(false);
             self.m_FSM.setState(Define.GameState.RobBet);
         });
 
@@ -27,7 +28,7 @@ export default class Waiting extends StateBase {
         // get table
         Game.Inst.networkMgr.ConnectServer();
         //show waiting UI & hide other player
-        UIMgr.Inst.showWaiting(true);
+        UIMgr.Inst.showWaiting();
         UIMgr.Inst.isPlayersActive(false);
         //UIMgr.Inst.players[0].node.active = true;
         

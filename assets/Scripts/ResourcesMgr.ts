@@ -19,7 +19,7 @@ export default class ResourcesMgr extends cc.Component {
         // ResourceIndex.TW
         let list = [];
         list.push("MobileStatus");
-
+        list.push("waiting");
         list.push("playerIcon");
         list.push("poker");
         list.push("text");

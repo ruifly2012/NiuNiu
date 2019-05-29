@@ -1,6 +1,6 @@
 import Game from "./Game";
 import MassageBoxCtr, { ButtonSetting } from "./components/MessageBoxCtr";
-
+import DotTexLableAnim from "./components/DotTextLabelAnim";
 const { ccclass, property } = cc._decorator;
 
 /**
@@ -55,34 +55,44 @@ export default class Utils extends cc.Component {
      * @param contenttext 提示窗主要顯示文字
      * @param firstbtn 是否有1個BTN
      * @param secondbtn 是否有2個BTN
+     * @param dotanim 中間文字是否播放點動畫
      */
-    createMessageBox(background:cc.SpriteFrame,
-        titletext:cc.SpriteFrame,
-        titlebackground:cc.SpriteFrame,
+    createMessageBox(background: cc.SpriteFrame,
+        titletext: cc.SpriteFrame,
+        titlebackground: cc.SpriteFrame,
         contenttext: string,
         firstbtn?: ButtonSetting,
-        secondbtn?: ButtonSetting)
-    {
+        secondbtn?: ButtonSetting,
+        dotanim?: boolean) {
         let prefabPath = "prefabs/Messagebox";
         let mentionBoxCtr: MassageBoxCtr = null;
 
-        cc.loader.loadRes(prefabPath, (error: Error, prefab) => 
-        {
+        cc.loader.loadRes(prefabPath, (error: Error, prefab) => {
+            if (cc.isValid(error)) {
+                cc.error("messageBox: " + error);
+                return;
+            }
             let root = cc.find("Canvas");
-            let mentionBoxRoot = cc.instantiate(prefab);
+            let mentionBoxRoot:cc.Node = cc.instantiate(prefab);
             mentionBoxRoot.name = "DefaultMessageBox"
             root.addChild(mentionBoxRoot);
             mentionBoxCtr = mentionBoxRoot.getComponent(MassageBoxCtr);
-            let btnSetting: ButtonSetting = new ButtonSetting();
-            
-            if(firstbtn == undefined && secondbtn == undefined)
-                mentionBoxCtr.showMsgContent(background,titletext,titlebackground,contenttext);
-            else if(secondbtn == undefined)
-                mentionBoxCtr.showOneEventContent(background,titletext,titlebackground,contenttext,firstbtn);
+
+            if (firstbtn == undefined && secondbtn == undefined)
+                mentionBoxCtr.showMsgContent(background, titletext, titlebackground, contenttext);
+            else if (secondbtn == undefined)
+                mentionBoxCtr.showOneEventContent(background, titletext, titlebackground, contenttext, firstbtn);
             else
-                mentionBoxCtr.showTwoEventContent(background,titletext,titlebackground,contenttext,firstbtn,secondbtn);
+                mentionBoxCtr.showTwoEventContent(background, titletext, titlebackground, contenttext, firstbtn, secondbtn);
+
+            if (dotanim) {
+                let contentRoot: cc.Node = mentionBoxRoot.getChildByName("panel").getChildByName("content");
+                let dotAnim:DotTexLableAnim = contentRoot.addComponent(DotTexLableAnim);
+                dotAnim.label = contentRoot.getComponent(cc.Label);
+                dotAnim.play();
+            }
         });
-        
+
         return mentionBoxCtr;
     }
 
