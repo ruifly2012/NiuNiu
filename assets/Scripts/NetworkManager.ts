@@ -180,16 +180,19 @@ export default class NetworkManager {
 
         this._socket.on("response", function (data) {
             cc.log("response : " + JSON.stringify(data));
-            if(data == 200) {
+            if(data == 6001) {
                 // get table success
-                // Game.Inst.EventListener.notify("startGame");
+                Game.Inst.EventListener.notify("startGame");
             }
             switch(data.no){
                 ///////stage info////////////
                 case 6101://rob bet stage info
-                Game.Inst.EventListener.notify("startGame");
+                //Game.Inst.EventListener.notify("startGame");
                     Game.Inst.EventListener.notify("startRobBetFSM",data);
                     Game.Inst.EventListener.notify("RobBetInfo",data);
+                    break;
+                case 6108:
+                    self.receiveBanker(data);
                     break;
                 case 6103://place bet stage info
                     self.placeBetStageInfo(data);
@@ -222,13 +225,22 @@ export default class NetworkManager {
     }
 
     /**
-     * 6103
+     * 6108 莊家
+     * @param data 
+     */
+    receiveBanker(data){
+        let bankerIndex =  UIMgr.Inst.getPlayerIndexByUID(data.banker);
+        Define.GameInfo.Inst.bankerIndex = bankerIndex;
+
+        UIMgr.Inst.setDealerAnime(Define.GameInfo.Inst.rob_list,bankerIndex);
+    }
+
+    /**
+     * 6103  after 6108 3s
      * @param data 
      */
     placeBetStageInfo(data){
-        let bankerIndex =  UIMgr.Inst.getPlayerIndexByUID(data.banker);
-        Define.GameInfo.Inst.bankerIndex = bankerIndex;
-        UIMgr.Inst.players[bankerIndex].setBanker(true);
+        cc.log(data);
         //set rate
         UIMgr.Inst.BetUIMgr.setRate(data.main_player.place_bet_list);
         Game.Inst.EventListener.notify("gotoPlaceBet");
@@ -241,6 +253,8 @@ export default class NetworkManager {
      */
     receiveRobBet(data){
         UIMgr.Inst.getPlayerByUID(data.player).setStatus(Define.BetType.RobBet,data.rob_bet);
+        cc.log("push"+UIMgr.Inst.getPlayerIndexByUID(data.player));
+        Define.GameInfo.Inst.rob_list.push(UIMgr.Inst.getPlayerIndexByUID(data.player));
     }
 
     /**
@@ -250,6 +264,8 @@ export default class NetworkManager {
     receivePlaceBet(data){
         UIMgr.Inst.getPlayerByUID(data.player).setStatus(Define.BetType.PlaceBet,data.place_bet);
     }
+
+
 
     /**
      * 6105

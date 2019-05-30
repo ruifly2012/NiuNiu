@@ -61,6 +61,7 @@ export class GameInfo{
     playerCount: number;
     bankerIndex: number;
     token: string;
+    rob_list: number[] = [];
 }
 
 export class RoomInfo{

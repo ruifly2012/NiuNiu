@@ -56,6 +56,10 @@ export default class Player extends cc.Component
         this.money.string = amount.toLocaleString();
     }
 
+    getMoney(): number{
+        return parseInt(this.money.string);
+    }
+
     setName(str: string)
     {
         this.id.string = str;
@@ -94,6 +98,7 @@ export default class Player extends cc.Component
     }
 
     moneyChange(amount: number, moveDis: number = 40){
+        this.scheduleOnce(()=>this.setMoney(this.getMoney()+amount),0.5);
         //amount = Math.random()*1000 - 500;
         //cc.log("change" + amount + "move : " + moveDis);
         let str: string = "";

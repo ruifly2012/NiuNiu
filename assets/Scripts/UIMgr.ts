@@ -155,19 +155,22 @@ export default class UIMgr extends cc.Component {
     /**
      * 搶莊動畫
      * @param robPlayers 有搶莊玩家index列表
-     * @param banker 莊家
+     * @param banker 莊家index
      */
-    setDealer(robPlayers:number[], banker:number){
+    setDealerAnime(robPlayers:number[], banker:number){
         robPlayers.sort();
+        /*
         cc.log(banker);
         cc.log(robPlayers.length);
+      */
+        if(robPlayers.length == 0) return;
         // only one rob bet
         if(robPlayers.length == 1){
             for(let i = 0; i < 3; i++){
                 let seq = cc.sequence(
                     cc.delayTime(0.2*i),
                     cc.callFunc(()=>{
-                        this.players[banker].setShiny(),
+                        this.players[banker].setShiny(4,0.2),
                         this.players[banker].setBanker(true);
                     })
                 ); 
@@ -180,19 +183,19 @@ export default class UIMgr extends cc.Component {
             if(index>=9 && banker == (robPlayers[index%robPlayers.length])){
                 cc.log("finished grabbing.");
                 let seq = cc.sequence(
-                    cc.delayTime(0.2*index),
+                    cc.delayTime(0.15*index),
                     cc.callFunc(()=>{
                         this.players[banker].setBanker(true);
-                        this.players[banker].setShiny();
+                        this.players[banker].setShiny(4,0.15);
                     }),
                 ); 
                 this.node.runAction(seq);  
                 break;
             }
-            else{   
+            else{
                 let seq = cc.sequence(
                     cc.delayTime(0.15*index),
-                    cc.callFunc(()=> this.players[robPlayers[index%robPlayers.length]].setShiny())
+                    cc.callFunc(()=> this.players[robPlayers[index%robPlayers.length]].setShiny(4,0.15))
                 ); 
                 this.node.runAction(seq);  
             }                    

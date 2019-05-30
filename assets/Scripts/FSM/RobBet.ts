@@ -67,8 +67,6 @@ export default class RobBet extends StateBase {
                 this.robBetClick(event,0);
             }
             UIMgr.Inst.stopClock();
-            //TODO:
-            //rob bet anime
             //this.m_FSM.setState(Define.GameState.PlaceBet);
         });
     }
@@ -84,6 +82,7 @@ export default class RobBet extends StateBase {
         Game.Inst.networkMgr.rob_bet(customData);
         UIMgr.Inst.showRobBet(false);
         UIMgr.Inst.players[0].setStatus(Define.BetType.RobBet,customData);
+        Define.GameInfo.Inst.rob_list.push(0);
     }
 
     /**sync time with server */
