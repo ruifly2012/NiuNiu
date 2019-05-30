@@ -1,4 +1,4 @@
-import Game from "./Game";
+import Game, { SessionData } from "./Game";
 import * as Define from "./Define";
 import { GameState } from "./MainStateMgr";
 
@@ -29,6 +29,17 @@ export default class SceneStart extends cc.Component
         //show build ver
         if (window.version != null)
             this.version.string = window.version;
+		
+		let data = sessionStorage.getItem("key");
+        if (data != null)
+        {
+            let session: SessionData = JSON.parse(data);            
+            NetworkMgr.Oid = session.oid.toString();
+            NetworkMgr.Token = session.token;
+
+            cc.warn("login from session data.\nOid: " + NetworkMgr.Oid + "\nToken: " + NetworkMgr.Token);
+            Game.Inst.mainStateMgr.changeStage(GameState.Loading);
+        }
 
         this.editbox_oid.string = "13";
         this.editbox_token.string = Math.floor(Math.random()*10000).toString();

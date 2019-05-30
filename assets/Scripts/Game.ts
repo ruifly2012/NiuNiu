@@ -8,6 +8,26 @@ import MainStateMgr ,{ GameState } from "./MainStateMgr";
 import AnimationMgr from "./AnimationMgrBase";
 import LocalizationMgr from "./LocalizationMgr";
 
+//sessionStorage.setItem("key", JSON.stringify(sessionkey))
+export interface SessionData
+{
+    account: string;
+    nickname: string;
+    gender: boolean;
+    avatar: number;
+
+    token: string;
+    musicVolume: number;
+    effectSoundVolume: number;
+    voiceVolume: number;
+    musicMute: number; // 0 is mute
+    effectSoundMute: number;
+    voiceMute: number;
+
+    gameName: string;
+    oid: number;
+}
+
 /**
  * 遊戲主要控制物件
  */
@@ -22,6 +42,12 @@ export default class Game {
         if (!Game.instance) {
             cc.view.enableAutoFullScreen(false);
             Game.instance = new Game();
+			// TODO
+            // remove this after connect with Lobby
+            // set test session data
+            // Game.instance.setTestSessionData();
+
+            // initial all manager
             Game.instance.mainStateMgr = new MainStateMgr();
             Game.instance.mainStateMgr.init();
             Game.instance.networkMgr = new NetworkMgr();
@@ -57,4 +83,28 @@ export default class Game {
 
     /**紀錄當前遊戲管理者 */
     public currentGameMgr: GameMgrBase;
+	
+	setTestSessionData()
+    {
+        let data: SessionData = 
+        {
+            account: "TestAccount",
+            nickname: "cocos-template",
+            gender: true,
+            avatar: 0,
+    
+            musicVolume: 1.0,
+            effectSoundVolume: 1.0,
+            voiceVolume: 1.0,
+            musicMute: 1,
+            effectSoundMute: 1,
+            voiceMute: 1,
+    
+            gameName: "gameName",
+            oid: 29,
+            token: "a1"
+        };
+
+        sessionStorage.setItem("key", JSON.stringify(data));
+    }
 }

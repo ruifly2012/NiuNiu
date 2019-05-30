@@ -1,5 +1,4 @@
-import Game from "./Game";
-
+import Game, { SessionData } from "./Game";	
 const { ccclass, property } = cc._decorator;
 
 /**
@@ -37,6 +36,18 @@ export default class AudioMgr extends cc.Component {
         this.node = new cc.Node("AudioMgr");
         //cc.game.addPersistRootNode(this.node);
 
+		let data = sessionStorage.getItem("key");
+        if (data != null)
+        {
+            let session: SessionData = JSON.parse(data);
+            cc.sys.localStorage.setItem("holdEffectVolume", session.effectSoundVolume);
+            cc.sys.localStorage.setItem("effectVolume", session.effectSoundMute == 0? 0: session.effectSoundVolume);
+            cc.sys.localStorage.setItem("holdVoiceVolume", session.voiceVolume);
+            cc.sys.localStorage.setItem("voiceVolume", session.voiceMute == 0? 0: session.voiceVolume);
+            cc.sys.localStorage.setItem("holdBgmVolume", session.musicVolume);
+            cc.sys.localStorage.setItem("bgmVolume", session.musicMute == 0? 0: session.musicVolume);
+        }
+		
         let t = cc.sys.localStorage.getItem("holdBgmVolume");
         if (!cc.isValid(t)) {
             this.setBGMVolume(undefined,1.0);
@@ -228,6 +239,15 @@ export default class AudioMgr extends cc.Component {
         }
         cc.sys.localStorage.setItem("holdEffectVolume", this.holdEffectVolume);
         cc.sys.localStorage.setItem("effectVolume", this.effectVolume);
+		
+        let data = sessionStorage.getItem("key");
+        if (data != null)
+        {
+            let session: SessionData = JSON.parse(data);
+            session.effectSoundVolume = this.effectVolume;
+            session.effectSoundMute = this.effectVolume <= 0? 0: 1;
+            sessionStorage.setItem("key", JSON.stringify(session));
+        }
     }
 
     /**
@@ -249,6 +269,14 @@ export default class AudioMgr extends cc.Component {
         }
         cc.sys.localStorage.setItem("holdVoiceVolume", this.holdVoiceVolume);
         cc.sys.localStorage.setItem("voiceVolume", this.voiceVolume);
+		let data = sessionStorage.getItem("key");
+        if (data != null)
+        {
+            let session: SessionData = JSON.parse(data);
+            session.voiceVolume = this.voiceVolume;
+            session.voiceMute = this.voiceVolume <= 0? 0: 1;
+            sessionStorage.setItem("key", JSON.stringify(session));
+        }
     }
 
     /**
@@ -270,6 +298,14 @@ export default class AudioMgr extends cc.Component {
         }
         cc.sys.localStorage.setItem("holdBgmVolume", this.holdBgmVolume);
         cc.sys.localStorage.setItem("bgmVolume", this.bgmVolume);
+		let data = sessionStorage.getItem("key");
+        if (data != null)
+        {
+            let session: SessionData = JSON.parse(data);
+            session.musicVolume = this.bgmVolume;
+            session.musicMute = this.bgmVolume <= 0? 0: 1;
+            sessionStorage.setItem("key", JSON.stringify(session));
+        }
         if (this.bgmAudioID >= 0)
             this.fadeBGM((this.bgmVolume > 0), 0.35);
     }
