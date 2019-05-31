@@ -24,7 +24,7 @@ export default class CardStatusUIMgr extends cc.Component {
     }
 
     setComplete(seat: number, activate: boolean = false){
-        cc.warn(seat+"complete"+activate);
+        //cc.warn(seat+"complete"+activate);
         this.cardStatus[seat].showChoosed(activate);
     }
 

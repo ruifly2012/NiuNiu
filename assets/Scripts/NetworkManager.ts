@@ -63,7 +63,7 @@ export default class NetworkManager {
         };
         this._socket.emit("action",json ,(code,data)=>{
             cc.log("token callback : "+code + data);
-            if(code == 200){
+            if(code == 0){
                 this.getGameTable();
                 //Game.Inst.EventListener.notify("enterGame");
             }
@@ -93,7 +93,7 @@ export default class NetworkManager {
             "no" : no
         };
         this._socket.emit("action",json ,function(code,data){
-            if(code == 200) {
+            if(code == 0) {
                 Game.Inst.EventListener.notify("getTime",data);
             }
             else
@@ -115,7 +115,7 @@ export default class NetworkManager {
         };
         this._socket.emit("action",json ,function(code,data){
             cc.log("code : " + code);
-            if(code != 200) cc.warn("rob_bet error : " + data.error);
+            if(code != 0) cc.warn("rob_bet error : " + data.error);
             else cc.log("rob_bet success");
         })
     }
@@ -133,7 +133,7 @@ export default class NetworkManager {
             }
         };
         this._socket.emit("action",json ,function(code,data){
-            if(code != 200) cc.warn("place_bet error : " + data.error);
+            if(code != 0) cc.warn("place_bet error : " + data.error);
             else cc.log("place_bet success");
         })
     }
@@ -150,7 +150,7 @@ export default class NetworkManager {
             }
         };
         this._socket.emit("action",json ,function(code,data){
-            if(code != 200) cc.warn("chooseCard error : " + data.error);
+            if(code != 0) cc.warn("chooseCard error : " + data.error);
             else cc.log("chooseCard success");
         })
     }
@@ -167,7 +167,7 @@ export default class NetworkManager {
             }
         };
         this._socket.emit("action",json ,function(code,data){
-            if(code == 200) {
+            if(code == 0) {
                 cc.log("send can msg");
             }
             else
@@ -311,7 +311,7 @@ export default class NetworkManager {
             "no" : no
         };
         this._socket.emit("action",json ,function(code,data){
-            if(code != 200) cc.warn("get_record error : " + data);
+            if(code != 0) cc.warn("get_record error : " + data);
             else {
                 cc.log(data);
                 cc.log(code);

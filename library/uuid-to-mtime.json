@@ -2494,11 +2494,6 @@
     "meta": 1559130884124,
     "relativePath": "Scripts\\GameMgr.ts"
   },
-  "1222803b-49a7-4f13-948f-445f9ed03ab7": {
-    "asset": 1558169980953,
-    "meta": 1559130884104,
-    "relativePath": "Scripts\\Game.ts"
-  },
   "658ded4a-586b-424c-970a-a2ea328b3b8a": {
     "asset": 1558170435742,
     "meta": 1558170435725,
@@ -2619,11 +2614,6 @@
     "meta": 1559130880801,
     "relativePath": "resources\\textures\\SettingMenu\\Preload\\CardRate_b.png"
   },
-  "bab4d57c-cd3d-493c-b8b3-eb71b3347665": {
-    "asset": 1558420545592,
-    "meta": 1559130884376,
-    "relativePath": "Scripts\\SceneStart.ts"
-  },
   "798d5d24-b35d-4293-ad42-62dff40032c3": {
     "asset": 1558422731649,
     "meta": 1559130876339,
@@ -2674,11 +2664,6 @@
     "meta": 1559130884500,
     "relativePath": "Font\\money\\MoneyPlus.fnt"
   },
-  "26e905a5-5610-4808-9d53-39ac33af8310": {
-    "asset": 1558841962087,
-    "meta": 1559130882693,
-    "relativePath": "Scripts\\AudioMgr.ts"
-  },
   "2162aeae-d400-434c-b5f0-7fad23d765f7": {
     "asset": 1558841962115,
     "meta": 1559130883618,
@@ -2708,11 +2693,6 @@
     "asset": 1558848844613,
     "meta": 1559130884391,
     "relativePath": "Scripts\\UI\\BetUIMgr.ts"
-  },
-  "e4fa9eb0-9faf-4c08-bf29-88f990861ed8": {
-    "asset": 1558849337874,
-    "meta": 1559130884418,
-    "relativePath": "Scripts\\UI\\CardStatusUIMgr.ts"
   },
   "702980ec-f2c6-4000-b41b-5e294d745a97": {
     "asset": 1558849572236,
@@ -3009,16 +2989,6 @@
     "meta": 1559188227489,
     "relativePath": "Scripts\\Define.ts"
   },
-  "b90360c9-598e-4892-b259-b5a7999c30f0": {
-    "asset": 1559206699158,
-    "meta": 1559206704642,
-    "relativePath": "Scripts\\FSM\\RobBet.ts"
-  },
-  "ebe69aa5-1081-4019-85cb-4a9a01eb83d5": {
-    "asset": 1559208040084,
-    "meta": 1559208171136,
-    "relativePath": "Scripts\\NetworkManager.ts"
-  },
   "56e34c40-dc56-43f0-8abd-77f669129d60": {
     "asset": 1559208289958,
     "meta": 1559208480589,
@@ -3028,5 +2998,35 @@
     "asset": 1559208523075,
     "meta": 1559208524255,
     "relativePath": "Scripts\\UIMgr.ts"
+  },
+  "26e905a5-5610-4808-9d53-39ac33af8310": {
+    "asset": 1559209907777,
+    "meta": 1559210162572,
+    "relativePath": "Scripts\\AudioMgr.ts"
+  },
+  "1222803b-49a7-4f13-948f-445f9ed03ab7": {
+    "asset": 1559209771270,
+    "meta": 1559210162597,
+    "relativePath": "Scripts\\Game.ts"
+  },
+  "bab4d57c-cd3d-493c-b8b3-eb71b3347665": {
+    "asset": 1559210013163,
+    "meta": 1559210162604,
+    "relativePath": "Scripts\\SceneStart.ts"
+  },
+  "e4fa9eb0-9faf-4c08-bf29-88f990861ed8": {
+    "asset": 1559299825712,
+    "meta": 1559299868751,
+    "relativePath": "Scripts\\UI\\CardStatusUIMgr.ts"
+  },
+  "ebe69aa5-1081-4019-85cb-4a9a01eb83d5": {
+    "asset": 1559301515098,
+    "meta": 1559301524785,
+    "relativePath": "Scripts\\NetworkManager.ts"
+  },
+  "b90360c9-598e-4892-b259-b5a7999c30f0": {
+    "asset": 1559302176246,
+    "meta": 1559302241953,
+    "relativePath": "Scripts\\FSM\\RobBet.ts"
   }
 }

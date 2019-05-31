@@ -43,7 +43,7 @@
                 "children": [
                   "scene"
                 ],
-                "height": 438.8000183105469,
+                "height": 439.2250061035156,
                 "type": "panel",
                 "width": 894
               },
@@ -53,7 +53,7 @@
                   "console",
                   "timeline"
                 ],
-                "height": 322.5874938964844,
+                "height": 322.1750183105469,
                 "type": "panel",
                 "width": 894
               }
@@ -83,7 +83,8 @@
         "scene"
       ]
     },
-    "window-1559208692800": {}
+    "window-1559302268237": {},
+    "worker": {}
   },
   "panels": {
     "sprite-editor": {
