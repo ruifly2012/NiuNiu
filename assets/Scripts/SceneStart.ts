@@ -33,11 +33,12 @@ export default class SceneStart extends cc.Component
 		let data = sessionStorage.getItem("key");
         if (data != null)
         {
-            let session: SessionData = JSON.parse(data);            
-            NetworkMgr.Oid = session.oid.toString();
-            NetworkMgr.Token = session.token;
+            let session: SessionData = JSON.parse(data);
 
-            cc.warn("login from session data.\nOid: " + NetworkMgr.Oid + "\nToken: " + NetworkMgr.Token);
+            Define.RoomInfo.Inst.game_option_id = Number(session.oid);
+            Define.GameInfo.Inst.token = session.token;
+
+            cc.warn("login from session data.\nOid: " + session.oid + "\nToken: " + session.token);
             Game.Inst.mainStateMgr.changeStage(GameState.Loading);
         }
 
