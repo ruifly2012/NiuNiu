@@ -16,14 +16,15 @@ export interface SessionData
     gender: boolean;
     avatar: number;
 
-    token: string;
-    musicVolume: number;
-    effectSoundVolume: number;
-    voiceVolume: number;
-    musicMute: number; // 0 is mute
-    effectSoundMute: number;
-    voiceMute: number;
+    MusicVolume: number;
+    EffectSoundVolume: number;
+    VoiceVolume: number;
+    MusicMute: number; // 0 is mute
+    EffectSoundMute: number;
+    VoiceMute: number;
 
+    ip: string;
+    token: string;
     gameName: string;
     oid: number;
 }

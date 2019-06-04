@@ -1,6 +1,7 @@
 import Game, { SessionData } from "./Game";
 import * as Define from "./Define";
 import { GameState } from "./MainStateMgr";
+import NetworkManager from "./NetworkManager";
 
 /*  
     Oid test data
@@ -15,6 +16,7 @@ export default class SceneStart extends cc.Component
     @property(cc.EditBox) editbox_oid: cc.EditBox = null;
     @property(cc.EditBox) editbox_token: cc.EditBox = null;
     @property(cc.Label) version: cc.Label = null;
+    @property(cc.Node) inputField: cc.Node = null;
     
     onLoad()
     {
@@ -37,9 +39,14 @@ export default class SceneStart extends cc.Component
 
             Define.RoomInfo.Inst.game_option_id = Number(session.oid);
             Define.GameInfo.Inst.token = session.token;
+            NetworkManager.serverURL = session.ip;
 
             cc.warn("login from session data.\nOid: " + session.oid + "\nToken: " + session.token);
             Game.Inst.mainStateMgr.changeStage(GameState.Loading);
+        }
+        else
+        {
+            this.inputField.active = true;
         }
 
         this.editbox_oid.string = "13";

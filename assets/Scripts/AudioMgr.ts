@@ -40,12 +40,12 @@ export default class AudioMgr extends cc.Component {
         if (data != null)
         {
             let session: SessionData = JSON.parse(data);
-            cc.sys.localStorage.setItem("holdEffectVolume", session.effectSoundVolume);
-            cc.sys.localStorage.setItem("effectVolume", session.effectSoundMute == 0? 0: session.effectSoundVolume);
-            cc.sys.localStorage.setItem("holdVoiceVolume", session.voiceVolume);
-            cc.sys.localStorage.setItem("voiceVolume", session.voiceMute == 0? 0: session.voiceVolume);
-            cc.sys.localStorage.setItem("holdBgmVolume", session.musicVolume);
-            cc.sys.localStorage.setItem("bgmVolume", session.musicMute == 0? 0: session.musicVolume);
+            cc.sys.localStorage.setItem("holdEffectVolume", session.EffectSoundVolume / 100);
+            cc.sys.localStorage.setItem("effectVolume", session.EffectSoundMute == 0? 0: session.EffectSoundVolume / 100);
+            cc.sys.localStorage.setItem("holdVoiceVolume", session.VoiceVolume / 100);
+            cc.sys.localStorage.setItem("voiceVolume", session.VoiceMute == 0? 0: session.VoiceVolume / 100);
+            cc.sys.localStorage.setItem("holdBgmVolume", session.MusicVolume / 100);
+            cc.sys.localStorage.setItem("bgmVolume", session.MusicMute == 0? 0: session.MusicVolume / 100);
         }
 		
         let t = cc.sys.localStorage.getItem("holdBgmVolume");
