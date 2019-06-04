@@ -81,10 +81,10 @@ export default class Calc extends StateBase {
             let profit = Define.GameInfo.Inst.players[index].win_bet;
             //cc.log("player"+index+"profit"+profit);
             if(profit < 0){
-                UIMgr.Inst.players[index].moneyChange(profit,40);
+                UIMgr.Inst.players[index].moneyChange(profit,40,Define.GameInfo.Inst.players[index].final_coin);
                 UIMgr.Inst.animMgr.playCoinFlow(index, bankerSeat, ()=>{
                     UIMgr.Inst.players[bankerSeat].setShiny();
-                    UIMgr.Inst.players[bankerSeat].moneyChange(-profit,40);
+                    UIMgr.Inst.players[bankerSeat].moneyChange(-profit,40,Define.GameInfo.Inst.players[bankerSeat].final_coin );
                 });
             }
         }
@@ -99,10 +99,10 @@ export default class Calc extends StateBase {
             let profit = Define.GameInfo.Inst.players[index].win_bet;
             //cc.log("player"+index+"profit"+profit);
             if(profit > 0){
-                UIMgr.Inst.players[bankerSeat].moneyChange(-profit,40);
+                UIMgr.Inst.players[bankerSeat].moneyChange(-profit,40, Define.GameInfo.Inst.players[bankerSeat].final_coin);
                 UIMgr.Inst.animMgr.playCoinFlow(bankerSeat, index, ()=>{
                     UIMgr.Inst.players[index].setShiny();
-                    UIMgr.Inst.players[index].moneyChange(profit,40);
+                    UIMgr.Inst.players[index].moneyChange(profit,40, Define.GameInfo.Inst.players[index].final_coin);
                 });
             }
         }

@@ -104,6 +104,8 @@ export class Player{
     cardType: CardType;
     /**結算金額浮動值 */
     win_bet: number;
+    /**結算金額 */
+    final_coin: number;
 
     /**
      * 存player初始資料
@@ -124,6 +126,7 @@ export class Player{
         this.poker = data.cards;
         this.cardType = data.points;
         this.win_bet = data.win_bet;
+        this.final_coin = data.final_coins;
     }
 }
 

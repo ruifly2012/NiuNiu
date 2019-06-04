@@ -170,7 +170,7 @@ export default class UIMgr extends cc.Component {
                 let seq = cc.sequence(
                     cc.delayTime(0.2*i),
                     cc.callFunc(()=>{
-                        this.players[banker].setShiny(4,0.2),
+                        this.players[banker].bankerAnime(),
                         this.players[banker].setBanker(true);
                     })
                 ); 
@@ -186,7 +186,7 @@ export default class UIMgr extends cc.Component {
                     cc.delayTime(0.15*index),
                     cc.callFunc(()=>{
                         this.players[banker].setBanker(true);
-                        this.players[banker].setShiny(4,0.15);
+                        this.players[banker].bankerAnime();
                     }),
                 ); 
                 this.node.runAction(seq);  
@@ -195,7 +195,7 @@ export default class UIMgr extends cc.Component {
             else{
                 let seq = cc.sequence(
                     cc.delayTime(0.15*index),
-                    cc.callFunc(()=> this.players[robPlayers[index%robPlayers.length]].setShiny(4,0.15))
+                    cc.callFunc(()=> this.players[robPlayers[index%robPlayers.length]].bankerAnime())
                 ); 
                 this.node.runAction(seq);  
             }                    

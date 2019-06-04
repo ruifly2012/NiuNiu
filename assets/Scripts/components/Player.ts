@@ -12,6 +12,7 @@ export default class Player extends cc.Component
     @property(cc.Label) money: cc.Label = null;
     @property(cc.Node) kingIcon: cc.Node = null;
     @property(cc.Sprite) status: cc.Sprite  = null;
+    @property(cc.Node) shiny: cc.Node  = null;
     @property(SequenceAnimation) shineAnime: SequenceAnimation = null;
     @property(cc.Label) moneyPlus: cc.Label = null;
     @property(cc.Label) moneyMinus: cc.Label = null;
@@ -35,6 +36,7 @@ export default class Player extends cc.Component
         this.setMoney(money);
         this.setHeadSprite(headSprite);
         this.setBanker(false);
+        this.shiny.opacity = 0;
         this.moneyMinus.string = "";
         this.moneyPlus.string = "";
         this.talkBox.opacity = 255;
@@ -79,6 +81,22 @@ export default class Player extends cc.Component
         },duration);
     }
 
+    /**
+     * 搶莊動畫
+     * @param interval 顯現/隱藏所需時間
+     * @param duration 停留時間
+     */
+    bankerAnime(interval: number = 0.15, duration: number = 0.2){
+        this.shiny.stopAllActions();
+        this.shiny.opacity = 0;
+        let seq =cc.sequence(
+            cc.fadeIn(interval),
+            cc.delayTime(duration),
+            cc.fadeOut(interval)
+        )
+        this.shiny.runAction(seq);
+    }
+
     setBanker(active: boolean = false, interval: number = 0.15){
         this.kingIcon.runAction(active? cc.fadeIn(interval): cc.fadeOut(interval));
     }
@@ -97,8 +115,8 @@ export default class Player extends cc.Component
         this.status.spriteFrame = null;
     }
 
-    moneyChange(amount: number, moveDis: number = 40){
-        this.scheduleOnce(()=>this.setMoney(this.getMoney()+amount),0.5);
+    moneyChange(amount: number, moveDis: number = 40, final_coin: number){
+        this.scheduleOnce(()=>this.setMoney(final_coin),0.5);
         //amount = Math.random()*1000 - 500;
         //cc.log("change" + amount + "move : " + moveDis);
         let str: string = "";
