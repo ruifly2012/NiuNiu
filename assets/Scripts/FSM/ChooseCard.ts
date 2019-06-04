@@ -52,7 +52,7 @@ export default class ChooseCard extends StateBase {
     }
 
     startCountDown() {
-        UIMgr.Inst.setClockAct(15,()=>{
+        UIMgr.Inst.setClockAct(12,()=>{
             this.completeChoose();
             this.m_FSM.setState(Define.GameState.Calc);
         });

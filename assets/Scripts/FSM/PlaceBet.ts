@@ -57,7 +57,7 @@ export default class PlaceBet extends StateBase {
                 UIMgr.Inst.BetUIMgr.autoClick();
                */
                 //tell server ==> goto next stage immediate ==> almost can't show
-                UIMgr.Inst.BetUIMgr.placeBetClick(event,0);
+                UIMgr.Inst.BetUIMgr.placeBetClick(event,0, false);
             }
 
             UIMgr.Inst.stopClock();

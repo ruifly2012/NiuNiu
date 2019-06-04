@@ -31,10 +31,12 @@ export default class Calc extends StateBase {
             }
             this.scheduleOnce(()=>{
                 //cc.warn("money");
-                this.moneyFlow();
-                if(Define.GameInfo.Inst.players[0].win_bet > 0)
-                    this.victory()
-                this.m_FSM.setState(Define.GameState.End);
+                this.moneyFlow(()=>{
+                    if(Define.GameInfo.Inst.players[0].win_bet > 0)
+                        this.victory();
+                    this.scheduleOnce(()=>this.m_FSM.setState(Define.GameState.End),0.5);
+                });
+                
             }, delay);
             
         });
@@ -67,9 +69,11 @@ export default class Calc extends StateBase {
     }
 
     //show banker get and then banker give
-    moneyFlow(){
+    moneyFlow(callback?){
         this.bankerWin(Define.GameInfo.Inst.bankerIndex);
         this.scheduleOnce(()=>this.bankerLose(Define.GameInfo.Inst.bankerIndex),1.5);
+        this.scheduleOnce(()=>this.showMoneyResult(),3);
+        this.scheduleOnce(()=>callback(),4);
     }
 
     bankerWin(bankerSeat: number){
@@ -81,10 +85,10 @@ export default class Calc extends StateBase {
             let profit = Define.GameInfo.Inst.players[index].win_bet;
             //cc.log("player"+index+"profit"+profit);
             if(profit < 0){
-                UIMgr.Inst.players[index].moneyChange(profit,40,Define.GameInfo.Inst.players[index].final_coin);
+                //UIMgr.Inst.players[index].moneyChange(profit,40,Define.GameInfo.Inst.players[index].final_coin);
                 UIMgr.Inst.animMgr.playCoinFlow(index, bankerSeat, ()=>{
                     UIMgr.Inst.players[bankerSeat].setShiny();
-                    UIMgr.Inst.players[bankerSeat].moneyChange(-profit,40,Define.GameInfo.Inst.players[bankerSeat].final_coin );
+                    //UIMgr.Inst.players[bankerSeat].moneyChange(-profit,40,Define.GameInfo.Inst.players[bankerSeat].final_coin );
                 });
             }
         }
@@ -99,13 +103,19 @@ export default class Calc extends StateBase {
             let profit = Define.GameInfo.Inst.players[index].win_bet;
             //cc.log("player"+index+"profit"+profit);
             if(profit > 0){
-                UIMgr.Inst.players[bankerSeat].moneyChange(-profit,40, Define.GameInfo.Inst.players[bankerSeat].final_coin);
+                //UIMgr.Inst.players[bankerSeat].moneyChange(-profit,40, Define.GameInfo.Inst.players[bankerSeat].final_coin);
                 UIMgr.Inst.animMgr.playCoinFlow(bankerSeat, index, ()=>{
                     UIMgr.Inst.players[index].setShiny();
-                    UIMgr.Inst.players[index].moneyChange(profit,40, Define.GameInfo.Inst.players[index].final_coin);
+                    //UIMgr.Inst.players[index].moneyChange(profit,40, Define.GameInfo.Inst.players[index].final_coin);
                 });
             }
         }
+    }
+
+    showMoneyResult(){
+        for(let index = 0;index < Define.GameInfo.Inst.playerCount;index++){
+            UIMgr.Inst.players[index].moneyChange(Define.GameInfo.Inst.players[index].win_bet,40, Define.GameInfo.Inst.players[index].final_coin);
+        }    
     }
 
     allKill(){

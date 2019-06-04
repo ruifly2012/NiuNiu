@@ -29,14 +29,18 @@ export default class BetUIMgr extends cc.Component {
      * 下注倍數
      * @param event 
      * @param index 按壓按鈕編號 
+     * @param send 是否傳出封包
      */
-    placeBetClick(event, index: number){
+    placeBetClick(event, index: number, send: boolean = true){
         //avoid send data twice
         if(this.isChoosed) return;
         this.isChoosed = true;
         
         cc.warn("[place_bet]click"+index+",rate:"+this.rate[index]);
-        Game.Inst.networkMgr.place_bet(this.rate[index]);
+        
+        if(send)
+            Game.Inst.networkMgr.place_bet(this.rate[index]);
+
         UIMgr.Inst.showPlaceBet(false);
         UIMgr.Inst.players[0].setStatus(Define.BetType.PlaceBet,this.rate[index]);
     }

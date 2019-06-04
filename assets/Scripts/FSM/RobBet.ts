@@ -64,7 +64,7 @@ export default class RobBet extends StateBase {
                 */
 
                 //tell server ==> goto next stage immediate ==> almost can't show
-                this.robBetClick(event,"0");
+                this.robBetClick(event,"0", false);
             }
             UIMgr.Inst.stopClock();
             //this.m_FSM.setState(Define.GameState.PlaceBet);
@@ -76,11 +76,14 @@ export default class RobBet extends StateBase {
      * @param event 
      * @param customData rate *use string and cast to number later, or will become type string
      */
-    robBetClick(event, customData: string){
+    robBetClick(event, customData: string, send2Server: boolean = true){
         let rate: number = parseInt(customData);
         this.choosed = true;
         cc.warn("[rob_bet]click"+rate);
-        Game.Inst.networkMgr.rob_bet(rate);
+
+        if(send2Server) 
+            Game.Inst.networkMgr.rob_bet(rate);
+        
         UIMgr.Inst.showRobBet(false);
         UIMgr.Inst.players[0].setStatus(Define.BetType.RobBet,rate);
         Define.GameInfo.Inst.rob_list.push(0);
