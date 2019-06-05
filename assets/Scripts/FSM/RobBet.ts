@@ -18,14 +18,17 @@ export default class RobBet extends StateBase {
     
     public stateInitialize(){
         cc.warn("rob!!!");
-         //paly start game anime when get table success
-        this.playStartGameAnim();
+        //  //paly start game anime when get table success
+        // this.playStartGameAnim();
 
         //listen rob_bet stage event
         Game.Inst.EventListener.on("startRobBetFSM",()=>{
-            UIMgr.Inst.showRobBet(true);
-            this.startCountDown();
-            this.registerTimeSync();
+            //paly start game anime when get table success
+            this.playStartGameAnim(()=>{
+                UIMgr.Inst.showRobBet(true);
+                this.startCountDown();
+                this.registerTimeSync();
+            });
         })
         //listen change stage event
         Game.Inst.EventListener.on("gotoPlaceBet",()=>{
@@ -86,7 +89,9 @@ export default class RobBet extends StateBase {
         
         UIMgr.Inst.showRobBet(false);
         UIMgr.Inst.players[0].setStatus(Define.BetType.RobBet,rate);
-        Define.GameInfo.Inst.rob_list.push(0);
+        
+        if(rate != 0)
+            Define.GameInfo.Inst.rob_list.push(0);
     }
 
     /**sync time with server */

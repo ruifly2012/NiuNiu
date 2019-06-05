@@ -16,13 +16,15 @@ export default class NewScrollBar extends cc.Component {
     }
 
     reset(){
+        cc.warn("reset");
         this.bar.y = this.back.y + this.back.height/2 - 10;
-        if(this.content.height <= this.scrollview.node.height){
+        if(this.content.height <= this.scrollview.node.height+70){
             this.back.active = false;
         }
         else{
             this.back.active = true;
         }
+        cc.warn(this.content.height + "," + this.scrollview.node.height);
     }
 
     callback(){

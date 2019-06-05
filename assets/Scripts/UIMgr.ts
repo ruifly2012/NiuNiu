@@ -163,9 +163,8 @@ export default class UIMgr extends cc.Component {
         cc.log(banker);
         cc.log(robPlayers.length);
       */
-        if(robPlayers.length == 0) return;
-        // only one rob bet
-        if(robPlayers.length == 1){
+        // only one rob bet or no rob
+        if(robPlayers.length <= 1){
             for(let i = 0; i < 3; i++){
                 let seq = cc.sequence(
                     cc.delayTime(0.2*i),

@@ -18,9 +18,8 @@ export default class End extends StateBase {
     
     public stateInitialize(){
         cc.warn("END!!!");
-
         UIMgr.Inst.continueBtn.active = true;
-
+        Define.GameInfo.Inst.endGame = true
     }
 
     public stateRelease(){

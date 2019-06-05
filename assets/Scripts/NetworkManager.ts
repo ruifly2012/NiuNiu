@@ -183,11 +183,11 @@ export default class NetworkManager {
             if(data == 6001) {
                 // get table success
                 Game.Inst.EventListener.notify("startGame");
+                //switch to rob bet
             }
             switch(data.no){
                 ///////stage info////////////
                 case 6101://rob bet stage info
-                //Game.Inst.EventListener.notify("startGame");
                     Game.Inst.EventListener.notify("startRobBetFSM",data);
                     Game.Inst.EventListener.notify("RobBetInfo",data);
                     break;
@@ -254,7 +254,8 @@ export default class NetworkManager {
     receiveRobBet(data){
         UIMgr.Inst.getPlayerByUID(data.player).setStatus(Define.BetType.RobBet,data.rob_bet);
         cc.log("push"+UIMgr.Inst.getPlayerIndexByUID(data.player));
-        Define.GameInfo.Inst.rob_list.push(UIMgr.Inst.getPlayerIndexByUID(data.player));
+        if(data.rob_bet != 0)
+            Define.GameInfo.Inst.rob_list.push(UIMgr.Inst.getPlayerIndexByUID(data.player));
     }
 
     /**

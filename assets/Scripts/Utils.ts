@@ -33,6 +33,9 @@ export default class Utils extends cc.Component {
             let size = cc.view.getVisibleSize();
             cc.warn("getVisibleSize: " + size);
 
+
+            cc.view.setDesignResolutionSize(1920, 1080, cc.ResolutionPolicy.SHOW_ALL);
+            /*
             if (size.height / size.width > 0.5625) {
                 cvs.fitHeight = false;
                 cvs.fitWidth = true;
@@ -41,6 +44,7 @@ export default class Utils extends cc.Component {
                 cvs.fitHeight = true;
                 cvs.fitWidth = false;
             }
+            */
         }
     }
 
