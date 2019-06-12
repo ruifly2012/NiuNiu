@@ -47,8 +47,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.3398148148148148,
-      "y": 0.3398148148148148,
+      "x": 0.2871745887492589,
+      "y": 0.2871745887492589,
       "z": 1
     },
     "_quat": {
@@ -15615,7 +15615,7 @@
     "_id": "47MM2hwVpK26KXjJAqAYqZ"
   },
   {
-    "__type__": "17fe0vVP2ZD7rkvraacM83z",
+    "__type__": "c9fb5qFs5pHqKtTZVUX2wvS",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -15624,8 +15624,10 @@
     "_enabled": true,
     "animName": "CardTypeErrorAnim",
     "clip_name": "card_error",
-    "animator": null,
-    "_id": "cbk4UG3hhFJa9lBuE8qv9o"
+    "animator": {
+      "__id__": 363
+    },
+    "_id": "72JPPubZlG84Eh54CU1Cw2"
   },
   {
     "__type__": "cc.Node",
@@ -16739,19 +16741,6 @@
     "_id": "b1tMEMLYBNupQ5cJlnrueA"
   },
   {
-    "__type__": "17fe0vVP2ZD7rkvraacM83z",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 349
-    },
-    "_enabled": true,
-    "animName": "StartGameAnim",
-    "clip_name": "gameStart",
-    "animator": null,
-    "_id": "4aDpi9agBMDpfwrl89twkS"
-  },
-  {
     "__type__": "cc.Sprite",
     "_name": "",
     "_objFlags": 0,
@@ -16778,6 +16767,21 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_id": "f0LuiaoihC8KPiyfLGq7Qe"
+  },
+  {
+    "__type__": "c9fb5qFs5pHqKtTZVUX2wvS",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 349
+    },
+    "_enabled": true,
+    "animName": "StartGameAnim",
+    "clip_name": "gameSttart",
+    "animator": {
+      "__id__": 400
+    },
+    "_id": "22Z6eW3DhEULcizJXx+edb"
   },
   {
     "__type__": "b31e7n+8eJCla02RaWPItmm",

@@ -30,4 +30,14 @@ export default class MiscHelper {
     static randomInt(min, max): number {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
+
+    /**
+     * 取得反插植結果(回傳0~1之間的數)
+     * @param min 最小值
+     * @param max 最大值
+     * @param ratio ratio between min and max
+     */
+    static inverseLerp(min, max, ratio): number {
+        return cc.misc.clamp01(ratio - min / max - min);
+    }
 }
