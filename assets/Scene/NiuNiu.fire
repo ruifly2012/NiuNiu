@@ -47,8 +47,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.2871745887492589,
-      "y": 0.2871745887492589,
+      "x": 0.3398148148148148,
+      "y": 0.3398148148148148,
       "z": 1
     },
     "_quat": {
@@ -16777,7 +16777,7 @@
     },
     "_enabled": true,
     "animName": "StartGameAnim",
-    "clip_name": "gameSttart",
+    "clip_name": "gameStart",
     "animator": {
       "__id__": 400
     },
