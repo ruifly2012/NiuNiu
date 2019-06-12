@@ -97,6 +97,7 @@ export default class AnimMgr extends cc.Component {
 
     }
 
+    /**各玩家亮牌表演 */
     playShowCardAnim(seat: number, callback?){
         //cc.log("play Type show card"+seat);
         UIMgr.Inst.cardUIMgr.setCard(seat,()=>{
@@ -164,7 +165,7 @@ export default class AnimMgr extends cc.Component {
         
         this.playCoinFlow(from,to,()=>{
             UIMgr.Inst.players[to].setShiny();
-            UIMgr.Inst.players[to].moneyChange(200,40);
+            UIMgr.Inst.players[to].moneyChange(200,40,789);
         });
     }
 

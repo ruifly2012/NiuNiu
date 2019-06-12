@@ -84,7 +84,7 @@ export default class UIMgr extends cc.Component {
         Game.Inst.utils.createMessageBox(
             Game.Inst.resourcesMgr.load("msgBg"),
             Game.Inst.resourcesMgr.load("msgTitleText"),
-            Game.Inst.resourcesMgr.load("msgTitleBg"),
+            Game.Inst.resourcesMgr.load("msgTitleBg1"),
             "正在为您匹配牌桌\n游戏即将开始请耐心等待",
             undefined,
             undefined,

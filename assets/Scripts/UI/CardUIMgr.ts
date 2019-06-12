@@ -41,20 +41,25 @@ export default class CardUIMgr extends cc.Component {
     }
 
     setCard(seat: number = 0,callback?){
+        //set card size
         let cardSize = 0.7;
         if(seat == 0) cardSize = 0.9;
+        //make card look random
+        let cardRandomIndex: number[] = [2,4,0,3,1];
         let pokerVal:number[] = Define.GameInfo.Inst.players[seat].poker;
+        //set card
         for(let index = 0 ;index< 5;index++){
-            let val:PokerValue = Converter.getServerPokerConvert(pokerVal[index]);
+            let val:PokerValue = Converter.getServerPokerConvert(pokerVal[cardRandomIndex[index]]);
             this.pokerRoot.children[index+5*seat].getComponent(Poker).setPokerValue(val.type,val.value, cardSize);
-            this.pokerRoot.children[index+5*seat].getComponent(Poker).flip(0.25,0.1);
+            this.pokerRoot.children[index+5*seat].getComponent(Poker).flip(0.1,0.1);
         }
         if(callback != undefined){
             this.scheduleOnce(function(){
                 callback();
             },0.25);
         }
-        this.registerClickEvent();
+        //clickable when my card set
+        if(seat == 0) this.registerClickEvent();
     }
 
     /**set card clickable */
