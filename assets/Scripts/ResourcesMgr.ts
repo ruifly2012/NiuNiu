@@ -105,14 +105,12 @@ export default class ResourcesMgr extends cc.Component {
                     sequenceSpriteFrame.push(assets[i]);
                     //cc.log(assets[i]);
                 }
-                /*
                 sequenceSpriteFrame.sort((n1, n2) => {
                     let num1 = parseInt(n1.name.split("_", 2)[1]), num2 = parseInt(n2.name.split("_", 2)[1]);
                     if (num1 > num2) return 1;
                     else if (num1 < num2) return -1;
                     else return 0;
                 });
-                */
                 sequenceSpriteFrame.push(null);
 
                 let clip = cc.AnimationClip.createWithSpriteFrames(sequenceSpriteFrame, sequenceSpriteFrame.length);

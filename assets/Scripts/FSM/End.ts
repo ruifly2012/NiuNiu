@@ -31,6 +31,7 @@ export default class End extends StateBase {
     
     continuePress(){
         cc.warn("continue press");
+        Define.GameInfo.Inst.endGame = false;
         Game.Inst.mainStateMgr.changeStage(GameState.Loading);
     }
 }

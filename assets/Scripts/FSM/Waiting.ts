@@ -24,7 +24,7 @@ export default class Waiting extends StateBase {
     }
 
     public stateInitialize() {
-        this.initPlayer();
+        this.initGame();
         // get table
         Game.Inst.networkMgr.ConnectServer();
         //show waiting UI & hide other player
@@ -41,8 +41,9 @@ export default class Waiting extends StateBase {
     public stateUpdate(dt: number) {
     }
 
-    /**init players */
-    initPlayer(){
+    /**init game */
+    initGame(){
+        //init player
         let playerCount = 5;
         //generate player
         let gameInfo: Define.GameInfo = Define.GameInfo.Inst;
@@ -50,6 +51,9 @@ export default class Waiting extends StateBase {
         for (let index = 0; index < playerCount; index++) {
             gameInfo.players.push(new Define.Player());
         }
+        //GameInfo init
+        Define.GameInfo.Inst.endGame = false;
+        Define.GameInfo.Inst.rob_list = [];
     }
 
     
