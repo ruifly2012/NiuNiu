@@ -177,6 +177,7 @@ export default class UIMgr extends cc.Component {
             }
             return;
         }
+        /*
         //show rob anime
         for(let index=0 ; ; index++){
             if(index>=9 && banker == (robPlayers[index%robPlayers.length])){
@@ -199,6 +200,35 @@ export default class UIMgr extends cc.Component {
                 this.node.runAction(seq);  
             }                    
         }
+        */
+
+        //from SG
+        let round:number = 0;
+        while(round+robPlayers.length<=10) round+=robPlayers.length;
+        round+=(banker+1);
+        let t:number = 1.5/round;
+        for(let cnt=0 ; ; cnt++){
+            if(cnt+1==round){     //多人搶莊則數到超過九次就可停止(大約1.5秒)
+                cc.log("finished grabbing.");
+                let seq = cc.sequence(
+                    cc.delayTime(t*cnt),
+                    cc.callFunc(()=>{
+                        this.players[banker].setBanker(true);
+                        this.players[banker].bankerAnime(t);
+                    }),
+                ); 
+                this.node.runAction(seq);  
+                break;
+            }
+            else{   
+                let seq = cc.sequence(
+                    cc.delayTime(t*cnt),
+                    cc.callFunc(()=>this.players[robPlayers[cnt%robPlayers.length]].bankerAnime(t))
+                ); 
+                this.node.runAction(seq);  
+            }                    
+        }
+
     }
 
 

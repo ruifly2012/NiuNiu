@@ -27,7 +27,15 @@ export default class GameMgr extends GameMgrBase
         cc.log("QUIT");
         if (Define.GameInfo.Inst.endGame == true){
             Game.Inst.EventListener.clear();
-            cc.director.loadScene("scene_start");
+            let data = sessionStorage.getItem("key");
+            if (data != null){
+                var url = window.location.href
+                var arr = url.split("/");
+                window.open(arr[0] + '//' + arr[2] + '/index.html','_self');
+            }
+            else{
+                cc.director.loadScene("scene_start");
+            }
         }
         else{
             let BtnSet: ButtonSetting = new ButtonSetting();

@@ -86,13 +86,17 @@ export default class Player extends cc.Component
      * @param interval 顯現/隱藏所需時間
      * @param duration 停留時間
      */
-    bankerAnime(interval: number = 0.15, duration: number = 0.2){
+    bankerAnime(duration: number = 0.1){
         this.shiny.stopAllActions();
         this.shiny.opacity = 0;
         let seq =cc.sequence(
-            cc.fadeIn(interval),
+            cc.callFunc(() => {
+                this.shiny.opacity = 255;
+            }),
             cc.delayTime(duration),
-            cc.fadeOut(interval)
+            cc.callFunc(() => {
+                this.shiny.opacity = 0;
+            })
         )
         this.shiny.runAction(seq);
     }

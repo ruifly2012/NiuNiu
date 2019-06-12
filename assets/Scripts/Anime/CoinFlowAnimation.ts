@@ -106,6 +106,9 @@ export default class CoinFlowAnimation extends AnimationBase {
 
             //set start position
             let action:cc.ActionInstant = cc.sequence(
+                cc.callFunc(()=>
+                    node.opacity = 255
+                ),
                 cc.place(fromPos),
                 cc.delayTime(delay),
                 cc.bezierTo(Interval, path),
