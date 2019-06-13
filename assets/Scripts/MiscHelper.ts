@@ -1,4 +1,4 @@
-import Game from "./Game";
+﻿import Game from "./Game";
 import { GameState } from "./MainStateMgr";
 
 /**
@@ -43,10 +43,10 @@ export default class MiscHelper {
 
     static getServerRoomName(roomName: string): string {
         switch (roomName) {
-            case "入門": return "a";
-            case "初級": return "b";
-            case "中級": return "c";
-            case "高級": return "d";
+            case "入门厅": return "a";
+            case "初级厅": return "b";
+            case "中级厅": return "c";
+            case "高级厅": return "d";
         }
         return "a";
     }
