@@ -40,4 +40,14 @@ export default class MiscHelper {
     static inverseLerp(min, max, ratio): number {
         return cc.misc.clamp01(ratio - min / max - min);
     }
+
+    static getServerRoomName(roomName: string): string {
+        switch (roomName) {
+            case "入門": return "a";
+            case "初級": return "b";
+            case "中級": return "c";
+            case "高級": return "d";
+        }
+        return "a";
+    }
 }

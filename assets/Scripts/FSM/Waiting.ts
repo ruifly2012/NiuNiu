@@ -24,25 +24,8 @@ export default class Waiting extends StateBase {
     }
 
     public stateInitialize() {
-        this.initGame();
-        // get table
-        Game.Inst.networkMgr.ConnectServer();
-        //show waiting UI & hide other player
-        UIMgr.Inst.showWaiting();
-        UIMgr.Inst.isPlayersActive(false);
-        //UIMgr.Inst.players[0].node.active = true;
-        
-        // //send game ask
-        // Game.Inst.networkMgr.getGameTable();
-    }
-
-    public stateRelease() {
-    }
-    public stateUpdate(dt: number) {
-    }
-
-    /**init game */
-    initGame(){
+        cc.warn("initialize");
+        ////init game
         //init player
         let playerCount = 5;
         //generate player
@@ -54,8 +37,15 @@ export default class Waiting extends StateBase {
         //GameInfo init
         Define.GameInfo.Inst.endGame = false;
         Define.GameInfo.Inst.rob_list = [];
+        //init UI
+        UIMgr.Inst.initUI();
+        // get table
+        Game.Inst.networkMgr.ConnectServer();
     }
 
-    
+    public stateRelease() {
+    }
+    public stateUpdate(dt: number) {
+    }
 
 }

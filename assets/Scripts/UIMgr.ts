@@ -6,6 +6,8 @@ import Clock from "./components/Clock";
 import CardUIMgr from "./UI/CardUIMgr";
 import CardStatusUIMgr from "./UI/CardStatusUIMgr";
 import BetUIMgr from "./UI/BetUIMgr";
+import RoomInfo from "./UI/RoomInfo";
+import MiscHelper from "./MiscHelper";
 
 const { ccclass, property } = cc._decorator;
 
@@ -43,11 +45,13 @@ export default class UIMgr extends cc.Component {
     @property(cc.Node)
     continueBtn: cc.Node = null;
 
+    //roomInfo
+    @property(RoomInfo)
+    roomInfo: RoomInfo = null;
+
     private rob_bet: cc.Node;
     private place_bet: cc.Node;
     private choose_card: cc.Node;
-    
-    
 
     onLoad() {
         UIMgr.instance = this;
@@ -78,6 +82,13 @@ export default class UIMgr extends cc.Component {
                 return index;
         }
         return undefined;
+    }
+
+    initUI(){
+        //show waiting UI & hide other player
+        this.showWaiting();
+        this.isPlayersActive(false);
+        this.roomInfo.init();
     }
 
     showWaiting(){
@@ -127,6 +138,12 @@ export default class UIMgr extends cc.Component {
     receiveRobBetInfo(data){
         cc.warn("RobBet"+JSON.stringify(data));
         Define.RoomInfo.Inst.assign(data.room);
+        //room info
+        this.roomInfo.setRoomInfo(data.room.id);
+        this.roomInfo.setRoomName(MiscHelper.getServerRoomName(data.room.room_name));
+        this.roomInfo.setAntes(data.room.bet);
+        this.roomInfo.setVisible(true);
+        //player data
         Define.GameInfo.Inst.players[0].initData(data.main_player);
         //get other player data
         let playerIndex = 0;
