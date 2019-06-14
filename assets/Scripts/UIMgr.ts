@@ -187,6 +187,7 @@ export default class UIMgr extends cc.Component {
                     cc.delayTime(0.2*i),
                     cc.callFunc(()=>{
                         this.players[banker].bankerAnime(),
+                        Game.Inst.animationMgr.play("banker"+banker, 1,false); 
                         this.players[banker].setBanker(true);
                     })
                 ); 
@@ -230,6 +231,7 @@ export default class UIMgr extends cc.Component {
                 let seq = cc.sequence(
                     cc.delayTime(t*cnt),
                     cc.callFunc(()=>{
+                        Game.Inst.animationMgr.play("banker"+banker, 1,false);
                         this.players[banker].setBanker(true);
                         this.players[banker].bankerAnime(t);
                     }),

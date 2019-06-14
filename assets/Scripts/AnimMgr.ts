@@ -102,6 +102,7 @@ export default class AnimMgr extends cc.Component {
         //cc.log("play Type show card"+seat);
         UIMgr.Inst.cardUIMgr.setCard(seat,()=>{
             UIMgr.Inst.CardStatusUIMgr.setType(seat,Define.GameInfo.Inst.players[seat].cardType);
+            cc.warn("setType"+seat);
             this.scheduleOnce(function(){
                 cc.warn("playing"+seat+"type"+Define.GameInfo.Inst.players[seat].cardType);
                 this.playCardTypeAnim(Define.GameInfo.Inst.players[seat].cardType, callback);
