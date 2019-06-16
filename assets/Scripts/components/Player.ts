@@ -1,4 +1,4 @@
-import Game from "../Game";
+﻿import Game from "../Game";
 import Converter, * as Define from "../Define";
 import SequenceAnimation from "./animation/SequenceAnimation";
 
@@ -146,8 +146,15 @@ export default class Player extends cc.Component
     talk(index: number) {
 
         let showString: string = Game.Inst.text.get("TalkMenu" + index.toString());
+	let voiceName: string = "voice_Talk_b";
         this.talkBoxText.string = showString;
+        if(this.gender == "female"){
+            voiceName = "voice_Talk_g";
+        }
+        voiceName += index.toString();
+        
 
+        //animation setting
         let showT: number = 0.2;
         let delayT: number = 3;
         let outT: number = 0.2;
@@ -162,7 +169,10 @@ export default class Player extends cc.Component
                 this.talkBoxText.node.position = cc.v2(40, 66);
             }),
             cc.scaleTo(showT, this.talkBox.scaleX, 1).easing(cc.easeBezierAction(0, 1, 1.12, 1)),
-            cc.delayTime(delayT),
+            cc.callFunc(()=>{
+                Game.Inst.audioMgr.playVoice(voiceName);
+            }),
+	    cc.delayTime(delayT),
             cc.fadeOut(outT).easing(cc.easeCubicActionOut()),
             cc.callFunc(() => {
                 this.talkBox.scaleY = 0;

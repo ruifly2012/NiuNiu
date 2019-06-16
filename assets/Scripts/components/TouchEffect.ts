@@ -5,7 +5,7 @@ const {ccclass, property} = cc._decorator;
 @ccclass
 export default class TouchEffect extends cc.Component {
 
-    @property(String) clickSound: string = "SFX_001_Click";
+    @property(String) clickSound: string = "SFX_NormClick";
     btn: cc.Button = null;
 
     start () {

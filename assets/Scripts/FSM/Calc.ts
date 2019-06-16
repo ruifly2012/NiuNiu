@@ -88,6 +88,7 @@ export default class Calc extends StateBase {
                 //UIMgr.Inst.players[index].moneyChange(profit,40,Define.GameInfo.Inst.players[index].final_coin);
                 UIMgr.Inst.animMgr.playCoinFlow(index, bankerSeat, ()=>{
                     UIMgr.Inst.players[bankerSeat].setShiny();
+                    Game.Inst.audioMgr.playEffect("effect_getMoney");
                     //UIMgr.Inst.players[bankerSeat].moneyChange(-profit,40,Define.GameInfo.Inst.players[bankerSeat].final_coin );
                 });
             }
@@ -106,6 +107,7 @@ export default class Calc extends StateBase {
                 //UIMgr.Inst.players[bankerSeat].moneyChange(-profit,40, Define.GameInfo.Inst.players[bankerSeat].final_coin);
                 UIMgr.Inst.animMgr.playCoinFlow(bankerSeat, index, ()=>{
                     UIMgr.Inst.players[index].setShiny();
+                    Game.Inst.audioMgr.playEffect("effect_getMoney");
                     //UIMgr.Inst.players[index].moneyChange(profit,40, Define.GameInfo.Inst.players[index].final_coin);
                 });
             }
@@ -113,6 +115,7 @@ export default class Calc extends StateBase {
     }
 
     showMoneyResult(){
+        Game.Inst.audioMgr.playEffect("effect_profit");
         for(let index = 0;index < Define.GameInfo.Inst.playerCount;index++){
             UIMgr.Inst.players[index].moneyChange(Define.GameInfo.Inst.players[index].win_bet,40, Define.GameInfo.Inst.players[index].final_coin);
         }    

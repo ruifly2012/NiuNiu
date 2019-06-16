@@ -19,7 +19,8 @@ export default class GameMgr extends GameMgrBase
 
     startStateMachine() {
         this.FSM.setState(Define.GameState.Waiting);
-        //生成GameInfo物件
+        //BGM
+        UIMgr.Inst.AudioMgr.playBGM();
     }
 
     quitBtnClick() 

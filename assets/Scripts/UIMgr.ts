@@ -8,6 +8,7 @@ import CardStatusUIMgr from "./UI/CardStatusUIMgr";
 import BetUIMgr from "./UI/BetUIMgr";
 import RoomInfo from "./UI/RoomInfo";
 import MiscHelper from "./MiscHelper";
+import NNAudioMgr from "./NNAudioMgr";
 
 const { ccclass, property } = cc._decorator;
 
@@ -31,6 +32,8 @@ export default class UIMgr extends cc.Component {
     @property(CardUIMgr) cardUIMgr: CardUIMgr = null;
 
     @property(CardStatusUIMgr) CardStatusUIMgr: CardStatusUIMgr = null;
+
+    @property(NNAudioMgr) AudioMgr: NNAudioMgr = null;
 
     @property(BetUIMgr) BetUIMgr: BetUIMgr = null;
 
@@ -189,6 +192,7 @@ export default class UIMgr extends cc.Component {
                         this.players[banker].bankerAnime(),
                         Game.Inst.animationMgr.play("banker"+banker, 1,false); 
                         this.players[banker].setBanker(true);
+                        Game.Inst.audioMgr.playEffect("effect_banker");
                     })
                 ); 
                 this.node.runAction(seq);  

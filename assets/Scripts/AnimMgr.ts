@@ -28,9 +28,11 @@ export default class AnimMgr extends cc.Component {
                 callback();
             }
         })
+        Game.Inst.audioMgr.playEffect("effect_startGame");
     }
 
     playCardTypeError(){
+        Game.Inst.audioMgr.playEffect("effect_cardError");
         Game.Inst.animationMgr.play("CardTypeErrorAnim", 0.2,false,()=>{cc.warn("cardErrorAnim finish");}); 
     }
 
@@ -66,6 +68,7 @@ export default class AnimMgr extends cc.Component {
     playDistributePoker(callback?) {
         //set player number
         this.pokerAnime.playerCount = Define.GameInfo.Inst.playerCount;
+        Game.Inst.audioMgr.playEffect("effect_distribute");
         Game.Inst.animationMgr.play("DistributePokerAnim", 3, false, () => {
             if (callback != undefined)
                 callback();
@@ -132,6 +135,7 @@ export default class AnimMgr extends cc.Component {
     }
 
     playVictory(callback?){
+        Game.Inst.audioMgr.playEffect("effect_victory");
         Game.Inst.animationMgr.play("victory", 0.7,false, callback);
     }
 

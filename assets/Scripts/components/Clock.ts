@@ -11,7 +11,12 @@ export default class Clock extends cc.Component {
     @property(Number) shakeAngle: number = 7;
 
     isActive: boolean = false;
+    /**是否靜音 */
+    isMute: boolean = false;
+    /**是否啟動倒數音效 */
+    isNoisy: boolean = false;
     countDown: number = 0;
+    private noisyAudioID: number = -1;
     timer?;
     onFinished?;
 
@@ -30,6 +35,11 @@ export default class Clock extends cc.Component {
         this.timer = null;
         this.isActive = false;
         this.node.opacity = 0;
+	//init audio
+	Game.Inst.audioMgr.stopEffect(this.noisyAudioID);
+        this.noisyAudioID = -1;
+        this.isMute = false;
+        this.isNoisy = false;
     }
 
     startCountDown(times: number, callback?) {
@@ -83,6 +93,18 @@ export default class Clock extends cc.Component {
                 ),
             );
             this.bg.runAction(action);
+	    this.setNoisy();
+        }
+    }
+
+    private setNoisy() {
+        if (!this.isNoisy) {
+            if (!this.isMute) {
+                Game.Inst.audioMgr.playEffect("effect_CS", true, 1, (audioid) => {
+                    this.noisyAudioID = audioid;
+                });
+            }
+            this.isNoisy = true;
         }
     }
 }

@@ -1,4 +1,5 @@
-import Game, { SessionData } from "./Game";	
+﻿import Game, { SessionData } from "./Game";
+
 const { ccclass, property } = cc._decorator;
 
 /**
@@ -31,12 +32,14 @@ export default class AudioMgr extends cc.Component {
     /**已播放音效暫存區 */
     cooldown = [];
 
+    effectIdList: number[] = [];
+
     // use this for initialization
     init() {
         this.node = new cc.Node("AudioMgr");
         //cc.game.addPersistRootNode(this.node);
 
-		let data = sessionStorage.getItem("key");
+        let data = sessionStorage.getItem("key");
         if (data != null)
         {
             let session: SessionData = JSON.parse(data);
@@ -47,10 +50,10 @@ export default class AudioMgr extends cc.Component {
             cc.sys.localStorage.setItem("holdBgmVolume", session.MusicVolume / 100);
             cc.sys.localStorage.setItem("bgmVolume", session.MusicMute == 0? 0: session.MusicVolume / 100);
         }
-		
+
         let t = cc.sys.localStorage.getItem("holdBgmVolume");
         if (!cc.isValid(t)) {
-            this.setBGMVolume(undefined,1.0);
+            this.setBGMVolume(undefined, 1.0);
         }
         else {
             this.holdBgmVolume = parseFloat(t);
@@ -58,7 +61,7 @@ export default class AudioMgr extends cc.Component {
 
         t = cc.sys.localStorage.getItem("bgmVolume");
         if (!cc.isValid(t)) {
-            this.setBGMVolume(undefined,1.0);
+            this.setBGMVolume(undefined, 1.0);
         }
         else {
             this.bgmVolume = parseFloat(t);
@@ -66,7 +69,7 @@ export default class AudioMgr extends cc.Component {
 
         t = cc.sys.localStorage.getItem("holdEffectVolume");
         if (!cc.isValid(t)) {
-            this.setEffectVolume(undefined,1.0);
+            this.setEffectVolume(undefined, 1.0);
         }
         else {
             this.holdEffectVolume = parseFloat(t);
@@ -74,7 +77,7 @@ export default class AudioMgr extends cc.Component {
 
         t = cc.sys.localStorage.getItem("effectVolume");
         if (!cc.isValid(t)) {
-            this.setEffectVolume(undefined,1.0);
+            this.setEffectVolume(undefined, 1.0);
         }
         else {
             this.effectVolume = parseFloat(t);
@@ -82,7 +85,7 @@ export default class AudioMgr extends cc.Component {
 
         t = cc.sys.localStorage.getItem("holdVoiceVolume");
         if (!cc.isValid(t)) {
-            this.setVoiceVolume(undefined,1.0);
+            this.setVoiceVolume(undefined, 1.0);
         }
         else {
             this.holdVoiceVolume = parseFloat(t);
@@ -90,7 +93,7 @@ export default class AudioMgr extends cc.Component {
 
         t = cc.sys.localStorage.getItem("voiceVolume");
         if (!cc.isValid(t)) {
-            this.setVoiceVolume(undefined,1.0);
+            this.setVoiceVolume(undefined, 1.0);
         }
         else {
             this.voiceVolume = parseFloat(t);
@@ -108,8 +111,8 @@ export default class AudioMgr extends cc.Component {
     }
 
     /**取得BGM/音效存放路徑 */
-    getUrl(url) {
-        return cc.url.raw("resources/sfx/" + url + ".mp3");
+    getUrl(url, fileType: string = "mp3") {
+        return cc.url.raw("resources/sfx/" + url + "." + fileType);
     }
 
     /**
@@ -117,8 +120,9 @@ export default class AudioMgr extends cc.Component {
      * @param url BGM路徑
      */
     playBGM(url) {
-        let audioUrl = this.getUrl(url);
-        if (this.bgmUrl !== "" && this.bgmUrl === audioUrl)
+        cc.warn("BGM");
+        let audioUrl = this.getUrl(url, "wav");
+        if (this.bgmUrl != "" && this.bgmUrl == audioUrl)
             return;
 
         this.bgmUrl = audioUrl;
@@ -142,13 +146,24 @@ export default class AudioMgr extends cc.Component {
     }
 
     /**
+     * 停止BGM
+     */
+    stopBGM() {
+        cc.audioEngine.stop(this.bgmAudioID);
+        this.bgmAudioID = -1;
+        this.bgmUrl = "";
+    }
+
+    /**
      * 播放音效
      * @param url 音效路徑
+     * @param loop 重複音效
      * @param volume 音效音量
+     * @param playCallback 取得播放音效之audioID callback
      */
-    playEffect(url, volume = 1.0) {
+    playEffect(url, loop: boolean = false, volume = 1.0, playCallback?: (audioid: number) => void) {
         for (let i = 0; i < this.cooldown.length; i++) {
-            if (this.cooldown[i] === url)
+            if (this.cooldown[i] == url)
                 return;
         }
 
@@ -160,12 +175,35 @@ export default class AudioMgr extends cc.Component {
                 this.cooldown.splice(idx, 1);
         }, 0.5);
 
-        let audioUrl = this.getUrl(url);
+        let audioUrl = this.getUrl(url,"wav");
         if (this.effectVolume > 0) {
             //ResourceMgr需管裡資源
             cc.loader.load(audioUrl, function (err, clip) {
-                let audioId = cc.audioEngine.play(clip, false, this.effectVolume * volume);
+                let audioId = cc.audioEngine.play(clip, loop, this.effectVolume * volume);
+                this.effectIdList.push(audioId);
+                if (!loop) {
+                    cc.audioEngine.setFinishCallback(audioId, () => {
+                        let idx = this.effectIdList.indexOf(audioId);
+                        if (idx > -1)
+                            this.effectIdList.splice(idx, 1);
+                    })
+                }
+                if(playCallback != undefined){
+                    playCallback(audioId);
+                }
             }.bind(this));
+        }
+    }
+
+    /**
+     * 關閉指定音效
+     * @param audioid 音效ID
+     */
+    stopEffect(audioid: number) {
+        let idx = this.effectIdList.indexOf(audioid);
+        if (idx > -1) {
+            this.effectIdList.splice(idx, 1);
+            cc.audioEngine.stop(audioid);
         }
     }
 
@@ -189,10 +227,10 @@ export default class AudioMgr extends cc.Component {
         }, 0.5);
 
         let audioUrl = this.getUrl(url);
-        if (this.effectVolume > 0) {
+        if (this.voiceVolume > 0) {
             //ResourceMgr需管裡資源
             cc.loader.load(audioUrl, function (err, clip) {
-                let audioId = cc.audioEngine.play(clip, false, this.effectVolume * volume);
+                let audioId = cc.audioEngine.play(clip, false, this.voiceVolume * volume);
             }.bind(this));
         }
     }
@@ -239,13 +277,13 @@ export default class AudioMgr extends cc.Component {
         }
         cc.sys.localStorage.setItem("holdEffectVolume", this.holdEffectVolume);
         cc.sys.localStorage.setItem("effectVolume", this.effectVolume);
-		
+
         let data = sessionStorage.getItem("key");
         if (data != null)
         {
             let session: SessionData = JSON.parse(data);
-            session.effectSoundVolume = this.effectVolume;
-            session.effectSoundMute = this.effectVolume <= 0? 0: 1;
+            session.EffectSoundVolume = Math.round(this.effectVolume * 100);
+            session.EffectSoundMute = this.effectVolume <= 0? 0: 1;
             sessionStorage.setItem("key", JSON.stringify(session));
         }
     }
@@ -269,12 +307,13 @@ export default class AudioMgr extends cc.Component {
         }
         cc.sys.localStorage.setItem("holdVoiceVolume", this.holdVoiceVolume);
         cc.sys.localStorage.setItem("voiceVolume", this.voiceVolume);
-		let data = sessionStorage.getItem("key");
+        
+        let data = sessionStorage.getItem("key");
         if (data != null)
         {
             let session: SessionData = JSON.parse(data);
-            session.voiceVolume = this.voiceVolume;
-            session.voiceMute = this.voiceVolume <= 0? 0: 1;
+            session.VoiceVolume = Math.round(this.voiceVolume * 100);
+            session.VoiceMute = this.voiceVolume <= 0? 0: 1;
             sessionStorage.setItem("key", JSON.stringify(session));
         }
     }
@@ -298,14 +337,16 @@ export default class AudioMgr extends cc.Component {
         }
         cc.sys.localStorage.setItem("holdBgmVolume", this.holdBgmVolume);
         cc.sys.localStorage.setItem("bgmVolume", this.bgmVolume);
-		let data = sessionStorage.getItem("key");
+
+        let data = sessionStorage.getItem("key");
         if (data != null)
         {
             let session: SessionData = JSON.parse(data);
-            session.musicVolume = this.bgmVolume;
-            session.musicMute = this.bgmVolume <= 0? 0: 1;
+            session.MusicVolume = Math.round(this.bgmVolume * 100);
+            session.MusicMute = this.bgmVolume <= 0? 0: 1;
             sessionStorage.setItem("key", JSON.stringify(session));
         }
+
         if (this.bgmAudioID >= 0)
             this.fadeBGM((this.bgmVolume > 0), 0.35);
     }

@@ -76,7 +76,7 @@ export default class ResourcesMgr extends cc.Component {
             //cc.log("[Resources] Load " + name + " success");
             return this.spriteFrame[name];
         }
-        cc.log("load fail");
+        cc.log("load fail"+name);
         return null;
     }
 
