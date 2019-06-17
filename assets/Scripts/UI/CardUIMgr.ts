@@ -44,12 +44,10 @@ export default class CardUIMgr extends cc.Component {
         //set card size
         let cardSize = 0.7;
         if(seat == 0) cardSize = 0.9;
-        //make card look random
-        let cardRandomIndex: number[] = [2,4,0,3,1];
         let pokerVal:number[] = Define.GameInfo.Inst.players[seat].poker;
         //set card
         for(let index = 0 ;index< 5;index++){
-            let val:PokerValue = Converter.getServerPokerConvert(pokerVal[cardRandomIndex[index]]);
+            let val:PokerValue = Converter.getServerPokerConvert(pokerVal[index]);
             this.pokerRoot.children[index+5*seat].getComponent(Poker).setPokerValue(val.type,val.value, cardSize);
             this.pokerRoot.children[index+5*seat].getComponent(Poker).flip(0.1,0.1);
         }
