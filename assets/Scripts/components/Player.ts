@@ -18,6 +18,7 @@ export default class Player extends cc.Component
     @property(cc.Label) moneyMinus: cc.Label = null;
     @property(cc.Node) talkBox: cc.Node = null;
     private talkBoxText: cc.Label = null;
+    private gender: string = "female";
     
     start() 
     {
@@ -27,15 +28,16 @@ export default class Player extends cc.Component
         let id = "test id";
         let icon = "headIcon" + (Math.floor(Math.random() * 16) + 1);
         let credit = Math.floor(Math.random() * 1000000); 
-        this.init(id, icon, credit);
+        this.init(id, icon, credit, "female");
     }
 
-    init(id: string, headSprite: string, money: number)
+    init(id: string, headSprite: string, money: number, gender: string)
     {
         this.setName(id);
         this.setMoney(money);
         this.setHeadSprite(headSprite);
         this.setBanker(false);
+        this.gender = gender;
         this.shiny.opacity = 0;
         this.moneyMinus.string = "";
         this.moneyPlus.string = "";
@@ -146,10 +148,10 @@ export default class Player extends cc.Component
     talk(index: number) {
 
         let showString: string = Game.Inst.text.get("TalkMenu" + index.toString());
-	let voiceName: string = "voice_Talk_b";
+	    let voiceName: string = "voice_talk_b";
         this.talkBoxText.string = showString;
         if(this.gender == "female"){
-            voiceName = "voice_Talk_g";
+            voiceName = "voice_talk_g";
         }
         voiceName += index.toString();
         

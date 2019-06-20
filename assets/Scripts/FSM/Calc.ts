@@ -17,28 +17,21 @@ export default class Calc extends StateBase {
     
     public stateInitialize(){
         cc.warn("calc!!!");
-
         //delay time for allkill anime
         let delay: number = 0;
-
-
 
         UIMgr.Inst.animMgr.playShowAllCardAnim(()=>{
             if(this.isAllKill()) {
                 this.allKill();
                 delay = 3;
-                //cc.warn("delay");
             }
             this.scheduleOnce(()=>{
-                //cc.warn("money");
                 this.moneyFlow(()=>{
                     if(Define.GameInfo.Inst.players[0].win_bet > 0)
                         this.victory();
                     this.scheduleOnce(()=>this.m_FSM.setState(Define.GameState.End),0.5);
                 });
-                
             }, delay);
-            
         });
     }
 
@@ -85,18 +78,15 @@ export default class Calc extends StateBase {
             let profit = Define.GameInfo.Inst.players[index].win_bet;
             //cc.log("player"+index+"profit"+profit);
             if(profit < 0){
-                //UIMgr.Inst.players[index].moneyChange(profit,40,Define.GameInfo.Inst.players[index].final_coin);
                 UIMgr.Inst.animMgr.playCoinFlow(index, bankerSeat, ()=>{
                     UIMgr.Inst.players[bankerSeat].setShiny();
-                    Game.Inst.audioMgr.playEffect("effect_getMoney");
-                    //UIMgr.Inst.players[bankerSeat].moneyChange(-profit,40,Define.GameInfo.Inst.players[bankerSeat].final_coin );
+                    UIMgr.Inst.AudioMgr.playGetMoney();
                 });
             }
         }
     }
 
     bankerLose(bankerSeat: number){
-        //cc.log("lose, count = "+Define.GameInfo.Inst.playerCount);
         for(let index = 0;index < Define.GameInfo.Inst.playerCount;index++){
             //skip self
             if(index == bankerSeat) continue;
@@ -104,18 +94,15 @@ export default class Calc extends StateBase {
             let profit = Define.GameInfo.Inst.players[index].win_bet;
             //cc.log("player"+index+"profit"+profit);
             if(profit > 0){
-                //UIMgr.Inst.players[bankerSeat].moneyChange(-profit,40, Define.GameInfo.Inst.players[bankerSeat].final_coin);
                 UIMgr.Inst.animMgr.playCoinFlow(bankerSeat, index, ()=>{
                     UIMgr.Inst.players[index].setShiny();
-                    Game.Inst.audioMgr.playEffect("effect_getMoney");
-                    //UIMgr.Inst.players[index].moneyChange(profit,40, Define.GameInfo.Inst.players[index].final_coin);
+                    UIMgr.Inst.AudioMgr.playGetMoney();
                 });
             }
         }
     }
 
     showMoneyResult(){
-        Game.Inst.audioMgr.playEffect("effect_profit");
         for(let index = 0;index < Define.GameInfo.Inst.playerCount;index++){
             UIMgr.Inst.players[index].moneyChange(Define.GameInfo.Inst.players[index].win_bet,40, Define.GameInfo.Inst.players[index].final_coin);
         }    

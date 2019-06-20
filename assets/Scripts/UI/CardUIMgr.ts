@@ -76,7 +76,6 @@ export default class CardUIMgr extends cc.Component {
     }
     
     cardClick(index: number){
-        Game.Inst.audioMgr.playEffect("effect_cardClick");
         //cc.log("click"+index);
         if(this.poker[index].getComponent(Poker).isSelect){
             this.poker[index].getComponent(Poker).setCardLight(false);

@@ -13,7 +13,7 @@ export default class NNAudioMgr extends cc.Component {
             voiceName += "_" + index.toString();
         }
 
-        Game.Inst.audioMgr.playVoice(voiceName);
+        Game.Inst.audioMgr.playEffect(voiceName);
     }
 
     private playVoice(type: string, gender?: string, index?: number) {
@@ -40,25 +40,53 @@ export default class NNAudioMgr extends cc.Component {
         Game.Inst.audioMgr.stopBGM();
     }
 
-    playEffectStartGame() {
-        this.playEffect("SG");
+    playVictory() {
+        this.playEffect("victory");
     }
 
-    playEffectDistributeCard() {
-        this.playEffect("DC");
+    playStartGame() {
+        this.playEffect("startGame");
     }
 
-    playEffectOpenCard() {
-        this.playEffect("OC");
+    playCardTypeAnim(animName: string) {
+        this.playEffect(animName);
     }
 
-    playEffectGunShot() {
-        this.playEffect("GS");
+    playCardError(){
+        this.playEffect("cardError");
     }
 
-    playEffectHomeRun() {
-        this.playEffect("HR");
+    playDistribute(){
+        //delay to match anime
+        this.scheduleOnce(()=>this.playEffect("distribute"),0.5);
     }
+
+    playGetMoney(){
+        this.playEffect("profit");
+    }
+
+    playBanker(){
+        this.playEffect("banker");
+    }
+
+    playCardTypeTalk(index: number, gender: string = "male"){
+        this.playVoice("type", gender, index);
+    }
+
+    playAllKill(gender: string = "male"){
+        this.playVoice("type", gender, 15);
+    }
+
+    /**
+     * 搶莊動畫音效
+     * @param index 高/低音階決定
+     */
+    playRobBet(index: number){
+        this.playEffect("rob"+index%2);
+    }
+
+    ////////
+
 
     playEffectSpecialCardMain(index?: number) {
         this.playEffect("SP", index);
@@ -72,11 +100,4 @@ export default class NNAudioMgr extends cc.Component {
         this.playVoice("GS", gender);
     }
 
-    playVoiceHomeRun(gender: string = "male") {
-        this.playVoice("HR", gender);
-    }
-
-    playVoiceSpecialCard(gender: string = "male", index?: number) {
-        this.playVoice("SP", gender, index);
-    }
 }

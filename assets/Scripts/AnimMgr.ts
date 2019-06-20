@@ -28,11 +28,11 @@ export default class AnimMgr extends cc.Component {
                 callback();
             }
         })
-        Game.Inst.audioMgr.playEffect("effect_startGame");
+        UIMgr.Inst.AudioMgr.playStartGame();
     }
 
     playCardTypeError(){
-        Game.Inst.audioMgr.playEffect("effect_cardError");
+        UIMgr.Inst.AudioMgr.playCardError();
         Game.Inst.animationMgr.play("CardTypeErrorAnim", 0.2,false,()=>{cc.warn("cardErrorAnim finish");}); 
     }
 
@@ -68,7 +68,7 @@ export default class AnimMgr extends cc.Component {
     playDistributePoker(callback?) {
         //set player number
         this.pokerAnime.playerCount = Define.GameInfo.Inst.playerCount;
-        Game.Inst.audioMgr.playEffect("effect_distribute");
+        UIMgr.Inst.AudioMgr.playDistribute();
         Game.Inst.animationMgr.play("DistributePokerAnim", 3, false, () => {
             if (callback != undefined)
                 callback();
@@ -83,8 +83,8 @@ export default class AnimMgr extends cc.Component {
             for(let index = 0;index< playerCount;index++)
             UIMgr.Inst.CardStatusUIMgr.setComplete(index,false);
         },1)
-        cc.warn("playerTotal"+playerCount);
-        cc.warn("playing"+0+"type"+Define.GameInfo.Inst.players[0].cardType);
+        //cc.warn("playerTotal"+playerCount);
+        //cc.warn("playing"+0+"type"+Define.GameInfo.Inst.players[0].cardType);
         this.playCardTypeAnim(Define.GameInfo.Inst.players[0].cardType);
         for(let index = 1; index < playerCount - 1; index++){
             this.scheduleOnce(()=>{ 
@@ -105,6 +105,7 @@ export default class AnimMgr extends cc.Component {
         //cc.log("play Type show card"+seat);
         UIMgr.Inst.cardUIMgr.setCard(seat,()=>{
             UIMgr.Inst.CardStatusUIMgr.setType(seat,Define.GameInfo.Inst.players[seat].cardType);
+            UIMgr.Inst.AudioMgr.playCardTypeTalk(Define.GameInfo.Inst.players[seat].cardType, Define.GameInfo.Inst.players[seat].gender);
             cc.warn("setType"+seat);
             this.scheduleOnce(function(){
                 cc.warn("playing"+seat+"type"+Define.GameInfo.Inst.players[seat].cardType);
@@ -122,6 +123,7 @@ export default class AnimMgr extends cc.Component {
                 callback();
         }
         else{
+            UIMgr.Inst.AudioMgr.playCardTypeAnim(animName);
             Game.Inst.animationMgr.play(animName, animRate,false, callback); 
         }
         //cc.log("playType:"+animName + "RATE : "+animRate);
@@ -135,7 +137,7 @@ export default class AnimMgr extends cc.Component {
     }
 
     playVictory(callback?){
-        Game.Inst.audioMgr.playEffect("effect_victory");
+        UIMgr.Inst.AudioMgr.playVictory();
         Game.Inst.animationMgr.play("victory", 0.7,false, callback);
     }
 

@@ -132,7 +132,7 @@ export default class UIMgr extends cc.Component {
         let gameInfo: Define.GameInfo = Define.GameInfo.Inst;
         for (let i = 0; i < gameInfo.playerCount; i++) {
             cc.log("init"+i+"player");
-            this.players[i].init(gameInfo.players[i].name,"headIcon" + gameInfo.players[i].iconID,gameInfo.players[i].money);
+            this.players[i].init(gameInfo.players[i].name,"headIcon" + gameInfo.players[i].iconID, gameInfo.players[i].money, gameInfo.players[i].gender);
             this.players[i].node.active = true;
         }
 
@@ -144,7 +144,7 @@ export default class UIMgr extends cc.Component {
         //room info
         this.roomInfo.setRoomInfo(data.room.id);
         this.roomInfo.setRoomName(MiscHelper.getServerRoomName(data.room.room_name));
-        this.roomInfo.setAntes(data.room.bet);
+        this.roomInfo.setAntes(data.room.coins_limit);
         this.roomInfo.setVisible(true);
         //player data
         Define.GameInfo.Inst.players[0].initData(data.main_player);
@@ -179,10 +179,6 @@ export default class UIMgr extends cc.Component {
      */
     setDealerAnime(robPlayers:number[], banker:number){
         robPlayers.sort();
-        /*
-        cc.log(banker);
-        cc.log(robPlayers.length);
-      */
         // only one rob bet or no rob
         if(robPlayers.length <= 1){
             for(let i = 0; i < 3; i++){
@@ -192,44 +188,20 @@ export default class UIMgr extends cc.Component {
                         this.players[banker].bankerAnime(),
                         Game.Inst.animationMgr.play("banker"+banker, 1,false); 
                         this.players[banker].setBanker(true);
-                        Game.Inst.audioMgr.playEffect("effect_banker");
+                        UIMgr.Inst.AudioMgr.playBanker();
                     })
                 ); 
                 this.node.runAction(seq);  
             }
             return;
         }
-        /*
-        //show rob anime
-        for(let index=0 ; ; index++){
-            if(index>=9 && banker == (robPlayers[index%robPlayers.length])){
-                cc.log("finished grabbing.");
-                let seq = cc.sequence(
-                    cc.delayTime(0.15*index),
-                    cc.callFunc(()=>{
-                        this.players[banker].setBanker(true);
-                        this.players[banker].bankerAnime();
-                    }),
-                ); 
-                this.node.runAction(seq);  
-                break;
-            }
-            else{
-                let seq = cc.sequence(
-                    cc.delayTime(0.15*index),
-                    cc.callFunc(()=> this.players[robPlayers[index%robPlayers.length]].bankerAnime())
-                ); 
-                this.node.runAction(seq);  
-            }                    
-        }
-        */
-
         //from SG
         let round:number = 0;
         while(round+robPlayers.length<=10) round+=robPlayers.length;
-        round+=(banker+1);
+        round+=(banker+1); 
         let t:number = 1.5/round;
         for(let cnt=0 ; ; cnt++){
+            UIMgr.Inst.AudioMgr.playRobBet(cnt);
             if(cnt+1==round){     //多人搶莊則數到超過九次就可停止(大約1.5秒)
                 cc.log("finished grabbing.");
                 let seq = cc.sequence(
@@ -237,6 +209,7 @@ export default class UIMgr extends cc.Component {
                     cc.callFunc(()=>{
                         Game.Inst.animationMgr.play("banker"+banker, 1,false);
                         this.players[banker].setBanker(true);
+                        UIMgr.Inst.AudioMgr.playBanker();
                         this.players[banker].bankerAnime(t);
                     }),
                 ); 

@@ -10,6 +10,11 @@ export enum GameState {
     End
 }
 
+export enum Gender{
+    male = 0,
+    female
+}
+
 export enum CardType {
     /**沒牛 */
     noCow = 0,
@@ -117,6 +122,9 @@ export class Player{
         this.name = data.nickname;
         this.money = data.coins;
         this.iconID = data.avatar;
+        if(data.gender == Gender.female)
+            this.gender = "female";
+        else this.gender = "male";
     }
 
     /**

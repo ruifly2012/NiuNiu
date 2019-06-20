@@ -106,7 +106,6 @@ export default class ChooseCard extends StateBase {
         if(customdata == 1) pressNiu = true;
         if(UIMgr.Inst.cardUIMgr.niuClickCorrect(pressNiu)){
             this.completeChoose();
-            Game.Inst.audioMgr.playEffect("effect_confirmCard");
             //change stage when all complete
             if(this.isAllOtherComplete){
                 this.m_FSM.setState(Define.GameState.Calc);

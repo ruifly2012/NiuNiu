@@ -111,8 +111,8 @@ export default class AudioMgr extends cc.Component {
     }
 
     /**取得BGM/音效存放路徑 */
-    getUrl(url, fileType: string = "mp3") {
-        return cc.url.raw("resources/sfx/" + url + "." + fileType);
+    getUrl(url) {
+        return cc.url.raw("resources/sfx/" + url + ".mp3");
     }
 
     /**
@@ -121,7 +121,7 @@ export default class AudioMgr extends cc.Component {
      */
     playBGM(url) {
         cc.warn("BGM");
-        let audioUrl = this.getUrl(url, "wav");
+        let audioUrl = this.getUrl(url);
         if (this.bgmUrl != "" && this.bgmUrl == audioUrl)
             return;
 
@@ -175,7 +175,7 @@ export default class AudioMgr extends cc.Component {
                 this.cooldown.splice(idx, 1);
         }, 0.5);
 
-        let audioUrl = this.getUrl(url,"wav");
+        let audioUrl = this.getUrl(url);
         if (this.effectVolume > 0) {
             //ResourceMgr需管裡資源
             cc.loader.load(audioUrl, function (err, clip) {

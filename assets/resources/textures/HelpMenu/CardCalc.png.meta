@@ -1,6 +1,6 @@
 {
   "ver": "2.2.0",
-  "uuid": "596a5d2a-5b6a-499c-87f4-a889fd0c3019",
+  "uuid": "c6fbbeac-4802-4000-ab5a-7528c4f2694a",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
@@ -8,16 +8,16 @@
   "subMetas": {
     "CardCalc": {
       "ver": "1.0.3",
-      "uuid": "3ea0dbe1-693f-465e-9145-2c4b2d1f3890",
-      "rawTextureUuid": "596a5d2a-5b6a-499c-87f4-a889fd0c3019",
+      "uuid": "2d3e5944-781a-4a69-85e1-26fd559bbae0",
+      "rawTextureUuid": "c6fbbeac-4802-4000-ab5a-7528c4f2694a",
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,
-      "offsetX": 22,
+      "offsetX": 14.5,
       "offsetY": -21,
       "trimX": 103,
       "trimY": 100,
-      "width": 1598,
+      "width": 1583,
       "height": 540,
       "rawWidth": 1760,
       "rawHeight": 698,

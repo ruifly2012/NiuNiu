@@ -1,4 +1,5 @@
 import Game from "../Game";
+import UIMgr from "../UIMgr";
 
 
 const { ccclass, property } = cc._decorator;
@@ -11,9 +12,9 @@ export default class Clock extends cc.Component {
     @property(Number) shakeAngle: number = 7;
 
     isActive: boolean = false;
-    /**¬O§_ÀR­µ */
+    /**ï¿½Oï¿½_ï¿½Rï¿½ï¿½ */
     isMute: boolean = false;
-    /**¬O§_±Ò°Ê­Ë¼Æ­µ®Ä */
+    /**ï¿½Oï¿½_ï¿½Ò°Ê­Ë¼Æ­ï¿½ï¿½ï¿½ */
     isNoisy: boolean = false;
     countDown: number = 0;
     private noisyAudioID: number = -1;
