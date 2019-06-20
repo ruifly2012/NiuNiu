@@ -74,7 +74,8 @@ export default class NNAudioMgr extends cc.Component {
     }
 
     playAllKill(gender: string = "male"){
-        this.playVoice("type", gender, 15);
+        //delay to match anime
+        this.scheduleOnce(()=>this.playVoice("type", gender, 15),0.5);
     }
 
     /**

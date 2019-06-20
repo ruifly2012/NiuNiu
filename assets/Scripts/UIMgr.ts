@@ -201,7 +201,6 @@ export default class UIMgr extends cc.Component {
         round+=(banker+1); 
         let t:number = 1.5/round;
         for(let cnt=0 ; ; cnt++){
-            UIMgr.Inst.AudioMgr.playRobBet(cnt);
             if(cnt+1==round){     //多人搶莊則數到超過九次就可停止(大約1.5秒)
                 cc.log("finished grabbing.");
                 let seq = cc.sequence(
@@ -219,7 +218,10 @@ export default class UIMgr extends cc.Component {
             else{   
                 let seq = cc.sequence(
                     cc.delayTime(t*cnt),
-                    cc.callFunc(()=>this.players[robPlayers[cnt%robPlayers.length]].bankerAnime(t))
+                    cc.callFunc(()=>{
+                        this.players[robPlayers[cnt%robPlayers.length]].bankerAnime(t);
+                        UIMgr.Inst.AudioMgr.playRobBet(cnt);
+                    })
                 ); 
                 this.node.runAction(seq);  
             }                    

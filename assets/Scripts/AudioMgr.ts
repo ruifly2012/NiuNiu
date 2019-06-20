@@ -173,7 +173,7 @@ export default class AudioMgr extends cc.Component {
             let idx = this.cooldown.indexOf(url);
             if (idx > -1)
                 this.cooldown.splice(idx, 1);
-        }, 0.5);
+        }, 0.1);
 
         let audioUrl = this.getUrl(url);
         if (this.effectVolume > 0) {

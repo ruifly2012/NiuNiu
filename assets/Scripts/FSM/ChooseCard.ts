@@ -27,9 +27,12 @@ export default class ChooseCard extends StateBase {
         UIMgr.Inst.animMgr.playDistributePoker(()=>{
             this.startCountDown();
             this.registerEvent();
+            // keep showing place bet
+            /*
             UIMgr.Inst.players.forEach(element => {
                 element.hideStatus();
             });
+            */
             UIMgr.Inst.showChooseCard(true);
             UIMgr.Inst.cardUIMgr.activate();
         });
