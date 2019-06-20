@@ -231,7 +231,8 @@ export default class NetworkManager {
     receiveBanker(data){
         let bankerIndex =  UIMgr.Inst.getPlayerIndexByUID(data.banker);
         Define.GameInfo.Inst.bankerIndex = bankerIndex;
-
+        //stop clock when rob banker anime
+        UIMgr.Inst.stopClock();
         UIMgr.Inst.setDealerAnime(Define.GameInfo.Inst.rob_list,bankerIndex);
     }
 

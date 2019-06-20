@@ -109,6 +109,7 @@ export default class Calc extends StateBase {
     }
 
     allKill(){
+        UIMgr.Inst.AudioMgr.playAllKill();
         UIMgr.Inst.animMgr.playAllKill();
     }
 

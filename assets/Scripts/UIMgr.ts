@@ -144,7 +144,7 @@ export default class UIMgr extends cc.Component {
         //room info
         this.roomInfo.setRoomInfo(data.room.id);
         this.roomInfo.setRoomName(MiscHelper.getServerRoomName(data.room.room_name));
-        this.roomInfo.setAntes(data.room.coins_limit);
+        this.roomInfo.setAntes(data.room.bet);
         this.roomInfo.setVisible(true);
         //player data
         Define.GameInfo.Inst.players[0].initData(data.main_player);

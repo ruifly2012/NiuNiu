@@ -125,6 +125,7 @@ export default class ChooseCard extends StateBase {
             UIMgr.Inst.animMgr.playChooseCompleteAnim();
             //show card type
             UIMgr.Inst.CardStatusUIMgr.setType(0,Define.GameInfo.Inst.players[0].cardType);
+            UIMgr.Inst.AudioMgr.playCardTypeTalk(Define.GameInfo.Inst.players[0].cardType, Define.GameInfo.Inst.players[0].gender);
     }
 
 }
