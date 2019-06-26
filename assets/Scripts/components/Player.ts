@@ -24,18 +24,13 @@ export default class Player extends cc.Component
     {
         //cc.log("player onStart");
         this.talkBoxText = this.talkBox.getChildByName("Text").getComponent(cc.Label);
-        // TEST data
-        let id = "test id";
-        let icon = "headIcon" + (Math.floor(Math.random() * 16) + 1);
-        let credit = Math.floor(Math.random() * 1000000); 
-        this.init(id, icon, credit, "female");
     }
 
-    init(id: string, headSprite: string, money: number, gender: string)
+    init(id: string, headIconID: string, money: number, gender: string)
     {
         this.setName(id);
         this.setMoney(money);
-        this.setHeadSprite(headSprite);
+        this.setHeadSprite((gender == "male"? "element_avatar-m": "element_avatar-s") + headIconID);
         this.setBanker(false);
         this.gender = gender;
         this.shiny.opacity = 0;

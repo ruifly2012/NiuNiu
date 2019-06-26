@@ -132,7 +132,7 @@ export default class UIMgr extends cc.Component {
         let gameInfo: Define.GameInfo = Define.GameInfo.Inst;
         for (let i = 0; i < gameInfo.playerCount; i++) {
             cc.log("init"+i+"player");
-            this.players[i].init(gameInfo.players[i].name,"headIcon" + gameInfo.players[i].iconID, gameInfo.players[i].money, gameInfo.players[i].gender);
+            this.players[i].init(gameInfo.players[i].name, gameInfo.players[i].iconID.toString(), gameInfo.players[i].money, gameInfo.players[i].gender);
             this.players[i].node.active = true;
         }
 
