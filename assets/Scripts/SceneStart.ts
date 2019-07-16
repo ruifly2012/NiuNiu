@@ -39,7 +39,7 @@ export default class SceneStart extends cc.Component
 
             Define.RoomInfo.Inst.game_option_id = Number(session.oid);
             Define.GameInfo.Inst.token = session.token;
-            NetworkManager.serverURL = session.ip;
+            NetworkManager.ServerURL = session.ip;
 
             cc.warn("login from session data.\nOid: " + session.oid + "\nToken: " + session.token);
             Game.Inst.mainStateMgr.changeStage(GameState.Loading);
@@ -49,7 +49,7 @@ export default class SceneStart extends cc.Component
             this.inputField.active = true;
         }
 
-        this.editbox_oid.string = "13";
+        this.editbox_oid.string = "17";
         this.editbox_token.string = Math.floor(Math.random()*10000).toString();
 
     }
@@ -60,8 +60,12 @@ export default class SceneStart extends cc.Component
 
     connect(oid: string, token: string){ 
         //Game.Inst.networkMgr.LogIn(oid, token);
+        /*
         Define.RoomInfo.Inst.game_option_id = Number(oid);
         Define.GameInfo.Inst.token = token;
+        */
+        NetworkManager.Oid = oid;
+        NetworkManager.Token = token;
         Game.Inst.mainStateMgr.changeStage(GameState.Loading);
     }
 

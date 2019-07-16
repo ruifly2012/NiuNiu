@@ -3,7 +3,7 @@
 const {ccclass, property} = cc._decorator;
 
 @ccclass
-export default class TWUIRoomInfo extends cc.Component {
+export default class UIRoomInfo extends cc.Component {
     @property(cc.Node) roomInfoRoot: cc.Node = null;
     @property(cc.Label) roomInfo: cc.Label = null;
     @property(cc.Label) roomName: cc.Label = null;

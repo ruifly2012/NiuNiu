@@ -6,6 +6,7 @@ import Clock from "./components/Clock";
 import CardUIMgr from "./UI/CardUIMgr";
 import CardStatusUIMgr from "./UI/CardStatusUIMgr";
 import BetUIMgr from "./UI/BetUIMgr";
+import { ButtonSetting } from "./components/MessageBoxCtr";
 import RoomInfo from "./UI/RoomInfo";
 import MiscHelper from "./MiscHelper";
 import NNAudioMgr from "./NNAudioMgr";
@@ -88,12 +89,14 @@ export default class UIMgr extends cc.Component {
     }
 
     initUI(){
-        //show waiting UI & hide other player
-        this.showWaiting();
+        //hide other player
         this.isPlayersActive(false);
         this.roomInfo.init();
     }
 
+    /**
+     * 顯示等待配對MsgBox
+     */
     showWaiting(){
         Game.Inst.utils.createMessageBox(
             Game.Inst.resourcesMgr.load("msgBg"),
@@ -103,6 +106,47 @@ export default class UIMgr extends cc.Component {
             undefined,
             undefined,
             true);
+    }
+
+    /**
+     * 顯示遊戲中無法離開房間 MessageBox畫面
+     */
+    showCantQuitMsg() {
+        let BtnSet: ButtonSetting = new ButtonSetting();
+        BtnSet.originBtnBackground = Game.Inst.resourcesMgr.load("btnconfirmO");
+        BtnSet.originBtnText = Game.Inst.resourcesMgr.load("txtconfirmO");
+        BtnSet.clickedBtnBackground = Game.Inst.resourcesMgr.load("btnconfirmC");
+        BtnSet.clickedBtnText = Game.Inst.resourcesMgr.load("txtconfirmC");
+        BtnSet.closePanel = true;
+
+        Game.Inst.utils.createMessageBox(
+            Game.Inst.resourcesMgr.load("msgBg"),
+            Game.Inst.resourcesMgr.load("msgTitleText"),
+            Game.Inst.resourcesMgr.load("msgTitleBg"),
+            "游戏进行中无法离开!\n请待结束后退出",
+            BtnSet);
+    }
+
+    /**
+     * 顯示金額不足無法開始下一場遊戲 MessageBox畫面
+     */
+    showNoMoneyMsg() {
+        let BtnSet: ButtonSetting = new ButtonSetting();
+        BtnSet.originBtnBackground = Game.Inst.resourcesMgr.load("btnconfirmO");
+        BtnSet.originBtnText = Game.Inst.resourcesMgr.load("txtconfirmO");
+        BtnSet.clickedBtnBackground = Game.Inst.resourcesMgr.load("btnconfirmC");
+        BtnSet.clickedBtnText = Game.Inst.resourcesMgr.load("txtconfirmC");
+        BtnSet.closePanel = true;
+        BtnSet.callback = () => {
+            Game.Inst.currentGameMgr.leaveGameLobby();
+        };
+
+        Game.Inst.utils.createMessageBox(
+            Game.Inst.resourcesMgr.load("msgBg"),
+            Game.Inst.resourcesMgr.load("msgTitleText"),
+            Game.Inst.resourcesMgr.load("msgTitleBg"),
+            "您的金额不足，将请您回到大厅\n充值或到低倍注房间进行游戏。",
+            BtnSet);
     }
 
 
@@ -135,7 +179,6 @@ export default class UIMgr extends cc.Component {
             this.players[i].init(gameInfo.players[i].name, gameInfo.players[i].iconID.toString(), gameInfo.players[i].money, gameInfo.players[i].gender);
             this.players[i].node.active = true;
         }
-
     }
 
     receiveRobBetInfo(data){

@@ -8,13 +8,20 @@ import NetworkMgr from "./NetworkManager";
 const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class GameMgr extends GameMgrBase 
-{
-    start() 
-    {
+export default class GameMgr extends GameMgrBase {
+    private reconnectCallBack: Function;
+    start() {
         this.init();
-
-        //Game.Inst.networkMgr.registerEvent("gameInfo", (msg) => { this.receiveUpdate(msg); });
+        /*
+        Game.Inst.networkMgr.registerEvent("websocket", (msg) => { this.receiveServerConnect(msg); });
+        Game.Inst.networkMgr.registerEvent("websocket", (msg) => { this.receiveServerRecorver(msg); });
+        Game.Inst.networkMgr.registerEvent("recover", (msg) => { this.receiveServerError(msg); });
+        Game.Inst.networkMgr.registerEvent("recover_info", (msg) => { this.receiveRecoverInfo(msg); });
+    */
+        this.reconnectCallBack = () => {
+            cc.log("websocket reconnecting...");
+            this.connectServer();
+        };
     }
 
     startStateMachine() {
@@ -23,8 +30,7 @@ export default class GameMgr extends GameMgrBase
         UIMgr.Inst.AudioMgr.playBGM();
     }
 
-    quitBtnClick() 
-    {
+    quitBtnClick() {
         cc.log("QUIT");
         if (Define.GameInfo.Inst.endGame == true){
             Game.Inst.EventListener.clear();
@@ -39,23 +45,70 @@ export default class GameMgr extends GameMgrBase
             }
         }
         else{
-            let BtnSet: ButtonSetting = new ButtonSetting();
-            BtnSet.originBtnBackground = Game.Inst.resourcesMgr.load("btnconfirmO");
-            BtnSet.originBtnText = Game.Inst.resourcesMgr.load("txtconfirmO");
-            BtnSet.clickedBtnBackground = Game.Inst.resourcesMgr.load("btnconfirmC");
-            BtnSet.clickedBtnText = Game.Inst.resourcesMgr.load("txtconfirmC");
-            BtnSet.closePanel = true;
-
-            Game.Inst.utils.createMessageBox(
-                Game.Inst.resourcesMgr.load("msgBg"),
-                Game.Inst.resourcesMgr.load("msgTitleText"),
-                Game.Inst.resourcesMgr.load("msgTitleBg"),
-                "游戏进行中无法离开!\n请待结束后退出",
-                BtnSet);
-
+            UIMgr.Inst.showCantQuitMsg();
         }
 
     }
+
+    
+    connectServerComplete() {
+        this.unschedule(this.reconnectCallBack);
+    }
+
+    disconnectServer() {
+        //if not game over , reconnect.
+        if (this.FSM != null) {
+            let nowState: Define.GameState = this.FSM.activeState.state;
+            if (nowState == Define.GameState.Waiting || nowState == Define.GameState.RobBet || nowState == Define.GameState.PlaceBet || nowState == Define.GameState.ChooseCard) {
+                this.schedule(this.reconnectCallBack, 0.5);
+            }
+        }
+    }
+
+    onRestartGame() {
+    }
+
+    quitGame() {
+        Game.Inst.networkMgr.unregisterEvent("websocket");
+        Game.Inst.networkMgr.unregisterEvent("matching");
+        /*
+        Game.Inst.networkMgr.unregisterEvent("recover");
+        Game.Inst.networkMgr.unregisterEvent("init_info");
+        Game.Inst.networkMgr.unregisterEvent("deal_cards");
+        Game.Inst.networkMgr.unregisterEvent("set_selected");
+        Game.Inst.networkMgr.unregisterEvent("game_results");
+        Game.Inst.networkMgr.unregisterEvent("server_error");
+        Game.Inst.networkMgr.unregisterEvent("recover_info");
+        */
+        cc.log("End");
+    }
+
+    // protocol
+
+    /**
+     * 收到連線成功Respone
+     * @param msg 
+     */
+    receiveServerConnect(msg: Define.WebSocketResp) {
+        if (!msg.success) {
+            cc.error("[TWGameMgr] Websocket connect fail!");
+        }
+    }
+
+    /**
+     * 收到斷線重連Respone
+     * @param msg 
+     */
+    receiveServerRecorver(msg) {
+    }
+
+    /**
+     * 收到連線錯誤Respone
+     * @param msg 
+     */
+    receiveServerError(msg) {
+    }
+
 
     changeState(event, customEventData) {
         switch (customEventData) {
@@ -70,5 +123,7 @@ export default class GameMgr extends GameMgrBase
                 break;
         }
     }
+
+
 
 }

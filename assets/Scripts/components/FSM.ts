@@ -19,6 +19,10 @@ export default class FSM {
         this.m_StateListLength = 0;
     }
 
+    get activeState(): StateBase{
+        return this.m_ActiveState;
+    }
+
     /**動態新增新的State */
     addState(stateID: number, state: StateBase): boolean {
         if (this.m_StateList[stateID] != null) {

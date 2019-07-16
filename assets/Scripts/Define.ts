@@ -52,6 +52,15 @@ export enum BetType{
     RobBet = 0,
     PlaceBet
 }
+
+export enum PlayerID {
+    Player1 = 0,
+    Player2,
+    Player3,
+    Player4,
+    Player5
+}
+
 export class GameInfo{
     private static instance: GameInfo = null;
 
@@ -61,39 +70,58 @@ export class GameInfo{
         }
         return this.instance;
     }
+    
+    /**Client端玩家在players中的編號 */
+    mainPlayer: PlayerID;
 
-    players: Player[] = []; 
+    /**房間ID */
+    roomID: string = "";
+    /**底注 */
+    baseBet: number = 0;
+    /**最低遊玩門檻金額 */
+    coinsLimit: number = 0;
+    /**抽水%數 */
+    levyRate: number = 0.05;
+    /**選擇牌組的倒數時間 */
+    timeOfRound: number = 15;
+
+    /**全玩家基本資訊 */
+    players: Player[] = [];
+    /**玩家數量 */
     playerCount: number;
+
+    /**莊家編號 */
     bankerIndex: number;
-    token: string;
+
+    /**閒家可選倍率 */
     rob_list: number[] = [];
     endGame: boolean = false;
 }
 
-export class RoomInfo{
-    private static instance: RoomInfo = null;
+// export class RoomInfo{
+//     private static instance: RoomInfo = null;
 
-    static get Inst(): RoomInfo{
-        if(!RoomInfo.instance){
-            RoomInfo.instance = new RoomInfo();
-        }
-        return this.instance;
-    }
+//     static get Inst(): RoomInfo{
+//         if(!RoomInfo.instance){
+//             RoomInfo.instance = new RoomInfo();
+//         }
+//         return this.instance;
+//     }
 
-    assign(room){
-        RoomInfo.Inst.id = room.id;
-        RoomInfo.Inst.bet = room.bet;
-        RoomInfo.Inst.coins_limit = room.coins_limit;
-        RoomInfo.Inst.game_option_id = room.game_option_id;
-        RoomInfo.Inst.game_rate = room.game_rate;
-    }
+//     assign(room){
+//         RoomInfo.Inst.id = room.id;
+//         RoomInfo.Inst.bet = room.bet;
+//         RoomInfo.Inst.coins_limit = room.coins_limit;
+//         RoomInfo.Inst.game_option_id = room.game_option_id;
+//         RoomInfo.Inst.game_rate = room.game_rate;
+//     }
 
-    id: number;
-    bet: number;
-    coins_limit: number;
-    game_option_id: number;
-    game_rate: number;
-}
+//     id: number;
+//     bet: number;
+//     coins_limit: number;
+//     game_option_id: number;
+//     game_rate: number;
+// }
 
 
 
@@ -106,7 +134,7 @@ export class Player{
     /**性別 */
     gender: string;
     /**VIP號碼 */
-    vip: string;
+    vip: number;
     cardType: CardType;
     /**結算金額浮動值 */
     win_bet: number;
@@ -240,19 +268,107 @@ export default class Converter {
         return new PokerValue(pokerType,Math.floor(_poker % 13) + 1);
     }
 
-    static getCardTypeConvert(type: string): CardType{
-        switch(type){
-            // case "High cards": return TWNormalCardType.HighCard;
-            // case "One pair": return TWNormalCardType.OnePair;
-            // case "Two pair": return TWNormalCardType.TwoPairs;
-            // case "Three of kind": return TWNormalCardType.ThreeOfAKind;
-            // case "Straight": return TWNormalCardType.Straight;
-            // case "Flush": return TWNormalCardType.Flush;
-            // case "Full house": return TWNormalCardType.FullHouse;
-            // case "Four of kind": return TWNormalCardType.FourOfAKind;
-            // case "Straight fiush": return TWNormalCardType.StraightFlush;
-            default:
-                return CardType.noCow;
+    /**
+     * 取得房間名稱
+     * @param oid 房間oid
+     */
+    static getServerRoomName(oid: string): string {
+        switch (oid) {
+            case "17": return "a";//"!";
+            case "18": return "b";//"#";
+            case "19": return "c";//"'";
+            case "20": return "d";//"$";
         }
+        return "!";
     }
+
+    /**
+     * 取得玩家在GameInfo Players Array中的位置
+     * @param player 玩家UID
+     */
+    static getServerPlayerCount(player: string): PlayerID {
+        for (let i = 0; i < GameInfo.Inst.playerCount; i++) {
+            if (GameInfo.Inst.players[i].UID == player)
+                return i as PlayerID;
+        }
+        return PlayerID.Player1;
+    }
+    
+}
+
+
+// Server Respone interface
+
+export interface WebSocketResp {
+    /**websocket */
+    event: string;
+    /**true 代表連線成功, false 代表連線失敗 */
+    success: boolean;
+    /**描述 */
+    desc: string;
+}
+
+export interface MatchResp {
+    /**matching */
+    event: string;
+    /**true 代表開始 matching */
+    success: boolean;
+    /**描述 */
+    desc: string;
+    /**
+     * 如果有 error 產生，會回傳 code 如下表 錯誤狀況
+     * 3001：match 失敗，群作伺服器錯誤
+     * 3002：金額不足准入標準
+     */
+    code: number;
+}
+
+export interface WebSocketRecorverResp {
+    /**recover */
+    event: string;
+    /**true 表示重新回到遊戲房間 */
+    success: boolean;
+    /**描述 */
+    desc: string;
+}
+
+export interface InitGame {
+    /**init_info */
+    event: string;
+    /**房間相關的資料 */
+    game_info: Game_info;
+    /**玩家資料 */
+    player_list: PlayerListItem[];
+}
+
+export interface Game_info {
+    /**當前收到此訊息的玩家ui */
+    my_uid: string;
+    /**房間 id */
+    room_id: string;
+    /**底注 */
+    base_bet: number;
+    /**最低遊玩門檻金額 */
+    coins_limit: number;
+    /**抽成%數 */
+    levy_rate: number;
+    /**選擇牌組的倒數時間 */
+    time_of_round: number;
+    /**房間類型 */
+    room_type: number;
+}
+
+export interface PlayerListItem {
+    /**Player id */
+    uid: string;
+    /**現有財產 */
+    money_src: number;
+    /**玩家名字 */
+    name: string;
+    /**大頭照的 index */
+    avatar: number;
+    /**性別 */
+    gender: string;
+    /**vip 號碼 */
+    vip: number;
 }
