@@ -65,7 +65,7 @@ export default class Clock extends cc.Component {
                 }
             }
             else {
-                Game.Inst.networkMgr.get_time();
+                // Game.Inst.networkMgr.get_time();
                 this.setClockTime();
             }
         }.bind(this);

@@ -12,9 +12,10 @@ export default class GameMgr extends GameMgrBase {
     private reconnectCallBack: Function;
     start() {
         this.init();
-        /*
         Game.Inst.networkMgr.registerEvent("websocket", (msg) => { this.receiveServerConnect(msg); });
-        Game.Inst.networkMgr.registerEvent("websocket", (msg) => { this.receiveServerRecorver(msg); });
+        Game.Inst.networkMgr.registerEvent("time_info", (msg) => { this.receiveTimeInfo(msg); });
+        /*
+        Game.Inst.networkMgr.registerEvent("recover", (msg) => { this.receiveServerRecorver(msg); });
         Game.Inst.networkMgr.registerEvent("recover", (msg) => { this.receiveServerError(msg); });
         Game.Inst.networkMgr.registerEvent("recover_info", (msg) => { this.receiveRecoverInfo(msg); });
     */
@@ -59,7 +60,7 @@ export default class GameMgr extends GameMgrBase {
         //if not game over , reconnect.
         if (this.FSM != null) {
             let nowState: Define.GameState = this.FSM.activeState.state;
-            if (nowState == Define.GameState.Waiting || nowState == Define.GameState.RobBet || nowState == Define.GameState.PlaceBet || nowState == Define.GameState.ChooseCard) {
+            if (nowState == Define.GameState.Waiting || nowState == Define.GameState.GrabBanker || nowState == Define.GameState.PlaceBet || nowState == Define.GameState.PlayCard) {
                 this.schedule(this.reconnectCallBack, 0.5);
             }
         }
@@ -109,6 +110,31 @@ export default class GameMgr extends GameMgrBase {
     receiveServerError(msg) {
     }
 
+    /**
+     * 收到stage初始時間
+     * @param msg 
+     */
+    receiveTimeInfo(msg: Define.TimeBroadcast) {
+        cc.log(msg);
+        switch(msg.cur_state){
+            case "grab_banker_state":
+                cc.log("switch to grab_banker_state");
+                this.FSM.setState(Define.GameState.GrabBanker);
+                break;
+            case "bet_state":
+                cc.log("switch to PlaceBet");
+                this.FSM.setState(Define.GameState.PlaceBet);
+                break;
+            case "play_card_state":
+                cc.log("switch to PlayCard");
+                this.FSM.setState(Define.GameState.PlayCard);
+                break;    
+        }
+        //update remain time
+        Define.GameInfo.Inst.remainTime = msg.seconds;
+    }
+
+
 
     changeState(event, customEventData) {
         switch (customEventData) {
@@ -116,7 +142,7 @@ export default class GameMgr extends GameMgrBase {
                 this.FSM.setState(Define.GameState.Waiting);
                 break;
             case "1":
-                this.FSM.setState(Define.GameState.RobBet);
+                this.FSM.setState(Define.GameState.GrabBanker);
                 break;
             case "2":
                 this.FSM.setState(Define.GameState.PlaceBet);

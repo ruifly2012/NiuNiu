@@ -39,10 +39,18 @@ export default class BetUIMgr extends cc.Component {
         cc.warn("[place_bet]click"+index+",rate:"+this.rate[index]);
         
         if(send)
-            Game.Inst.networkMgr.place_bet(this.rate[index]);
+            this.sendBetRate(this.rate[index]);
 
         UIMgr.Inst.showPlaceBet(false);
         UIMgr.Inst.players[0].setStatus(Define.BetType.PlaceBet,this.rate[index]);
+    }
+
+    sendBetRate(rate : number){
+        let data= {
+            "event" : "bet",
+            "grab_rate" : rate
+        };
+        Game.Inst.networkMgr.sendMessage(data);
     }
 
 }

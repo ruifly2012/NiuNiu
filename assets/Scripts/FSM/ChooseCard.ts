@@ -9,7 +9,7 @@ const {ccclass, property} = cc._decorator;
 export default class ChooseCard extends StateBase {
 
     @property({type:cc.Enum(Define.GameState),serializable:true})
-    public state:Define.GameState = Define.GameState.ChooseCard;
+    public state:Define.GameState = Define.GameState.PlayCard;
 
     /**自己選完牌 */
     isSelfComplete: boolean = false;
@@ -92,7 +92,7 @@ export default class ChooseCard extends StateBase {
      */
     registerTimeSync(){
         Game.Inst.EventListener.on("getTime",(data)=>{
-            if(data.stage == Define.GameState.ChooseCard){
+            if(data.stage == Define.GameState.PlayCard){
                 // cc.warn("update time : " + data.time);
                 UIMgr.Inst.clock.countDown = data.time;
             }

@@ -18,7 +18,7 @@ export default class PlaceBet extends StateBase {
     public stateInitialize(){
         cc.warn("place bet!!!");
 
-        Game.Inst.EventListener.on("startBet",()=>{
+        //Game.Inst.EventListener.on("startBet",()=>{
             //hide rob_bet status
             UIMgr.Inst.players.forEach(element => {
                 element.hideStatus();
@@ -28,20 +28,16 @@ export default class PlaceBet extends StateBase {
             }
             this.startCountDown();
             this.registerTimeSync();
-        })
+        //})
         //listen change stage
         Game.Inst.EventListener.on("gotoChooseCard",()=>{
-            this.m_FSM.setState(Define.GameState.ChooseCard);
+            this.m_FSM.setState(Define.GameState.PlayCard);
         })
         //change to correct rate
         UIMgr.Inst.BetUIMgr.activate();
     }
 
     public stateRelease(){
-        Game.Inst.EventListener.off("startBet");
-        Game.Inst.EventListener.off("gotoChooseCard");
-        Game.Inst.EventListener.off("getTime");
-        
         UIMgr.Inst.showPlaceBet(false);
         UIMgr.Inst.stopClock();
     }
@@ -50,7 +46,7 @@ export default class PlaceBet extends StateBase {
     }
 
     startCountDown() {
-        UIMgr.Inst.setClockAct(5, ()=>{
+        UIMgr.Inst.setClockAct(Define.GameInfo.Inst.remainTime, ()=>{
             if(Define.GameInfo.Inst.bankerIndex != 0){
                 /*
                 //not tell server ==> other player cannot see
@@ -64,15 +60,6 @@ export default class PlaceBet extends StateBase {
             //wait server call, so that can show auto rate
             //this.m_FSM.setState(Define.GameState.ChooseCard)
         });
-    }
-
-    registerTimeSync(){
-        Game.Inst.EventListener.on("getTime",(data)=>{
-            if(data.stage == Define.GameState.PlaceBet){
-                // cc.warn("update time : " + data.time);
-                UIMgr.Inst.clock.countDown = data.time;
-            }
-        })
     }
 
 }

@@ -3,9 +3,9 @@ import { PokerType, PokerValue } from "./components/Poker";
 export enum GameState {
     None = 0,
     Waiting,
-    RobBet,
+    GrabBanker,
     PlaceBet,
-    ChooseCard,
+    PlayCard,
     Calc,
     End
 }
@@ -82,8 +82,8 @@ export class GameInfo{
     coinsLimit: number = 0;
     /**抽水%數 */
     levyRate: number = 0.05;
-    /**選擇牌組的倒數時間 */
-    timeOfRound: number = 15;
+    /**倒數時間 */
+    remainTime: number = 15;
 
     /**全玩家基本資訊 */
     players: Player[] = [];
@@ -336,12 +336,12 @@ export interface InitGame {
     /**init_info */
     event: string;
     /**房間相關的資料 */
-    game_info: Game_info;
+    game_info: GameInfo;
     /**玩家資料 */
-    player_list: PlayerListItem[];
+    players_info: PlayersInfo[];
 }
 
-export interface Game_info {
+export interface GameInfo {
     /**當前收到此訊息的玩家ui */
     my_uid: string;
     /**房間 id */
@@ -358,7 +358,7 @@ export interface Game_info {
     room_type: number;
 }
 
-export interface PlayerListItem {
+export interface PlayersInfo {
     /**Player id */
     uid: string;
     /**現有財產 */
@@ -371,4 +371,30 @@ export interface PlayerListItem {
     gender: string;
     /**vip 號碼 */
     vip: number;
+}
+
+export interface TimeBroadcast {
+    /**websocket */
+    event: string;
+    /**目前STAGE */
+    cur_state: string;
+    /**倒數秒數 */
+    seconds: number;
+}
+
+export interface PlayerAction {
+    /**webSocket */
+    event: string;
+    action: string;
+    /**做出行為玩家UID */
+    action_player_uid: string;
+    /**具體內容 */
+    info: object;
+}
+
+export interface BankerBroadcast {
+    /**webSocket */
+    event: string;
+    /**莊家UID */
+    banker_uid : string;
 }

@@ -8,37 +8,26 @@ const {ccclass, property} = cc._decorator;
 @ccclass
 export default class RobBet extends StateBase {
 
+
+
     @property({type:cc.Enum(Define.GameState),serializable:true})
-    public state:Define.GameState = Define.GameState.RobBet;
+    public state:Define.GameState = Define.GameState.GrabBanker;
 
     private choosed: boolean = false;
+
     onLoad(){
-        
     }
     
     public stateInitialize(){
         cc.warn("rob!!!");
-        //  //paly start game anime when get table success
-        // this.playStartGameAnim();
-
-        //listen rob_bet stage event
-        Game.Inst.EventListener.on("startRobBetFSM",()=>{
-            //paly start game anime when get table success
-            this.playStartGameAnim(()=>{
-                UIMgr.Inst.showRobBet(true);
-                this.startCountDown();
-                this.registerTimeSync();
-            });
-        })
-        //listen change stage event
-        Game.Inst.EventListener.on("gotoPlaceBet",()=>{
-            this.m_FSM.setState(Define.GameState.PlaceBet);
-        })
+        this.playStartGameAnim(()=>{
+            UIMgr.Inst.showRobBet(true);
+            this.startCountDown();
+            this.registerTimeSync();
+        });
     }
 
     public stateRelease(){
-        Game.Inst.EventListener.off("gotoPlaceBet");
-        Game.Inst.EventListener.off("getTime");
         UIMgr.Inst.showRobBet(false);
         UIMgr.Inst.stopClock();
     }
@@ -57,7 +46,7 @@ export default class RobBet extends StateBase {
     }
 
     startCountDown() {
-        UIMgr.Inst.setClockAct(5, ()=>{
+        UIMgr.Inst.setClockAct(Define.GameInfo.Inst.remainTime, ()=>{
             if(!this.choosed){
                 cc.log("auto rob");
                 
@@ -85,7 +74,7 @@ export default class RobBet extends StateBase {
         cc.warn("[rob_bet]click"+rate);
 
         if(send2Server) 
-            Game.Inst.networkMgr.rob_bet(rate);
+            this.sendRobRate(rate);
         
         UIMgr.Inst.showRobBet(false);
         UIMgr.Inst.players[0].setStatus(Define.BetType.RobBet,rate);
@@ -97,11 +86,19 @@ export default class RobBet extends StateBase {
     /**sync time with server */
     registerTimeSync(){
         Game.Inst.EventListener.on("getTime",(data)=>{
-            if(data.stage == Define.GameState.RobBet){
+            if(data.stage == Define.GameState.GrabBanker){
                 // cc.warn("update time : " + data.time);
                 UIMgr.Inst.clock.countDown = data.time;
             }
         })
+    }
+
+    sendRobRate(rate : number){
+        let data= {
+            "event" : "grab_banker",
+            "grab_rate" : rate
+        };
+        Game.Inst.networkMgr.sendMessage(data);
     }
 
 

@@ -17,10 +17,9 @@ export default class Waiting extends StateBase {
     onLoad() {
         let self = this;
         Game.Inst.EventListener.on("startGame",()=>{
-            //hide msg box
-            Game.Inst.utils.hideAllMessageBox();
+            
             //goto rob bet
-            self.m_FSM.setState(Define.GameState.RobBet);
+            self.m_FSM.setState(Define.GameState.GrabBanker);
         });
 
         Game.Inst.networkMgr.registerEvent("matching", (msg) => { this.receiveMatching(msg); });
@@ -31,24 +30,10 @@ export default class Waiting extends StateBase {
     public stateInitialize() {
         cc.warn("initialize");
         ////init game
-        //init player
-        let playerCount = 5;
-        //generate player
-        let gameInfo: Define.GameInfo = Define.GameInfo.Inst;
-        gameInfo.playerCount = playerCount;
-        for (let index = 0; index < playerCount; index++) {
-            gameInfo.players.push(new Define.Player());
-        }
-        //GameInfo init
         Define.GameInfo.Inst.endGame = false;
         Define.GameInfo.Inst.rob_list = [];
         //init UI
         UIMgr.Inst.initUI();
-        // get table
-
-
-        ////send match ready
-        this.sendGameReady();
     }
 
     /**
@@ -59,9 +44,12 @@ export default class Waiting extends StateBase {
             "event" : "ready"
         };
         Game.Inst.networkMgr.sendMessage(data);
+        cc.warn("send Game ready");
     }
 
     public stateRelease() {
+        //hide msg box
+        Game.Inst.utils.hideAllMessageBox();
     }
     public stateUpdate(dt: number) {
     }
@@ -87,7 +75,7 @@ export default class Waiting extends StateBase {
      * @param msg 
      */
     receiveInitInfo(msg: Define.InitGame) {
-        cc.warn("receiveUpdate interface example: ");
+        cc.warn("receive init info ");
 
         if (this.isActive) {
             cc.log(msg);
@@ -98,21 +86,44 @@ export default class Waiting extends StateBase {
             gameInfo.coinsLimit = msg.game_info.coins_limit;
             gameInfo.levyRate = msg.game_info.levy_rate;
             gameInfo.roomID = msg.game_info.room_id;
-            gameInfo.timeOfRound = msg.game_info.time_of_round;
+            gameInfo.remainTime = msg.game_info.time_of_round;
 
             //Player Setting
-            gameInfo.playerCount = msg.player_list.length;
+            gameInfo.playerCount = msg.players_info.length;
             gameInfo.players.length = 0;
+
+            let myUID : string = msg.game_info.my_uid;
+
+            //push myself first
             for (let i = 0; i < Define.GameInfo.Inst.playerCount; i++) {
+                if(msg.players_info[i].uid != myUID) {
+                    cc.warn("skip : " + msg.players_info[i].uid + ", not " + myUID);
+                    continue;
+                }
+
                 let player: Define.Player = new Define.Player();
-                player.UID = msg.player_list[i].uid;
-                player.money = msg.player_list[i].money_src;
-                player.name = msg.player_list[i].name;
-                player.iconID = msg.player_list[i].avatar;
-                player.gender = msg.player_list[i].gender;
-                player.vip = msg.player_list[i].vip;
+                player.UID = msg.players_info[i].uid;
+                player.money = msg.players_info[i].money_src;
+                player.name = msg.players_info[i].name;
+                player.iconID = msg.players_info[i].avatar;
+                player.gender = msg.players_info[i].gender;
+                player.vip = msg.players_info[i].vip;
                 gameInfo.players.push(player);
             }
+            //skip mySelf
+            for (let i = 0; i < Define.GameInfo.Inst.playerCount; i++) {
+                if(msg.players_info[i].uid == myUID) continue;
+
+                let player: Define.Player = new Define.Player();
+                player.UID = msg.players_info[i].uid;
+                player.money = msg.players_info[i].money_src;
+                player.name = msg.players_info[i].name;
+                player.iconID = msg.players_info[i].avatar;
+                player.gender = msg.players_info[i].gender;
+                player.vip = msg.players_info[i].vip;
+                gameInfo.players.push(player);
+            }
+
             UIMgr.Inst.initPlayerInfo();
 
             gameInfo.mainPlayer = Converter.getServerPlayerCount(msg.game_info.my_uid);
@@ -124,8 +135,7 @@ export default class Waiting extends StateBase {
             UIMgr.Inst.roomInfo.setVisible(true);
 
             //send Ready request to server
-            let data = { "event": "ready" };
-            Game.Inst.networkMgr.sendMessage(JSON.stringify(data));
+            this.sendGameReady();
             //this.isReady = true;
         }
     }

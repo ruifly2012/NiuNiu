@@ -24,7 +24,7 @@ export default class NetworkManager {
     static Token: string = "token";
     static Oid: string = "";
     private ws: WebSocket;
-    
+
     ////////////DEBUG MODE//////////
     private enableDebugLog: boolean = true;
     
@@ -91,7 +91,7 @@ export default class NetworkManager {
             cc.warn("[NetworkMgr] Duplicate register code: " + code);
     
         this.constantCallbackMap[code] = callback;
-    
+        cc.log("[NetworkMgr] register code: "+code);
         // FIFO to execute all cache callback
         if (this.cacheCallbackMap[code] !== undefined){
             while (this.cacheCallbackMap[code].length > 0){
@@ -161,91 +161,12 @@ export default class NetworkManager {
             window.clearTimeout(this.keepAliveTimeout)
         });
     }
-    
-    /*
-    private _socket;
-    private self = this;
-    */
-
-    /*
-    ConnectServer() {
-        cc.log("con server");
-        if (NetworkManager.serverURL != ""){
-            this._socket = io.connect(NetworkManager.serverURL);
-            this.eventRegister();
-            this.LogIn();
-        }
-        else{
-            this.loadConfig(() => {
-                this._socket = io.connect(NetworkManager.serverURL);
-                this.eventRegister();
-                this.LogIn();
-            });
-        }
-        cc.log("connect success");
-    };
-    */
-
-    // disConnect(){
-    //     cc.log("disconnect");
-    //     this._socket.disconnect();
-    //     this.eventUnregister();
-    // }
-
-    //socket(){ return this._socket; }
-
-    LogIn(){
-        //log oid for after use
-        //Define.RoomInfo.Inst.game_option_id = Number(oid);
-        let token = Define.GameInfo.Inst.token;
-        let json= {
-            "no" : Number(6006),
-            "data" : token
-        };
-        this._socket.emit("action",json ,(code,data)=>{
-            cc.log("token callback : "+code + data);
-            if(code == 0){
-                this.getGameTable();
-                //Game.Inst.EventListener.notify("enterGame");
-            }
-            
-        })
-
-       
-    }
-
-    getGameTable(){
-        let tableJson= {
-            "no" : 6001,
-            "data" : {"oid": Define.RoomInfo.Inst.game_option_id}//13: 2player
-        };//2 player
-        cc.log("table req:"+tableJson); 
-        this._socket.emit("action",tableJson ,function(errCode,message){
-            cc.log("table req callback: "+JSON.stringify(errCode) +"," + JSON.stringify(message));
-        })
-    }
-
-    /**
-     * 取得時間
-     */
-    get_time(){
-        let no:number = 6070;
-        let json= {
-            "no" : no
-        };
-        this._socket.emit("action",json ,function(code,data){
-            if(code == 0) {
-                Game.Inst.EventListener.notify("getTime",data);
-            }
-            else
-                cc.warn("get time error : " + data.error);
-        })
-    }
 
     /**
      * 搶莊
      * @param rate 倍率
      */
+    /*
     rob_bet(rate: number){
         let no:number = 6072;
         let json= {
@@ -260,194 +181,119 @@ export default class NetworkManager {
             else cc.log("rob_bet success");
         })
     }
+    */
 
     /**
      * 一般倍率下注
      * @param rate 倍率
-     */
-    place_bet(rate: number){
-        let no:number = 6073;
-        let json= {
-            "no" : no,
-            "data" : {
-                "place_bet" : rate
-            }
-        };
-        this._socket.emit("action",json ,function(code,data){
-            if(code != 0) cc.warn("place_bet error : " + data.error);
-            else cc.log("place_bet success");
-        })
-    }
+     place_bet(rate: number){
+         let no:number = 6073;
+         let json= {
+             "no" : no,
+             "data" : {
+                 "place_bet" : rate
+                }
+            };
+            this._socket.emit("action",json ,function(code,data){
+                if(code != 0) cc.warn("place_bet error : " + data.error);
+                else cc.log("place_bet success");
+            })
+        }
+        
+        */
 
     /**
      * 選牌完成
-     */
-    chooseCardComplete(){
-        let no:number = 6074;
-        let json= {
-            "no" : no,
-            "data" : {
-                "deal_card" : 1
-            }
-        };
-        this._socket.emit("action",json ,function(code,data){
-            if(code != 0) cc.warn("chooseCard error : " + data.error);
-            else cc.log("chooseCard success");
-        })
-    }
+     chooseCardComplete(){
+         let no:number = 6074;
+         let json= {
+             "no" : no,
+             "data" : {
+                 "deal_card" : 1
+                }
+            };
+            this._socket.emit("action",json ,function(code,data){
+                if(code != 0) cc.warn("chooseCard error : " + data.error);
+                else cc.log("chooseCard success");
+            })
+        }
+          */
 
     /**
      * 罐頭訊息
-     */
-    sendCannedMsg(canNum: number){
-        let no:number = 6011;
-        let json= {
-            "no" : no,
-            "data" : {
-                "canned_num" : canNum
-            }
-        };
-        this._socket.emit("action",json ,function(code,data){
-            if(code == 0) {
-                cc.log("send can msg");
-            }
-            else
+     sendCannedMsg(canNum: number){
+         let no:number = 6011;
+         let json= {
+             "no" : no,
+             "data" : {
+                 "canned_num" : canNum
+                }
+            };
+            this._socket.emit("action",json ,function(code,data){
+                if(code == 0) {
+                    cc.log("send can msg");
+                }
+                else
                 cc.warn("send can msg error : " + data.error);
-        })
-    }
+            })
+        }
+       */
 
-    eventRegister(){
-        let self = this;
-
-        this._socket.on("response", function (data) {
-            cc.log("response : " + JSON.stringify(data));
-            if(data == 6001) {
-                // get table success
-                Game.Inst.EventListener.notify("startGame");
-                //switch to rob bet
-            }
-            switch(data.no){
-                ///////stage info////////////
-                case 6101://rob bet stage info
-                    Game.Inst.EventListener.notify("startRobBetFSM",data);
-                    Game.Inst.EventListener.notify("RobBetInfo",data);
-                    break;
-                case 6108:
-                    self.receiveBanker(data);
-                    break;
-                case 6103://place bet stage info
-                    self.placeBetStageInfo(data);
-                    break;
-                case 6105://all result send
-                    self.receiveCard(data);
-                    break;
-                // //////bet///////////////    
-                case 6102:
-                    self.receiveRobBet(data);
-                    break;
-                case 6104:
-                    self.receivePlaceBet(data);
-                    break;
-                case 6106:
-                    self.receiveOtherChoose(data);
-                    break;
-                case 6011:
-                    self.rcvCannedMsg(data);
-                default:
-                    break;
-            }
-        });
-        
-
-    }
-
-    eventUnregister(){
-        this._socket.off("response");
-    }
-
-    /**
-     * 6108 莊家
-     * @param data 
-     */
-    receiveBanker(data){
-        let bankerIndex =  UIMgr.Inst.getPlayerIndexByUID(data.banker);
-        Define.GameInfo.Inst.bankerIndex = bankerIndex;
-        //stop clock when rob banker anime
-        UIMgr.Inst.stopClock();
-        UIMgr.Inst.setDealerAnime(Define.GameInfo.Inst.rob_list,bankerIndex);
-    }
 
     /**
      * 6103  after 6108 3s
      * @param data 
-     */
-    placeBetStageInfo(data){
-        cc.log(data);
-        //set rate
-        UIMgr.Inst.BetUIMgr.setRate(data.main_player.place_bet_list);
-        Game.Inst.EventListener.notify("gotoPlaceBet");
-        Game.Inst.EventListener.notify("startBet");
-    }
-
-    /**
-     * 6102
-     * @param data 
-     */
-    receiveRobBet(data){
-        UIMgr.Inst.getPlayerByUID(data.player).setStatus(Define.BetType.RobBet,data.rob_bet);
-        cc.log("push"+UIMgr.Inst.getPlayerIndexByUID(data.player));
-        if(data.rob_bet != 0)
-            Define.GameInfo.Inst.rob_list.push(UIMgr.Inst.getPlayerIndexByUID(data.player));
-    }
-
-    /**
-     * 6104
-     * @param data 
-     */
-    receivePlaceBet(data){
-        UIMgr.Inst.getPlayerByUID(data.player).setStatus(Define.BetType.PlaceBet,data.place_bet);
-    }
+     placeBetStageInfo(data){
+         cc.log(data);
+         //set rate
+         UIMgr.Inst.BetUIMgr.setRate(data.main_player.place_bet_list);
+         Game.Inst.EventListener.notify("gotoPlaceBet");
+         Game.Inst.EventListener.notify("startBet");
+        }
+        */
 
 
 
     /**
      * 6105
      * @param data
-     */
-    receiveCard(data){
-        Game.Inst.EventListener.notify("gotoChooseCard");
-        Define.GameInfo.Inst.players[0].finalData(data.main_player);
-        cc.warn("my cards : " + Define.GameInfo.Inst.players[0].poker + "type : " + Define.GameInfo.Inst.players[0].cardType);
-        //show card
-        UIMgr.Inst.cardUIMgr.getCard = true;
-        if(UIMgr.Inst.cardUIMgr.readyShow) UIMgr.Inst.cardUIMgr.setCard();
-
-        //get other player data
-        let playerIndex = 0;
-        for (let _key in data.players) {
-            playerIndex++;
-            Define.GameInfo.Inst.players[playerIndex].finalData(data.players[_key]);
+     receiveCard(data){
+         Game.Inst.EventListener.notify("gotoChooseCard");
+         Define.GameInfo.Inst.players[0].finalData(data.main_player);
+         cc.warn("my cards : " + Define.GameInfo.Inst.players[0].poker + "type : " + Define.GameInfo.Inst.players[0].cardType);
+         //show card
+         UIMgr.Inst.cardUIMgr.getCard = true;
+         if(UIMgr.Inst.cardUIMgr.readyShow) UIMgr.Inst.cardUIMgr.setCard();
+         
+         //get other player data
+         let playerIndex = 0;
+         for (let _key in data.players) {
+             playerIndex++;
+             Define.GameInfo.Inst.players[playerIndex].finalData(data.players[_key]);
+            }
         }
-    }
+  */
 
-    /**other player choose card complete */
+    /**other player choose card complete 
     receiveOtherChoose(data){
         let index = UIMgr.Inst.getPlayerIndexByUID(data.player)
         //cc.warn("get other complete choose");
         UIMgr.Inst.CardStatusUIMgr.setComplete(index,true);
         Game.Inst.EventListener.notify("cardChooseComplete");
     }
+    */
 
     /**
      * 罐頭訊息
-     */
+     
     rcvCannedMsg(data){
         let index = UIMgr.Inst.getPlayerIndexByUID(data.uid);
         UIMgr.Inst.players[index].talk(data.canned_num);
         cc.warn("player"+index+"rcv canned msg"+data.canned_num);
     }
+    */
 
-    /**獲得注單 */
+    /**獲得注單 
     get_record(){
         let no:number = 6007;
         let json= {
@@ -461,5 +307,5 @@ export default class NetworkManager {
             }
         })
     }
-
+*/
 }

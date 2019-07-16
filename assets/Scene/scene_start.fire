@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.4397858796296296,
-      "y": 0.4397858796296296,
+      "x": 0.3398148148148148,
+      "y": 0.3398148148148148,
       "z": 1
     },
     "_quat": {
@@ -320,7 +320,7 @@
         "__id__": 28
       }
     ],
-    "_active": false,
+    "_active": true,
     "_level": 2,
     "_components": [],
     "_prefab": null,
@@ -1166,7 +1166,7 @@
       "__id__": 18
     },
     "_children": [],
-    "_active": true,
+    "_active": false,
     "_level": 2,
     "_components": [
       {
@@ -1282,8 +1282,8 @@
       "b": 187,
       "a": 255
     },
-    "_N$maxLength": 8,
-    "_N$stayOnTop": false,
+    "_N$maxLength": 100,
+    "_N$stayOnTop": true,
     "_id": "feepsQ1odPrZkACxn7NmlX"
   },
   {

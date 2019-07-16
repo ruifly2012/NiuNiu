@@ -65,11 +65,11 @@ export default class UIMgr extends cc.Component {
         this.rob_bet.active = false;
         this.place_bet.active = false;
         this.choose_card.active = false;
-        
+        // webSocket Event
+        Game.Inst.networkMgr.registerEvent("player_action", (msg) => { this.receivePlayerAction(msg); });
+        Game.Inst.networkMgr.registerEvent("announce_banker", (msg) => { this.receiveBanker(msg); });
+        Game.Inst.networkMgr.registerEvent("available_bet_rates", (msg) => { this.receiveBetRates(msg); });
 
-        Game.Inst.EventListener.on("RobBetInfo",(data)=>{
-            UIMgr.Inst.receiveRobBetInfo(data);
-        })
     }
 
     getPlayerByUID(UID: string): Player{
@@ -181,26 +181,6 @@ export default class UIMgr extends cc.Component {
         }
     }
 
-    receiveRobBetInfo(data){
-        cc.warn("RobBet"+JSON.stringify(data));
-        Define.RoomInfo.Inst.assign(data.room);
-        //room info
-        this.roomInfo.setRoomInfo(data.room.id);
-        this.roomInfo.setRoomName(MiscHelper.getServerRoomName(data.room.room_name));
-        this.roomInfo.setAntes(data.room.bet);
-        this.roomInfo.setVisible(true);
-        //player data
-        Define.GameInfo.Inst.players[0].initData(data.main_player);
-        //get other player data
-        let playerIndex = 0;
-        for (let _key in data.players) {
-            playerIndex++;
-            Define.GameInfo.Inst.players[playerIndex].initData(data.players[_key]);
-        }
-        Define.GameInfo.Inst.playerCount = playerIndex+1;
-        UIMgr.Inst.initPlayerInfo();
-    }
-
     /**
      * set clock
      * @param time time
@@ -209,7 +189,6 @@ export default class UIMgr extends cc.Component {
         cc.log("start clock");
         this.clock.startCountDown(time, callback);
     }
-
 
     stopClock(){
         this.clock.init();
@@ -272,5 +251,39 @@ export default class UIMgr extends cc.Component {
 
     }
 
+    ////web socket event////
+    receivePlayerAction(msg: Define.PlayerAction) {
+        switch(msg.action){
+            case "grab_banker":
+                this.getPlayerByUID(msg.action_player_uid).setStatus(Define.BetType.RobBet,msg.info.grab_rate);
+                cc.log("push"+this.getPlayerIndexByUID(msg.action_player_uid));
+                if(msg.info.grab_rate != 0)
+                Define.GameInfo.Inst.rob_list.push(UIMgr.Inst.getPlayerIndexByUID(msg.action_player_uid));
+                break;
+            case "bet":
+                this.getPlayerByUID(msg.action_player_uid).setStatus(Define.BetType.RobBet,msg.info.bet_rate);
+                break;
+        }
+        
+    }
 
+    /**
+     * 收到SERVER傳回莊家UID
+     * @param msg 
+     */
+    receiveBanker(msg: Define.BankerBroadcast) {
+        let bankerIndex =  UIMgr.Inst.getPlayerIndexByUID(msg.banker_uid);
+        Define.GameInfo.Inst.bankerIndex = bankerIndex;
+        //stop clock when rob banker anime
+        this.stopClock();
+        this.setDealerAnime(Define.GameInfo.Inst.rob_list,bankerIndex);
+    }
+
+    /**
+     * get avaliable bet rate list
+     * @param msg 
+     */
+    receiveBetRates(msg){
+        this.BetUIMgr.setRate(msg.available_bet_rates);
+    }
 }
