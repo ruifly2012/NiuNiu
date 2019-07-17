@@ -18,21 +18,14 @@ export default class PlaceBet extends StateBase {
     public stateInitialize(){
         cc.warn("place bet!!!");
 
-        //Game.Inst.EventListener.on("startBet",()=>{
-            //hide rob_bet status
-            UIMgr.Inst.players.forEach(element => {
-                element.hideStatus();
-            });
-            if(Define.GameInfo.Inst.bankerIndex != 0){
-                UIMgr.Inst.showPlaceBet(true);
-            }
-            this.startCountDown();
-            this.registerTimeSync();
-        //})
-        //listen change stage
-        Game.Inst.EventListener.on("gotoChooseCard",()=>{
-            this.m_FSM.setState(Define.GameState.PlayCard);
-        })
+        UIMgr.Inst.players.forEach(element => {
+            element.hideStatus();
+        });
+        if(Define.GameInfo.Inst.bankerIndex != 0){
+            UIMgr.Inst.showPlaceBet(true);
+        }
+        this.startCountDown();
+       
         //change to correct rate
         UIMgr.Inst.BetUIMgr.activate();
     }
@@ -57,8 +50,6 @@ export default class PlaceBet extends StateBase {
             }
 
             UIMgr.Inst.stopClock();
-            //wait server call, so that can show auto rate
-            //this.m_FSM.setState(Define.GameState.ChooseCard)
         });
     }
 

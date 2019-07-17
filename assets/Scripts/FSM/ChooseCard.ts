@@ -27,12 +27,7 @@ export default class ChooseCard extends StateBase {
         UIMgr.Inst.animMgr.playDistributePoker(()=>{
             this.startCountDown();
             this.registerEvent();
-            // keep showing place bet
-            /*
-            UIMgr.Inst.players.forEach(element => {
-                element.hideStatus();
-            });
-            */
+
             UIMgr.Inst.showChooseCard(true);
             UIMgr.Inst.cardUIMgr.activate();
         });
@@ -62,8 +57,6 @@ export default class ChooseCard extends StateBase {
     }
 
     registerEvent(){
-        
-        this.registerTimeSync();
         this.registerComplete();
     }
 
@@ -83,18 +76,6 @@ export default class ChooseCard extends StateBase {
                 if(this.isSelfComplete){
                     this.m_FSM.setState(Define.GameState.Calc);
                 }
-            }
-        })
-    }
-
-    /**
-     * get time from server to sync
-     */
-    registerTimeSync(){
-        Game.Inst.EventListener.on("getTime",(data)=>{
-            if(data.stage == Define.GameState.PlayCard){
-                // cc.warn("update time : " + data.time);
-                UIMgr.Inst.clock.countDown = data.time;
             }
         })
     }
@@ -121,14 +102,24 @@ export default class ChooseCard extends StateBase {
     //move card & send complete
     completeChoose(){
         UIMgr.Inst.showChooseCard(false);
-            UIMgr.Inst.cardUIMgr.unRegClickEvent();
-            Game.Inst.networkMgr.chooseCardComplete();
-            this.isSelfComplete = true;
-            //choose complete anime
-            UIMgr.Inst.animMgr.playChooseCompleteAnim();
-            //show card type
-            UIMgr.Inst.CardStatusUIMgr.setType(0,Define.GameInfo.Inst.players[0].cardType);
-            UIMgr.Inst.AudioMgr.playCardTypeTalk(Define.GameInfo.Inst.players[0].cardType, Define.GameInfo.Inst.players[0].gender);
+        UIMgr.Inst.cardUIMgr.unRegClickEvent();
+        this.sendPlayCard();
+        this.isSelfComplete = true;
+        //choose complete anime
+        UIMgr.Inst.animMgr.playChooseCompleteAnim();
+        //show card type
+        UIMgr.Inst.CardStatusUIMgr.setType(0,Define.GameInfo.Inst.players[0].cardType);
+        UIMgr.Inst.AudioMgr.playCardTypeTalk(Define.GameInfo.Inst.players[0].cardType, Define.GameInfo.Inst.players[0].gender);
+    }
+
+    /**
+     * tell server complete choose card
+     */
+    sendPlayCard(){
+        let data= {
+            "event" : "play_card"
+        };
+        Game.Inst.networkMgr.sendMessage(data);
     }
 
 }

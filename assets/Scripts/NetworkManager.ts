@@ -163,63 +163,6 @@ export default class NetworkManager {
     }
 
     /**
-     * 搶莊
-     * @param rate 倍率
-     */
-    /*
-    rob_bet(rate: number){
-        let no:number = 6072;
-        let json= {
-            "no" : no,
-            "data" : {
-                "rob_bet" : rate
-            }
-        };
-        this._socket.emit("action",json ,function(code,data){
-            cc.log("code : " + code);
-            if(code != 0) cc.warn("rob_bet error : " + data.error);
-            else cc.log("rob_bet success");
-        })
-    }
-    */
-
-    /**
-     * 一般倍率下注
-     * @param rate 倍率
-     place_bet(rate: number){
-         let no:number = 6073;
-         let json= {
-             "no" : no,
-             "data" : {
-                 "place_bet" : rate
-                }
-            };
-            this._socket.emit("action",json ,function(code,data){
-                if(code != 0) cc.warn("place_bet error : " + data.error);
-                else cc.log("place_bet success");
-            })
-        }
-        
-        */
-
-    /**
-     * 選牌完成
-     chooseCardComplete(){
-         let no:number = 6074;
-         let json= {
-             "no" : no,
-             "data" : {
-                 "deal_card" : 1
-                }
-            };
-            this._socket.emit("action",json ,function(code,data){
-                if(code != 0) cc.warn("chooseCard error : " + data.error);
-                else cc.log("chooseCard success");
-            })
-        }
-          */
-
-    /**
      * 罐頭訊息
      sendCannedMsg(canNum: number){
          let no:number = 6011;
@@ -238,19 +181,6 @@ export default class NetworkManager {
             })
         }
        */
-
-
-    /**
-     * 6103  after 6108 3s
-     * @param data 
-     placeBetStageInfo(data){
-         cc.log(data);
-         //set rate
-         UIMgr.Inst.BetUIMgr.setRate(data.main_player.place_bet_list);
-         Game.Inst.EventListener.notify("gotoPlaceBet");
-         Game.Inst.EventListener.notify("startBet");
-        }
-        */
 
 
 

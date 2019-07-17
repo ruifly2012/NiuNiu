@@ -252,16 +252,23 @@ export default class UIMgr extends cc.Component {
     }
 
     ////web socket event////
+
+    /**
+     * 收到server廣播其他玩家行為
+     * @param msg 
+     */
     receivePlayerAction(msg: Define.PlayerAction) {
         switch(msg.action){
             case "grab_banker":
                 this.getPlayerByUID(msg.action_player_uid).setStatus(Define.BetType.RobBet,msg.info.grab_rate);
                 cc.log("push"+this.getPlayerIndexByUID(msg.action_player_uid));
+                //if rob, put in rob anime array
                 if(msg.info.grab_rate != 0)
                 Define.GameInfo.Inst.rob_list.push(UIMgr.Inst.getPlayerIndexByUID(msg.action_player_uid));
+                
                 break;
             case "bet":
-                this.getPlayerByUID(msg.action_player_uid).setStatus(Define.BetType.RobBet,msg.info.bet_rate);
+                this.getPlayerByUID(msg.action_player_uid).setStatus(Define.BetType.PlaceBet,msg.info.bet_rate);
                 break;
         }
         
