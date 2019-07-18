@@ -24,6 +24,7 @@ export default class Waiting extends StateBase {
 
         Game.Inst.networkMgr.registerEvent("matching", (msg) => { this.receiveMatching(msg); });
         Game.Inst.networkMgr.registerEvent("init_info", (msg) => { this.receiveInitInfo(msg); });
+        Game.Inst.networkMgr.registerEvent("game_start", (msg) => { this.receiveGameStart(msg); });
 
     }
 
@@ -92,17 +93,17 @@ export default class Waiting extends StateBase {
             gameInfo.playerCount = msg.players_info.length;
             gameInfo.players.length = 0;
 
-            let myUID : string = msg.game_info.my_uid;
+            let myUID : string = NetworkManager.Token;
 
             //push myself first
             for (let i = 0; i < Define.GameInfo.Inst.playerCount; i++) {
-                if(msg.players_info[i].uid != myUID) {
-                    cc.warn("skip : " + msg.players_info[i].uid + ", not " + myUID);
+                if(msg.players_info[i].pf_account != myUID) {
+                    cc.warn("skip : " + msg.players_info[i].pf_account + ", not " + myUID);
                     continue;
                 }
 
                 let player: Define.Player = new Define.Player();
-                player.UID = msg.players_info[i].uid;
+                player.UID = msg.players_info[i].pf_account;
                 player.money = msg.players_info[i].money_src;
                 player.name = msg.players_info[i].name;
                 player.iconID = msg.players_info[i].avatar;
@@ -112,10 +113,10 @@ export default class Waiting extends StateBase {
             }
             //skip mySelf
             for (let i = 0; i < Define.GameInfo.Inst.playerCount; i++) {
-                if(msg.players_info[i].uid == myUID) continue;
+                if(msg.players_info[i].pf_account == myUID) continue;
 
                 let player: Define.Player = new Define.Player();
-                player.UID = msg.players_info[i].uid;
+                player.UID = msg.players_info[i].pf_account;
                 player.money = msg.players_info[i].money_src;
                 player.name = msg.players_info[i].name;
                 player.iconID = msg.players_info[i].avatar;
@@ -138,5 +139,14 @@ export default class Waiting extends StateBase {
             this.sendGameReady();
             //this.isReady = true;
         }
+    }
+
+    /**
+     * 收到遊戲開始
+     * @param msg 目前用不到
+     */
+    receiveGameStart(msg){
+        Game.Inst.utils.hideAllMessageBox();
+        UIMgr.Inst.animMgr.playStartGame();
     }
 }

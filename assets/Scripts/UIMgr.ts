@@ -260,15 +260,15 @@ export default class UIMgr extends cc.Component {
     receivePlayerAction(msg: Define.PlayerAction) {
         switch(msg.action){
             case "grab_banker":
-                this.getPlayerByUID(msg.action_player_uid).setStatus(Define.BetType.RobBet,msg.info.grab_rate);
-                cc.log("push"+this.getPlayerIndexByUID(msg.action_player_uid));
+                this.getPlayerByUID(msg.action_player_pf_account).setStatus(Define.BetType.RobBet,msg.info.grab_rate);
+                cc.log("push"+this.getPlayerIndexByUID(msg.action_player_pf_account));
                 //if rob, put in rob anime array
                 if(msg.info.grab_rate != 0)
-                Define.GameInfo.Inst.rob_list.push(UIMgr.Inst.getPlayerIndexByUID(msg.action_player_uid));
+                Define.GameInfo.Inst.rob_list.push(UIMgr.Inst.getPlayerIndexByUID(msg.action_player_pf_account));
                 
                 break;
             case "bet":
-                this.getPlayerByUID(msg.action_player_uid).setStatus(Define.BetType.PlaceBet,msg.info.bet_rate);
+                this.getPlayerByUID(msg.action_player_pf_account).setStatus(Define.BetType.PlaceBet,msg.info.bet_rate);
                 break;
         }
         
@@ -279,7 +279,7 @@ export default class UIMgr extends cc.Component {
      * @param msg 
      */
     receiveBanker(msg: Define.BankerBroadcast) {
-        let bankerIndex =  UIMgr.Inst.getPlayerIndexByUID(msg.banker_uid);
+        let bankerIndex =  UIMgr.Inst.getPlayerIndexByUID(msg.banker_pf_account);
         Define.GameInfo.Inst.bankerIndex = bankerIndex;
         //stop clock when rob banker anime
         this.stopClock();

@@ -20,11 +20,14 @@ export default class RobBet extends StateBase {
     
     public stateInitialize(){
         cc.warn("rob!!!");
+        /*
         this.playStartGameAnim(()=>{
             UIMgr.Inst.showRobBet(true);
             this.startCountDown();
-            this.registerTimeSync();
         });
+    */
+        UIMgr.Inst.showRobBet(true);
+        this.startCountDown();
     }
 
     public stateRelease(){
@@ -46,18 +49,21 @@ export default class RobBet extends StateBase {
     }
 
     startCountDown() {
+        cc.log("clock set" + Define.GameInfo.Inst.remainTime);
         UIMgr.Inst.setClockAct(Define.GameInfo.Inst.remainTime, ()=>{
+            /*
             if(!this.choosed){
                 cc.log("auto rob");
                 
-                /*
+                
                 //not tell server ==> other player cannot see
                 UIMgr.Inst.players[0].setStatus(Define.BetType.RobBet,0);
-                */
+                
 
                 //tell server ==> goto next stage immediate ==> almost can't show
                 this.robBetClick(event,"0", false);
             }
+            */
             UIMgr.Inst.stopClock();
             //this.m_FSM.setState(Define.GameState.PlaceBet);
         });
@@ -68,29 +74,18 @@ export default class RobBet extends StateBase {
      * @param event 
      * @param customData rate *use string and cast to number later, or will become type string
      */
-    robBetClick(event, customData: string, send2Server: boolean = true){
+    robBetClick(event, customData: string){
         let rate: number = parseInt(customData);
         this.choosed = true;
         cc.warn("[rob_bet]click"+rate);
 
-        if(send2Server) 
-            this.sendRobRate(rate);
+        this.sendRobRate(rate);
         
         UIMgr.Inst.showRobBet(false);
         UIMgr.Inst.players[0].setStatus(Define.BetType.RobBet,rate);
         
         if(rate != 0)
             Define.GameInfo.Inst.rob_list.push(0);
-    }
-
-    /**sync time with server */
-    registerTimeSync(){
-        Game.Inst.EventListener.on("getTime",(data)=>{
-            if(data.stage == Define.GameState.GrabBanker){
-                // cc.warn("update time : " + data.time);
-                UIMgr.Inst.clock.countDown = data.time;
-            }
-        })
     }
 
     sendRobRate(rate : number){

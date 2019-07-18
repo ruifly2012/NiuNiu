@@ -98,33 +98,6 @@ export class GameInfo{
     endGame: boolean = false;
 }
 
-// export class RoomInfo{
-//     private static instance: RoomInfo = null;
-
-//     static get Inst(): RoomInfo{
-//         if(!RoomInfo.instance){
-//             RoomInfo.instance = new RoomInfo();
-//         }
-//         return this.instance;
-//     }
-
-//     assign(room){
-//         RoomInfo.Inst.id = room.id;
-//         RoomInfo.Inst.bet = room.bet;
-//         RoomInfo.Inst.coins_limit = room.coins_limit;
-//         RoomInfo.Inst.game_option_id = room.game_option_id;
-//         RoomInfo.Inst.game_rate = room.game_rate;
-//     }
-
-//     id: number;
-//     bet: number;
-//     coins_limit: number;
-//     game_option_id: number;
-//     game_rate: number;
-// }
-
-
-
 export class Player{
     UID: string;
     name: string;
@@ -140,20 +113,6 @@ export class Player{
     win_bet: number;
     /**結算金額 */
     final_coin: number;
-
-    /**
-     * 存player初始資料
-     * @param data player Json
-     */
-    initData(data){
-        this.UID = data.uid;
-        this.name = data.nickname;
-        this.money = data.coins;
-        this.iconID = data.avatar;
-        if(data.gender == Gender.female)
-            this.gender = "female";
-        else this.gender = "male";
-    }
 
     /**
      * 結算用資料
@@ -360,7 +319,7 @@ export interface GameInfo {
 
 export interface PlayersInfo {
     /**Player id */
-    uid: string;
+    pf_account: string;
     /**現有財產 */
     money_src: number;
     /**玩家名字 */
@@ -387,7 +346,7 @@ export interface PlayerAction {
     event: string;
     action: string;
     /**做出行為玩家UID */
-    action_player_uid: string;
+    action_player_pf_account: string;
     /**具體內容 */
     info: object;
 }
@@ -396,5 +355,5 @@ export interface BankerBroadcast {
     /**webSocket */
     event: string;
     /**莊家UID */
-    banker_uid : string;
+    banker_pf_account : string;
 }

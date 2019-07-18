@@ -76,7 +76,7 @@ export default class NetworkManager {
     // 傳送訊息回Server端
     sendMessage(msg, func = null){
         if (this.enableDebugLog)
-            cc.warn("[NetworkMgr] send: " + msg);
+            cc.warn(msg);
     
         this.ws.send(msg);   
         if (func != null){

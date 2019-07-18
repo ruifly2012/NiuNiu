@@ -55,6 +55,9 @@ export default class SceneStart extends cc.Component
     }
 
     generateToken(): string{
+
+        return "ze_a1";
+
         let seed: number = Math.floor(Math.random()*20);
         switch(seed){
             case 0: return "084jt09uzweln80qlq3scouzt89zn6vzhamjrkgh";

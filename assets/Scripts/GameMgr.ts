@@ -72,15 +72,7 @@ export default class GameMgr extends GameMgrBase {
     quitGame() {
         Game.Inst.networkMgr.unregisterEvent("websocket");
         Game.Inst.networkMgr.unregisterEvent("matching");
-        /*
-        Game.Inst.networkMgr.unregisterEvent("recover");
         Game.Inst.networkMgr.unregisterEvent("init_info");
-        Game.Inst.networkMgr.unregisterEvent("deal_cards");
-        Game.Inst.networkMgr.unregisterEvent("set_selected");
-        Game.Inst.networkMgr.unregisterEvent("game_results");
-        Game.Inst.networkMgr.unregisterEvent("server_error");
-        Game.Inst.networkMgr.unregisterEvent("recover_info");
-        */
         cc.log("End");
     }
 
@@ -116,6 +108,9 @@ export default class GameMgr extends GameMgrBase {
      */
     receiveTimeInfo(msg: Define.TimeBroadcast) {
         cc.log(msg);
+        //update remain time
+        Define.GameInfo.Inst.remainTime = msg.seconds;
+        cc.log("set clock time " + msg.seconds);
         switch(msg.cur_state){
             case "grab_banker_state":
                 cc.log("switch to grab_banker_state");
@@ -130,26 +125,7 @@ export default class GameMgr extends GameMgrBase {
                 this.FSM.setState(Define.GameState.PlayCard);
                 break;    
         }
-        //update remain time
-        Define.GameInfo.Inst.remainTime = msg.seconds;
+        
     }
-
-
-
-    changeState(event, customEventData) {
-        switch (customEventData) {
-            case "0":
-                this.FSM.setState(Define.GameState.Waiting);
-                break;
-            case "1":
-                this.FSM.setState(Define.GameState.GrabBanker);
-                break;
-            case "2":
-                this.FSM.setState(Define.GameState.PlaceBet);
-                break;
-        }
-    }
-
-
 
 }
