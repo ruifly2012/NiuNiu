@@ -330,6 +330,8 @@ export interface PlayersInfo {
     gender: string;
     /**vip 號碼 */
     vip: number;
+    /**結算金額 */
+    profit : number;
 }
 
 export interface TimeBroadcast {
@@ -356,4 +358,20 @@ export interface BankerBroadcast {
     event: string;
     /**莊家UID */
     banker_pf_account : string;
+}
+
+export interface DealInfo {
+    /**webSocket */
+    event: string;
+    /**牌型 */
+    card_type : number;
+    /**手牌 */
+    cards : number[];
+}
+
+export interface CalcInfo {
+    /**webSocket */
+    event: string;
+    /**玩家資訊 */
+    players_info : PlayersInfo[];
 }

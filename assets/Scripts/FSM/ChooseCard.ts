@@ -19,15 +19,11 @@ export default class ChooseCard extends StateBase {
     otherComplete: number = 0;
 
     onLoad(){
-        
     }
     
     public stateInitialize(){
         cc.warn("choose card!!!");
         UIMgr.Inst.animMgr.playDistributePoker(()=>{
-            this.startCountDown();
-            this.registerEvent();
-
             UIMgr.Inst.showChooseCard(true);
             UIMgr.Inst.cardUIMgr.activate();
         });
@@ -37,8 +33,6 @@ export default class ChooseCard extends StateBase {
         cc.warn("change to calc");
         //hide UI & clear listener
         UIMgr.Inst.showChooseCard(false);
-        Game.Inst.EventListener.off("cardChooseComplete");
-        Game.Inst.EventListener.off("getTime");
         
         UIMgr.Inst.stopClock();
         UIMgr.Inst.cardUIMgr.unRegClickEvent();
@@ -49,35 +43,9 @@ export default class ChooseCard extends StateBase {
     public stateUpdate(dt: number){
     }
 
-    startCountDown() {
-        UIMgr.Inst.setClockAct(12,()=>{
-            this.completeChoose();
-            this.m_FSM.setState(Define.GameState.Calc);
-        });
-    }
-
-    registerEvent(){
-        this.registerComplete();
-    }
-
     /**發牌 */
     playDistribute(callback?){
         UIMgr.Inst.animMgr.playDistributePoker(callback);
-    }
-
-    registerComplete(){
-        Game.Inst.EventListener.on("cardChooseComplete",()=>{
-            this.otherComplete++;
-            cc.warn("complete num : " + this.otherComplete);
-            if(this.otherComplete + 1 == Define.GameInfo.Inst.playerCount){
-                cc.warn("all other complete" );
-                this.isAllOtherComplete = true;
-                //change stage when all complete
-                if(this.isSelfComplete){
-                    this.m_FSM.setState(Define.GameState.Calc);
-                }
-            }
-        })
     }
 
     /**
@@ -101,15 +69,8 @@ export default class ChooseCard extends StateBase {
 
     //move card & send complete
     completeChoose(){
-        UIMgr.Inst.showChooseCard(false);
-        UIMgr.Inst.cardUIMgr.unRegClickEvent();
+        UIMgr.Inst.completeChooseCard();
         this.sendPlayCard();
-        this.isSelfComplete = true;
-        //choose complete anime
-        UIMgr.Inst.animMgr.playChooseCompleteAnim();
-        //show card type
-        UIMgr.Inst.CardStatusUIMgr.setType(0,Define.GameInfo.Inst.players[0].cardType);
-        UIMgr.Inst.AudioMgr.playCardTypeTalk(Define.GameInfo.Inst.players[0].cardType, Define.GameInfo.Inst.players[0].gender);
     }
 
     /**

@@ -14,11 +14,9 @@ export default class GameMgr extends GameMgrBase {
         this.init();
         Game.Inst.networkMgr.registerEvent("websocket", (msg) => { this.receiveServerConnect(msg); });
         Game.Inst.networkMgr.registerEvent("time_info", (msg) => { this.receiveTimeInfo(msg); });
-        /*
-        Game.Inst.networkMgr.registerEvent("recover", (msg) => { this.receiveServerRecorver(msg); });
-        Game.Inst.networkMgr.registerEvent("recover", (msg) => { this.receiveServerError(msg); });
-        Game.Inst.networkMgr.registerEvent("recover_info", (msg) => { this.receiveRecoverInfo(msg); });
-    */
+        Game.Inst.networkMgr.registerEvent("deal_cards", (msg) => { this.receiveDealInfo(msg); });
+        Game.Inst.networkMgr.registerEvent("game_results", (msg) => { this.receiveCalcInfo(msg); });
+        
         this.reconnectCallBack = () => {
             cc.log("websocket reconnecting...");
             this.connectServer();
@@ -121,11 +119,54 @@ export default class GameMgr extends GameMgrBase {
                 this.FSM.setState(Define.GameState.PlaceBet);
                 break;
             case "play_card_state":
-                cc.log("switch to PlayCard");
-                this.FSM.setState(Define.GameState.PlayCard);
+                cc.log("PlayCard CountDown");
+                UIMgr.Inst.startPlayCardCountDown();
                 break;    
         }
         
+    }
+
+    /**
+     * 收到deal stage 初始資訊
+     * @param msg 
+     */
+    receiveDealInfo(msg : Define.DealInfo){
+        this.FSM.setState(Define.GameState.PlayCard);
+        //save my card & type
+        Define.GameInfo.Inst.players[0].poker = msg.cards;
+        Define.GameInfo.Inst.players[0].cardType = msg.card_type;
+        if(msg.card_type == -1) Define.GameInfo.Inst.players[0].cardType = 0;
+        cc.warn("my cards : " + Define.GameInfo.Inst.players[0].poker + "type : " + Define.GameInfo.Inst.players[0].cardType);
+    }
+
+    /**
+     * 收到結算資訊
+     * @param msg 
+     */
+    receiveCalcInfo(msg : Define.CalcInfo){
+        //push myself first
+        for (let i = 0; i < Define.GameInfo.Inst.playerCount; i++) {
+            //map correct player
+            let playerInfoIndex : number = 0;
+            for(playerInfoIndex = 0; playerInfoIndex < Define.GameInfo.Inst.playerCount; playerInfoIndex++){
+                if(msg.players_info[playerInfoIndex].pf_account != Define.GameInfo.Inst.players[i].UID) {
+                    cc.warn(msg.players_info[playerInfoIndex].pf_account +"!="+Define.GameInfo.Inst.players[i].UID);
+                    continue;
+                }
+                cc.warn("find @" +playerInfoIndex );
+                break;
+            }
+            //save data
+            cc.log(msg);
+            cc.log(msg.players_info);
+            cc.log(msg.players_info[0]);
+            
+            
+            Define.GameInfo.Inst.players[i].win_bet = msg.players_info[playerInfoIndex].profit;
+            Define.GameInfo.Inst.players[i].final_coin = msg.players_info[playerInfoIndex].money_src;
+        }
+        //goto final result state
+        this.FSM.setState(Define.GameState.Calc);
     }
 
 }

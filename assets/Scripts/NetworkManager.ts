@@ -78,7 +78,8 @@ export default class NetworkManager {
         if (this.enableDebugLog)
             cc.warn(msg);
     
-        this.ws.send(msg);   
+        //parse to string to avoid "Object object" problem
+        this.ws.send(JSON.stringify(msg));
         if (func != null){
             let data = JSON.parse(msg);
             this.oneTimeCallbackMap[data.event] = func;
@@ -181,37 +182,6 @@ export default class NetworkManager {
             })
         }
        */
-
-
-
-    /**
-     * 6105
-     * @param data
-     receiveCard(data){
-         Game.Inst.EventListener.notify("gotoChooseCard");
-         Define.GameInfo.Inst.players[0].finalData(data.main_player);
-         cc.warn("my cards : " + Define.GameInfo.Inst.players[0].poker + "type : " + Define.GameInfo.Inst.players[0].cardType);
-         //show card
-         UIMgr.Inst.cardUIMgr.getCard = true;
-         if(UIMgr.Inst.cardUIMgr.readyShow) UIMgr.Inst.cardUIMgr.setCard();
-         
-         //get other player data
-         let playerIndex = 0;
-         for (let _key in data.players) {
-             playerIndex++;
-             Define.GameInfo.Inst.players[playerIndex].finalData(data.players[_key]);
-            }
-        }
-  */
-
-    /**other player choose card complete 
-    receiveOtherChoose(data){
-        let index = UIMgr.Inst.getPlayerIndexByUID(data.player)
-        //cc.warn("get other complete choose");
-        UIMgr.Inst.CardStatusUIMgr.setComplete(index,true);
-        Game.Inst.EventListener.notify("cardChooseComplete");
-    }
-    */
 
     /**
      * 罐頭訊息

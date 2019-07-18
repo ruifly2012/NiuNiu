@@ -57,6 +57,8 @@ export default class UIMgr extends cc.Component {
     private place_bet: cc.Node;
     private choose_card: cc.Node;
 
+    private isPlayCardComplete: boolean = false;
+
     onLoad() {
         UIMgr.instance = this;
         this.rob_bet = this.gameUI.children[0];
@@ -169,6 +171,27 @@ export default class UIMgr extends cc.Component {
         });
     }
 
+    completeChooseCard(){
+        //only choose once
+        if(this.isPlayCardComplete) return;
+        this.isPlayCardComplete = true;
+
+        this.showChooseCard(false);
+        this.cardUIMgr.unRegClickEvent();
+        //choose complete anime
+        this.animMgr.playChooseCompleteAnim();
+        //show card type
+        this.CardStatusUIMgr.setType(0,Define.GameInfo.Inst.players[0].cardType);
+        this.AudioMgr.playCardTypeTalk(Define.GameInfo.Inst.players[0].cardType, Define.GameInfo.Inst.players[0].gender);
+    }
+
+    startPlayCardCountDown(){
+        this.setClockAct(Define.GameInfo.Inst.remainTime, ()=>{
+            this.completeChooseCard();
+            this.stopClock();
+        });
+    }
+
     /**
      * init player info and show
      */
@@ -270,6 +293,15 @@ export default class UIMgr extends cc.Component {
             case "bet":
                 this.getPlayerByUID(msg.action_player_pf_account).setStatus(Define.BetType.PlaceBet,msg.info.bet_rate);
                 break;
+            case "play_card":
+                let index = UIMgr.Inst.getPlayerIndexByUID(msg.action_player_pf_account)
+                //cc.warn("get other complete choose");
+                this.CardStatusUIMgr.setComplete(index,true);
+                Define.GameInfo.Inst.players[this.getPlayerIndexByUID(msg.action_player_pf_account)].poker = msg.info.cards;
+                Define.GameInfo.Inst.players[this.getPlayerIndexByUID(msg.action_player_pf_account)].cardType = msg.info.card_type;
+                if(msg.info.card_type == -1) Define.GameInfo.Inst.players[this.getPlayerIndexByUID(msg.action_player_pf_account)].cardType = 0;
+                break;
+                    
         }
         
     }

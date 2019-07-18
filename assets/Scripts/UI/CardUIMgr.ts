@@ -18,8 +18,6 @@ export default class CardUIMgr extends cc.Component {
     private choosed:number[] = [];
     private chooseCardNum: number = 0;
     hasNiu: boolean = false;
-    getCard: boolean = false;
-    readyShow: boolean = false;
 
     onLoad() {
         this.chooseCardNum = 0;
@@ -32,12 +30,7 @@ export default class CardUIMgr extends cc.Component {
             this.poker.push(this.pokerRoot.children[index]);
             
         }
-        this.readyShow = true;
-        //cc.warn("activate CardUI" + this.getCard + this.readyShow);
-        if(this.getCard) this.setCard();
-
-
-        
+        this.setCard();
     }
 
     setCard(seat: number = 0,callback?){
@@ -45,6 +38,7 @@ export default class CardUIMgr extends cc.Component {
         let cardSize = 0.7;
         if(seat == 0) cardSize = 0.9;
         let pokerVal:number[] = Define.GameInfo.Inst.players[seat].poker;
+        cc.log(Define.GameInfo.Inst.players[seat].poker);
         //set card
         for(let index = 0 ;index< 5;index++){
             let val:PokerValue = Converter.getServerPokerConvert(pokerVal[index]);

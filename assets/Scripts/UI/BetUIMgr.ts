@@ -48,7 +48,7 @@ export default class BetUIMgr extends cc.Component {
     sendBetRate(rate : number){
         let data= {
             "event" : "bet",
-            "grab_rate" : rate
+            "bet_rate" : rate
         };
         Game.Inst.networkMgr.sendMessage(data);
     }

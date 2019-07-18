@@ -97,11 +97,7 @@ export default class Waiting extends StateBase {
 
             //push myself first
             for (let i = 0; i < Define.GameInfo.Inst.playerCount; i++) {
-                if(msg.players_info[i].pf_account != myUID) {
-                    cc.warn("skip : " + msg.players_info[i].pf_account + ", not " + myUID);
-                    continue;
-                }
-
+                if(msg.players_info[i].pf_account != myUID) continue;
                 let player: Define.Player = new Define.Player();
                 player.UID = msg.players_info[i].pf_account;
                 player.money = msg.players_info[i].money_src;
@@ -114,7 +110,6 @@ export default class Waiting extends StateBase {
             //skip mySelf
             for (let i = 0; i < Define.GameInfo.Inst.playerCount; i++) {
                 if(msg.players_info[i].pf_account == myUID) continue;
-
                 let player: Define.Player = new Define.Player();
                 player.UID = msg.players_info[i].pf_account;
                 player.money = msg.players_info[i].money_src;
