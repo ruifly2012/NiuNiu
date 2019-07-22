@@ -153,6 +153,21 @@ export default class Converter {
         return "NoneType";
     }
 
+    /**取得牌型動畫素材名稱 */
+    static getCardTypeAudioIndex(type: CardType): string {
+        switch (type) {
+            case CardType.cowCow: return "010";
+            case CardType.goldCow: return "011";
+            case CardType.silverCow: return "012";
+            case CardType.bomb: return "013";
+            case CardType.smallCow: return "014";
+            default:
+                cc.log("[DefineConverter] not special type");
+                break;
+        }
+        return "NoneType";
+    }
+
     /**取得牌型動畫速度 */
     static getCardTypeAnimRate(type: CardType): number {
         switch (type) {

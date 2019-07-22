@@ -143,13 +143,15 @@ export default class Player extends cc.Component
     talk(index: number) {
 
         let showString: string = Game.Inst.text.get("TalkMenu" + index.toString());
-	    let voiceName: string = "voice_talk_b";
+	    let voiceName: string = "voice_g99_b";
         this.talkBoxText.string = showString;
         if(this.gender == "female"){
-            voiceName = "voice_talk_g";
+            voiceName = "voice_g99_g";
         }
-        voiceName += index.toString();
-        
+        let indexStr : string = "0";
+        if(index < 10) indexStr += "0";
+        indexStr += index.toString();
+        voiceName += indexStr;
 
         //animation setting
         let showT: number = 0.2;

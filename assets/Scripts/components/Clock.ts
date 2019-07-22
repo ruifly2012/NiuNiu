@@ -100,7 +100,7 @@ export default class Clock extends cc.Component {
     private setNoisy() {
         if (!this.isNoisy) {
             if (!this.isMute) {
-                Game.Inst.audioMgr.playEffect("effect_CS", true, 1, (audioid) => {
+                Game.Inst.audioMgr.playEffect("sound_g03_004", true, 1, (audioid) => {
                     this.noisyAudioID = audioid;
                 });
             }

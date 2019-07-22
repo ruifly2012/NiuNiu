@@ -118,12 +118,13 @@ export default class AnimMgr extends cc.Component {
     playCardTypeAnim(type: Define.CardType, callback?){
         let animName: string = Converter.getCardTypeAnimText(type);
         let animRate: number = Converter.getCardTypeAnimRate(type);
+        let audioName : string = Converter.getCardTypeAudioIndex(type);
         if(animName == "NoneType") {
             if (callback != undefined)
                 callback();
         }
         else{
-            UIMgr.Inst.AudioMgr.playCardTypeAnim(animName);
+            UIMgr.Inst.AudioMgr.playCardTypeAnim(audioName);
             Game.Inst.animationMgr.play(animName, animRate,false, callback); 
         }
         //cc.log("playType:"+animName + "RATE : "+animRate);

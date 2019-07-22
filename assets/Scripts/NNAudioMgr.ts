@@ -6,11 +6,11 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class NNAudioMgr extends cc.Component {
 
-    private playEffect(type: string, index?: number) {
-        let voiceName: string = "effect_" + type;
+    private playEffect(index: string, type: string = "g03", ) {
+        let voiceName: string = "sound_" + type;
 
         if (index != undefined) {
-            voiceName += "_" + index.toString();
+            voiceName += "_" + index;
         }
 
         Game.Inst.audioMgr.playEffect(voiceName);
@@ -26,7 +26,10 @@ export default class NNAudioMgr extends cc.Component {
         }
 
         if (index != undefined) {
-            voiceName += index.toString();
+            let indexStr : string = "0";
+            if(index < 10) indexStr += "0";
+            indexStr += index.toString();
+            voiceName += indexStr;
         }
 
         Game.Inst.audioMgr.playVoice(voiceName);
@@ -41,28 +44,27 @@ export default class NNAudioMgr extends cc.Component {
     }
 
     playVictory() {
-        this.playEffect("victory");
+        this.playEffect("008");
     }
 
     playStartGame() {
-        this.playEffect("startGame");
+        this.playEffect("001");
     }
 
     playCardTypeAnim(animName: string) {
         this.playEffect(animName);
     }
-
     playCardError(){
-        this.playEffect("cardError");
+        this.playEffect("006");
     }
 
     playDistribute(){
         //delay to match anime
-        this.scheduleOnce(()=>this.playEffect("distribute"),0.5);
+        this.scheduleOnce(()=>this.playEffect("005"),0.5);
     }
 
     playGetMoney(){
-        this.playEffect("profit");
+        this.playEffect("007");
     }
 
     playBanker(){
@@ -70,12 +72,13 @@ export default class NNAudioMgr extends cc.Component {
     }
 
     playCardTypeTalk(index: number, gender: string = "male"){
-        this.playVoice("type", gender, index);
+        this.playVoice("g03", gender, index);
     }
 
     playAllKill(gender: string = "male"){
+        this.playEffect("009");
         //delay to match anime
-        this.scheduleOnce(()=>this.playVoice("type", gender, 15),0.5);
+        this.scheduleOnce(()=>this.playVoice("g03", gender, 15),0.5);
     }
 
     /**
@@ -83,22 +86,10 @@ export default class NNAudioMgr extends cc.Component {
      * @param index 高/低音階決定
      */
     playRobBet(index: number){
-        this.playEffect("rob"+index%2);
-    }
-
-    ////////
-
-
-    playEffectSpecialCardMain(index?: number) {
-        this.playEffect("SP", index);
-    }
-
-    playVoiceDealCard() {
-        this.playVoice("DC");
-    }
-
-    playVoiceGunShot(gender: string = "male") {
-        this.playVoice("GS", gender);
+        if(index%2 == 0)
+            this.playEffect("002");
+        else 
+            this.playEffect("003");
     }
 
 }
