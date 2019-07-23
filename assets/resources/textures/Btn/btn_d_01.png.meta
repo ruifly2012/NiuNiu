@@ -1,15 +1,15 @@
 {
   "ver": "2.2.0",
-  "uuid": "5d2d9fff-9fa7-4c84-8758-c7bf5745f526",
+  "uuid": "72433ae1-0753-4cbb-a2f0-7186777ee3d0",
   "type": "sprite",
   "wrapMode": "clamp",
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
   "subMetas": {
-    "caw_btn_no_b": {
+    "btn_d_01": {
       "ver": "1.0.3",
-      "uuid": "2bf51cd3-953c-4a7c-b2fc-1f7e86f8915f",
-      "rawTextureUuid": "5d2d9fff-9fa7-4c84-8758-c7bf5745f526",
+      "uuid": "e1ce4b6f-b998-4c7a-846b-41328dafad2a",
+      "rawTextureUuid": "72433ae1-0753-4cbb-a2f0-7186777ee3d0",
       "trimType": "auto",
       "trimThreshold": 1,
       "rotated": false,

@@ -51,21 +51,8 @@ export default class RobBet extends StateBase {
     startCountDown() {
         cc.log("clock set" + Define.GameInfo.Inst.remainTime);
         UIMgr.Inst.setClockAct(Define.GameInfo.Inst.remainTime, ()=>{
-            /*
-            if(!this.choosed){
-                cc.log("auto rob");
-                
-                
-                //not tell server ==> other player cannot see
-                UIMgr.Inst.players[0].setStatus(Define.BetType.RobBet,0);
-                
-
-                //tell server ==> goto next stage immediate ==> almost can't show
-                this.robBetClick(event,"0", false);
-            }
-            */
+            UIMgr.Inst.showRobBet(false);
             UIMgr.Inst.stopClock();
-            //this.m_FSM.setState(Define.GameState.PlaceBet);
         });
     }
 

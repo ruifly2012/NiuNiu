@@ -181,8 +181,4 @@ export default class AnimMgr extends cc.Component {
         this.playAllKill();
     }
 
-    testRec(){
-        Game.Inst.networkMgr.get_record();
-    }
-
 }

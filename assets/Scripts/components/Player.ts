@@ -148,6 +148,8 @@ export default class Player extends cc.Component
         if(this.gender == "female"){
             voiceName = "voice_g99_g";
         }
+        //voice serialize from 1, so need +1
+        index++;
         let indexStr : string = "0";
         if(index < 10) indexStr += "0";
         indexStr += index.toString();

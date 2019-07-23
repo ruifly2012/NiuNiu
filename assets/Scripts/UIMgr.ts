@@ -198,7 +198,7 @@ export default class UIMgr extends cc.Component {
     initPlayerInfo() {
         let gameInfo: Define.GameInfo = Define.GameInfo.Inst;
         for (let i = 0; i < gameInfo.playerCount; i++) {
-            cc.log("init"+i+"player");
+            //cc.log("init"+i+"player");
             this.players[i].init(gameInfo.players[i].name, gameInfo.players[i].iconID.toString(), gameInfo.players[i].money, gameInfo.players[i].gender);
             this.players[i].node.active = true;
         }
@@ -294,7 +294,15 @@ export default class UIMgr extends cc.Component {
                 this.getPlayerByUID(msg.action_player_pf_account).setStatus(Define.BetType.PlaceBet,msg.info.bet_rate);
                 break;
             case "play_card":
-                let index = UIMgr.Inst.getPlayerIndexByUID(msg.action_player_pf_account)
+                let index = UIMgr.Inst.getPlayerIndexByUID(msg.action_player_pf_account);
+                if(index == 0){
+                    cc.warn("//////////////self complete???/////////////////////");
+                    cc.warn("get ID : " + msg.action_player_pf_account);
+                    cc.warn("self ID :" + Define.GameInfo.Inst.mainPlayer);
+                    Define.GameInfo.Inst.players.forEach(element => {
+                        cc.warn(element.UID);
+                    }
+                }
                 //cc.warn("get other complete choose");
                 this.CardStatusUIMgr.setComplete(index,true);
                 Define.GameInfo.Inst.players[this.getPlayerIndexByUID(msg.action_player_pf_account)].poker = msg.info.cards;

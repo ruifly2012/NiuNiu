@@ -40,6 +40,7 @@ export default class PlaceBet extends StateBase {
 
     startCountDown() {
         UIMgr.Inst.setClockAct(Define.GameInfo.Inst.remainTime, ()=>{
+            UIMgr.Inst.showPlaceBet(false);
             UIMgr.Inst.stopClock();
         });
     }

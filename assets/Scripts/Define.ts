@@ -310,12 +310,12 @@ export interface InitGame {
     /**init_info */
     event: string;
     /**房間相關的資料 */
-    game_info: GameInfo;
+    game_info: GameInfoMsg;
     /**玩家資料 */
     players_info: PlayersInfo[];
 }
 
-export interface GameInfo {
+export interface GameInfoMsg {
     /**當前收到此訊息的玩家ui */
     my_uid: string;
     /**房間 id */
@@ -389,4 +389,13 @@ export interface CalcInfo {
     event: string;
     /**玩家資訊 */
     players_info : PlayersInfo[];
+}
+
+export interface SpamMsg {
+    /**webSocket */
+    event: string;
+    /**訊息Index */
+    message_index : number;
+    /**說話玩家UID */
+    speaker_uid : string;
 }

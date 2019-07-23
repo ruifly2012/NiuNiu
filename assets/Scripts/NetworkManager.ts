@@ -165,47 +165,13 @@ export default class NetworkManager {
 
     /**
      * 罐頭訊息
-     sendCannedMsg(canNum: number){
-         let no:number = 6011;
-         let json= {
-             "no" : no,
-             "data" : {
-                 "canned_num" : canNum
-                }
-            };
-            this._socket.emit("action",json ,function(code,data){
-                if(code == 0) {
-                    cc.log("send can msg");
-                }
-                else
-                cc.warn("send can msg error : " + data.error);
-            })
-        }
-       */
-
-    /**
-     * 罐頭訊息
-     
-    rcvCannedMsg(data){
-        let index = UIMgr.Inst.getPlayerIndexByUID(data.uid);
-        UIMgr.Inst.players[index].talk(data.canned_num);
-        cc.warn("player"+index+"rcv canned msg"+data.canned_num);
-    }
     */
-
-    /**獲得注單 
-    get_record(){
-        let no:number = 6007;
-        let json= {
-            "no" : no
+    sendCannedMsg(canNum: number){
+        let data= {
+            "event" : "spam_message",
+            "message_index" : canNum
         };
-        this._socket.emit("action",json ,function(code,data){
-            if(code != 0) cc.warn("get_record error : " + data);
-            else {
-                cc.log(data);
-                cc.log(code);
-            }
-        })
+        this.sendMessage(data);
     }
-*/
+    
 }

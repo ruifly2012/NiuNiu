@@ -68,17 +68,17 @@ export default class NNAudioMgr extends cc.Component {
     }
 
     playBanker(){
-        this.playEffect("banker");
+        this.playEffect("004");
     }
 
     playCardTypeTalk(index: number, gender: string = "male"){
-        this.playVoice("g03", gender, index);
+        this.playVoice("g03", gender, index+1);
     }
 
     playAllKill(gender: string = "male"){
         this.playEffect("009");
         //delay to match anime
-        this.scheduleOnce(()=>this.playVoice("g03", gender, 15),0.5);
+        this.scheduleOnce(()=>this.playVoice("g03", gender, 16),0.5);
     }
 
     /**

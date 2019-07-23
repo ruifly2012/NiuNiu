@@ -16,6 +16,9 @@ export default class GameMgr extends GameMgrBase {
         Game.Inst.networkMgr.registerEvent("time_info", (msg) => { this.receiveTimeInfo(msg); });
         Game.Inst.networkMgr.registerEvent("deal_cards", (msg) => { this.receiveDealInfo(msg); });
         Game.Inst.networkMgr.registerEvent("game_results", (msg) => { this.receiveCalcInfo(msg); });
+        Game.Inst.networkMgr.registerEvent("recover_info", (msg) => { this.receiveRecoverInfo(msg); });
+        Game.Inst.networkMgr.registerEvent("spam_message", (msg) => { this.receiveSpamMsg(msg); });
+        
         
         this.reconnectCallBack = () => {
             cc.log("websocket reconnecting...");
@@ -71,6 +74,13 @@ export default class GameMgr extends GameMgrBase {
         Game.Inst.networkMgr.unregisterEvent("websocket");
         Game.Inst.networkMgr.unregisterEvent("matching");
         Game.Inst.networkMgr.unregisterEvent("init_info");
+        Game.Inst.networkMgr.unregisterEvent("player_action");
+        Game.Inst.networkMgr.unregisterEvent("deal_cards");
+        Game.Inst.networkMgr.unregisterEvent("game_results");
+        Game.Inst.networkMgr.unregisterEvent("recover_info");
+        Game.Inst.networkMgr.unregisterEvent("spam_message");
+        Game.Inst.networkMgr.unregisterEvent("announce_banker");
+        Game.Inst.networkMgr.unregisterEvent("available_bet_rates");
         cc.log("End");
     }
 
@@ -105,7 +115,7 @@ export default class GameMgr extends GameMgrBase {
      * @param msg 
      */
     receiveTimeInfo(msg: Define.TimeBroadcast) {
-        cc.log(msg);
+        //cc.log(msg);
         //update remain time
         Define.GameInfo.Inst.remainTime = msg.seconds;
         cc.log("set clock time " + msg.seconds);
@@ -136,7 +146,7 @@ export default class GameMgr extends GameMgrBase {
         Define.GameInfo.Inst.players[0].poker = msg.cards;
         Define.GameInfo.Inst.players[0].cardType = msg.card_type;
         if(msg.card_type == -1) Define.GameInfo.Inst.players[0].cardType = 0;
-        cc.warn("my cards : " + Define.GameInfo.Inst.players[0].poker + "type : " + Define.GameInfo.Inst.players[0].cardType);
+        //cc.warn("my cards : " + Define.GameInfo.Inst.players[0].poker + "type : " + Define.GameInfo.Inst.players[0].cardType);
     }
 
     /**
@@ -157,16 +167,24 @@ export default class GameMgr extends GameMgrBase {
                 break;
             }
             //save data
-            cc.log(msg);
-            cc.log(msg.players_info);
-            cc.log(msg.players_info[0]);
-            
-            
+            // cc.log(msg);
+            // cc.log(msg.players_info);
+            // cc.log(msg.players_info[0]);
             Define.GameInfo.Inst.players[i].win_bet = msg.players_info[playerInfoIndex].profit;
             Define.GameInfo.Inst.players[i].final_coin = msg.players_info[playerInfoIndex].money_src;
         }
         //goto final result state
         this.FSM.setState(Define.GameState.Calc);
+    }
+
+    receiveRecoverInfo(msg){
+
+    }
+
+    receiveSpamMsg(Msg : Define.SpamMsg){
+        let index = UIMgr.Inst.getPlayerIndexByUID(Msg.speaker_uid);
+        UIMgr.Inst.players[index].talk(Msg.message_index);
+        cc.warn("player"+index+"rcv canned msg"+ Msg.message_index);
     }
 
 }

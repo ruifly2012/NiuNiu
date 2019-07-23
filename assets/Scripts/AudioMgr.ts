@@ -167,7 +167,7 @@ export default class AudioMgr extends cc.Component {
                 return;
         }
 
-        cc.log("playSFX: " + url);
+        //cc.log("playSFX: " + url);
         this.cooldown.push(url);
         setTimeout(() => {
             let idx = this.cooldown.indexOf(url);
