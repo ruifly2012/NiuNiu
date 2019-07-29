@@ -316,8 +316,6 @@ export interface InitGame {
 }
 
 export interface GameInfoMsg {
-    /**當前收到此訊息的玩家ui */
-    my_uid: string;
     /**房間 id */
     room_id: string;
     /**底注 */
@@ -326,10 +324,9 @@ export interface GameInfoMsg {
     coins_limit: number;
     /**抽成%數 */
     levy_rate: number;
-    /**選擇牌組的倒數時間 */
-    time_of_round: number;
     /**房間類型 */
     room_type: number;
+    game_code : string;
 }
 
 export interface PlayersInfo {
@@ -347,6 +344,12 @@ export interface PlayersInfo {
     vip: number;
     /**結算金額 */
     profit : number;
+
+    /**player cur state */
+    is_banker: boolean;
+    is_finish_grab: boolean;
+    is_finish_bet: boolean;
+    is_finish_play: boolean;
 }
 
 export interface TimeBroadcast {
@@ -398,4 +401,21 @@ export interface SpamMsg {
     message_index : number;
     /**說話玩家UID */
     speaker_uid : string;
+}
+
+export interface RecoverInfo{
+    event: string;
+    data: Data;
+    cur_state: string;
+    seconds: number;
+    finished_players: any[];
+}
+
+export interface Data{
+    common : recoverData;
+}
+
+export interface recoverData{
+    game_info: GameInfoMsg;
+    players_info: PlayersInfo[];
 }

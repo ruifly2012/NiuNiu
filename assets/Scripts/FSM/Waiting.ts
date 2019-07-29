@@ -87,7 +87,6 @@ export default class Waiting extends StateBase {
             gameInfo.coinsLimit = msg.game_info.coins_limit;
             gameInfo.levyRate = msg.game_info.levy_rate;
             gameInfo.roomID = msg.game_info.room_id;
-            gameInfo.remainTime = msg.game_info.time_of_round;
 
             //Player Setting
             gameInfo.playerCount = msg.players_info.length;
@@ -122,7 +121,7 @@ export default class Waiting extends StateBase {
 
             UIMgr.Inst.initPlayerInfo();
 
-            gameInfo.mainPlayer = Converter.getServerPlayerCount(msg.game_info.my_uid);
+            gameInfo.mainPlayer = Converter.getServerPlayerCount(NetworkManager.Token);
 
             //room info
             UIMgr.Inst.roomInfo.setRoomInfo(gameInfo.roomID);

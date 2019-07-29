@@ -1,9 +1,9 @@
 import GameMgrBase from "./components/GameMgrBase";
 import Game from "./Game";
-import * as Define from "./Define";
+import Converter ,* as Define from "./Define";
 import { ButtonSetting } from "./components/MessageBoxCtr";
 import UIMgr from "./UIMgr";
-import NetworkMgr from "./NetworkManager";
+import NetworkManager from "./NetworkManager";
 
 const { ccclass, property } = cc._decorator;
 
@@ -81,6 +81,7 @@ export default class GameMgr extends GameMgrBase {
         Game.Inst.networkMgr.unregisterEvent("spam_message");
         Game.Inst.networkMgr.unregisterEvent("announce_banker");
         Game.Inst.networkMgr.unregisterEvent("available_bet_rates");
+        Game.Inst.networkMgr.unregisterEvent("recover_info");
         cc.log("End");
     }
 
@@ -177,8 +178,75 @@ export default class GameMgr extends GameMgrBase {
         this.FSM.setState(Define.GameState.Calc);
     }
 
-    receiveRecoverInfo(msg){
+    receiveRecoverInfo(msg : Define.RecoverInfo){
+        cc.warn("receive recover info ");
+        cc.log(msg);
+        let gameInfo: Define.GameInfo = Define.GameInfo.Inst;
 
+        //RoomInfo Setting
+        gameInfo.baseBet = msg.data.common.game_info.base_bet;
+        gameInfo.coinsLimit = msg.data.common.game_info.coins_limit;
+        gameInfo.levyRate = msg.data.common.game_info.levy_rate;
+        gameInfo.roomID = msg.data.common.game_info.room_id;
+
+        //Player Setting
+        gameInfo.playerCount = msg.data.common.players_info.length;
+        gameInfo.players.length = 0;
+
+        let myUID : string = NetworkManager.Token;
+
+        //push myself first
+        for (let i = 0; i < Define.GameInfo.Inst.playerCount; i++) {
+            if(msg.data.common.players_info[i].pf_account != myUID) continue;
+            let player: Define.Player = new Define.Player();
+            player.UID = msg.data.common.players_info[i].pf_account;
+            player.money = msg.data.common.players_info[i].money_src;
+            player.name = msg.data.common.players_info[i].name;
+            player.iconID = msg.data.common.players_info[i].avatar;
+            player.gender = msg.data.common.players_info[i].gender;
+            player.vip = msg.data.common.players_info[i].vip;
+            gameInfo.players.push(player);
+        }
+        //skip mySelf
+        for (let i = 0; i < Define.GameInfo.Inst.playerCount; i++) {
+            if(msg.data.common.players_info[i].pf_account == myUID) continue;
+            let player: Define.Player = new Define.Player();
+            player.UID = msg.data.common.players_info[i].pf_account;
+            player.money = msg.data.common.players_info[i].money_src;
+            player.name = msg.data.common.players_info[i].name;
+            player.iconID = msg.data.common.players_info[i].avatar;
+            player.gender = msg.data.common.players_info[i].gender;
+            player.vip = msg.data.common.players_info[i].vip;
+            gameInfo.players.push(player);
+        }
+
+        UIMgr.Inst.initPlayerInfo();
+
+        gameInfo.mainPlayer = Converter.getServerPlayerCount(myUID);
+
+        //room info UI set
+        UIMgr.Inst.roomInfo.setRoomInfo(gameInfo.roomID);
+        UIMgr.Inst.roomInfo.setRoomName(Converter.getServerRoomName(NetworkManager.Oid));
+        UIMgr.Inst.roomInfo.setAntes(gameInfo.baseBet);
+        UIMgr.Inst.roomInfo.setVisible(true);
+
+        /**recover to correct stage */
+        switch(msg.cur_state){
+            case "grab_banker_state":
+                cc.log("switch to grab_banker_state");
+                this.FSM.setState(Define.GameState.GrabBanker);
+                break;
+            case "bet_state":
+                cc.log("switch to PlaceBet");
+                this.FSM.setState(Define.GameState.PlaceBet);
+                break;
+            case "play_card_state":
+                cc.log("PlayCard CountDown");
+                UIMgr.Inst.startPlayCardCountDown();
+                break;    
+        }
+
+        cc.log("after switch stage~~~~");
     }
 
     receiveSpamMsg(Msg : Define.SpamMsg){

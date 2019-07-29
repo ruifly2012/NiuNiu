@@ -91,12 +91,7 @@ export default class SceneStart extends cc.Component
         this.connect(this.editbox_oid.string, this.editbox_token.string);
     }
 
-    connect(oid: string, token: string){ 
-        //Game.Inst.networkMgr.LogIn(oid, token);
-        /*
-        Define.RoomInfo.Inst.game_option_id = Number(oid);
-        Define.GameInfo.Inst.token = token;
-        */
+    connect(oid: string, token: string){
         NetworkManager.Oid = oid;
         NetworkManager.Token = token;
         Game.Inst.mainStateMgr.changeStage(GameState.Loading);
