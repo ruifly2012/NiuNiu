@@ -183,40 +183,43 @@ export default class GameMgr extends GameMgrBase {
         cc.log(msg);
         let gameInfo: Define.GameInfo = Define.GameInfo.Inst;
 
+        let msgPlayer : Define.PlayersInfo[] = msg.data.common.players_info;
+
         //RoomInfo Setting
         gameInfo.baseBet = msg.data.common.game_info.base_bet;
         gameInfo.coinsLimit = msg.data.common.game_info.coins_limit;
         gameInfo.levyRate = msg.data.common.game_info.levy_rate;
         gameInfo.roomID = msg.data.common.game_info.room_id;
+        gameInfo.remainTime = msg.seconds;
 
         //Player Setting
-        gameInfo.playerCount = msg.data.common.players_info.length;
+        gameInfo.playerCount = msgPlayer.length;
         gameInfo.players.length = 0;
 
         let myUID : string = NetworkManager.Token;
 
         //push myself first
         for (let i = 0; i < Define.GameInfo.Inst.playerCount; i++) {
-            if(msg.data.common.players_info[i].pf_account != myUID) continue;
+            if(msgPlayer[i].pf_account != myUID) continue;
             let player: Define.Player = new Define.Player();
-            player.UID = msg.data.common.players_info[i].pf_account;
-            player.money = msg.data.common.players_info[i].money_src;
-            player.name = msg.data.common.players_info[i].name;
-            player.iconID = msg.data.common.players_info[i].avatar;
-            player.gender = msg.data.common.players_info[i].gender;
-            player.vip = msg.data.common.players_info[i].vip;
+            player.UID = msgPlayer[i].pf_account;
+            player.money = msgPlayer[i].money_src;
+            player.name = msgPlayer[i].name;
+            player.iconID = msgPlayer[i].avatar;
+            player.gender = msgPlayer[i].gender;
+            player.vip = msgPlayer[i].vip;
             gameInfo.players.push(player);
         }
         //skip mySelf
         for (let i = 0; i < Define.GameInfo.Inst.playerCount; i++) {
-            if(msg.data.common.players_info[i].pf_account == myUID) continue;
+            if(msgPlayer[i].pf_account == myUID) continue;
             let player: Define.Player = new Define.Player();
-            player.UID = msg.data.common.players_info[i].pf_account;
-            player.money = msg.data.common.players_info[i].money_src;
-            player.name = msg.data.common.players_info[i].name;
-            player.iconID = msg.data.common.players_info[i].avatar;
-            player.gender = msg.data.common.players_info[i].gender;
-            player.vip = msg.data.common.players_info[i].vip;
+            player.UID = msgPlayer[i].pf_account;
+            player.money = msgPlayer[i].money_src;
+            player.name = msgPlayer[i].name;
+            player.iconID = msgPlayer[i].avatar;
+            player.gender = msgPlayer[i].gender;
+            player.vip = msgPlayer[i].vip;
             gameInfo.players.push(player);
         }
 
@@ -239,6 +242,17 @@ export default class GameMgr extends GameMgrBase {
             case "bet_state":
                 cc.log("switch to PlaceBet");
                 this.FSM.setState(Define.GameState.PlaceBet);
+                for (let i = 0; i < Define.GameInfo.Inst.playerCount; i++) {
+                    //banker
+                    if(msgPlayer[i].is_banker){
+                        gameInfo.bankerIndex = UIMgr.Inst.getPlayerIndexByUID(msgPlayer[i].pf_account);
+                        UIMgr.Inst.players[gameInfo.bankerIndex].setBanker(true);
+                    }
+                    //bet rate already show
+                    if(msgPlayer[i].is_finish_bet){
+                        UIMgr.Inst.getPlayerByUID(msgPlayer[i].pf_account).setStatus(Define.BetType.PlaceBet,msgPlayer[i].bet_rate);
+                    }
+                }
                 break;
             case "play_card_state":
                 cc.log("PlayCard CountDown");
@@ -246,7 +260,7 @@ export default class GameMgr extends GameMgrBase {
                 break;    
         }
 
-        cc.log("after switch stage~~~~");
+        cc.log("/////////////after switch stage~~~~//////////");
     }
 
     receiveSpamMsg(Msg : Define.SpamMsg){

@@ -49,6 +49,7 @@ export default class NetworkManager {
     reconnect(onOpen, onClose){
         cc.log('[NetworkMgr] connect to Server...');
         this.ws = new WebSocket("ws://" + NetworkManager.ServerURL + "/ws/game?token=" + NetworkManager.Token + "&oid=" + NetworkManager.Oid);
+        //this.ws = new WebSocket("ws://52.193.67.26:8080/ws/game?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwZl9hY2NvdW50IjoiZ3Vlc3RfMTE1NjQ2MjIyMTA3ODczNTYiLCJyb2xlX2NvZGVfaWQiOiIwIiwiZXhwIjoxNTY0NjUxMDEwfQ.veF1OMN_up_56EbrqCFWXsoDXGJgQb3r0McyTBzleNw&oid=20");
         this.ws.onopen = (evt) =>{
             //this.keepAliveInterval = window.setInterval(this.keepAlive, 5000);
             if (onOpen != null)

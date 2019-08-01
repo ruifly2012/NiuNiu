@@ -350,6 +350,9 @@ export interface PlayersInfo {
     is_finish_grab: boolean;
     is_finish_bet: boolean;
     is_finish_play: boolean;
+
+    grab_rate : number;
+    bet_rate : number;
 }
 
 export interface TimeBroadcast {

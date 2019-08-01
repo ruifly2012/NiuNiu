@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.3398148148148148,
-      "y": 0.3398148148148148,
+      "x": 0.47313368055555555,
+      "y": 0.47313368055555555,
       "z": 1
     },
     "_quat": {
@@ -200,6 +200,8 @@
       "__id__": 3
     },
     "_enabled": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_spriteFrame": {
       "__uuid__": "ca74e919-4b42-46fd-8009-e51ef878e97f"
     },
@@ -216,8 +218,6 @@
     "_isTrimmedMode": true,
     "_state": 0,
     "_atlas": null,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
     "_id": "2fbp7Us7tOIJVWbQsa6JJr"
   },
   {
@@ -320,7 +320,7 @@
         "__id__": 28
       }
     ],
-    "_active": false,
+    "_active": true,
     "_level": 2,
     "_components": [],
     "_prefab": null,
@@ -594,6 +594,8 @@
       "__id__": 11
     },
     "_enabled": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_spriteFrame": {
       "__uuid__": "ff0e91c7-55c6-4086-a39f-cb6e457b8c3b"
     },
@@ -610,8 +612,6 @@
     "_isTrimmedMode": true,
     "_state": 0,
     "_atlas": null,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
     "_id": "dbYwCea3xE6oswQq2Oer8N"
   },
   {
@@ -1053,6 +1053,8 @@
       "__id__": 21
     },
     "_enabled": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_spriteFrame": {
       "__uuid__": "ff0e91c7-55c6-4086-a39f-cb6e457b8c3b"
     },
@@ -1069,8 +1071,6 @@
     "_isTrimmedMode": true,
     "_state": 0,
     "_atlas": null,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
     "_id": "b5bgRI7qhLz7QftP/UWkpb"
   },
   {
@@ -1282,7 +1282,7 @@
       "b": 187,
       "a": 255
     },
-    "_N$maxLength": 100,
+    "_N$maxLength": 100000,
     "_N$stayOnTop": true,
     "_id": "feepsQ1odPrZkACxn7NmlX"
   },
@@ -1510,6 +1510,8 @@
       "__id__": 29
     },
     "_enabled": true,
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_spriteFrame": {
       "__uuid__": "f0048c10-f03e-4c97-b9d3-3506e1d58952"
     },
@@ -1526,8 +1528,6 @@
     "_isTrimmedMode": true,
     "_state": 0,
     "_atlas": null,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
     "_id": "cfHy6dHaRBI7BVSfpDPSyB"
   },
   {

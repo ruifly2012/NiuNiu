@@ -93,6 +93,7 @@ export default class Waiting extends StateBase {
             gameInfo.players.length = 0;
 
             let myUID : string = NetworkManager.Token;
+            cc.warn("myUID : " + myUID);
 
             //push myself first
             for (let i = 0; i < Define.GameInfo.Inst.playerCount; i++) {

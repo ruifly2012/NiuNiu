@@ -9,7 +9,7 @@
   "type": "Texture Packer",
   "subMetas": {
     "Fly_in.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "b01faff0-3404-47df-9ff7-27f9d21668d5",
       "rawTextureUuid": "940492eb-585d-40e5-a0bc-c0ed25eb9428",
       "trimType": "auto",
@@ -31,7 +31,7 @@
       "subMetas": {}
     },
     "Fly_out.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "31db30e2-f8fd-410e-9731-712a6d182c74",
       "rawTextureUuid": "940492eb-585d-40e5-a0bc-c0ed25eb9428",
       "trimType": "auto",
@@ -53,7 +53,7 @@
       "subMetas": {}
     },
     "Game_Start_000.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "8d28be40-a381-4757-b6a7-9e4f4fcf4443",
       "rawTextureUuid": "940492eb-585d-40e5-a0bc-c0ed25eb9428",
       "trimType": "auto",
@@ -75,7 +75,7 @@
       "subMetas": {}
     },
     "Game_Start_001.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "df355b50-d78a-4b85-8877-4d250931449d",
       "rawTextureUuid": "940492eb-585d-40e5-a0bc-c0ed25eb9428",
       "trimType": "auto",
@@ -97,7 +97,7 @@
       "subMetas": {}
     },
     "Game_Start_002.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "74ec9b67-9031-4deb-ad03-09d020569a9a",
       "rawTextureUuid": "940492eb-585d-40e5-a0bc-c0ed25eb9428",
       "trimType": "auto",
@@ -119,7 +119,7 @@
       "subMetas": {}
     },
     "Game_Start_003.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "10304280-a0f6-486f-b0f6-cbbf2f0104c9",
       "rawTextureUuid": "940492eb-585d-40e5-a0bc-c0ed25eb9428",
       "trimType": "auto",
@@ -141,7 +141,7 @@
       "subMetas": {}
     },
     "Game_Start_004.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "25b8c8dc-316d-4d60-86a8-361caf258f5b",
       "rawTextureUuid": "940492eb-585d-40e5-a0bc-c0ed25eb9428",
       "trimType": "auto",
@@ -163,7 +163,7 @@
       "subMetas": {}
     },
     "Game_Start_005.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "a6148329-be9a-459a-b316-890d057bf7fc",
       "rawTextureUuid": "940492eb-585d-40e5-a0bc-c0ed25eb9428",
       "trimType": "auto",
@@ -185,7 +185,7 @@
       "subMetas": {}
     },
     "Game_Start_006.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "1ba131d6-7bd3-453b-9e77-9d4e9f26d6cb",
       "rawTextureUuid": "940492eb-585d-40e5-a0bc-c0ed25eb9428",
       "trimType": "auto",
@@ -207,7 +207,7 @@
       "subMetas": {}
     },
     "Game_Start_007.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "5c91e69f-7793-416d-a6b1-c3faa7d8872c",
       "rawTextureUuid": "940492eb-585d-40e5-a0bc-c0ed25eb9428",
       "trimType": "auto",
@@ -229,7 +229,7 @@
       "subMetas": {}
     },
     "Game_Start_008.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "c7793539-9097-4a5d-96ca-cb0ba48bd4a9",
       "rawTextureUuid": "940492eb-585d-40e5-a0bc-c0ed25eb9428",
       "trimType": "auto",
@@ -251,7 +251,7 @@
       "subMetas": {}
     },
     "Game_Start_009.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "3cf56f89-5f88-4fc0-9cfa-1ddd0c4882eb",
       "rawTextureUuid": "940492eb-585d-40e5-a0bc-c0ed25eb9428",
       "trimType": "auto",
@@ -273,7 +273,7 @@
       "subMetas": {}
     },
     "Game_Start_010.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "4f8ac9a8-e1c4-4aba-9469-72ee19a50826",
       "rawTextureUuid": "940492eb-585d-40e5-a0bc-c0ed25eb9428",
       "trimType": "auto",
@@ -295,7 +295,7 @@
       "subMetas": {}
     },
     "Game_Start_011.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "1c90b863-2294-47bc-aa71-88c264f2ba3e",
       "rawTextureUuid": "940492eb-585d-40e5-a0bc-c0ed25eb9428",
       "trimType": "auto",

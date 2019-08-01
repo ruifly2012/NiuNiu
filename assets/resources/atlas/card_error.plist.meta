@@ -9,7 +9,7 @@
   "type": "Texture Packer",
   "subMetas": {
     "card_error__000.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "7a4794f6-4aac-4129-9deb-8b208428a0e6",
       "rawTextureUuid": "f7458df1-7ca1-40c5-aa96-ac9c1b6d743f",
       "trimType": "auto",
@@ -31,7 +31,7 @@
       "subMetas": {}
     },
     "card_error__001.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "91ba275c-5e17-4530-94e6-4bef11b80781",
       "rawTextureUuid": "f7458df1-7ca1-40c5-aa96-ac9c1b6d743f",
       "trimType": "auto",
@@ -53,7 +53,7 @@
       "subMetas": {}
     },
     "card_error__002.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "2ac6537f-013b-4c61-bbb8-c299662d7403",
       "rawTextureUuid": "f7458df1-7ca1-40c5-aa96-ac9c1b6d743f",
       "trimType": "auto",
@@ -75,7 +75,7 @@
       "subMetas": {}
     },
     "card_error__003.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "25b09e26-3ed9-4694-b6e1-14127986aea2",
       "rawTextureUuid": "f7458df1-7ca1-40c5-aa96-ac9c1b6d743f",
       "trimType": "auto",
@@ -97,7 +97,7 @@
       "subMetas": {}
     },
     "card_error__004.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "baa071bc-07fc-4c86-a69c-b6301088e5bb",
       "rawTextureUuid": "f7458df1-7ca1-40c5-aa96-ac9c1b6d743f",
       "trimType": "auto",
@@ -119,7 +119,7 @@
       "subMetas": {}
     },
     "card_error__005.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "eef27274-678e-4a92-baca-0b7a3bfc5c00",
       "rawTextureUuid": "f7458df1-7ca1-40c5-aa96-ac9c1b6d743f",
       "trimType": "auto",
@@ -141,7 +141,7 @@
       "subMetas": {}
     },
     "card_error__006.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "8b1cd328-eeaa-4f0e-9773-28219af5fe7b",
       "rawTextureUuid": "f7458df1-7ca1-40c5-aa96-ac9c1b6d743f",
       "trimType": "auto",
@@ -163,7 +163,7 @@
       "subMetas": {}
     },
     "card_error__007.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "7b54ec80-3321-44bc-910b-09e6811760fd",
       "rawTextureUuid": "f7458df1-7ca1-40c5-aa96-ac9c1b6d743f",
       "trimType": "auto",
@@ -185,7 +185,7 @@
       "subMetas": {}
     },
     "card_error__008.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "82d03054-68db-4214-b2dc-d456f22d1650",
       "rawTextureUuid": "f7458df1-7ca1-40c5-aa96-ac9c1b6d743f",
       "trimType": "auto",
@@ -207,7 +207,7 @@
       "subMetas": {}
     },
     "card_error__009.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "b051e124-36f9-46a5-aeca-f39cad35be38",
       "rawTextureUuid": "f7458df1-7ca1-40c5-aa96-ac9c1b6d743f",
       "trimType": "auto",
@@ -229,7 +229,7 @@
       "subMetas": {}
     },
     "card_error__010.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "89d69526-3495-41a3-8292-48670769d754",
       "rawTextureUuid": "f7458df1-7ca1-40c5-aa96-ac9c1b6d743f",
       "trimType": "auto",
@@ -251,7 +251,7 @@
       "subMetas": {}
     },
     "card_error__011.png": {
-      "ver": "1.0.3",
+      "ver": "1.0.4",
       "uuid": "f0e145da-bed9-4f20-b1b5-2c82f1b91101",
       "rawTextureUuid": "f7458df1-7ca1-40c5-aa96-ac9c1b6d743f",
       "trimType": "auto",
