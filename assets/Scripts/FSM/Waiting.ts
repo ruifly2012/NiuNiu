@@ -92,7 +92,7 @@ export default class Waiting extends StateBase {
             gameInfo.playerCount = msg.players_info.length;
             gameInfo.players.length = 0;
 
-            let myUID : string = NetworkManager.Token;
+            let myUID : string = gameInfo.myUID;
             cc.warn("myUID : " + myUID);
 
             //push myself first
@@ -122,7 +122,7 @@ export default class Waiting extends StateBase {
 
             UIMgr.Inst.initPlayerInfo();
 
-            gameInfo.mainPlayer = Converter.getServerPlayerCount(NetworkManager.Token);
+            gameInfo.mainPlayer = Converter.getServerPlayerCount(myUID);
 
             //room info
             UIMgr.Inst.roomInfo.setRoomInfo(gameInfo.roomID);

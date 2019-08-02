@@ -74,6 +74,9 @@ export class GameInfo{
     /**Client端玩家在players中的編號 */
     mainPlayer: PlayerID;
 
+    /**自己的UID */
+    myUID : string;
+
     /**房間ID */
     roomID: string = "";
     /**底注 */

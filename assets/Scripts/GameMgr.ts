@@ -13,6 +13,7 @@ export default class GameMgr extends GameMgrBase {
     start() {
         this.init();
         Game.Inst.networkMgr.registerEvent("websocket", (msg) => { this.receiveServerConnect(msg); });
+        Game.Inst.networkMgr.registerEvent("self_info", (msg) => { this.receiveMyUID(msg); });
         Game.Inst.networkMgr.registerEvent("time_info", (msg) => { this.receiveTimeInfo(msg); });
         Game.Inst.networkMgr.registerEvent("deal_cards", (msg) => { this.receiveDealInfo(msg); });
         Game.Inst.networkMgr.registerEvent("game_results", (msg) => { this.receiveCalcInfo(msg); });
@@ -111,6 +112,10 @@ export default class GameMgr extends GameMgrBase {
     receiveServerError(msg) {
     }
 
+    receiveMyUID(msg){
+        Define.GameInfo.Inst.myUID = msg.pf_account;
+    }
+
     /**
      * 收到stage初始時間
      * @param msg 
@@ -196,7 +201,7 @@ export default class GameMgr extends GameMgrBase {
         gameInfo.playerCount = msgPlayer.length;
         gameInfo.players.length = 0;
 
-        let myUID : string = NetworkManager.Token;
+        let myUID : string = gameInfo.myUID;
 
         //push myself first
         for (let i = 0; i < Define.GameInfo.Inst.playerCount; i++) {
