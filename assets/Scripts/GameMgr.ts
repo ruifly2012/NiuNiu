@@ -195,6 +195,7 @@ export default class GameMgr extends GameMgrBase {
         gameInfo.coinsLimit = msg.data.common.game_info.coins_limit;
         gameInfo.levyRate = msg.data.common.game_info.levy_rate;
         gameInfo.roomID = msg.data.common.game_info.room_id;
+        gameInfo.myUID = msg.data.pf_account;
         gameInfo.remainTime = msg.seconds;
 
         //Player Setting
@@ -243,6 +244,12 @@ export default class GameMgr extends GameMgrBase {
             case "grab_banker_state":
                 cc.log("switch to grab_banker_state");
                 this.FSM.setState(Define.GameState.GrabBanker);
+                for (let i = 0; i < Define.GameInfo.Inst.playerCount; i++) {
+                    //grab rate already show
+                    if(msgPlayer[i].is_finish_grab){
+                        UIMgr.Inst.getPlayerByUID(msgPlayer[i].pf_account).setStatus(Define.BetType.RobBet,msgPlayer[i].grab_rate);
+                    }
+                }
                 break;
             case "bet_state":
                 cc.log("switch to PlaceBet");
@@ -254,18 +261,51 @@ export default class GameMgr extends GameMgrBase {
                         UIMgr.Inst.players[gameInfo.bankerIndex].setBanker(true);
                     }
                     //bet rate already show
-                    if(msgPlayer[i].is_finish_bet){
+                    else if(msgPlayer[i].is_finish_bet){
                         UIMgr.Inst.getPlayerByUID(msgPlayer[i].pf_account).setStatus(Define.BetType.PlaceBet,msgPlayer[i].bet_rate);
                     }
                 }
                 break;
             case "play_card_state":
                 cc.log("PlayCard CountDown");
+                for (let i = 0; i < Define.GameInfo.Inst.playerCount; i++) {
+                    if(msgPlayer[i].pf_account != myUID) continue;
+                    //get index
+                    let curPlayerIndex : number = UIMgr.Inst.getPlayerIndexByUID(msgPlayer[i].pf_account);
+                    //set card info
+                    gameInfo.players[curPlayerIndex].poker = msgPlayer[i].cards;
+                    gameInfo.players[curPlayerIndex].cardType = msgPlayer[i].card_type;
+                    //make api type serial match client
+                    if(msgPlayer[i].card_type == -1) gameInfo.players[curPlayerIndex].cardType = 0;
+                    else if(msgPlayer[i].card_type == 0) gameInfo.players[curPlayerIndex].cardType = 10;
+                }
+                this.FSM.setState(Define.GameState.PlayCard);
+                //UIMgr.Inst.animMgr.playRecoverCard();
+                for (let i = 0; i < Define.GameInfo.Inst.playerCount; i++) {
+                    //get index
+                    let curPlayerIndex : number = UIMgr.Inst.getPlayerIndexByUID(msgPlayer[i].pf_account);
+                    //banker
+                    if(msgPlayer[i].is_banker){
+                        gameInfo.bankerIndex = curPlayerIndex;
+                        UIMgr.Inst.players[gameInfo.bankerIndex].setBanker(true);
+                    }
+                    //bet rate already show
+                    else{
+                        UIMgr.Inst.getPlayerByUID(msgPlayer[i].pf_account).setStatus(Define.BetType.PlaceBet,msgPlayer[i].bet_rate);
+                    }
+                    //sync already finish play card player
+                    if(msgPlayer[i].is_finish_play){
+                        UIMgr.Inst.CardStatusUIMgr.setComplete(curPlayerIndex,true);
+                        gameInfo.players[curPlayerIndex].poker = msgPlayer[i].cards;
+                        gameInfo.players[curPlayerIndex].cardType = msgPlayer[i].card_type;
+                        //make api type serial match client
+                        if(msgPlayer[i].card_type == -1) gameInfo.players[curPlayerIndex].cardType = 0;
+                        else if(msgPlayer[i].card_type == 0) gameInfo.players[curPlayerIndex].cardType = 10;
+                    }
+                }
                 UIMgr.Inst.startPlayCardCountDown();
                 break;    
         }
-
-        cc.log("/////////////after switch stage~~~~//////////");
     }
 
     receiveSpamMsg(Msg : Define.SpamMsg){

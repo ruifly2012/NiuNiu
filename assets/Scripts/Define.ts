@@ -356,6 +356,8 @@ export interface PlayersInfo {
 
     grab_rate : number;
     bet_rate : number;
+    card_type : number;
+    cards : number[];
 }
 
 export interface TimeBroadcast {
@@ -382,6 +384,13 @@ export interface BankerBroadcast {
     event: string;
     /**莊家UID */
     banker_pf_account : string;
+}
+
+export interface BetInfo {
+    /**webSocket */
+    event: string;
+    /**莊家UID */
+    available_bet_rates : number[];
 }
 
 export interface DealInfo {
@@ -419,6 +428,7 @@ export interface RecoverInfo{
 
 export interface Data{
     common : recoverData;
+    pf_account : string;
 }
 
 export interface recoverData{

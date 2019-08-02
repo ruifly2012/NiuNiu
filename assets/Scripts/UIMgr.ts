@@ -296,6 +296,7 @@ export default class UIMgr extends cc.Component {
             case "play_card":
                 let index = UIMgr.Inst.getPlayerIndexByUID(msg.action_player_pf_account);
                 cc.warn("///get " + index + "player complete////");
+                /*
                 if(index == 0){
                     cc.warn("//////////////self complete???/////////////////////");
                     cc.warn("get ID : " + msg.action_player_pf_account);
@@ -304,11 +305,14 @@ export default class UIMgr extends cc.Component {
                         cc.warn(element.UID);
                     });
                 };
+                */
                 //cc.warn("get other complete choose");
                 this.CardStatusUIMgr.setComplete(index,true);
                 Define.GameInfo.Inst.players[index].poker = msg.info.cards;
                 Define.GameInfo.Inst.players[index].cardType = msg.info.card_type;
+                //make api type serial match client
                 if(msg.info.card_type == -1) Define.GameInfo.Inst.players[this.getPlayerIndexByUID(msg.action_player_pf_account)].cardType = 0;
+                else if(msg.info.card_type == 0) Define.GameInfo.Inst.players[this.getPlayerIndexByUID(msg.action_player_pf_account)].cardType = 10;
                 break;
                     
         }

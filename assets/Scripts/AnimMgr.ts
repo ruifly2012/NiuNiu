@@ -75,6 +75,15 @@ export default class AnimMgr extends cc.Component {
         });
     }
 
+    /**
+     * 當recover在playCard階段  需要補牌
+     */
+    playRecoverCard(){
+        cc.warn("////recover card////");
+        this.pokerAnime.playerCount = Define.GameInfo.Inst.playerCount;
+        Game.Inst.animationMgr.play("DistributePokerAnim", 3, false);
+    }
+
     playShowAllCardAnim(callback?){
         let playerCount = Define.GameInfo.Inst.playerCount;
         //hide complete UI    consider server delay,delay little(?)
