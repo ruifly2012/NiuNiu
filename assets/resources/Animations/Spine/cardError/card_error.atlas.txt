@@ -1,0 +1,69 @@
+
+card_error.png
+size: 244,240
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Right hand
+  rotate: false
+  xy: 54, 22
+  size: 33, 37
+  orig: 33, 37
+  offset: 0, 0
+  index: -1
+Untitled-1
+  rotate: false
+  xy: 2, 113
+  size: 134, 125
+  orig: 134, 125
+  offset: 0, 0
+  index: -1
+cards_wrong_text
+  rotate: true
+  xy: 138, 80
+  size: 158, 50
+  orig: 158, 50
+  offset: 0, 0
+  index: -1
+tear_000
+  rotate: true
+  xy: 190, 164
+  size: 74, 50
+  orig: 74, 50
+  offset: 0, 0
+  index: -1
+tear_001
+  rotate: true
+  xy: 190, 88
+  size: 74, 50
+  orig: 74, 50
+  offset: 0, 0
+  index: -1
+tear_002
+  rotate: true
+  xy: 190, 12
+  size: 74, 50
+  orig: 74, 50
+  offset: 0, 0
+  index: -1
+tear_003
+  rotate: true
+  xy: 2, 4
+  size: 74, 50
+  orig: 74, 50
+  offset: 0, 0
+  index: -1
+tear_004
+  rotate: false
+  xy: 54, 61
+  size: 74, 50
+  orig: 74, 50
+  offset: 0, 0
+  index: -1
+tear_005
+  rotate: true
+  xy: 130, 4
+  size: 74, 50
+  orig: 74, 50
+  offset: 0, 0
+  index: -1

@@ -172,6 +172,7 @@ export default class Converter {
     }
 
     /**取得牌型動畫速度 */
+    //替換spine後已無用
     static getCardTypeAnimRate(type: CardType): number {
         switch (type) {
             case CardType.cowCow: return 1;

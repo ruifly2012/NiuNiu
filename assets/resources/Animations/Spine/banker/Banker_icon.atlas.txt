@@ -1,0 +1,27 @@
+
+Banker_icon.png
+size: 344,344
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Icon_dealer
+  rotate: true
+  xy: 2, 2
+  size: 133, 148
+  orig: 133, 148
+  offset: 0, 0
+  index: -1
+glow
+  rotate: false
+  xy: 208, 193
+  size: 133, 148
+  orig: 133, 148
+  offset: 0, 0
+  index: -1
+shine
+  rotate: false
+  xy: 2, 137
+  size: 204, 204
+  orig: 204, 204
+  offset: 0, 0
+  index: -1

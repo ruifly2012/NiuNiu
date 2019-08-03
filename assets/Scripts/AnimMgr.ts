@@ -8,7 +8,6 @@ const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class AnimMgr extends cc.Component {
-    @property(cc.Node) startGame: cc.Node = null;
     @property(DistributePokerAnimation) pokerAnime: DistributePokerAnimation = null;
     @property(CoinFlowAnimation) coinAnime:CoinFlowAnimation = null;
     @property(cc.Node) playePokerRoot: cc.Node = null;
@@ -16,14 +15,11 @@ export default class AnimMgr extends cc.Component {
 
 
     onLoad() {
-        if (this.startGame != null) this.startGame.active = false;
 
     }
 
     playStartGame(callback?) {
-        this.startGame.active = true;
-        Game.Inst.animationMgr.play("StartGameAnim", 0.2, false, () => {
-            this.startGame.active = false;
+        Game.Inst.animationMgr.play("StartGameAnim", 1, false, () => {
             if (callback != undefined) {
                 callback();
             }
@@ -33,7 +29,7 @@ export default class AnimMgr extends cc.Component {
 
     playCardTypeError(){
         UIMgr.Inst.AudioMgr.playCardError();
-        Game.Inst.animationMgr.play("CardTypeErrorAnim", 0.2,false,()=>{cc.warn("cardErrorAnim finish");}); 
+        Game.Inst.animationMgr.play("CardTypeErrorAnim", 1,false); 
     }
 
     playCoinFlow(fromSeat: number, toSeat: number, callback?){
@@ -126,7 +122,7 @@ export default class AnimMgr extends cc.Component {
     /**牌型動畫(若普通牌型則直接callback) */
     playCardTypeAnim(type: Define.CardType, callback?){
         let animName: string = Converter.getCardTypeAnimText(type);
-        let animRate: number = Converter.getCardTypeAnimRate(type);
+        //let animRate: number = Converter.getCardTypeAnimRate(type);
         let audioName : string = Converter.getCardTypeAudioIndex(type);
         if(animName == "NoneType") {
             if (callback != undefined)
@@ -134,60 +130,50 @@ export default class AnimMgr extends cc.Component {
         }
         else{
             UIMgr.Inst.AudioMgr.playCardTypeAnim(audioName);
-            Game.Inst.animationMgr.play(animName, animRate,false, callback); 
+            Game.Inst.animationMgr.play(animName, 1,false, callback); 
         }
         //cc.log("playType:"+animName + "RATE : "+animRate);
     }
 
     playAllKill(callback?){
-        Game.Inst.animationMgr.play("allKillText", 0.5,false);
-        this.scheduleOnce(()=>{
-            Game.Inst.animationMgr.play("allKillLight", 1.4,false, callback);
-        },0.4);
+        UIMgr.Inst.AudioMgr.playAllKill();
+        Game.Inst.animationMgr.play("allKill", 1, false, () => {
+            if (callback != undefined)
+                callback();
+        });
     }
 
     playVictory(callback?){
         UIMgr.Inst.AudioMgr.playVictory();
-        Game.Inst.animationMgr.play("victory", 0.7,false, callback);
+        Game.Inst.animationMgr.play("victory", 1,false, callback);
     }
 
     testPlay(){
         this.playStartGame(()=>{
-            this.playDistributePoker(()=>{
-                this.playAllKill(()=>{
-                    this.playCardTypeAnim(Define.CardType.smallCow,()=>{
-                        this.playCardTypeAnim(Define.CardType.cowCow,()=>{
-                            this.playCardTypeAnim(Define.CardType.goldCow,()=>{
-                                this.playCardTypeAnim(Define.CardType.silverCow,()=>{
-                                    this.playCardTypeAnim(Define.CardType.bomb,()=>{
-                                        this.playVictory(()=>{
-                                            this.playCardTypeError();
-                                        })
-                                    })
-                                })
-                            })
-                        })
-                    })
+            this.playAllKill(()=>{
+                this.playCardTypeAnim(Define.CardType.smallCow,()=>{
+                    this.playCardTypeAnim(Define.CardType.cowCow,()=>{
+                        this.playCardTypeAnim(Define.CardType.goldCow,()=>{
+                            this.playCardTypeAnim(Define.CardType.silverCow,()=>{
+                                this.playCardTypeAnim(Define.CardType.bomb,()=>{
+                                    this.playVictory(()=>{
+                                        this.playCardTypeError();
+                                    });  
+                                });
+                            });
+                        });
+                    });
                 });
             });
         });
     }
 
-    testMoney(){
-        let from = Math.floor(Math.random()*4.99);
-        let to = Math.floor(Math.random()*4.99);
-        while(to == from){
-            to = Math.floor(Math.random()*4.99);
-        }
-        
-        this.playCoinFlow(from,to,()=>{
-            UIMgr.Inst.players[to].setShiny();
-            UIMgr.Inst.players[to].moneyChange(200,40,789);
-        });
-    }
-
-    testAllKIll(){
-        this.playAllKill();
+    testBanker(){
+        Game.Inst.animationMgr.play("banker0", 1,false);
+        Game.Inst.animationMgr.play("banker1", 1,false);
+        Game.Inst.animationMgr.play("banker2", 1,false);
+        Game.Inst.animationMgr.play("banker3", 1,false);
+        Game.Inst.animationMgr.play("banker4", 1,false);
     }
 
 }

@@ -1,0 +1,54 @@
+{
+"skeleton": { "hash": "OAi3e37mNiHZPcU+SWiKtsvW03w", "spine": "3.7.94", "width": 204, "height": 204, "images": "./texture/", "audio": "" },
+"bones": [
+	{ "name": "root" },
+	{ "name": "bone", "parent": "root", "length": 43.55 }
+],
+"slots": [
+	{ "name": "shine", "bone": "bone", "attachment": "shine", "blend": "additive" },
+	{ "name": "Icon_dealer", "bone": "root", "attachment": "Icon_dealer" },
+	{ "name": "glow", "bone": "root", "attachment": "glow", "blend": "additive" }
+],
+"skins": {
+	"default": {
+		"Icon_dealer": {
+			"Icon_dealer": { "x": 3.3, "y": 4.72, "width": 133, "height": 148 }
+		},
+		"glow": {
+			"glow": { "x": 3.28, "y": 4.99, "width": 133, "height": 148 }
+		},
+		"shine": {
+			"shine": { "x": 3.75, "y": 1.35, "width": 204, "height": 204 }
+		}
+	}
+},
+"animations": {
+	"animation": {
+		"slots": {
+			"glow": {
+				"color": [
+					{ "time": 0, "color": "ffffff00" },
+					{ "time": 0.8, "color": "ffffffff" },
+					{ "time": 1.6, "color": "ffffff00" }
+				]
+			},
+			"shine": {
+				"color": [
+					{ "time": 0, "color": "ffffffff" },
+					{ "time": 0.8, "color": "ffffff7d" },
+					{ "time": 1.6, "color": "ffffffff" }
+				]
+			}
+		},
+		"bones": {
+			"bone": {
+				"rotate": [
+					{ "time": 0, "angle": 0 },
+					{ "time": 0.8, "angle": -180 },
+					{ "time": 1.6, "angle": 1 }
+				]
+			}
+		}
+	}
+}
+}

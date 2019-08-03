@@ -1,0 +1,146 @@
+
+silvercow.png
+size: 884,884
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+5cow_text_shadow
+  rotate: false
+  xy: 551, 366
+  size: 106, 28
+  orig: 106, 28
+  offset: 0, 0
+  index: -1
+Prize_test_01
+  rotate: false
+  xy: 682, 95
+  size: 96, 96
+  orig: 96, 96
+  offset: 0, 0
+  index: -1
+Prize_test_02
+  rotate: false
+  xy: 523, 54
+  size: 96, 96
+  orig: 96, 96
+  offset: 0, 0
+  index: -1
+coin-1/coin-1__0000_coin_000.png
+  rotate: true
+  xy: 715, 306
+  size: 111, 140
+  orig: 111, 140
+  offset: 0, 0
+  index: -1
+coin-1/coin-1__0001_coin_001.png
+  rotate: false
+  xy: 715, 419
+  size: 141, 181
+  orig: 141, 181
+  offset: 0, 0
+  index: -1
+coin-1/coin-1__0002_coin_002.png
+  rotate: false
+  xy: 353, 361
+  size: 196, 231
+  orig: 196, 231
+  offset: 0, 0
+  index: -1
+coin-1/coin-1__0003_coin_003.png
+  rotate: false
+  xy: 479, 623
+  size: 198, 259
+  orig: 198, 259
+  offset: 0, 0
+  index: -1
+coin-1/coin-1__0004_coin_004.png
+  rotate: false
+  xy: 355, 134
+  size: 166, 225
+  orig: 166, 225
+  offset: 0, 0
+  index: -1
+coin-1/coin-1__0005_coin_005.png
+  rotate: false
+  xy: 300, 594
+  size: 177, 288
+  orig: 177, 288
+  offset: 0, 0
+  index: -1
+coin-1/coin-1__0006_coin_006.png
+  rotate: false
+  xy: 2, 279
+  size: 184, 312
+  orig: 184, 312
+  offset: 0, 0
+  index: -1
+coin-1/coin-1__0007_coin_007.png
+  rotate: false
+  xy: 679, 602
+  size: 177, 280
+  orig: 177, 280
+  offset: 0, 0
+  index: -1
+coin-1/coin-1__0008_coin_008.png
+  rotate: false
+  xy: 2, 2
+  size: 184, 275
+  orig: 184, 275
+  offset: 0, 0
+  index: -1
+coin-1/coin-1__0009_coin_009.png
+  rotate: false
+  xy: 188, 329
+  size: 163, 262
+  orig: 163, 262
+  offset: 0, 0
+  index: -1
+coin-1/coin-1__0010_coin_010.png
+  rotate: false
+  xy: 188, 89
+  size: 165, 238
+  orig: 165, 238
+  offset: 0, 0
+  index: -1
+coin-1/coin-1__0011_coin_011.png
+  rotate: false
+  xy: 551, 396
+  size: 162, 204
+  orig: 162, 204
+  offset: 0, 0
+  index: -1
+coin-1/coin-1__0012_coin_012.png
+  rotate: false
+  xy: 523, 152
+  size: 157, 207
+  orig: 157, 207
+  offset: 0, 0
+  index: -1
+coin-1/coin-1__0013_coin_013.png
+  rotate: true
+  xy: 355, 3
+  size: 129, 154
+  orig: 129, 154
+  offset: 0, 0
+  index: -1
+coin-1/coin-1__0014_coin_014.png
+  rotate: false
+  xy: 682, 193
+  size: 113, 111
+  orig: 113, 111
+  offset: 0, 0
+  index: -1
+silvercow_hand
+  rotate: false
+  xy: 188, 2
+  size: 61, 85
+  orig: 61, 85
+  offset: 0, 0
+  index: -1
+silvercow_head
+  rotate: false
+  xy: 2, 593
+  size: 296, 289
+  orig: 296, 289
+  offset: 0, 0
+  index: -1

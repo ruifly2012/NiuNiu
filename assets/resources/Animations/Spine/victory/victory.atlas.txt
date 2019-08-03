@@ -1,0 +1,62 @@
+
+victory.png
+size: 788,788
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Win_crown
+  rotate: false
+  xy: 475, 24
+  size: 160, 120
+  orig: 160, 120
+  offset: 0, 0
+  index: -1
+Win_ribon
+  rotate: false
+  xy: 2, 556
+  size: 735, 227
+  orig: 735, 227
+  offset: 0, 0
+  index: -1
+Win_text
+  rotate: true
+  xy: 2, 98
+  size: 456, 240
+  orig: 456, 240
+  offset: 0, 0
+  index: -1
+effecta
+  rotate: false
+  xy: 244, 268
+  size: 300, 286
+  orig: 300, 286
+  offset: 0, 0
+  index: -1
+particle1a
+  rotate: true
+  xy: 244, 46
+  size: 220, 113
+  orig: 220, 113
+  offset: 0, 0
+  index: -1
+particle2a
+  rotate: true
+  xy: 359, 48
+  size: 218, 114
+  orig: 218, 114
+  offset: 0, 0
+  index: -1
+shine
+  rotate: false
+  xy: 546, 328
+  size: 239, 226
+  orig: 239, 226
+  offset: 0, 0
+  index: -1
+star
+  rotate: false
+  xy: 546, 146
+  size: 233, 180
+  orig: 233, 180
+  offset: 0, 0
+  index: -1

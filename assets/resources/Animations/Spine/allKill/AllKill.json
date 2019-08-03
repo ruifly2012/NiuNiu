@@ -1,0 +1,224 @@
+{
+"skeleton": { "hash": "/as9EZ6cbMbR+YI+zSIrDeY+k94", "spine": "3.7.94", "width": 2160, "height": 1341.71, "images": "./texture/", "audio": "" },
+"bones": [
+	{ "name": "root" },
+	{ "name": "bone2", "parent": "root", "length": 96.4, "scaleX": 4, "scaleY": 4 },
+	{ "name": "bone3", "parent": "root", "length": 89.28, "scaleX": 8, "scaleY": 8 },
+	{ "name": "bone4", "parent": "root", "length": 80.83, "scaleX": 2, "scaleY": 2 },
+	{
+		"name": "bone5",
+		"parent": "root",
+		"length": 66.15,
+		"x": 13.55,
+		"y": -94.86,
+		"scaleX": 2.5,
+		"scaleY": 2.5
+	},
+	{ "name": "bone6", "parent": "root", "length": 112.5, "scaleX": 2, "scaleY": 2 },
+	{ "name": "bone7", "parent": "root", "length": 112.5, "y": -65.55, "scaleX": 2, "scaleY": 2 },
+	{ "name": "bone8", "parent": "root", "length": 112.5, "x": -135.82, "scaleX": 2, "scaleY": 2 },
+	{ "name": "bone9", "parent": "root", "length": 112.5, "y": 305.96, "scaleX": 2, "scaleY": 2 }
+],
+"slots": [
+	{ "name": "brush/brush_000", "bone": "bone2", "attachment": "brush/brush_003" },
+	{ "name": "allkill", "bone": "bone3", "attachment": "allkill" },
+	{ "name": "allkill_text_005", "bone": "bone4", "attachment": "allkill_text_005" },
+	{ "name": "text_broken/text_broken_000", "bone": "bone5", "attachment": "text_broken/text_broken_000" },
+	{ "name": "Slash/slash_0", "bone": "bone6", "attachment": "Slash/sword_009" },
+	{ "name": "Slash/slash_1", "bone": "bone7", "attachment": "Slash/sword_011" },
+	{ "name": "Slash/slash_3", "bone": "bone9", "attachment": "Slash/sword_013" },
+	{ "name": "Slash/slash_2", "bone": "bone8", "attachment": "Slash/sword_012a" },
+	{ "name": "Slash/sword_012b", "bone": "bone8", "attachment": "Slash/sword_012b" },
+	{ "name": "Slash/sword_012c", "bone": "bone8", "attachment": "Slash/sword_012c" }
+],
+"skins": {
+	"default": {
+		"Slash/slash_0": {
+			"Slash/sword_009": { "width": 1052, "height": 124 }
+		},
+		"Slash/slash_1": {
+			"Slash/sword_011": { "y": 0.23, "rotation": -59.08, "width": 262, "height": 661 }
+		},
+		"Slash/slash_2": {
+			"Slash/sword_012a": { "x": 18.31, "y": 0.23, "rotation": 18.19, "width": 320, "height": 601 }
+		},
+		"Slash/slash_3": {
+			"Slash/sword_013": { "width": 960, "height": 180 }
+		},
+		"Slash/sword_012b": {
+			"Slash/sword_012b": { "x": -268.8, "y": 1.07, "width": 285, "height": 146 }
+		},
+		"Slash/sword_012c": {
+			"Slash/sword_012c": { "x": 301.85, "y": 46.01, "width": 287, "height": 155 }
+		},
+		"allkill": {
+			"allkill": { "width": 270, "height": 153 }
+		},
+		"allkill_text_005": {
+			"allkill_text_005": { "width": 204, "height": 115 }
+		},
+		"brush/brush_000": {
+			"brush/brush_000": { "width": 229, "height": 59 },
+			"brush/brush_001": { "x": 0.5, "y": 0.5, "width": 229, "height": 59 },
+			"brush/brush_002": { "x": 0.5, "y": 0.5, "width": 229, "height": 59 },
+			"brush/brush_003": { "x": 0.5, "y": 0.5, "width": 229, "height": 59 }
+		},
+		"text_broken/text_broken_000": {
+			"text_broken/text_broken_000": { "width": 441, "height": 251 },
+			"text_broken/text_broken_001": { "x": 0.5, "y": 0.5, "width": 441, "height": 251 },
+			"text_broken/text_broken_002": { "x": 0.5, "y": 0.5, "width": 441, "height": 251 },
+			"text_broken/text_broken_003": { "x": 0.5, "y": 0.5, "width": 441, "height": 251 },
+			"text_broken/text_broken_004": { "x": 0.5, "y": 0.5, "width": 441, "height": 251 },
+			"text_broken/text_broken_005": { "x": 0.5, "y": 0.5, "width": 441, "height": 251 },
+			"text_broken/text_broken_006": { "x": 0.5, "y": 0.5, "width": 441, "height": 251 },
+			"text_broken/text_broken_007": { "x": 0.5, "y": 0.5, "width": 441, "height": 251 },
+			"text_broken/text_broken_008": { "x": 0.5, "y": 0.5, "width": 441, "height": 251 }
+		}
+	}
+},
+"animations": {
+	"animation": {
+		"slots": {
+			"Slash/slash_0": {
+				"attachment": [
+					{ "time": 0, "name": null },
+					{ "time": 0.4667, "name": "Slash/sword_009" },
+					{ "time": 0.5333, "name": null },
+					{ "time": 0.7333, "name": "Slash/sword_009" },
+					{ "time": 0.8, "name": null },
+					{ "time": 1.0333, "name": null }
+				]
+			},
+			"Slash/slash_1": {
+				"attachment": [
+					{ "time": 0, "name": null },
+					{ "time": 0.5333, "name": "Slash/sword_011" },
+					{ "time": 0.6, "name": null },
+					{ "time": 0.8, "name": "Slash/sword_011" },
+					{ "time": 0.8667, "name": null }
+				]
+			},
+			"Slash/slash_2": {
+				"attachment": [
+					{ "time": 0, "name": null },
+					{ "time": 0.6, "name": "Slash/sword_012a" },
+					{ "time": 0.6667, "name": null },
+					{ "time": 0.8667, "name": "Slash/sword_012a" },
+					{ "time": 0.9333, "name": null }
+				]
+			},
+			"Slash/slash_3": {
+				"attachment": [
+					{ "time": 0, "name": null },
+					{ "time": 0.6667, "name": "Slash/sword_013" },
+					{ "time": 0.7333, "name": null },
+					{ "time": 0.9333, "name": "Slash/sword_013" },
+					{ "time": 1, "name": null }
+				]
+			},
+			"Slash/sword_012b": {
+				"attachment": [
+					{ "time": 0, "name": null },
+					{ "time": 0.4667, "name": null },
+					{ "time": 0.5333, "name": null },
+					{ "time": 0.6, "name": "Slash/sword_012b" },
+					{ "time": 0.6667, "name": null },
+					{ "time": 0.7333, "name": null },
+					{ "time": 0.8, "name": null },
+					{ "time": 0.8667, "name": "Slash/sword_012b" },
+					{ "time": 0.9333, "name": null }
+				]
+			},
+			"Slash/sword_012c": {
+				"attachment": [
+					{ "time": 0, "name": null },
+					{ "time": 0.4667, "name": null },
+					{ "time": 0.5333, "name": null },
+					{ "time": 0.6, "name": "Slash/sword_012c" },
+					{ "time": 0.6667, "name": null },
+					{ "time": 0.7333, "name": null },
+					{ "time": 0.8, "name": null },
+					{ "time": 0.8667, "name": "Slash/sword_012c" },
+					{ "time": 0.9333, "name": null }
+				]
+			},
+			"allkill": {
+				"attachment": [
+					{ "time": 0, "name": null },
+					{ "time": 0.1333, "name": null },
+					{ "time": 0.1667, "name": "allkill" },
+					{ "time": 0.2667, "name": "allkill" },
+					{ "time": 0.3, "name": null }
+				]
+			},
+			"allkill_text_005": {
+				"attachment": [
+					{ "time": 0, "name": null },
+					{ "time": 0.2667, "name": null },
+					{ "time": 0.3, "name": "allkill_text_005" },
+					{ "time": 1.0667, "name": null }
+				]
+			},
+			"brush/brush_000": {
+				"color": [
+					{ "time": 0.8667, "color": "ffffffff" },
+					{ "time": 1.0667, "color": "ffffff00" }
+				],
+				"attachment": [
+					{ "time": 0, "name": null },
+					{ "time": 0.0333, "name": "brush/brush_000" },
+					{ "time": 0.0667, "name": "brush/brush_001" },
+					{ "time": 0.1, "name": "brush/brush_002" },
+					{ "time": 0.1333, "name": "brush/brush_003" },
+					{ "time": 0.8667, "name": "brush/brush_003" }
+				]
+			},
+			"text_broken/text_broken_000": {
+				"attachment": [
+					{ "time": 0, "name": null },
+					{ "time": 1.0667, "name": "text_broken/text_broken_000" },
+					{ "time": 1.1333, "name": "text_broken/text_broken_001" },
+					{ "time": 1.2, "name": "text_broken/text_broken_002" },
+					{ "time": 1.2667, "name": "text_broken/text_broken_003" },
+					{ "time": 1.3333, "name": "text_broken/text_broken_004" },
+					{ "time": 1.4, "name": "text_broken/text_broken_005" },
+					{ "time": 1.4667, "name": "text_broken/text_broken_006" },
+					{ "time": 1.5333, "name": "text_broken/text_broken_007" },
+					{ "time": 1.6, "name": "text_broken/text_broken_008" }
+				]
+			}
+		},
+		"bones": {
+			"bone3": {
+				"scale": [
+					{ "time": 0.1667, "x": 1, "y": 1 },
+					{ "time": 0.3, "x": 0.25, "y": 0.25 }
+				]
+			},
+			"bone4": {
+				"scale": [
+					{ "time": 0.3, "x": 1, "y": 1 },
+					{ "time": 0.3667, "x": 1.5, "y": 1.5 },
+					{ "time": 0.4333, "x": 1, "y": 1 }
+				]
+			},
+			"bone6": {
+				"rotate": [
+					{ "time": 0.4667, "angle": -20.83, "curve": "stepped" },
+					{ "time": 0.7333, "angle": -20.83 }
+				],
+				"translate": [
+					{ "time": 0.4667, "x": 0, "y": 140.05, "curve": "stepped" },
+					{ "time": 0.7333, "x": 0, "y": 140.05 }
+				]
+			},
+			"bone7": {
+				"translate": [
+					{ "time": 0.5333, "x": -214.09, "y": 234.8, "curve": "stepped" },
+					{ "time": 0.8, "x": -214.09, "y": 234.8 }
+				]
+			}
+		}
+	}
+}
+}

@@ -1,0 +1,153 @@
+
+AllKill.png
+size: 1444,1444
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Slash/sword_009
+  rotate: false
+  xy: 2, 1318
+  size: 1052, 124
+  orig: 1052, 124
+  offset: 0, 0
+  index: -1
+Slash/sword_011
+  rotate: false
+  xy: 2, 473
+  size: 262, 661
+  orig: 262, 661
+  offset: 0, 0
+  index: -1
+Slash/sword_012a
+  rotate: false
+  xy: 266, 533
+  size: 320, 601
+  orig: 320, 601
+  offset: 0, 0
+  index: -1
+Slash/sword_012b
+  rotate: false
+  xy: 1056, 1296
+  size: 285, 146
+  orig: 285, 146
+  offset: 0, 0
+  index: -1
+Slash/sword_012c
+  rotate: false
+  xy: 508, 30
+  size: 287, 155
+  orig: 287, 155
+  offset: 0, 0
+  index: -1
+Slash/sword_013
+  rotate: false
+  xy: 2, 1136
+  size: 960, 180
+  orig: 960, 180
+  offset: 0, 0
+  index: -1
+allkill
+  rotate: false
+  xy: 797, 2
+  size: 270, 153
+  orig: 270, 153
+  offset: 0, 0
+  index: -1
+allkill_text_005
+  rotate: false
+  xy: 1069, 40
+  size: 204, 115
+  orig: 204, 115
+  offset: 0, 0
+  index: -1
+brush/brush_000
+  rotate: true
+  xy: 1031, 462
+  size: 229, 59
+  orig: 229, 59
+  offset: 0, 0
+  index: -1
+brush/brush_001
+  rotate: true
+  xy: 1347, 1213
+  size: 229, 59
+  orig: 229, 59
+  offset: 0, 0
+  index: -1
+brush/brush_002
+  rotate: true
+  xy: 1347, 982
+  size: 229, 59
+  orig: 229, 59
+  offset: 0, 0
+  index: -1
+brush/brush_003
+  rotate: true
+  xy: 1347, 751
+  size: 229, 59
+  orig: 229, 59
+  offset: 0, 0
+  index: -1
+text_broken/text_broken_000
+  rotate: true
+  xy: 2, 30
+  size: 441, 251
+  orig: 441, 251
+  offset: 0, 0
+  index: -1
+text_broken/text_broken_001
+  rotate: true
+  xy: 588, 693
+  size: 441, 251
+  orig: 441, 251
+  offset: 0, 0
+  index: -1
+text_broken/text_broken_002
+  rotate: true
+  xy: 841, 693
+  size: 441, 251
+  orig: 441, 251
+  offset: 0, 0
+  index: -1
+text_broken/text_broken_003
+  rotate: false
+  xy: 588, 440
+  size: 441, 251
+  orig: 441, 251
+  offset: 0, 0
+  index: -1
+text_broken/text_broken_004
+  rotate: true
+  xy: 255, 30
+  size: 441, 251
+  orig: 441, 251
+  offset: 0, 0
+  index: -1
+text_broken/text_broken_005
+  rotate: false
+  xy: 508, 187
+  size: 441, 251
+  orig: 441, 251
+  offset: 0, 0
+  index: -1
+text_broken/text_broken_006
+  rotate: true
+  xy: 1094, 853
+  size: 441, 251
+  orig: 441, 251
+  offset: 0, 0
+  index: -1
+text_broken/text_broken_007
+  rotate: true
+  xy: 1094, 410
+  size: 441, 251
+  orig: 441, 251
+  offset: 0, 0
+  index: -1
+text_broken/text_broken_008
+  rotate: false
+  xy: 951, 157
+  size: 441, 251
+  orig: 441, 251
+  offset: 0, 0
+  index: -1

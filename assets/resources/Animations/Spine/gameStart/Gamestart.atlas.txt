@@ -1,0 +1,97 @@
+
+Gamestart.png
+size: 688,688
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Game_start
+  rotate: false
+  xy: 2, 2
+  size: 606, 170
+  orig: 606, 170
+  offset: 0, 0
+  index: -1
+Game_start_frame
+  rotate: false
+  xy: 2, 321
+  size: 642, 101
+  orig: 642, 101
+  offset: 0, 0
+  index: -1
+card01
+  rotate: false
+  xy: 504, 490
+  size: 145, 194
+  orig: 145, 194
+  offset: 0, 0
+  index: -1
+card02
+  rotate: true
+  xy: 2, 174
+  size: 145, 194
+  orig: 145, 194
+  offset: 0, 0
+  index: -1
+card03
+  rotate: true
+  xy: 198, 174
+  size: 145, 194
+  orig: 145, 194
+  offset: 0, 0
+  index: -1
+card04
+  rotate: true
+  xy: 394, 174
+  size: 145, 194
+  orig: 145, 194
+  offset: 0, 0
+  index: -1
+flare
+  rotate: false
+  xy: 2, 631
+  size: 480, 53
+  orig: 480, 53
+  offset: 0, 0
+  index: -1
+particle/particle_000
+  rotate: false
+  xy: 2, 562
+  size: 249, 67
+  orig: 249, 67
+  offset: 0, 0
+  index: -1
+particle/particle_001
+  rotate: false
+  xy: 253, 562
+  size: 249, 67
+  orig: 249, 67
+  offset: 0, 0
+  index: -1
+particle/particle_002
+  rotate: false
+  xy: 2, 493
+  size: 249, 67
+  orig: 249, 67
+  offset: 0, 0
+  index: -1
+particle/particle_003
+  rotate: false
+  xy: 253, 493
+  size: 249, 67
+  orig: 249, 67
+  offset: 0, 0
+  index: -1
+particle/particle_004
+  rotate: false
+  xy: 2, 424
+  size: 249, 67
+  orig: 249, 67
+  offset: 0, 0
+  index: -1
+particle/particle_005
+  rotate: false
+  xy: 253, 424
+  size: 249, 67
+  orig: 249, 67
+  offset: 0, 0
+  index: -1

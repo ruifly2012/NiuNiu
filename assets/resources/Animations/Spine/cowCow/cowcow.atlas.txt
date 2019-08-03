@@ -1,0 +1,55 @@
+
+cowcow.png
+size: 540,540
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+5cow_text_shadow
+  rotate: true
+  xy: 452, 163
+  size: 106, 28
+  orig: 106, 28
+  offset: 0, 0
+  index: -1
+Prize_test_01
+  rotate: false
+  xy: 352, 70
+  size: 96, 96
+  orig: 96, 96
+  offset: 0, 0
+  index: -1
+hair
+  rotate: false
+  xy: 271, 168
+  size: 179, 101
+  orig: 179, 101
+  offset: 0, 0
+  index: -1
+hand
+  rotate: false
+  xy: 271, 52
+  size: 79, 114
+  orig: 79, 114
+  offset: 0, 0
+  index: -1
+head__000
+  rotate: false
+  xy: 2, 271
+  size: 267, 265
+  orig: 267, 265
+  offset: 0, 0
+  index: -1
+head__001
+  rotate: false
+  xy: 271, 271
+  size: 267, 265
+  orig: 267, 265
+  offset: 0, 0
+  index: -1
+head__002
+  rotate: false
+  xy: 2, 4
+  size: 267, 265
+  orig: 267, 265
+  offset: 0, 0
+  index: -1
