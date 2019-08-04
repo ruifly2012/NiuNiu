@@ -57,6 +57,9 @@ export default class UIMgr extends cc.Component {
     private place_bet: cc.Node;
     private choose_card: cc.Node;
 
+    private isBetStageReady : boolean = false;
+    private isBetRateReady : boolean = false;
+
     private isPlayCardComplete: boolean = false;
 
     onLoad() {
@@ -158,6 +161,18 @@ export default class UIMgr extends cc.Component {
 
     showPlaceBet(active: boolean = false){
         this.place_bet.active = active;
+    }
+
+    betStageReady(){
+        if(this.isBetRateReady)
+            this.showPlaceBet(true);
+        this.isBetStageReady = true;
+    }
+
+    betRateReady(){
+        if(this.isBetStageReady)
+            this.showPlaceBet(true);
+        this.isBetRateReady = true;
     }
 
     showChooseCard(active: boolean = false){

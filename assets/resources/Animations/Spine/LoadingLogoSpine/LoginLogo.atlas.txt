@@ -1,0 +1,272 @@
+
+LoginLogo.png
+size: 840,840
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Dice01
+  rotate: false
+  xy: 276, 12
+  size: 115, 111
+  orig: 115, 111
+  offset: 0, 0
+  index: -1
+Dice02
+  rotate: true
+  xy: 545, 120
+  size: 89, 86
+  orig: 89, 86
+  offset: 0, 0
+  index: -1
+Dice03
+  rotate: false
+  xy: 488, 22
+  size: 96, 96
+  orig: 96, 96
+  offset: 0, 0
+  index: -1
+Layer 1
+  rotate: false
+  xy: 718, 93
+  size: 60, 60
+  orig: 60, 60
+  offset: 0, 0
+  index: -1
+Layer 2
+  rotate: true
+  xy: 740, 383
+  size: 60, 75
+  orig: 60, 75
+  offset: 0, 0
+  index: -1
+Layer 3
+  rotate: false
+  xy: 393, 16
+  size: 93, 102
+  orig: 93, 102
+  offset: 0, 0
+  index: -1
+Layer 4
+  rotate: false
+  xy: 753, 155
+  size: 57, 54
+  orig: 57, 54
+  offset: 0, 0
+  index: -1
+Layer 5
+  rotate: false
+  xy: 631, 27
+  size: 65, 58
+  orig: 65, 58
+  offset: 0, 0
+  index: -1
+Layer 6
+  rotate: false
+  xy: 633, 87
+  size: 83, 77
+  orig: 83, 77
+  offset: 0, 0
+  index: -1
+Layer 7
+  rotate: false
+  xy: 2, 7
+  size: 101, 85
+  orig: 101, 85
+  offset: 0, 0
+  index: -1
+bb-0
+  rotate: false
+  xy: 290, 566
+  size: 252, 120
+  orig: 252, 120
+  offset: 0, 0
+  index: -1
+bb-1
+  rotate: false
+  xy: 544, 583
+  size: 252, 122
+  orig: 252, 122
+  offset: 0, 0
+  index: -1
+bb-2
+  rotate: false
+  xy: 544, 707
+  size: 252, 131
+  orig: 252, 131
+  offset: 0, 0
+  index: -1
+bb-3
+  rotate: true
+  xy: 2, 94
+  size: 252, 139
+  orig: 252, 139
+  offset: 0, 0
+  index: -1
+bb-4
+  rotate: false
+  xy: 290, 688
+  size: 252, 150
+  orig: 252, 150
+  offset: 0, 0
+  index: -1
+crown
+  rotate: false
+  xy: 200, 391
+  size: 210, 173
+  orig: 210, 173
+  offset: 0, 0
+  index: -1
+ee
+  rotate: false
+  xy: 2, 570
+  size: 286, 268
+  orig: 286, 268
+  offset: 0, 0
+  index: -1
+flare
+  rotate: false
+  xy: 412, 244
+  size: 135, 134
+  orig: 135, 134
+  offset: 0, 0
+  index: -1
+light-0
+  rotate: false
+  xy: 105, 53
+  size: 8, 39
+  orig: 8, 39
+  offset: 0, 0
+  index: -1
+light-1
+  rotate: false
+  xy: 812, 180
+  size: 26, 74
+  orig: 26, 74
+  offset: 0, 0
+  index: -1
+light-2
+  rotate: false
+  xy: 586, 24
+  size: 43, 94
+  orig: 43, 94
+  offset: 0, 0
+  index: -1
+light-3
+  rotate: true
+  xy: 685, 211
+  size: 43, 125
+  orig: 43, 125
+  offset: 0, 0
+  index: -1
+light-4
+  rotate: false
+  xy: 740, 445
+  size: 43, 136
+  orig: 43, 136
+  offset: 0, 0
+  index: -1
+light-5
+  rotate: false
+  xy: 785, 445
+  size: 43, 136
+  orig: 43, 136
+  offset: 0, 0
+  index: -1
+light-6
+  rotate: true
+  xy: 549, 211
+  size: 43, 134
+  orig: 43, 134
+  offset: 0, 0
+  index: -1
+light-7
+  rotate: true
+  xy: 633, 166
+  size: 43, 118
+  orig: 43, 118
+  offset: 0, 0
+  index: -1
+light-8
+  rotate: true
+  xy: 105, 2
+  size: 37, 88
+  orig: 37, 88
+  offset: 0, 0
+  index: -1
+light-9
+  rotate: true
+  xy: 200, 370
+  size: 19, 65
+  orig: 19, 65
+  offset: 0, 0
+  index: -1
+poker_00
+  rotate: false
+  xy: 2, 348
+  size: 196, 220
+  orig: 196, 220
+  offset: 0, 0
+  index: -1
+poker_01
+  rotate: false
+  xy: 412, 380
+  size: 146, 184
+  orig: 146, 184
+  offset: 0, 0
+  index: -1
+poker_02
+  rotate: false
+  xy: 143, 165
+  size: 143, 181
+  orig: 143, 181
+  offset: 0, 0
+  index: -1
+poker_03
+  rotate: false
+  xy: 560, 380
+  size: 178, 201
+  orig: 178, 201
+  offset: 0, 0
+  index: -1
+qq-0
+  rotate: true
+  xy: 288, 258
+  size: 131, 122
+  orig: 131, 122
+  offset: 0, 0
+  index: -1
+qq-10
+  rotate: false
+  xy: 682, 256
+  size: 131, 122
+  orig: 131, 122
+  offset: 0, 0
+  index: -1
+qq-2
+  rotate: false
+  xy: 549, 256
+  size: 131, 122
+  orig: 131, 122
+  offset: 0, 0
+  index: -1
+qq-4
+  rotate: true
+  xy: 288, 125
+  size: 131, 122
+  orig: 131, 122
+  offset: 0, 0
+  index: -1
+qq-6
+  rotate: false
+  xy: 412, 120
+  size: 131, 122
+  orig: 131, 122
+  offset: 0, 0
+  index: -1
+qq-8
+  rotate: false
+  xy: 143, 41
+  size: 131, 122
+  orig: 131, 122
+  offset: 0, 0
+  index: -1

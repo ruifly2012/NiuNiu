@@ -23,6 +23,7 @@ export default class BetUIMgr extends cc.Component {
 
     setRate(betRate: number[]){
         this.rate = betRate;
+        UIMgr.Inst.betRateReady();
     }
 
     /**

@@ -22,7 +22,7 @@ export default class PlaceBet extends StateBase {
             element.hideStatus();
         });
         if(Define.GameInfo.Inst.bankerIndex != 0){
-            UIMgr.Inst.showPlaceBet(true);
+            UIMgr.Inst.betStageReady();
         }
         this.startCountDown();
        
