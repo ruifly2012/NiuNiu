@@ -57,6 +57,7 @@ export default class CardUIMgr extends cc.Component {
     /**set card clickable */
     registerClickEvent(){
         for(let index = 0;index < 5;index++){
+            cc.log(this.poker[index]);
             this.poker[index].getComponent(Poker).setClickAble(true);
         }
     }

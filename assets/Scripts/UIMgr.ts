@@ -201,6 +201,7 @@ export default class UIMgr extends cc.Component {
     }
 
     startPlayCardCountDown(){
+        this.stopClock();
         this.setClockAct(Define.GameInfo.Inst.remainTime, ()=>{
             this.completeChooseCard();
             this.stopClock();

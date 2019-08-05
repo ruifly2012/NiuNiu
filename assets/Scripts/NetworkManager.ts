@@ -65,6 +65,7 @@ export default class NetworkManager {
             if (onClose != null)
                 onClose(evt);
         }
+        Game.Inst.isNeedReconnect = false;
     }
     
     // 與Server中斷連線

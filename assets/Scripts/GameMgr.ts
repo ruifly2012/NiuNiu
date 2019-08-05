@@ -4,6 +4,7 @@ import Converter ,* as Define from "./Define";
 import { ButtonSetting } from "./components/MessageBoxCtr";
 import UIMgr from "./UIMgr";
 import NetworkManager from "./NetworkManager";
+import Waiting from "./FSM/Waiting";
 
 const { ccclass, property } = cc._decorator;
 
@@ -23,8 +24,20 @@ export default class GameMgr extends GameMgrBase {
         
         this.reconnectCallBack = () => {
             cc.log("websocket reconnecting...");
-            this.connectServer();
+            if(Game.Inst.isNeedReconnect)
+                this.connectServer();
         };
+
+        cc.game.on(cc.game.EVENT_HIDE, () => {
+            cc.warn("////HIDE//////");
+            Game.Inst.isNeedReconnect = false;
+            Game.Inst.networkMgr.disconnect();
+        });
+        cc.game.on(cc.game.EVENT_SHOW, () => {
+            cc.warn("////SHOW//////");
+            Game.Inst.isNeedReconnect = true;
+            this.connectServer(); 
+        });
     }
 
     startStateMachine() {
@@ -55,15 +68,25 @@ export default class GameMgr extends GameMgrBase {
 
     
     connectServerComplete() {
+        Game.Inst.isNeedReconnect = false;
         this.unschedule(this.reconnectCallBack);
     }
 
     disconnectServer() {
+        cc.log("disCONNNNNECT");
+        Game.Inst.isNeedReconnect = true;
         //if not game over , reconnect.
         if (this.FSM != null) {
             let nowState: Define.GameState = this.FSM.activeState.state;
-            if (nowState == Define.GameState.Waiting || nowState == Define.GameState.GrabBanker || nowState == Define.GameState.PlaceBet || nowState == Define.GameState.PlayCard) {
-                this.schedule(this.reconnectCallBack, 0.5);
+            switch(nowState){
+                case Define.GameState.Waiting:
+                case Define.GameState.GrabBanker:
+                case Define.GameState.PlaceBet:
+                case Define.GameState.PlayCard:
+                    this.schedule(this.reconnectCallBack, 0.5);
+                    break;
+                default:
+                    break;
             }
         }
     }
@@ -264,6 +287,9 @@ export default class GameMgr extends GameMgrBase {
                     else if(msgPlayer[i].is_finish_bet){
                         UIMgr.Inst.getPlayerByUID(msgPlayer[i].pf_account).setStatus(Define.BetType.PlaceBet,msgPlayer[i].bet_rate);
                     }
+                    else if(msgPlayer[i].pf_account != myUID){
+                        UIMgr.Inst.BetUIMgr.setRate(msg.data.common.available_bet_rates);
+                    }
                 }
                 break;
             case "play_card_state":
@@ -280,7 +306,6 @@ export default class GameMgr extends GameMgrBase {
                     else if(msgPlayer[i].card_type == 0) gameInfo.players[curPlayerIndex].cardType = 10;
                 }
                 this.FSM.setState(Define.GameState.PlayCard);
-                //UIMgr.Inst.animMgr.playRecoverCard();
                 for (let i = 0; i < Define.GameInfo.Inst.playerCount; i++) {
                     //get index
                     let curPlayerIndex : number = UIMgr.Inst.getPlayerIndexByUID(msgPlayer[i].pf_account);

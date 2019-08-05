@@ -30365,8 +30365,8 @@
     },
     "_enabled": true,
     "_useOriginalSize": false,
-    "_string": "money",
-    "_N$string": "money",
+    "_string": "reconnect",
+    "_N$string": "reconnect",
     "_fontSize": 20,
     "_lineHeight": 40,
     "_enableWrapText": false,
@@ -30526,8 +30526,8 @@
       "__id__": 301
     },
     "component": "",
-    "_componentId": "05a13iwhOpAZJGrToTwHBWb",
-    "handler": "testPlay",
+    "_componentId": "117efzTGiFIEIgilUkpw61x",
+    "handler": "disconnectServer",
     "customEventData": ""
   },
   {

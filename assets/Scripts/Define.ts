@@ -435,4 +435,5 @@ export interface Data{
 export interface recoverData{
     game_info: GameInfoMsg;
     players_info: PlayersInfo[];
+    available_bet_rates : number[];
 }

@@ -84,6 +84,9 @@ export default class Game {
 
     /**紀錄當前遊戲管理者 */
     public currentGameMgr: GameMgrBase;
+
+    /**是否需要reconnect */
+    public isNeedReconnect : boolean;
 	
 	setTestSessionData()
     {
