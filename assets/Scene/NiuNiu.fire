@@ -30117,7 +30117,7 @@
         "__id__": 719
       }
     ],
-    "_active": true,
+    "_active": false,
     "_level": 2,
     "_components": [],
     "_prefab": null,
@@ -30527,7 +30527,7 @@
     },
     "component": "",
     "_componentId": "117efzTGiFIEIgilUkpw61x",
-    "handler": "disconnectServer",
+    "handler": "disconnectWebSocket",
     "customEventData": ""
   },
   {

@@ -10,7 +10,6 @@ const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class GameMgr extends GameMgrBase {
-    private reconnectCallBack: Function;
     start() {
         this.init();
         Game.Inst.networkMgr.registerEvent("websocket", (msg) => { this.receiveServerConnect(msg); });
@@ -20,13 +19,6 @@ export default class GameMgr extends GameMgrBase {
         Game.Inst.networkMgr.registerEvent("game_results", (msg) => { this.receiveCalcInfo(msg); });
         Game.Inst.networkMgr.registerEvent("recover_info", (msg) => { this.receiveRecoverInfo(msg); });
         Game.Inst.networkMgr.registerEvent("spam_message", (msg) => { this.receiveSpamMsg(msg); });
-        
-        
-        this.reconnectCallBack = () => {
-            cc.log("websocket reconnecting...");
-            if(Game.Inst.isNeedReconnect)
-                this.connectServer();
-        };
 
         cc.game.on(cc.game.EVENT_HIDE, () => {
             cc.warn("////HIDE//////");
@@ -65,15 +57,12 @@ export default class GameMgr extends GameMgrBase {
         }
 
     }
-
     
     connectServerComplete() {
         Game.Inst.isNeedReconnect = false;
-        this.unschedule(this.reconnectCallBack);
     }
 
     disconnectServer() {
-        cc.log("disCONNNNNECT");
         Game.Inst.isNeedReconnect = true;
         //if not game over , reconnect.
         if (this.FSM != null) {
@@ -83,12 +72,20 @@ export default class GameMgr extends GameMgrBase {
                 case Define.GameState.GrabBanker:
                 case Define.GameState.PlaceBet:
                 case Define.GameState.PlayCard:
-                    this.schedule(this.reconnectCallBack, 0.5);
+                    setTimeout(() => {
+                    if (Game.Inst.isNeedReconnect) {
+                        this.connectServer();
+                        }
+                    }, 500);
                     break;
                 default:
                     break;
             }
         }
+    }
+
+    disconnectWebSocket(){
+        Game.Inst.networkMgr.disconnect();
     }
 
     onRestartGame() {

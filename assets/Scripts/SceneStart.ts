@@ -3,11 +3,6 @@ import * as Define from "./Define";
 import { GameState } from "./MainStateMgr";
 import NetworkManager from "./NetworkManager";
 
-/*  
-    Oid test data
-	13:  2 player NiuNiu
-*/
-
 const {ccclass, property} = cc._decorator;
 
 @ccclass
@@ -56,7 +51,7 @@ export default class SceneStart extends cc.Component
 
     generateToken(): string{
 
-        return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwZl9hY2NvdW50IjoiZ3Vlc3RfMTE1NjUwMTAxMjU5MjA5MzciLCJyb2xlX2NvZGVfaWQiOiIwIiwiZXhwIjoxNTY1MDM4OTI2fQ.lLmnS72fjUAl64krCweC3hClMT8cIpilaoOgVbucqj4";
+        return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwZl9hY2NvdW50IjoiZ3Vlc3RfMDE1NjUwNTY3MTcyMTg3ODQiLCJyb2xlX2NvZGVfaWQiOiIwIiwiZXhwIjoxNTY1MDg1NTE3fQ.Trz48UtMYvfxv_vn88PFdmzbG50B9LLZ2dGweFmVtKI";
         let seed: number = Math.floor(Math.random()*20);
         switch(seed){
             case 0: return "084jt09uzweln80qlq3scouzt89zn6vzhamjrkgh";
