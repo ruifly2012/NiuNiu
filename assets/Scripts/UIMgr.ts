@@ -8,7 +8,6 @@ import CardStatusUIMgr from "./UI/CardStatusUIMgr";
 import BetUIMgr from "./UI/BetUIMgr";
 import { ButtonSetting } from "./components/MessageBoxCtr";
 import RoomInfo from "./UI/RoomInfo";
-import MiscHelper from "./MiscHelper";
 import NNAudioMgr from "./NNAudioMgr";
 
 const { ccclass, property } = cc._decorator;
@@ -63,6 +62,8 @@ export default class UIMgr extends cc.Component {
 
     private isBetStageReady : boolean = false;
     private isBetRateReady : boolean = false;
+    private isGrabStageReady : boolean = false;
+    private isGrabRateReady : boolean = false;
 
     private isPlayCardComplete: boolean = false;
 
@@ -77,7 +78,7 @@ export default class UIMgr extends cc.Component {
         // webSocket Event
         Game.Inst.networkMgr.registerEvent("player_action", (msg) => { this.receivePlayerAction(msg); });
         Game.Inst.networkMgr.registerEvent("announce_banker", (msg) => { this.receiveBanker(msg); });
-        Game.Inst.networkMgr.registerEvent("available_bet_rates", (msg) => { this.receiveGrabRates(msg); });
+        Game.Inst.networkMgr.registerEvent("max_grab_rate", (msg) => { this.receiveGrabRates(msg); });
         Game.Inst.networkMgr.registerEvent("available_bet_rates", (msg) => { this.receiveBetRates(msg); });
 
     }
@@ -160,6 +161,8 @@ export default class UIMgr extends cc.Component {
     }
 
 
+    ///////grab stage///////////
+
     showGrabBet(active: boolean = false){
         this.rob_bet.active = active;
         //hide not available rate
@@ -172,6 +175,20 @@ export default class UIMgr extends cc.Component {
                 break;
         }
     }
+
+    grabStageReady(){
+        if(this.isGrabRateReady)
+            this.showGrabBet(true);
+        this.isGrabStageReady = true;
+    }
+
+    grabRateReady(){
+        if(this.isGrabStageReady)
+            this.showGrabBet(true);
+        this.isGrabRateReady = true;
+    }
+
+    ///////bet stage///////////
 
     showPlaceBet(active: boolean = false){
         this.place_bet.active = active;
@@ -370,6 +387,7 @@ export default class UIMgr extends cc.Component {
     }
 
     receiveGrabRates(msg){
-        Define.GameInfo.Inst.available_grab_rates = msg.available_grab_rates;
+        Define.GameInfo.Inst.available_grab_rates = msg.max_grab_rate;
+        this.grabRateReady();
     }
 }

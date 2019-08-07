@@ -8,19 +8,15 @@ const {ccclass, property} = cc._decorator;
 @ccclass
 export default class RobBet extends StateBase {
 
-
-
     @property({type:cc.Enum(Define.GameState),serializable:true})
     public state:Define.GameState = Define.GameState.GrabBanker;
-
-    private choosed: boolean = false;
-
+    
     onLoad(){
     }
     
     public stateInitialize(){
         cc.warn("rob!!!");
-        UIMgr.Inst.showGrabBet(true);
+        UIMgr.Inst.grabStageReady();
         this.startCountDown();
     }
 
@@ -57,16 +53,12 @@ export default class RobBet extends StateBase {
      */
     robBetClick(event, customData: string){
         let rate: number = parseInt(customData);
-        this.choosed = true;
         cc.warn("[rob_bet]click"+rate);
 
         this.sendRobRate(rate);
         
         UIMgr.Inst.showGrabBet(false);
         UIMgr.Inst.players[0].setStatus(Define.BetType.RobBet,rate);
-        
-        if(rate != 0)
-            Define.GameInfo.Inst.rob_list.push(0);
     }
 
     sendRobRate(rate : number){

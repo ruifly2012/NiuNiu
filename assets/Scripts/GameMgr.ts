@@ -102,6 +102,7 @@ export default class GameMgr extends GameMgrBase {
         Game.Inst.networkMgr.unregisterEvent("spam_message");
         Game.Inst.networkMgr.unregisterEvent("announce_banker");
         Game.Inst.networkMgr.unregisterEvent("available_bet_rates");
+        Game.Inst.networkMgr.unregisterEvent("max_grab_rate");
         Game.Inst.networkMgr.unregisterEvent("recover_info");
         cc.log("End");
     }
