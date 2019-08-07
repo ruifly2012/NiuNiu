@@ -20,18 +20,12 @@ export default class RobBet extends StateBase {
     
     public stateInitialize(){
         cc.warn("rob!!!");
-        /*
-        this.playStartGameAnim(()=>{
-            UIMgr.Inst.showRobBet(true);
-            this.startCountDown();
-        });
-    */
-        UIMgr.Inst.showRobBet(true);
+        UIMgr.Inst.showGrabBet(true);
         this.startCountDown();
     }
 
     public stateRelease(){
-        UIMgr.Inst.showRobBet(false);
+        UIMgr.Inst.showGrabBet(false);
         UIMgr.Inst.stopClock();
     }
 
@@ -51,7 +45,7 @@ export default class RobBet extends StateBase {
     startCountDown() {
         cc.log("clock set" + Define.GameInfo.Inst.remainTime);
         UIMgr.Inst.setClockAct(Define.GameInfo.Inst.remainTime, ()=>{
-            UIMgr.Inst.showRobBet(false);
+            UIMgr.Inst.showGrabBet(false);
             UIMgr.Inst.stopClock();
         });
     }
@@ -68,7 +62,7 @@ export default class RobBet extends StateBase {
 
         this.sendRobRate(rate);
         
-        UIMgr.Inst.showRobBet(false);
+        UIMgr.Inst.showGrabBet(false);
         UIMgr.Inst.players[0].setStatus(Define.BetType.RobBet,rate);
         
         if(rate != 0)

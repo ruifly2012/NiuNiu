@@ -53,6 +53,10 @@ export default class UIMgr extends cc.Component {
     @property(RoomInfo)
     roomInfo: RoomInfo = null;
 
+    //roomInfo
+    @property([cc.Node])
+    robButton: cc.Node[] = [];
+
     private rob_bet: cc.Node;
     private place_bet: cc.Node;
     private choose_card: cc.Node;
@@ -73,6 +77,7 @@ export default class UIMgr extends cc.Component {
         // webSocket Event
         Game.Inst.networkMgr.registerEvent("player_action", (msg) => { this.receivePlayerAction(msg); });
         Game.Inst.networkMgr.registerEvent("announce_banker", (msg) => { this.receiveBanker(msg); });
+        Game.Inst.networkMgr.registerEvent("available_bet_rates", (msg) => { this.receiveGrabRates(msg); });
         Game.Inst.networkMgr.registerEvent("available_bet_rates", (msg) => { this.receiveBetRates(msg); });
 
     }
@@ -155,8 +160,17 @@ export default class UIMgr extends cc.Component {
     }
 
 
-    showRobBet(active: boolean = false){
+    showGrabBet(active: boolean = false){
         this.rob_bet.active = active;
+        //hide not available rate
+        switch(Define.GameInfo.Inst.available_grab_rates){
+            case 1:
+                this.robButton[2].active = false;
+            case 2:
+                this.robButton[3].active = false;
+            case 3:
+                break;
+        }
     }
 
     showPlaceBet(active: boolean = false){
@@ -353,5 +367,9 @@ export default class UIMgr extends cc.Component {
      */
     receiveBetRates(msg){
         this.BetUIMgr.setRate(msg.available_bet_rates);
+    }
+
+    receiveGrabRates(msg){
+        Define.GameInfo.Inst.available_grab_rates = msg.available_grab_rates;
     }
 }

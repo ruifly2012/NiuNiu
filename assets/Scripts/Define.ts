@@ -96,7 +96,8 @@ export class GameInfo{
     /**莊家編號 */
     bankerIndex: number;
 
-    /**閒家可選倍率 */
+    /**搶莊資料 */
+    available_grab_rates : number = 3;
     rob_list: number[] = [];
     endGame: boolean = false;
 }

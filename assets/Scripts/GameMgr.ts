@@ -74,7 +74,7 @@ export default class GameMgr extends GameMgrBase {
                 case Define.GameState.PlayCard:
                     setTimeout(() => {
                     if (Game.Inst.isNeedReconnect) {
-                        this.connectServer();
+                        // this.connectServer();
                         }
                     }, 500);
                     break;
@@ -172,6 +172,7 @@ export default class GameMgr extends GameMgrBase {
         Define.GameInfo.Inst.players[0].poker = msg.cards;
         Define.GameInfo.Inst.players[0].cardType = msg.card_type;
         if(msg.card_type == -1) Define.GameInfo.Inst.players[0].cardType = 0;
+        if(msg.card_type == 0) Define.GameInfo.Inst.players[0].cardType = 10;
         //cc.warn("my cards : " + Define.GameInfo.Inst.players[0].poker + "type : " + Define.GameInfo.Inst.players[0].cardType);
     }
 
