@@ -47,8 +47,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.34144677056206596,
-      "y": 0.34144677056206596,
+      "x": 0.334363442880136,
+      "y": 0.334363442880136,
       "z": 1
     },
     "_quat": {
@@ -30906,7 +30906,7 @@
     },
     "component": "",
     "_componentId": "117efzTGiFIEIgilUkpw61x",
-    "handler": "connectServer",
+    "handler": "checkPlayerPlaying",
     "customEventData": ""
   },
   {

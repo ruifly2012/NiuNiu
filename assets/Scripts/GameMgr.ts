@@ -28,7 +28,7 @@ export default class GameMgr extends GameMgrBase {
         cc.game.on(cc.game.EVENT_SHOW, () => {
             cc.warn("////SHOW//////");
             Game.Inst.isNeedReconnect = true;
-            this.connectServer(); 
+            this.checkPlayerPlaying(); 
         });
     }
 
@@ -69,7 +69,7 @@ export default class GameMgr extends GameMgrBase {
         Game.Inst.networkMgr.httpRequest("GET", url, token, "", function (data) {
             cc.log(data);
             if (data.data.is_playing == true) {
-                this.reconnect();
+                this.connectServer();
             }
             else {
                 this.FSM.setState(Define.GameState.End);
@@ -89,7 +89,7 @@ export default class GameMgr extends GameMgrBase {
                 case Define.GameState.PlayCard:
                     setTimeout(() => {
                     if (Game.Inst.isNeedReconnect) {
-                        this.connectServer();
+                        this.checkPlayerPlaying();
                         }
                     }, 500);
                     break;
