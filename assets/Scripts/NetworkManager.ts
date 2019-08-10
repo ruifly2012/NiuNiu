@@ -175,5 +175,29 @@ export default class NetworkManager {
         };
         this.sendMessage(data);
     }
+
+    httpRequest(action: string ,url: string, accessToken: string, body: string, callback?) {
+        let httpRequest = new XMLHttpRequest();
+        httpRequest.open(action, url, true);
+        httpRequest.setRequestHeader('Content-Type', 'application/json');
+        if (accessToken != "") {
+            httpRequest.setRequestHeader("Authorization", accessToken);
+        }
+        httpRequest.send(body);
+        httpRequest.onload = (event) => {
+            if(httpRequest.readyState == XMLHttpRequest.DONE && httpRequest.status == 200){
+                this.httpRequestResponse(JSON.parse(httpRequest.responseText), callback);
+            }
+        }
+    }
+    httpRequestResponse(data: any, callback?){
+        if (data.code == 0) {
+            if (callback != undefined) {
+                callback(data);
+            }
+        } else {
+            
+        }
+    }
     
 }

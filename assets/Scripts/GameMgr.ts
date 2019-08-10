@@ -62,6 +62,21 @@ export default class GameMgr extends GameMgrBase {
         Game.Inst.isNeedReconnect = false;
     }
 
+    checkPlayerPlaying() {
+        let url = 'http://' + NetworkManager.ServerURL.split(':')[0] + ':8080/player/playing';
+        let token = NetworkManager.Token;
+        console.log('url is ' + url);
+        Game.Inst.networkMgr.httpRequest("GET", url, token, "", function (data) {
+            cc.log(data);
+            if (data.data.is_playing == true) {
+                this.reconnect();
+            }
+            else {
+                this.FSM.setState(Define.GameState.End);
+            }
+        }.bind(this));
+    }
+
     disconnectServer() {
         Game.Inst.isNeedReconnect = true;
         //if not game over , reconnect.
@@ -74,7 +89,7 @@ export default class GameMgr extends GameMgrBase {
                 case Define.GameState.PlayCard:
                     setTimeout(() => {
                     if (Game.Inst.isNeedReconnect) {
-                        // this.connectServer();
+                        this.connectServer();
                         }
                     }, 500);
                     break;
