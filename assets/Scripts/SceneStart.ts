@@ -42,6 +42,13 @@ export default class SceneStart extends cc.Component
         else
         {
             this.inputField.active = true;
+            if (Game.Inst.develop == true) {
+                this.inputField.active = true;
+            } else {
+                var url = window.location.href
+                var arr = url.split("/");
+                window.open(arr[0] + '//' + arr[2] + '/index.html', '_self');
+            }
         }
 
         this.editbox_oid.string = "20";

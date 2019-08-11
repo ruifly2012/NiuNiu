@@ -87,6 +87,8 @@ export default class Game {
 
     /**是否需要reconnect */
     public isNeedReconnect : boolean;
+
+    public develop: boolean = false;
 	
 	setTestSessionData()
     {
