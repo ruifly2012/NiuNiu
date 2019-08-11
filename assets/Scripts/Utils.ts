@@ -73,7 +73,8 @@ export default class Utils extends cc.Component {
 
         cc.loader.loadRes(prefabPath, (error: Error, prefab) => {
             if (cc.isValid(error)) {
-                cc.error("messageBox: " + error);
+                cc.error(error);
+                cc.log(prefabPath);
                 return;
             }
             let root = cc.find("Canvas");

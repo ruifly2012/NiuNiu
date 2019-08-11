@@ -107,4 +107,9 @@ export default abstract class GameMgrBase extends cc.Component {
             this.leaveGameLobby();
         }
     }
+
+    release(){
+        this._FSM.release();       
+        Game.Inst.mainStateMgr.changeStage(GameState.End);
+    }
 }

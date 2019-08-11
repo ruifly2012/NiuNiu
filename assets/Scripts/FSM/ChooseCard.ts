@@ -80,7 +80,7 @@ export default class ChooseCard extends StateBase {
         let data= {
             "event" : "play_card"
         };
-        Game.Inst.networkMgr.sendMessage(data);
+        Game.Inst.networkMgr.sendMessage(JSON.stringify(data));
     }
 
 }

@@ -41,8 +41,8 @@ export default class SceneStart extends cc.Component
         }
         else
         {
-            this.inputField.active = true;
             if (Game.Inst.develop == true) {
+                
                 this.inputField.active = true;
             } else {
                 var url = window.location.href
@@ -58,7 +58,7 @@ export default class SceneStart extends cc.Component
 
     generateToken(): string{
 
-        return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwZl9hY2NvdW50IjoiZ3Vlc3RfMDE1NjU0MjE0MDUyMTQ5NjAiLCJyb2xlX2NvZGVfaWQiOiIwIiwiZXhwIjoxNTY1NDUwMjA1fQ.czxXy8EXDJMHuqp2pZnlfnEeiQjmlxwlj8NwE8mZoKE";
+        return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwZl9hY2NvdW50IjoiZ3Vlc3RfMTE1NjU0OTMxOTk3MzY5NjUiLCJyb2xlX2NvZGVfaWQiOiIwIiwiZXhwIjoxNTY1NTIxOTk5fQ.uVLZVjOnXXXWV0g1FVaQwoV1vGBziZXZnqA1Bs3oob0";
         let seed: number = Math.floor(Math.random()*20);
         switch(seed){
             case 0: return "084jt09uzweln80qlq3scouzt89zn6vzhamjrkgh";

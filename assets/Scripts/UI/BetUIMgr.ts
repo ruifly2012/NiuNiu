@@ -51,7 +51,7 @@ export default class BetUIMgr extends cc.Component {
             "event" : "bet",
             "bet_rate" : rate
         };
-        Game.Inst.networkMgr.sendMessage(data);
+        Game.Inst.networkMgr.sendMessage(JSON.stringify(data));
     }
 
 }

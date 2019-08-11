@@ -88,7 +88,7 @@ export default class Game {
     /**是否需要reconnect */
     public isNeedReconnect : boolean;
 
-    public develop: boolean = false;
+    public develop: boolean = true;
 	
 	setTestSessionData()
     {
@@ -99,13 +99,14 @@ export default class Game {
             gender: true,
             avatar: 0,
     
-            musicVolume: 1.0,
-            effectSoundVolume: 1.0,
-            voiceVolume: 1.0,
-            musicMute: 1,
-            effectSoundMute: 1,
-            voiceMute: 1,
-    
+            MusicVolume: 1.0,
+            EffectSoundVolume: 1.0,
+            VoiceVolume: 1.0,
+            MusicMute: 1,
+            EffectSoundMute: 1,
+            VoiceMute: 1,
+            
+            ip : "",
             gameName: "gameName",
             oid: 29,
             token: "a1"

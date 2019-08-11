@@ -66,7 +66,7 @@ export default class RobBet extends StateBase {
             "event" : "grab_banker",
             "grab_rate" : rate
         };
-        Game.Inst.networkMgr.sendMessage(data);
+        Game.Inst.networkMgr.sendMessage(JSON.stringify(data));
     }
 
 

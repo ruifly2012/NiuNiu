@@ -44,7 +44,7 @@ export default class Waiting extends StateBase {
         let data= {
             "event" : "ready"
         };
-        Game.Inst.networkMgr.sendMessage(data);
+        Game.Inst.networkMgr.sendMessage(JSON.stringify(data));
         cc.warn("send Game ready");
     }
 
