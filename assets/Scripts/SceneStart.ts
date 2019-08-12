@@ -58,7 +58,7 @@ export default class SceneStart extends cc.Component
 
     generateToken(): string{
 
-        return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwZl9hY2NvdW50IjoiZ3Vlc3RfMDE1NjU1OTQxODU5MjE5NjciLCJyb2xlX2NvZGVfaWQiOiIwIiwiZXhwIjoxNTY1NjIyOTg2fQ.YeuWDxesfdkkkr_h-wqJkn0fsRC9AFo2a_TFR_gMFZc";
+        return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwZl9hY2NvdW50IjoiZ3Vlc3RfMDE1NjU2MTE1MTA3NDIwNDQiLCJyb2xlX2NvZGVfaWQiOiIwIiwiZXhwIjoxNTY1NjQwMzEwfQ.zqgBH3nskTSYfGIQhpQPbQYUhY4f0a7RnxfdJIKrKJg";
         let seed: number = Math.floor(Math.random()*20);
         switch(seed){
             case 0: return "084jt09uzweln80qlq3scouzt89zn6vzhamjrkgh";
