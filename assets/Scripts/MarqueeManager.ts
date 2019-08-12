@@ -33,7 +33,6 @@ export default class MarqueeManager extends cc.Component {
     }
 
     onReceiveMarquee(msg: marqueeResponse){
-        cc.error("marqueeeeeee");
          this.handleUpdateMarqueeQueue(msg);
     }
 

@@ -78,7 +78,6 @@ export default class GameMgr extends GameMgrBase {
     }
 
     disconnectServer() {
-        Game.Inst.isNeedReconnect = true;
         //if not game over , reconnect.
         if (this.FSM != null) {
             let nowState: Define.GameState = this.FSM.activeState.state;
