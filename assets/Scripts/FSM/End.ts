@@ -6,12 +6,13 @@ import { GameState } from "../MainStateMgr";
 
 const {ccclass, property} = cc._decorator;
 
+
+
 @ccclass
 export default class End extends StateBase {
 
     @property({type:cc.Enum(Define.GameState),serializable:true})
     public state:Define.GameState = Define.GameState.End;
-
     onLoad(){
         
     }
@@ -30,8 +31,22 @@ export default class End extends StateBase {
     }
     
     continuePress(){
-        cc.warn("continue press");
-        Define.GameInfo.Inst.endGame = false;
-        Game.Inst.mainStateMgr.changeStage(GameState.Loading);
+        //確認當前玩家資產足以在玩下一局
+        let gameInfo: Define.GameInfo = Define.GameInfo.Inst;
+        for (let i = 0; i < gameInfo.players.length; i++) {
+            if (gameInfo.players[i].UID == gameInfo.myUID) {
+                if (gameInfo.players[i].final_coin < gameInfo.coinsLimit) {
+                    cc.log("current money : "+gameInfo.players[i].final_coin + ", limit : "+ gameInfo.coinsLimit);
+                    //不夠則顯示MessageBox提示
+                    UIMgr.Inst.onMoneyNotEnoughToBet();
+                }
+                else {
+                    //足夠則重啟遊戲
+                    // Game.Inst.currentGameMgr.restartGame();
+                    Define.GameInfo.Inst.endGame = false;
+                    Game.Inst.mainStateMgr.changeStage(GameState.Loading);
+                }
+            }
+        }
     }
 }

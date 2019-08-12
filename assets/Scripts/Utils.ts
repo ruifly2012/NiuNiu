@@ -9,6 +9,9 @@ const { ccclass, property } = cc._decorator;
 @ccclass
 export default class Utils extends cc.Component {
 
+    private m_MessageBoxPrefab: cc.Prefab = null;
+    private m_currentMessageBoxRoot: cc.Node = null;
+
     get screenWidth(): number {
         let size = cc.view.getVisibleSize();
         if (size.width > 1080)
@@ -19,7 +22,12 @@ export default class Utils extends cc.Component {
     constructor()
     {
         super();
-        
+        //Preload MessageBox
+        let prefabPath = "prefabs/Messagebox";
+        cc.loader.loadRes(prefabPath, (error: Error, prefab) => {
+            this.m_MessageBoxPrefab = prefab;
+        }
+        );
         
         this.addEscEvent();
     }
@@ -68,48 +76,41 @@ export default class Utils extends cc.Component {
         firstbtn?: ButtonSetting,
         secondbtn?: ButtonSetting,
         dotanim?: boolean) {
-        let prefabPath = "prefabs/Messagebox";
-        let mentionBoxCtr: MassageBoxCtr = null;
+        
+        this.hideAllMessageBox();
+        let messageBoxCtr: MassageBoxCtr = null;
+        let root = cc.find("Canvas");
+        let messageBoxRoot = cc.instantiate(this.m_MessageBoxPrefab);
 
-        cc.loader.loadRes(prefabPath, (error: Error, prefab) => {
-            if (cc.isValid(error)) {
-                cc.error(error);
-                cc.log(prefabPath);
-                return;
-            }
-            let root = cc.find("Canvas");
-            let mentionBoxRoot:cc.Node = cc.instantiate(prefab);
-            mentionBoxRoot.name = "DefaultMessageBox"
-            root.addChild(mentionBoxRoot);
-            mentionBoxCtr = mentionBoxRoot.getComponent(MassageBoxCtr);
+        messageBoxRoot.name = "DefaultMessageBox"
+        root.addChild(messageBoxRoot);
+        messageBoxCtr = messageBoxRoot.getComponent(MassageBoxCtr);
 
-            if (firstbtn == undefined && secondbtn == undefined)
-                mentionBoxCtr.showMsgContent(background, titletext, titlebackground, contenttext);
-            else if (secondbtn == undefined)
-                mentionBoxCtr.showOneEventContent(background, titletext, titlebackground, contenttext, firstbtn);
-            else
-                mentionBoxCtr.showTwoEventContent(background, titletext, titlebackground, contenttext, firstbtn, secondbtn);
+        if (firstbtn == undefined && secondbtn == undefined)
+            messageBoxCtr.showMsgContent(background, titletext, titlebackground, contenttext);
+        else if (secondbtn == undefined)
+            messageBoxCtr.showOneEventContent(background, titletext, titlebackground, contenttext, firstbtn);
+        else
+            messageBoxCtr.showTwoEventContent(background, titletext, titlebackground, contenttext, firstbtn, secondbtn);
+        this.m_currentMessageBoxRoot = messageBoxRoot;
 
-            if (dotanim) {
-                let contentRoot: cc.Node = mentionBoxRoot.getChildByName("panel").getChildByName("content");
-                let dotAnim:DotTexLableAnim = contentRoot.addComponent(DotTexLableAnim);
-                dotAnim.label = contentRoot.getComponent(cc.Label);
-                dotAnim.play();
-            }
-        });
+        if (dotanim) {
+            let contentRoot: cc.Node = messageBoxRoot.getChildByName("panel").getChildByName("content");
+            let dotAnim:DotTexLableAnim = contentRoot.addComponent(DotTexLableAnim);
+            dotAnim.label = contentRoot.getComponent(cc.Label);
+            dotAnim.play();
+        }
 
-        return mentionBoxCtr;
+        return messageBoxCtr;
     }
 
     /**
      * 消除當前畫面中所有提示視窗
      */
     hideAllMessageBox(){
-        let root = cc.find("Canvas");
-        for (let i = 0; i < root.childrenCount; i++)
-        {
-            if (root.children[i].name === "DefaultMessageBox")
-                root.children[i].destroy();
+        if (this.m_currentMessageBoxRoot != null) {
+            this.m_currentMessageBoxRoot.active = false;
+            this.m_currentMessageBoxRoot.destroy();
         }
     }
 

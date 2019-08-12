@@ -371,7 +371,7 @@ export default class NetworkMgr
         httpRequest.send(body);
         httpRequest.onload = (event) => {
             if(httpRequest.readyState == XMLHttpRequest.DONE){
-                this.httpRequestResponse(JSON.parse(httpRequest.responseText), callback);
+                this.httpRequestResponse(httpRequest.status, JSON.parse(httpRequest.responseText), callback);
             }
         }
     }

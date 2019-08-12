@@ -66,7 +66,7 @@ export default class Waiting extends StateBase {
         else {
         //金額不足
             if (msg.code == 3002) {
-                UIMgr.Inst.showNoMoneyMsg();
+                UIMgr.Inst.onMoneyNotEnoughToBet();
             }
         }
     }

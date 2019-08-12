@@ -97,7 +97,7 @@ export default class DistributePokerAnimation extends AnimationBase {
      * @param Interval 時間間隔
      */
     deliverCard(playerSeat: number = 1, Interval:number = 1){
-        cc.log("send to" + this.positionCard[playerSeat].x  + "," + this.positionCard[playerSeat].y);
+        // cc.log("send to" + this.positionCard[playerSeat].x  + "," + this.positionCard[playerSeat].y);
         for (let index:number = 0; index < 5; index++) {
             let node:cc.Node = this.playerPoker.children[index+5*playerSeat];
             node.active = true;

@@ -38,7 +38,6 @@ export default class CardUIMgr extends cc.Component {
         let cardSize = 0.7;
         if(seat == 0) cardSize = 0.9;
         let pokerVal:number[] = Define.GameInfo.Inst.players[seat].poker;
-        cc.log(Define.GameInfo.Inst.players[seat].poker);
         //set card
         for(let index = 0 ;index< 5;index++){
             let val:PokerValue = Converter.getServerPokerConvert(pokerVal[index]);
@@ -57,7 +56,6 @@ export default class CardUIMgr extends cc.Component {
     /**set card clickable */
     registerClickEvent(){
         for(let index = 0;index < 5;index++){
-            cc.log(this.poker[index]);
             this.poker[index].getComponent(Poker).setClickAble(true);
         }
     }

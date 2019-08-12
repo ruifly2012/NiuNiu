@@ -141,7 +141,7 @@ export default class UIMgr extends cc.Component {
     /**
      * 顯示金額不足無法開始下一場遊戲 MessageBox畫面
      */
-    showNoMoneyMsg() {
+    onMoneyNotEnoughToBet() {
         let BtnSet: ButtonSetting = new ButtonSetting();
         BtnSet.originBtnBackground = Game.Inst.resourcesMgr.load("btnconfirmO");
         BtnSet.originBtnText = Game.Inst.resourcesMgr.load("txtconfirmO");

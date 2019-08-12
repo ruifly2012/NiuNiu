@@ -206,13 +206,10 @@ export default class GameMgr extends GameMgrBase {
                     cc.warn(msg.players_info[playerInfoIndex].pf_account +"!="+Define.GameInfo.Inst.players[i].UID);
                     continue;
                 }
-                cc.warn("find @" +playerInfoIndex );
+                // cc.warn("find @" +playerInfoIndex );
                 break;
             }
             //save data
-            // cc.log(msg);
-            // cc.log(msg.players_info);
-            // cc.log(msg.players_info[0]);
             Define.GameInfo.Inst.players[i].win_bet = msg.players_info[playerInfoIndex].profit;
             Define.GameInfo.Inst.players[i].final_coin = msg.players_info[playerInfoIndex].money_src;
         }
