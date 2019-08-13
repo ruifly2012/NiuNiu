@@ -186,8 +186,8 @@ export default class GameMgr extends GameMgrBase {
         //save my card & type
         Define.GameInfo.Inst.players[0].poker = msg.cards;
         Define.GameInfo.Inst.players[0].cardType = msg.card_type;
-        if(msg.card_type == -1) Define.GameInfo.Inst.players[0].cardType = 0;
-        if(msg.card_type == 0) Define.GameInfo.Inst.players[0].cardType = 10;
+        if(msg.card_type == -1) Define.GameInfo.Inst.players[0].cardType = Define.CardType.noCow;
+        if(msg.card_type == 0) Define.GameInfo.Inst.players[0].cardType = Define.CardType.cowCow;
         //cc.warn("my cards : " + Define.GameInfo.Inst.players[0].poker + "type : " + Define.GameInfo.Inst.players[0].cardType);
     }
 
